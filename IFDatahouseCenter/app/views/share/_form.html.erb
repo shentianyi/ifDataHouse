@@ -1,0 +1,24 @@
+<%= form_for(@item) do |f| %>
+<% if @item.errors.any? %>
+<div id="error_explanation">
+     <h2><%= pluralize(@item.errors.count, "error") %> prohibited this part from being saved:</h2>
+     <ul>
+          <% @item.errors.full_messages.each do |msg| %>
+          <li>
+               <%= msg %>
+          </li>
+          <% end %>
+     </ul>
+</div>
+<% end %>
+<div class="field">
+     <%@item.instance_variable_get("@attributes").each do |k,v|%>
+     <%= f.label k.to_sym%>
+     <%= f.text_field k.to_sym%>
+     <br />
+     <%end%>
+</div>
+<div class="actions">
+     <%= f.submit %>
+</div>
+<% end %>

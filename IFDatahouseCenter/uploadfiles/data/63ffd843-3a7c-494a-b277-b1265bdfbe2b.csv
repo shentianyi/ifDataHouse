@@ -1,0 +1,21 @@
+entityNr;name;parentEntity;contactStaff;DOUPDATE
+Leoni;Leoni;;admin;0
+SGM;SGM;Leoni;admin;0
+MB;MB;Leoni;admin;0
+loca;local;Leoni;admin;0
+GM-ASSEMBLY;GM-ASSEMBLY;SGM;admin;0
+local-GAMMA;local-GAMMA;local;admin;0
+local-YFJC;local-YFJC;local;admin;0
+MB C-RBA;MB C-RBA;MB;admin;0
+MB E-RBA;MB E-RBA;MB;admin;0
+MB GLK-RBA;MB GLK-RBA;MB;admin;0
+MB-COC;MB COC;MB;admin;0
+MB-Minor;MB????;MB;admin;0
+MB-MOTOR;MB MOTOR;MB;admin;0
+MB-MRA;MB MRA;MB;admin;0
+N2-COC;N2-COC;MB;admin;0
+N2-INR;N2-INR;MB;admin;0
+N2-minor;N2-minor;MB;admin;0
+N2-MRA;N2-MRA;MB;admin;0
+NCV3;NCV3;MB;admin;0
+OIL PRESSURE;OIL PRESSURE;SGM;admin;0

@@ -1,0 +1,13 @@
+<div>
+     <h2>Select Model</h2>
+     <form id="model-select-form" action="../mappers/map" method="get">
+          <p>
+               select model:   <%= select_tag :m,options_for_select(@models),{:class=>'uploadfile select'}%>
+          </p>
+     </form>
+     <p>
+          <%= link_to '< Back', send("new_#{@model}_path") %>
+          <%= link_to 'Next >', '#',:onclick=>"$('#model-select-form').submit();"%>
+     </p>
+     <%= link_to '| Finish |', send("cancel_#{@model.pluralize}_path") %>
+</div>

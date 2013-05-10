@@ -1,0 +1,15 @@
+<p id="notice">
+     <%= notice %>
+</p>
+
+<table>
+     <%@item.instance_variable_get("@attributes").each do |k,v|%>
+     <tr>
+          <td><%= k.to_s%></td>
+          <td><%= v%></td>
+     </tr>
+     <%end%>
+</table>
+<%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit',send("edit_#{@model}_path",@item) %>
+<%= link_to 'Back', send("#{@model.pluralize}_path") %>

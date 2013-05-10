@@ -1,0 +1,44 @@
+<script type="text/javascript">
+     $(function() {
+          data_upload("#item-data-uploader");
+     }); 
+</script>
+<h1>Create <%= @model%></h1>
+
+<%= form_for(@item,:html=>{:id=>'mapper-new-form'}) do |f| %>
+<% if @item.errors.any? %>
+<div id="error_explanation">
+     <h2><%= pluralize(@item.errors.count, "error") %> prohibited this part from being saved:</h2>
+     <ul>
+          <% @item.errors.full_messages.each do |msg| %>
+          <li>
+               <%= msg %>
+          </li>
+          <% end %>
+     </ul>
+</div>
+<% end %>
+<div class="field">
+     <table>
+          <tr>
+               <td>access_key</td>
+               <td><%= @access_key%>
+               <%= f.hidden_field :access_key,:value=>@access_key%> </td>
+          </tr>
+          <tr>
+               <td>mapperNr</td>
+               <td> <%= f.text_field :mapperNr,:value=>@item.mapperNr%></td>
+          </tr>
+          <tr>
+               <td>name</td>
+               <td> <%= f.text_field :name,:value=>@item.name%></td>
+          </tr>
+     </table>
+</div>
+<% end %>
+
+<p>
+     <%= link_to '< Back', send("#{@model.pluralize}_path") %>
+     <%= link_to 'Next >', '#',:onclick=>"$('#mapper-new-form').submit();"%>
+</p>
+<%= link_to '| Finish |', send("cancel_#{@model.pluralize}_path") %>

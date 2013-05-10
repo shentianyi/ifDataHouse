@@ -1,0 +1,194 @@
+require 'thrift'
+require 'thrift/transport/socket'
+require 'thrift/protocol/binary_protocol'
+require 'uuid'
+require 'json'
+
+class Time
+  def to_ms
+    (self.to_f * 1000.0).to_i
+  end
+end
+
+Dir['data/*.rb','service/*'].each do |f|
+  require_relative f
+end
+class Test
+  def initialize
+    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9000'))
+    protocol=::Thrift::BinaryProtocol.new(@transport)
+    @client= CZ::Epm::Thrift::Datahouse::Client.new(protocol)
+    @transport.open
+    # data
+    @staffs=Staff.all
+    @entities=Entity.all
+    @parts=Part.all
+  end
+
+  def pick
+    puts %Q{
+   *********select method***********
+   1. test_add_attendance() && test_get_current_worker_num()
+   2. test_add_product_inspect() && test_add_product_pack()
+   3. test_add_operating_state()
+   4. test_get_origin_product_output_num() && test_get_product_output_num()
+   5. test_get_ftr_product_num() && test_get_fail_product_num()
+   6. test_on_job_total_time()
+   7. test_product_output_num_time()
+   }
+    choose=gets.chomp
+    case choose
+    when "1"
+      test_add_attendance_current_num
+    when "2"
+      test_add_product_inspect_pack
+    when "3"
+      test_add_operating_state
+    when "4"
+      test_get_ori_product_output_num
+    when "5"
+      test_get_ftr_fail_product_num
+    when "6"
+      test_on_job_total_time
+    when "7"
+      test_product_output_num_time
+    end
+  end
+
+  #
+  # test addAttendance
+  #
+  def test_add_attendance_current_num
+    ids=@entities.map{|e| e.entityId}
+    while true
+      @entities.each do |entity|
+        [1,-1].each do |type|
+          @staffs.each do |staff|
+            sleep(10)
+            puts "staff:#{staff.staffNr}-entity:#{entity.entityId}-type:#{type}"
+            @client.addAttendance({"entityId"=>entity.entityId,"attendTime"=>(Time.now.to_ms).to_s,"staffNr"=>staff.staffNr,"type"=>type.to_s})
+            puts "current worker num:#{@client.getCurrentOnJobWorkerNums(ids)}"
+          end
+          sleep(120)
+        end
+      end
+    end
+  end
+
+  #
+  # test addProductInspect
+  #
+  def test_add_product_inspect_pack
+    while true
+      @productNrs=[]
+      10.times {@productNrs<<UUID.generate}
+      @productNrs.each_with_index do |value,index|
+        entity=@entities[rand(@entities.count)]
+        type=rand(index+1)%2
+        @client.addProductInspect({"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
+        puts "INSPECT:#{index}:productNr:#{value}-entity:#{entity.entityId}-type:#{(index%2).to_s}"
+        sleep(1)
+        if type==1
+          partNr=@parts[rand(@parts.count)].partNr
+          @client.addProductPack({"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partNr"=>partNr})
+          puts "***PACK:entity:#{entity.entityId}-#{index}:productNr:#{value}-:partNr#{partNr}"
+        end
+      end
+      puts "*****************************************************************"
+    end
+  end
+
+  #
+  # test addOperatingState
+  #
+  def test_add_operating_state
+    while true
+      @entities.each_with_index do |entity,index|
+        [100,200,300,400].each do |state|
+          @client.addOperatingState({"targetId"=>entity.entityId,"operateTime"=>(Time.now.to_ms).to_s,"state"=>state.to_s})
+          puts "#{index}:targetId:#{entity.entityId}-state:#{state}"
+          sleep(3)
+        end
+      end
+    end
+  end
+
+  #
+  # test getOriProductOutputNums && getProductOutputNums
+  #
+  def test_get_ori_product_output_num
+    ids=@entities.map{|e| e.entityId}
+    while true
+      now=Time.now
+      endT=now.to_ms
+      startT=endT-10*1000
+      puts "ori_output_num:#{@client.getOriProductOutputNums(ids,startT,endT)}"
+      puts "*output_num:#{@client.getProductOutputNums(ids,startT,endT)}"
+      puts "*****************************************************************"
+      sleep(10)
+    end
+  end
+
+  #
+  # test  getFTRProductNums && getFailProductInspectNums
+  #
+  def test_get_ftr_fail_product_num
+    ids=@entities.map{|e| e.entityId}
+    while true
+      now=Time.now
+      endT=now.to_ms
+      startT=endT-10*1000
+      puts "ftr_product_num:#{@client.getFTRProductNums(ids,startT,endT)}"
+      puts "*fail_product_num:#{@client.getFailProductInspectNums(ids,startT,endT)}"
+      puts "*****************************************************************"
+      sleep(10)
+    end
+  end
+
+  #
+  # test getOnJobTotalTimes
+  #
+  def test_on_job_total_time
+    begin
+      ids=@entities.map{|e| e.entityId}
+      while true
+        now=Time.now
+        endT=now.to_ms
+        startT=endT-20*60*1000
+        puts "on_job_total_time:#{@client.getOnJobTotalTimes(ids,startT,endT)}"
+        sleep(1)
+      end
+    rescue Exception=>e
+      puts e.message
+    end
+  end
+
+  #
+  # test
+  #
+  def test_product_output_num_time
+    ids=@entities.map{|e| e.entityId}
+    while true
+      ids.each do |id|
+        now=Time.now
+        endT=now.to_ms
+        startT=endT-20*60*1000
+        pros=@client.getProductOutputNumAndTime(id,startT,endT)
+        pros.each do |pro|
+          puts "product num& time:#{pro}"
+        end
+        puts "-----------------------------------------------------------------------------------------"
+      end
+      puts "*****************************************************************"
+      sleep(10)
+    end
+  end
+
+  def test_finish
+    @transport.close
+  end
+end
+
+test=Test.new
+test.pick
+test.test_finish

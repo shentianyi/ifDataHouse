@@ -1,0 +1,39 @@
+<script type="text/javascript">
+     $(function() {
+          data_upload("#item-data-uploader");
+     }); 
+</script>
+<h1>Map <%= @mm%></h1>
+<div>
+     <p>
+          access_key: <%= @access_key%>
+     </p>
+     <p>
+          <table>
+               <tr>
+                    <td>Map Key</td>
+                    <td>Map Value</td>
+               </tr>
+               <%@items.each do |item|%>
+               <tr>
+                    <td id="d-<%= item.id%>"><%= item.send(item.map_field)%>
+                    <input type="hidden" class="default-value-hidden" id="<%= item.id%>" />
+                    </td>
+                    <td>
+                    <input type="text" class="map-value-text" id="m-<%= item.id%>"/>
+                    </td>
+               </tr>
+               <%end%>
+          </table>
+     </p>
+</div>
+<%if @items.count>0%>
+<input type="button" value="Map This Page" onclick="do_map(0);" />
+<input type="button" value="Map Default" onclick="do_map(1);" />
+<%= render :partial => "share/handling_msg_box", :locals => { :handlemsg => "处理中..." } %>
+<%end%>
+<%= will_paginate @items%>
+<p>
+     <%= link_to '< Continue', send("c_#{@model.pluralize}_path") %>
+</p>
+<%= link_to '| Finish |', send("cancel_#{@model.pluralize}_path") %>

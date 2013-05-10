@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/jedis/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/jedis/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/jedis/jedis-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/jedis/jedis-namespace.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/mongo/mongo-java-driver-2.9.3.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/thrift/libthrift-0.9.0.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/quartz-all-2.1.7.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/gitbx/IFDatahouse/lib/quartz/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

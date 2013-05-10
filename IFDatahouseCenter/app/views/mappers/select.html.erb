@@ -1,0 +1,12 @@
+<div>
+     <h2>Select Model</h2>
+     <form id="model-select-form" action="<%=@action%>" method="get">
+          <p>
+               select model:   <%= select_tag :m,options_for_select(@models),{:class=>'uploadfile select'}%>
+          </p>
+     </form>
+     <p>
+          <%= link_to '< Back', @item %>
+          <%= link_to 'Next >', '#',:onclick=>"$('#model-select-form').submit();"%>
+     </p>
+</div>

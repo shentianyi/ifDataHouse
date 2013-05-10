@@ -1,0 +1,24 @@
+<script type="text/javascript">
+     $(function() {
+          data_upload("#item-data-uploader");
+     }); 
+</script>
+<h1>Map <%= @mm%></h1>
+<div>
+     <p>
+          <table>
+               <tr>
+                    <td>Map Key</td>
+                    <td>Map Value</td>
+               </tr>
+               <%@items.each do |item|%>
+               <tr>
+                    <td> <%= item.map_field_value%> </td>
+                    <td> <%= item.map_value%> </td>
+               </tr>
+               <%end%>
+          </table>
+     </p>
+</div>
+
+<%= will_paginate @items%>

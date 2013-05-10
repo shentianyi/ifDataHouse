@@ -1,0 +1,29 @@
+<div id="header">
+     <a href=""></a>
+</div>
+<div id="centerme">
+     <div id="main">
+
+          <div id="signin">
+               <div id="signError">
+                    <p>
+                         登录
+                    </p>
+               </div>
+               <form method="post" action="login">
+                    <input type="text" name="staffNr"  placeholder="用户名" />
+                    <input type="password" name="password"  placeholder="密码" />
+                    <input type="submit" name="submit_button" value="登录" />
+               </form>
+          </div>
+          <% if flash[:notice] %>
+          <div id="notice">
+               <%= flash[:notice] %>
+          </div>
+          <% end %>
+     </div>
+
+     <div id="jid_overlay" class="overlay"></div>
+
+</div>
+<div class="footer"></div>

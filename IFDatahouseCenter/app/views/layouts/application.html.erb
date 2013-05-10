@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <title>IFDatahouse</title>
+          <%= stylesheet_link_tag    "application", :media => "all" %>
+          <%= javascript_include_tag "application" %>
+          <%= csrf_meta_tags %>
+     </head>
+     <body>
+          <div>
+               <ul>
+                    <li>
+                         基础数据
+                         <ul>
+                              <li>
+                                   <a href="../../staffs"> 员工</a>
+                              </li>
+                              <li>
+                                   <a href="../../parts">零件</a>
+                              </li>
+                              <li>
+                                   <a href="../../entities"> 组织</a>
+                              </li>
+                         </ul>
+                    </li>
+                    <li>
+                         配置数据
+                         <ul>
+                              <li>
+                                    <a href="../../mappers">接口数据映射</a>
+                              </li>
+                         </ul>
+                    </li>
+               </ul>
+          </div>
+          <div>
+               <%= yield %>
+          </div>
+     </body>
+</html>

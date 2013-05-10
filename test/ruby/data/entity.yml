@@ -1,0 +1,6 @@
+entityA:
+  entityId:  SGM-Test
+  name:  SGM-name-Test
+entityB:
+  entityId:  MB-Test
+  name: MB-name-Test

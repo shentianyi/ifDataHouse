@@ -1,0 +1,296 @@
+STATUS | wrapper  | 2013/04/28 18:59:45 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/04/28 18:59:45 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/04/28 18:59:45 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/04/28 18:59:45 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/04/28 18:59:45 | 
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[4] : -Dwrapper.key=Y6iuA5w-l2eumieR
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[9] : -Dwrapper.pid=8424
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/04/28 18:59:45 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 18:59:45 | Launching a JVM...
+INFO   | jvm 1    | 2013/04/28 18:59:46 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/04/28 18:59:46 | 
+INFO   | jvm 1    | 2013/04/28 18:59:46 | WrapperSimpleApp Usage:
+INFO   | jvm 1    | 2013/04/28 18:59:46 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 1    | 2013/04/28 18:59:46 | 
+INFO   | jvm 1    | 2013/04/28 18:59:46 | Where:
+INFO   | jvm 1    | 2013/04/28 18:59:46 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 1    | 2013/04/28 18:59:46 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 1    | 2013/04/28 18:59:46 |                   application.
+ERROR  | wrapper  | 2013/04/28 18:59:47 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[4] : -Dwrapper.key=wkwsMY7r30wfbFN8
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[9] : -Dwrapper.pid=8424
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[15] : -Dwrapper.jvmid=2
+INFO   | wrapper  | 2013/04/28 18:59:52 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 18:59:52 | Launching a JVM...
+INFO   | jvm 2    | 2013/04/28 18:59:52 | WrapperManager: Initializing...
+INFO   | jvm 2    | 2013/04/28 18:59:52 | 
+INFO   | jvm 2    | 2013/04/28 18:59:52 | WrapperSimpleApp Usage:
+INFO   | jvm 2    | 2013/04/28 18:59:52 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 2    | 2013/04/28 18:59:52 | 
+INFO   | jvm 2    | 2013/04/28 18:59:52 | Where:
+INFO   | jvm 2    | 2013/04/28 18:59:52 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 2    | 2013/04/28 18:59:52 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 2    | 2013/04/28 18:59:52 |                   application.
+ERROR  | wrapper  | 2013/04/28 18:59:54 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[4] : -Dwrapper.key=M4Ck97jv9y_vQcll
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[9] : -Dwrapper.pid=8424
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[15] : -Dwrapper.jvmid=3
+INFO   | wrapper  | 2013/04/28 18:59:58 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 18:59:58 | Launching a JVM...
+INFO   | jvm 3    | 2013/04/28 18:59:59 | WrapperManager: Initializing...
+INFO   | jvm 3    | 2013/04/28 18:59:59 | 
+INFO   | jvm 3    | 2013/04/28 18:59:59 | WrapperSimpleApp Usage:
+INFO   | jvm 3    | 2013/04/28 18:59:59 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 3    | 2013/04/28 18:59:59 | 
+INFO   | jvm 3    | 2013/04/28 18:59:59 | Where:
+INFO   | jvm 3    | 2013/04/28 18:59:59 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 3    | 2013/04/28 18:59:59 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 3    | 2013/04/28 18:59:59 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:00:00 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[4] : -Dwrapper.key=xRNhNUIRVd54STcC
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[9] : -Dwrapper.pid=8424
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[15] : -Dwrapper.jvmid=4
+INFO   | wrapper  | 2013/04/28 19:00:05 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:00:05 | Launching a JVM...
+INFO   | jvm 4    | 2013/04/28 19:00:05 | WrapperManager: Initializing...
+INFO   | jvm 4    | 2013/04/28 19:00:05 | 
+INFO   | jvm 4    | 2013/04/28 19:00:05 | WrapperSimpleApp Usage:
+INFO   | jvm 4    | 2013/04/28 19:00:05 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 4    | 2013/04/28 19:00:05 | 
+INFO   | jvm 4    | 2013/04/28 19:00:05 | Where:
+INFO   | jvm 4    | 2013/04/28 19:00:05 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 4    | 2013/04/28 19:00:05 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 4    | 2013/04/28 19:00:05 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:00:07 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[4] : -Dwrapper.key=YPW5WeB3MzyBLTXh
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[9] : -Dwrapper.pid=8424
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[15] : -Dwrapper.jvmid=5
+INFO   | wrapper  | 2013/04/28 19:00:11 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:00:11 | Launching a JVM...
+INFO   | jvm 5    | 2013/04/28 19:00:11 | WrapperManager: Initializing...
+INFO   | jvm 5    | 2013/04/28 19:00:12 | 
+INFO   | jvm 5    | 2013/04/28 19:00:12 | WrapperSimpleApp Usage:
+INFO   | jvm 5    | 2013/04/28 19:00:12 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 5    | 2013/04/28 19:00:12 | 
+INFO   | jvm 5    | 2013/04/28 19:00:12 | Where:
+INFO   | jvm 5    | 2013/04/28 19:00:12 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 5    | 2013/04/28 19:00:12 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 5    | 2013/04/28 19:00:12 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:00:13 | JVM exited while loading the application.
+FATAL  | wrapper  | 2013/04/28 19:00:13 | There were 5 failed launches in a row, each lasting less than 300 seconds.  Giving up.
+FATAL  | wrapper  | 2013/04/28 19:00:13 |   There may be a configuration problem: please check the logs.
+STATUS | wrapper  | 2013/04/28 19:00:14 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/04/28 19:00:44 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/04/28 19:00:44 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/04/28 19:00:44 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/04/28 19:00:44 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/04/28 19:00:44 | 
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[4] : -Dwrapper.key=BuFnH6PpSxNy1Set
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[9] : -Dwrapper.pid=8710
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/04/28 19:00:45 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:00:45 | Launching a JVM...
+INFO   | jvm 1    | 2013/04/28 19:00:45 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/04/28 19:00:45 | 
+INFO   | jvm 1    | 2013/04/28 19:00:45 | WrapperSimpleApp Usage:
+INFO   | jvm 1    | 2013/04/28 19:00:45 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 1    | 2013/04/28 19:00:45 | 
+INFO   | jvm 1    | 2013/04/28 19:00:45 | Where:
+INFO   | jvm 1    | 2013/04/28 19:00:45 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 1    | 2013/04/28 19:00:45 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 1    | 2013/04/28 19:00:45 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:00:47 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[4] : -Dwrapper.key=eWq-1VBk7ioi89EK
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[9] : -Dwrapper.pid=8710
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[15] : -Dwrapper.jvmid=2
+INFO   | wrapper  | 2013/04/28 19:00:51 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:00:51 | Launching a JVM...
+INFO   | jvm 2    | 2013/04/28 19:00:51 | WrapperManager: Initializing...
+INFO   | jvm 2    | 2013/04/28 19:00:51 | 
+INFO   | jvm 2    | 2013/04/28 19:00:51 | WrapperSimpleApp Usage:
+INFO   | jvm 2    | 2013/04/28 19:00:51 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 2    | 2013/04/28 19:00:51 | 
+INFO   | jvm 2    | 2013/04/28 19:00:51 | Where:
+INFO   | jvm 2    | 2013/04/28 19:00:51 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 2    | 2013/04/28 19:00:51 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 2    | 2013/04/28 19:00:51 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:00:53 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[4] : -Dwrapper.key=Eh5joVIfruNsk0Vz
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[9] : -Dwrapper.pid=8710
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[15] : -Dwrapper.jvmid=3
+INFO   | wrapper  | 2013/04/28 19:00:57 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:00:58 | Launching a JVM...
+INFO   | jvm 3    | 2013/04/28 19:00:58 | WrapperManager: Initializing...
+INFO   | jvm 3    | 2013/04/28 19:00:58 | 
+INFO   | jvm 3    | 2013/04/28 19:00:58 | WrapperSimpleApp Usage:
+INFO   | jvm 3    | 2013/04/28 19:00:58 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 3    | 2013/04/28 19:00:58 | 
+INFO   | jvm 3    | 2013/04/28 19:00:58 | Where:
+INFO   | jvm 3    | 2013/04/28 19:00:58 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 3    | 2013/04/28 19:00:58 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 3    | 2013/04/28 19:00:58 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:01:00 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[4] : -Dwrapper.key=WjyXd7gkpEDyOfhq
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[9] : -Dwrapper.pid=8710
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[15] : -Dwrapper.jvmid=4
+INFO   | wrapper  | 2013/04/28 19:01:04 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:01:04 | Launching a JVM...
+INFO   | jvm 4    | 2013/04/28 19:01:04 | WrapperManager: Initializing...
+INFO   | jvm 4    | 2013/04/28 19:01:04 | 
+INFO   | jvm 4    | 2013/04/28 19:01:04 | WrapperSimpleApp Usage:
+INFO   | jvm 4    | 2013/04/28 19:01:04 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 4    | 2013/04/28 19:01:04 | 
+INFO   | jvm 4    | 2013/04/28 19:01:04 | Where:
+INFO   | jvm 4    | 2013/04/28 19:01:04 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 4    | 2013/04/28 19:01:04 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 4    | 2013/04/28 19:01:04 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:01:06 | JVM exited while loading the application.
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[2] : -classpath
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[4] : -Dwrapper.key=xnKVgr9HWX8fX2OR
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[9] : -Dwrapper.pid=8710
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[15] : -Dwrapper.jvmid=5
+INFO   | wrapper  | 2013/04/28 19:01:10 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+STATUS | wrapper  | 2013/04/28 19:01:11 | Launching a JVM...
+INFO   | jvm 5    | 2013/04/28 19:01:11 | WrapperManager: Initializing...
+INFO   | jvm 5    | 2013/04/28 19:01:11 | 
+INFO   | jvm 5    | 2013/04/28 19:01:11 | WrapperSimpleApp Usage:
+INFO   | jvm 5    | 2013/04/28 19:01:11 |   java org.tanukisoftware.wrapper.WrapperSimpleApp {app_class{/app_method}} [app_arguments]
+INFO   | jvm 5    | 2013/04/28 19:01:11 | 
+INFO   | jvm 5    | 2013/04/28 19:01:11 | Where:
+INFO   | jvm 5    | 2013/04/28 19:01:11 |   app_class:      The fully qualified class name of the application to run.
+INFO   | jvm 5    | 2013/04/28 19:01:11 |   app_arguments:  The arguments that would normally be passed to the
+INFO   | jvm 5    | 2013/04/28 19:01:11 |                   application.
+ERROR  | wrapper  | 2013/04/28 19:01:13 | JVM exited while loading the application.
+FATAL  | wrapper  | 2013/04/28 19:01:13 | There were 5 failed launches in a row, each lasting less than 300 seconds.  Giving up.
+FATAL  | wrapper  | 2013/04/28 19:01:13 |   There may be a configuration problem: please check the logs.
+STATUS | wrapper  | 2013/04/28 19:01:13 | <-- Wrapper Stopped
