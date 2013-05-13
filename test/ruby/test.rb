@@ -10,15 +10,12 @@ class Time
   end
 end
 
-
 Dir['data/*.rb','service/*'].each do |f|
   require_relative f
 end
 
-$access_key="HNRQMpgeqcJpi-z3M_4lMA"
-
+$access_key="p1kCk5ZoxOVs0NUTqEQE_Q"
 class Test
-  
   def initialize
     @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9001'))
     protocol=::Thrift::BinaryProtocol.new(@transport)
@@ -40,6 +37,7 @@ class Test
    5. test_get_ftr_product_num() && test_get_fail_product_num()
    6. test_on_job_total_time()
    7. test_product_output_num_time()
+   8. test_add_plan_target && test_get_plan_target
    }
     choose=gets.chomp
     case choose
@@ -57,6 +55,8 @@ class Test
       test_on_job_total_time
     when "7"
       test_product_output_num_time
+    when "8"
+      test_add_get_plan_target
     end
   end
 
@@ -186,6 +186,27 @@ class Test
       end
       puts "*****************************************************************"
       sleep(10)
+    end
+  end
+
+  #
+  # test_add_get_plan_target
+  #
+  def test_add_get_plan_target
+    begin
+      ids=@entities.map{|e| e.entityId}
+      ids.each do |id|
+        ['D','W','M',"Y"].each do |type|
+          part=@parts[rand(@parts.count)]
+          data={"entityId"=>id,"type"=>type,"partId"=>part.partNr,"partAmount"=>rand(1000).to_s,"staffNum"=>rand(100).to_s}
+          @client.addPlanTarget($access_key,data)
+          puts ">>>>>>>#{data}"
+          sleep(1)
+          puts ">>>>>>>>>>#{@client.getPlanTarget($access_key,{"entityId"=>id,"type"=>type})}"
+        end
+      end
+    rescue Exception=>e
+      puts e.message
     end
   end
 

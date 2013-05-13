@@ -1,16 +1,16 @@
 partA:
-  partNr: 91G007601-Test
+  partNr: 91G007601
   name: 91G007601-name-Test
   unitTime: 60
 partB:
-  partNr: 91G008301-Test
+  partNr: 91G008301
   name: 91G008301-name-Test
   unitTime: 120
 partC:
-  partNr: 91G008401-Test
+  partNr: 91G008401
   name: 91G008401-name-Test
   unitTime: 180
 partD:
-  partNr: 91G008601-Test
+  partNr: 91G008601
   name: 91G008601-name-Test
   unitTime: 240

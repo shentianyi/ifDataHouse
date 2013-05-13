@@ -1,6 +1,6 @@
 var db = "ifdatadb";
 var drop = true;
-var colls = ["parts", "staffs", "entities", "attendances", "products", "inspects", "operating_states", "mappers","mapper_items"];
+var colls = ["parts", "staffs", "entities", "attendances", "products", "inspects", "operating_states", "mappers","mapper_items","targets"];
 
 // collection indexs
 var indexs = {
@@ -45,6 +45,9 @@ var indexs = {
       key_value:1
      },{
       mapper_id:1
+     }],
+     "targets":[{
+      access_key:1
      }]
 }
 

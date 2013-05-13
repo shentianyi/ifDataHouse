@@ -12,9 +12,6 @@ import org.cz.epm.resource.Mapper;
 import org.cz.epm.thrift.generated.*;
 
 public class EpmDatahouseImpl implements Datahouse.Iface {
-	// ********************************************************************
-	// hbase service
-	// ********************************************************************
 
 	@Override
 	public void addAttendance(String accessKey, Map<String, String> dataMap) {
@@ -75,6 +72,28 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	}
 
 	@Override
+	public void addPlanTarget(String accessKey, Map<String, String> dataMap)
+			throws TException {
+		Mapper mapper = new Mapper(accessKey);
+		dataMap.put("entityId",
+				mapper.GetMapKey("entity", dataMap.get("entityId")));
+		dataMap.put("partId", mapper.GetMapKey("part", dataMap.get("partId")));
+		EpmDataBase.AddPlanTarget(dataMap);
+	}
+
+	@Override
+	public Map<String, String> getPlanTarget(String accessKey,
+			Map<String, String> dataMap) throws TException {
+		Mapper mapper = new Mapper(accessKey);
+		dataMap.put("entityId",
+				mapper.GetMapKey("entity", dataMap.get("entityId")));
+		Map<String, String> result = EpmDataBase.GetPlanTarget(dataMap);
+		result.put("entityId",
+				mapper.GetMapValue("entity", result.get("entityId")));
+		return converMapToString(result);
+	}
+
+	@Override
 	public Map<String, Long> getCurrentOnJobWorkerNums(String accessKey,
 			Set<String> entityIds) throws TException {
 		Map<String, String> keyV = this.getMapEntityIds(accessKey, entityIds);
@@ -97,10 +116,11 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	public Map<String, Long> getOriProductOutputNums(String accessKey,
 			Set<String> entityIds, long startTime, long endTime)
 			throws TException {
-			Map<String, String> keyV = this.getMapEntityIds(accessKey,
-					entityIds);
-			return convertMapValue(keyV, EpmDataBase.GetProductOriOutputCount(
-					new HashSet<String>(keyV.values()), startTime, endTime));
+		Map<String, String> keyV = this.getMapEntityIds(accessKey, entityIds);
+		return convertMapValue(
+				keyV,
+				EpmDataBase.GetProductOriOutputCount(
+						new HashSet<String>(keyV.values()), startTime, endTime));
 	}
 
 	@Override
@@ -178,5 +198,17 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			value.put(field, mapper.GetMapValue(model, value.get(field)));
 		}
 		return values;
+	}
+
+	private Map<String, String> converMapToString(Map<?, ?> datas) {
+		Map<String, String> result = new HashMap<String, String>();
+		try {
+			for (Entry<?, ?> data : datas.entrySet()) {
+				result.put(data.getKey().toString(), data.getValue().toString());
+			}
+		} catch (Exception e) {
+			System.out.println(">>" + e.getMessage());
+		}
+		return result;
 	}
 }

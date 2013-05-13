@@ -31,6 +31,7 @@ public class Conf {
 	private final static String mInspectColl = "inspects";
 	private final static String mOperatingStateColl = "operating_states";
 	private final static String mMapperItemColl = "mapper_items";
+	private final static String mTarget="targets";
 	static {
 		if (property == null) {
 			synchronized (Conf.class) {
@@ -155,5 +156,9 @@ public class Conf {
 
 	public static String getMmapperitemcoll() {
 		return mMapperItemColl;
+	}
+
+	public static String getMtarget() {
+		return mTarget;
 	}
 }

@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import org.apache.thrift.TException;
 import org.cz.epm.job.CleanRedisZSetCacheJob;
@@ -69,6 +70,16 @@ public class EpmDataBase {
 
 	public static boolean AddOperatingState(Map<String, String> dataMap) {
 		return DatahouseBase.AddOperatingStates(dataMap);
+	}
+
+	public static boolean AddPlanTarget(Map<String, String> dataMap) {
+		return DatahouseBase.AddTarget(dataMap);
+	}
+
+	public static Map GetPlanTarget(Map<String, String> query) {
+//		Map<String, String> result = DatahouseBase.GetTarget(query);
+//		return converMapToString(result);
+		return DatahouseBase.GetTarget(query);
 	}
 
 	public static void SetProductInspectState(Map<String, String> dataMap) {
@@ -151,7 +162,7 @@ public class EpmDataBase {
 				"outputTime", Long.toString(startTime), Long.toString(endTime),
 				"partId");
 		if (products.size() > 0) {
-//			System.out.println(products);
+			// System.out.println(products);
 			List<String> repeatedpartIds = new ArrayList<String>();
 			for (Map product : products) {
 				repeatedpartIds.add(product.get("partId").toString());
@@ -162,8 +173,8 @@ public class EpmDataBase {
 					"unitTime");
 			// Set<Map<String, String>> partNumTimes = new HashSet<Map<String,
 			// String>>();
-//			System.out.println(partIds);
-//			System.out.println(parts);
+			// System.out.println(partIds);
+			// System.out.println(parts);
 			for (Map part : parts) {
 				Map<String, String> unit = new HashMap<String, String>();
 				unit.put("partId", part.get("_id").toString());
@@ -301,4 +312,17 @@ public class EpmDataBase {
 		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
 				.SetProductInspectTypeCacheZSet(entityId, type, productNr));
 	}
+
+//	private static Map<String, String> converMapToString(Map<String, String> datas) {
+//		try {
+//			for (Entry<String, String> data : datas.entrySet()) {
+//				if (data.getValue().getClass() != String.class) {
+//					datas.put(data.getKey(), (String) data.getValue());
+//				}
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//		return datas;
+//	}
 }

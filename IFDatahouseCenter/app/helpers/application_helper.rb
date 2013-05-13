@@ -31,7 +31,7 @@ module ApplicationHelper
     end
   end
 
-  def updata
+  def updata &block
     msg=Message.new(:content=>'')
     begin
       files=params[:files]
@@ -58,7 +58,10 @@ module ApplicationHelper
             data[k]=v
           end
           data.delete($UPMARKER)
-
+          if block
+            puts "**************************************"
+          yield(data)
+          end
           if uniquery
             if item=m.find_by(uniquery)
               if row[$UPMARKER].to_i==1

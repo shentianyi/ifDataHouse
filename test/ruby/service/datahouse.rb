@@ -84,6 +84,35 @@ module CZ
             return
           end
 
+          def addPlanTarget(accessKey, dataMap)
+            send_addPlanTarget(accessKey, dataMap)
+            recv_addPlanTarget()
+          end
+
+          def send_addPlanTarget(accessKey, dataMap)
+            send_message('addPlanTarget', AddPlanTarget_args, :accessKey => accessKey, :dataMap => dataMap)
+          end
+
+          def recv_addPlanTarget()
+            result = receive_message(AddPlanTarget_result)
+            return
+          end
+
+          def getPlanTarget(accessKey, dataMap)
+            send_getPlanTarget(accessKey, dataMap)
+            return recv_getPlanTarget()
+          end
+
+          def send_getPlanTarget(accessKey, dataMap)
+            send_message('getPlanTarget', GetPlanTarget_args, :accessKey => accessKey, :dataMap => dataMap)
+          end
+
+          def recv_getPlanTarget()
+            result = receive_message(GetPlanTarget_result)
+            return result.success unless result.success.nil?
+            raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'getPlanTarget failed: unknown result')
+          end
+
           def getCurrentOnJobWorkerNums(accessKey, entityIds)
             send_getCurrentOnJobWorkerNums(accessKey, entityIds)
             return recv_getCurrentOnJobWorkerNums()
@@ -227,6 +256,20 @@ module CZ
             result = AddOperatingState_result.new()
             @handler.addOperatingState(args.accessKey, args.dataMap)
             write_result(result, oprot, 'addOperatingState', seqid)
+          end
+
+          def process_addPlanTarget(seqid, iprot, oprot)
+            args = read_args(iprot, AddPlanTarget_args)
+            result = AddPlanTarget_result.new()
+            @handler.addPlanTarget(args.accessKey, args.dataMap)
+            write_result(result, oprot, 'addPlanTarget', seqid)
+          end
+
+          def process_getPlanTarget(seqid, iprot, oprot)
+            args = read_args(iprot, GetPlanTarget_args)
+            result = GetPlanTarget_result.new()
+            result.success = @handler.getPlanTarget(args.accessKey, args.dataMap)
+            write_result(result, oprot, 'getPlanTarget', seqid)
           end
 
           def process_getCurrentOnJobWorkerNums(seqid, iprot, oprot)
@@ -437,6 +480,73 @@ module CZ
 
           FIELDS = {
 
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class AddPlanTarget_args
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+          ACCESSKEY = 1
+          DATAMAP = 2
+
+          FIELDS = {
+            ACCESSKEY => {:type => ::Thrift::Types::STRING, :name => 'accessKey'},
+            DATAMAP => {:type => ::Thrift::Types::MAP, :name => 'dataMap', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::STRING}}
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class AddPlanTarget_result
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+
+          FIELDS = {
+
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class GetPlanTarget_args
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+          ACCESSKEY = 1
+          DATAMAP = 2
+
+          FIELDS = {
+            ACCESSKEY => {:type => ::Thrift::Types::STRING, :name => 'accessKey'},
+            DATAMAP => {:type => ::Thrift::Types::MAP, :name => 'dataMap', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::STRING}}
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class GetPlanTarget_result
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+          SUCCESS = 0
+
+          FIELDS = {
+            SUCCESS => {:type => ::Thrift::Types::MAP, :name => 'success', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::STRING}}
           }
 
           def struct_fields; FIELDS; end

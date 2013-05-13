@@ -7,7 +7,7 @@ if defined?(PhusionPassenger)
     if forked
       require 'redis'
       $redis.client.disconnect
-      $redis=Redis::Namespace.new('epm', :redis => r)
+      $redis=Redis::Namespace.new('ifdatahouse', :redis => r)
     end
   end
 end

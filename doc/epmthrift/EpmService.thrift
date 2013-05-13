@@ -1,0 +1,178 @@
+namespace java org.cz.epm.thrift.generated
+namespace rb CZ.Epm.Thrift
+
+//
+// Types
+//
+typedef binary Text
+// time stamp is millisecond of
+typedef i64 Timestamp
+
+enum ProductState{
+  INSPECT=100,
+  REWORK=200,
+  PACK=300
+}
+
+enum ProductInspectType{
+ FAIL=0,
+ PASS=1
+}
+
+enum ProductInspectHandledType{
+  FIRSTPASS=100, // pass in first inspection 
+  PASS=200,      // pass in more than one inspection
+  FAIL=300
+}
+
+//
+// Exceptions
+//
+
+exception IOError{
+ 1:string message
+}
+
+exception IllegalArgument{
+ 1:string message
+}
+
+//
+// Service
+//
+service Datahouse{
+  //
+  //*******  ifdatahouse thrift services  ********/
+  //
+  /**
+   * add attendance
+   * entityId,attendTime,staffId,type are required
+   * type: -1:off,1:on
+   */
+  void addAttendance(
+   1:string accessKey,
+   2:map<string,string> dataMap
+  )
+  
+    /**
+    * add product inspect
+    * entityId,inspectTime,productNr,type are required
+    * type 0:fail,1:pass
+    */
+  void addProductInspect(
+    1:string accessKey,
+   2:map<string,string> dataMap
+  )
+  
+  /**
+    * add out put
+    * entityId,packTime,productNr,partId are required
+    */
+  void addProductPack(
+    1:string accessKey,
+   2:map<string,string> dataMap
+  )
+  
+
+  /**
+    * set product inspect 
+    * entityId,inspectTime,productNr,type are required
+    * type 0:fail,1:pass
+    */
+    void setProductInspectState(
+       1:string accessKey,
+       2:map<string,string> dataMap
+    )
+  /**
+    * add entity operation record
+    * entityId,operateTime,state are required
+    */
+  void addOperatingState(
+   1:string accessKey,
+   2:map<string,string> dataMap
+   )
+   
+    /**
+    * add target
+    * entityId,partId are required
+    */
+    void addPlanTarget(
+    1:string accessKey,
+    2:map<string,string> dataMap
+    )
+    
+    map<string,string> getPlanTarget(
+    1:string accessKey,
+    2:map<string,string> dataMap
+    )
+   
+  /**
+   * get current on job workers number
+   */
+  map<string,i64> getCurrentOnJobWorkerNums(
+   1:string accessKey,
+   2:set<string> entityIds
+  )
+  
+  /**
+    * get out put number
+    * date in format of 20130101
+    */
+  map<string,i64> getOriProductOutputNums(
+   1:string accessKey,
+   2:set<string> entityIds,
+   3:Timestamp startTime,
+   4:Timestamp endTime
+  ) 
+  
+  /**
+    * get product inspect first time right number
+    */
+    map<string,i64> getFTRProductNums(
+     1:string accessKey,
+     2:set<string> entityIds,
+     3:Timestamp startTime,
+     4:Timestamp endTime
+    )
+    
+    
+    /**
+     * get product inspect faild number
+     */
+    map<string,i64> getFailProductInspectNums(
+     1:string accessKey,
+     2:set<string> entityIds,
+     3:Timestamp startTime,
+     4:Timestamp endTime
+    )
+    
+    /**
+      * get product number
+      */
+     map<string,i64> getProductOutputNums(
+      1:string accessKey,
+      2:set<string> entityIds, 
+      3:Timestamp startTime,
+      4:Timestamp endTime
+     )
+     
+    /**
+      * get entity workers on job time
+      */
+     map<string,i64> getOnJobTotalTimes(
+       1:string accessKey,
+       2:set<string> entityIds,
+       3:Timestamp startTime,
+       4:Timestamp endTime
+     )
+    /**
+      * get entity part num and produce-time
+      */ 
+       set<map<string,string>> getProductOutputNumAndTime(
+       1:string accessKey,
+       2:string entityId,
+       3:Timestamp startTime,
+       4:Timestamp endTime
+      )
+ 
+}

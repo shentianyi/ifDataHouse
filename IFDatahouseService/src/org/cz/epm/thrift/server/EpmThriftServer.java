@@ -26,7 +26,7 @@ public class EpmThriftServer {
 			final Datahouse.Processor<Iface> processor = new Datahouse.Processor<Iface>(
 					new EpmDatahouseImpl());
 			final TNonblockingServerTransport serverTransport = new TNonblockingServerSocket(
-					PORT, 20);
+					PORT, 2000);
 			final TProcessorFactory processorFactory = new TProcessorFactory(
 					processor);
 			final TNonblockingServer.Args args = new TNonblockingServer.Args(
@@ -41,7 +41,7 @@ public class EpmThriftServer {
 			args.outputProtocolFactory(outputProtocolFactory);
 			args.transportFactory(outputTransportFactory);
 			args.maxReadBufferBytes = Long.MAX_VALUE;
-
+			
 			server = new TNonblockingServer(args);
 			System.out
 					.println("**********  EPM Hbase Thrift Server if Firing up on <"

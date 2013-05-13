@@ -49,7 +49,7 @@ public class Mapper {
 			q.put("access_key", this.access_key);
 			q.put(type.getkField(), kv);
 
-			Map<?, ?> result = DatahouseBase.getdata(Conf.getMmapperitemcoll(),
+			Map<?, ?> result = DatahouseBase.getData(Conf.getMmapperitemcoll(),
 					q, type.getvField());
 			if (result != null)
 				kvresult = result.get(type.getvField()).toString();

@@ -25,7 +25,7 @@ public class DatahouseBase {
 	// get parts
 	public static List<Map> GetParts(String key, List<String> ins,
 			String... fields) {
-		return getdatas(Conf.getMpartcoll(), key, ins, fields);
+		return getDatas(Conf.getMpartcoll(), key, ins, fields);
 	}
 
 	// ************ attendance methods
@@ -36,25 +36,27 @@ public class DatahouseBase {
 
 	public static List<Map> GetAttendances(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getdatas(Conf.getMattendcoll(), key, value, scopeKey, start,
+		return getDatas(Conf.getMattendcoll(), key, value, scopeKey, start,
 				end, fields);
 	}
 
 	public static List<Map> GetAttendances(Map keyValue, String scopeKey,
 			String start, String end, String... fields) {
-		return getdatas(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
+		return getDatas(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
 				fields);
 	}
 
 	public static List<Map> GetAttendances(Map keyValue, String scopeKey,
 			String start, String end, String sortKey, int order, int limit,
 			String... fields) {
-		return getdatas(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
+		return getDatas(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
 				sortKey, order, limit, fields);
 	}
-	
-	public static Map GetAttendance(Map keyValue,String scopeKey, String start, String end,String... fields) {
-		return getdata(Conf.getMattendcoll(), keyValue,scopeKey,start,end, fields);
+
+	public static Map GetAttendance(Map keyValue, String scopeKey,
+			String start, String end, String... fields) {
+		return getData(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
+				fields);
 	}
 
 	// ************ product methods
@@ -66,12 +68,12 @@ public class DatahouseBase {
 	// get products
 	public static List<Map> GetProducts(String key, List<String> ins,
 			String... fields) {
-		return getdatas(Conf.getMproductcoll(), key, ins, fields);
+		return getDatas(Conf.getMproductcoll(), key, ins, fields);
 	}
 
 	public static List<Map> GetProducts(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getdatas(Conf.getMproductcoll(), key, value, scopeKey, start,
+		return getDatas(Conf.getMproductcoll(), key, value, scopeKey, start,
 				end, fields);
 	}
 
@@ -90,6 +92,14 @@ public class DatahouseBase {
 
 	public static boolean AddOperatingStates(Map<String, String> dataMap) {
 		return insertData(Conf.getMoperatingstatecoll(), dataMap);
+	}
+
+	public static boolean AddTarget(Map<String, String> dataMap) {
+		return insertData(Conf.getMtarget(), dataMap);
+	}
+
+	public static Map GetTarget(Map<String, String> query) {
+		return getData(Conf.getMtarget(), query);
 	}
 
 	// ************ base methods
@@ -128,7 +138,7 @@ public class DatahouseBase {
 
 	// get datas
 	// in
-	private static List<Map> getdatas(String collName, String key,
+	private static List<Map> getDatas(String collName, String key,
 			List<String> ins, String... fields) {
 		try {
 			BasicDBObject query = new BasicDBObject();
@@ -154,7 +164,7 @@ public class DatahouseBase {
 
 	// get datas
 	// between
-	private static List<Map> getdatas(String collName, String key,
+	private static List<Map> getDatas(String collName, String key,
 			String value, String scopeKey, String start, String end,
 			String... fields) {
 		try {
@@ -174,7 +184,7 @@ public class DatahouseBase {
 
 	// get datas
 	// between
-	private static List<Map> getdatas(String collName, Map<?, ?> keyValue,
+	private static List<Map> getDatas(String collName, Map<?, ?> keyValue,
 			String scopeKey, String start, String end, String... fields) {
 		try {
 			BasicDBObject query = new BasicDBObject();
@@ -202,7 +212,7 @@ public class DatahouseBase {
 
 	// get datas
 	// order limit
-	private static List<Map> getdatas(String collName, Map<?, ?> keyValue,
+	private static List<Map> getDatas(String collName, Map<?, ?> keyValue,
 			String scopeKey, String start, String end, String orderKey,
 			int order, int limit, String... fields) {
 		try {
@@ -231,7 +241,7 @@ public class DatahouseBase {
 	}
 
 	// find one
-	public static Map getdata(String collName, Map<?, ?> keyValue,
+	public static Map getData(String collName, Map<?, ?> keyValue,
 			String... fields) {
 		BasicDBObject query = new BasicDBObject();
 		for (Entry entry : keyValue.entrySet()) {
@@ -239,11 +249,11 @@ public class DatahouseBase {
 					entry.equals("_id") ? new ObjectId(entry.getValue()
 							.toString()) : entry.getValue());
 		}
-//		System.out.println(query.toString());
+		// System.out.println(query.toString());
 		return MongoManager.FineOne(collName, query, generateField(fields));
 	}
-	
-	private static Map getdata(String collName, Map<?, ?> keyValue,
+
+	private static Map getData(String collName, Map<?, ?> keyValue,
 			String scopeKey, String start, String end, String... fields) {
 		try {
 			BasicDBObject query = new BasicDBObject();
@@ -261,8 +271,8 @@ public class DatahouseBase {
 				query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
 						.add("$lte", end).get());
 			}
-//			System.out.println(query.toString());
-			return MongoManager.FineOne(collName, query,generateField(fields));
+			// System.out.println(query.toString());
+			return MongoManager.FineOne(collName, query, generateField(fields));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
