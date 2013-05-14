@@ -1,8 +1,6 @@
 IFDatahouse::Application.routes.draw do
   root :to=>"sessions#new"
-  # controller :part do
-  # match 'part/index'=>:index
-  # end
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -13,16 +11,19 @@ IFDatahouse::Application.routes.draw do
   resources :parts do
     collection do
       post :updata
+      get :import
     end
   end
   resources :staffs do
     collection do
       post :updata
+      get :import
     end
   end
   resources :entities do
     collection do
       post :updata
+      get :import
     end
   end
 
@@ -39,5 +40,5 @@ IFDatahouse::Application.routes.draw do
     end
   end
 
-  resources :mapper_items 
+  resources :mapper_items
 end

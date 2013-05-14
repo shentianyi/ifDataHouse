@@ -1,0 +1,29 @@
+<p id="notice">
+     <%= notice %>
+</p>
+
+<table>
+     <tr>
+          <td>工号</td>
+          <td><%= @item.staffNr%></td>
+     </tr>
+     <tr>
+          <td>姓名</td>
+          <td><%= @item.name%></td>
+     </tr>
+     <tr>
+          <td>邮件</td>
+          <td><%= @item.email%></td>
+     </tr>
+     <tr>
+          <td>联系方式</td>
+          <td><%= @item.contact%></td>
+     </tr>
+     <tr>
+          <td>职称</td>
+          <td><%= @item.title%></td>
+     </tr> 
+</table>
+<%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '编辑',send("edit_#{@model}_path",@item) %>
+<%= link_to '返回', send("#{@model.pluralize}_path") %>

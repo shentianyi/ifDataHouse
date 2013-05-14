@@ -10,6 +10,10 @@ class Staff
   field :password_confirmation
   field :staffNr
   field :name
+  field :email
+  field :contact
+  field :title
+  
   def password
     @password
   end

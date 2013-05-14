@@ -1,14 +1,24 @@
 <h1>Listing <%= @model%></h1>
 
 <table>
+     <tr>
+          <th>数据集</th>
+          <th>映射键号</th>
+          <th>映射键值</th>
+          <th>映射值</th>
+          <th>访问号</th>
+          <th>&nbsp;</th>
+     </tr>
      <% @items.each do |item| %>
      <tr>
-          <%item.instance_variable_get("@attributes").each do |k,v|%>
-          <td><%= k+" :  "+v.to_s%></td>
-          <%end%>
-          <td><%= link_to 'Show', item %></td>
-          <td><%= link_to 'Edit',send("edit_#{@model}_path",item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= item.model%></td>
+          <td><%= item.map_key%></td>
+          <td><%= item.map_field_value%></td>
+          <td><%= item.map_value%></td>
+          <td><%= item.access_key%></td>
+          <td><%= link_to '查看', item %>
+          <%= link_to '编辑',send("edit_#{@model}_path",item) %>
+          <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      </tr>
      <% end %>
 </table>

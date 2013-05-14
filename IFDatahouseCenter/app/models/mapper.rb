@@ -6,7 +6,7 @@ class Mapper
   field :mapperNr
   field :name
   field :access_key
-  MObjects=[['staff',0],['entity',1],['part',2]]
+  MObjects=[['员工',0],['组织',1],['零件',2]]
 
   MHModels={0=>'staff',1=>'entity',2=>'part'}
 
@@ -26,14 +26,24 @@ class MapperItem
   field :map_field_value
   field :access_key
 
-  after_save :save_in_redis
+  after_create :create_in_redis
+  after_update :update_in_redis
   after_destroy :delete_from_redis
-  
-  def save_in_redis
+  def create_in_redis
     value_key_hash=generate_key "value:key"
     $redis.hset value_key_hash,self.map_value,self.map_key
     key_value_hash=generate_key "key:value"
     $redis.hset key_value_hash,self.map_key,self.map_value
+  end
+
+  def update_in_redis
+    if self.map_value_changed?
+      value_key_hash=generate_key "value:key"
+      $redis.hset value_key_hash,self.map_value,self.map_key
+      $redis.hdel value_key_hash,self.map_value_was
+      key_value_hash=generate_key "key:value"
+    $redis.hset key_value_hash,self.map_key,self.map_value
+    end
   end
 
   def delete_from_redis

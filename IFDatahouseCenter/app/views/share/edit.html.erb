@@ -1,6 +1,6 @@
-<h1>Editing item</h1>
+<h1>编辑</h1>
 
-<%= render 'share/form' %>
+<%= render 'form' %>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', send("#{@model.pluralize}_path") %>
+<%= link_to '查看', @item %> |
+<%= link_to '返回', send("#{@model.pluralize}_path") %>

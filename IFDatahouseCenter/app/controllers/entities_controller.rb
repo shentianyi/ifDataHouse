@@ -6,9 +6,22 @@ class EntitiesController < ApplicationController
     block=Proc.new{|data|
       if entity=Entity.find_by(:entityNr=>data["parentEntity"])
         data["parentEntity"]=entity.id.to_s
-        puts "**************************************#{entity.id.to_s}"
       end
     }
     super &block
+  end
+
+  def new
+    @levels=EntityLevel.all.collect{|m| [m.desc,m.value]}
+    @types=EntityType.all.collect{|m| [m.desc,m.value]}
+    super
+  end
+
+  def edit
+    @levels=EntityLevel.all.collect{|m| [m.desc,m.value]}
+    @types=EntityType.all.collect{|m| [m.desc,m.value]}
+    # @level=@item.level
+    # @type=@item.type
+    super
   end
 end

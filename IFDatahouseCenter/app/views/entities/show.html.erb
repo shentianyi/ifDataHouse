@@ -1,0 +1,35 @@
+<p id="notice">
+     <%= notice %>
+</p>
+
+<table>
+     <tr>
+          <td>组织号</td>
+          <td><%= @item.entityNr%></td>
+     </tr>
+     <tr>
+          <td>名称</td>
+          <td><%= @item.name%></td>
+     </tr>
+     <tr>
+          <td>联系人</td>
+          <td><%= @item.contactStaff%></td>
+     </tr>
+     <tr>
+          <td>父级组织</td>
+          <td><%= @item.parent%></td>
+     </tr>
+     <tr>
+          <td>组织级别</td>
+                  <td><%= get_entity_level_desc(@item.level)%></td>
+     </tr>
+     <tr>
+          <td>组织类型</td>
+          <td><%= get_entity_type_desc(@item.type)%></td>
+     </tr>
+     </tr>
+</table>
+<br />
+<%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '编辑',send("edit_#{@model}_path",@item) %>
+<%= link_to '返回', send("#{@model.pluralize}_path") %>

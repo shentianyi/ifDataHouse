@@ -12,11 +12,20 @@
 </div>
 <% end %>
 <div class="field">
-     <%@item.instance_variable_get("@attributes").each do |k,v|%>
-     <%= f.label k.to_sym%>
-     <%= f.text_field k.to_sym%>
-     <br />
-     <%end%>
+     <table>
+          <tr>
+               <td>访问号</td>
+               <td><%= @item.access_key%></td>
+          </tr>
+          <tr>
+               <td>接口映射号</td>
+               <td><%= f.text_field :mapperNr%></td>
+          </tr>
+          <tr>
+               <td>名称</td>
+               <td><%= f.text_field :name%></td>
+          </tr>
+     </table>
 </div>
 <div class="actions">
      <%= f.submit "提 交"%>

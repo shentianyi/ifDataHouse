@@ -1,0 +1,31 @@
+<p id="notice">
+     <%= notice %>
+</p>
+
+<table>
+     <tr>
+          <td>数据集</td>
+          <td><%= @item.model%></td>
+     </tr>
+     <tr>
+          <td>映射键号</td>
+          <td><%= @item.map_key%></td>
+     </tr>
+     <tr>
+          <td>映射键值</td>
+          <td><%= @item.map_field_value%></td>
+     </tr>
+     <tr>
+          <td>映射值</td>
+          <td><%= @item.map_value%></td>
+     </tr>
+     <tr>
+          <td>访问号</td>
+          <td><%= @item.access_key%></td>
+     </tr>
+
+</table>
+<br />
+<%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '编辑',send("edit_#{@model}_path",@item) %>
+<%= link_to '返回', send("#{@model.pluralize}_path") %>

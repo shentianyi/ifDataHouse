@@ -3,6 +3,10 @@ class Part
   include Mongoid::Document
   include Mongoid::Timestamps
   field :partNr
+  field :name
+  field :clientPartNr
+  field :orderNr
+  field :unitTime, type: Float
   def self.uniq
     ['partNr']
   end

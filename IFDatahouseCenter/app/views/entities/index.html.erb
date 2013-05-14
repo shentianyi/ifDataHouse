@@ -1,0 +1,31 @@
+<h1>Listing <%= @model%></h1>
+
+<table>
+     <tr>
+          <th>组织号</th>
+          <th>名称</th>
+          <th>联系人</th>
+          <th>父级组织</th>
+          <th>组织级别</th>
+          <th>组织类型</th>
+          <th>&nbsp;</th>
+     </tr>
+     <% @items.each do |item| %>
+     <tr>
+          <td><%= item.entityNr%></td>
+          <td><%= item.name%></td>
+          <td><%= item.contactStaff%></td>
+          <td><%= item.parent%></td>
+          <td><%= get_entity_level_desc(item.level)%></td>
+          <td><%= get_entity_type_desc(item.type)%></td>
+          <td><%= link_to '查看', item %>
+          <%= link_to '编辑',send("edit_#{@model}_path",item) %>
+          <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+     <% end %>
+</table>
+<br />
+
+<%= will_paginate @items%>
+<%= link_to "新建组织", send("new_#{@model}_path") %>
+<%= link_to "上传/更新组织", send("import_#{@model.pluralize}_path") %>

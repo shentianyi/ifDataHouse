@@ -2,22 +2,26 @@
 module ApplicationHelper
   def index
     @items=model.paginate(:page=>params[:page],:per_page=>20)
-    render 'share/index'
+  # render 'share/index'
   end
 
   def show
     @item= model.find(params[:id])
-    render 'share/show'
+  # render 'share/show'
   end
 
   def new
     @item=model.new
-    render 'share/new'
+  render 'share/new'
   end
 
   def edit
     @item= model.find(params[:id])
-    render 'share/edit'
+  render 'share/edit'
+  end
+
+  def import
+    render 'share/import'
   end
 
   def update
@@ -37,7 +41,7 @@ module ApplicationHelper
       files=params[:files]
       if files.count==1
         file=files[0]
-        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH)
+        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>Time.now.strftime("%Y%m%d%H%M%S")+file.original_filename)
         csv.saveFile
         hfile=File.join($UPDATAPATH,csv.pathName)
         CSV.foreach(hfile,:headers=>true,:col_sep=>$CSVSP) do |row|
@@ -59,7 +63,6 @@ module ApplicationHelper
           end
           data.delete($UPMARKER)
           if block
-            puts "**************************************"
           yield(data)
           end
           if uniquery
@@ -83,6 +86,32 @@ module ApplicationHelper
     msg.content=e.message
     end
     render :json=>msg
+  end
+
+  def create
+    m=model
+    @item = m.new(params[@model])
+    if m.respond_to?(:uniq)
+      uniquery={}
+      m.uniq.each do |u|
+        uniquery[u]=params[@model][u]
+      end
+    end
+    respond_to do |format|
+      if   item=m.find_by(uniquery)
+        @item=item
+        format.html { redirect_to @item, notice: '数据已存在,新建失败.' }
+        format.json { render json: @item, status: :created, location: @item }
+      else
+        if @item.save
+          format.html { redirect_to @item, notice: '新建成功.' }
+          format.json { render json: @item, status: :created, location: @item }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+        end
+      end
+    end
   end
 
   def destroy

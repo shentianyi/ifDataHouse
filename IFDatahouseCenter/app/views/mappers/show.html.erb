@@ -3,16 +3,23 @@
 </p>
 
 <table>
-     <%@item.instance_variable_get("@attributes").each do |k,v|%>
      <tr>
-          <td><%= k.to_s%></td>
-          <td><%= v%></td>
+          <td>访问号</td>
+          <td><%= @item.access_key%></td>
      </tr>
-     <%end%>
+     <tr>
+          <td>接口映射号</td>
+          <td><%= @item.mapperNr%></td>
+     </tr>
+     <tr>
+          <td>名称</td>
+          <td><%= @item.name%></td>
+     </tr>
+
 </table>
 <p>
-     <%= link_to 'MapperItems>',send("select_#{@model}_path",@item) %>
+     <%= link_to '查看详细 >',send("select_#{@model}_path",@item) %>
 </p>
-<%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit',send("edit_#{@model}_path",@item) %>
-<%= link_to 'Back', send("#{@model.pluralize}_path") %>
+<%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '编辑',send("edit_#{@model}_path",@item) %>
+<%= link_to '返回', send("#{@model.pluralize}_path") %>

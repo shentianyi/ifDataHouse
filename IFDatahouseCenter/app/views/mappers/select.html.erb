@@ -1,12 +1,12 @@
 <div>
-     <h2>Select Model</h2>
+     <h2>选择数据集</h2>
      <form id="model-select-form" action="<%=@action%>" method="get">
           <p>
-               select model:   <%= select_tag :m,options_for_select(@models),{:class=>'uploadfile select'}%>
+               数据集:   <%= select_tag :m,options_for_select(@models),{:class=>'uploadfile select'}%>
           </p>
      </form>
      <p>
-          <%= link_to '< Back', @item %>
-          <%= link_to 'Next >', '#',:onclick=>"$('#model-select-form').submit();"%>
+          <%= link_to '< 返回', @item %>
+          <%= link_to '下一步 >', '#',:onclick=>"$('#model-select-form').submit();"%>
      </p>
 </div>

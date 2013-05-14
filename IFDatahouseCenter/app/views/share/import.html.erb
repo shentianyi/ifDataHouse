@@ -1,0 +1,12 @@
+<script type="text/javascript">
+     $(function() {
+          data_upload("#item-data-uploader");
+     }); 
+</script>
+<h1>上传/更新数据</h1>
+<div>
+     上传数据文件：
+     <input id="item-data-uploader" type="file" name="files[]" data-url="../<%= @model.pluralize%>/updata" >
+     <div class="abstractblock" id="item-data-uploader-preview" style="display:none;"></div>
+</div>
+<%= link_to '返回', send("#{@model.pluralize}_path") %>
