@@ -26,4 +26,5 @@
 
 <%= will_paginate @items%>
 <%= link_to "新建零件", send("new_#{@model}_path") %>
-<%= link_to "上传/更新零件", send("import_#{@model.pluralize}_path") %>
+<%= link_to "上传/更新零件", send("import_#{@model.pluralize}_path") %><br />
+<%= link_to "下载", send("download_#{@model.pluralize}_path") %>

@@ -28,6 +28,7 @@ function data_upload(idStr) {
                          msg = '格式错误';
                          vali = false;
                     }
+                    show_handle_dialog();
                     $(idStr + '-preview').show().append("<span>文件：" + file.name + "</span><br/><span info>处理中....</span>");
                });
           },
@@ -44,6 +45,7 @@ function data_upload(idStr) {
                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
           },
           success : function(data) {
+                         hide_handle_dialog();
                $(idStr + '-preview > span[info]').html("处理：" + data.content);
           },
           done : function(e, data) {
@@ -61,7 +63,6 @@ function do_map(p) {
                kvs[this.id] = $("#m-" + this.id).val();
           });
      }
-     console.log(Object.keys(kvs).length);
      $.post('../mappers/domap', {
           type : p,
           data : kvs

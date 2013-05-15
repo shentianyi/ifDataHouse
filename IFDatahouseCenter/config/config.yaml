@@ -6,3 +6,4 @@ format:
  
 path:
  :updata_file_path: 'uploadfiles/data'
+ :download_file_path: 'uploadfiles/download'

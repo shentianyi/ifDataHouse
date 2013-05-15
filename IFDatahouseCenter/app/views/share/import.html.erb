@@ -10,3 +10,4 @@
      <div class="abstractblock" id="item-data-uploader-preview" style="display:none;"></div>
 </div>
 <%= link_to '返回', send("#{@model.pluralize}_path") %>
+<%= render :partial => "share/handling_msg_box", :locals => { :handlemsg => "处理中..." } %>

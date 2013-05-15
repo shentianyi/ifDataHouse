@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
   def authorize
     unless Staff.where(:id=>session[:staff_id]).exists?
-      redirect_to login_url,flash[:notice] => "请填写正确登录信息"
+      redirect_to login_path,flash[:notice] => "请填写正确登录信息"
     end
   end
 

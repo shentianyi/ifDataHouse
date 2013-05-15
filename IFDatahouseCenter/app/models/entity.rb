@@ -10,9 +10,9 @@ class Entity
   field :type, type:Integer
   field :entity_id
   # field :staff_id
-  
+
   has_many :entities,dependent: :destroy
-  belongs_to :entity 
+  belongs_to :entity
   def self.uniq
     ['entityNr']
   end
@@ -24,4 +24,8 @@ class Entity
   def map_field
     "entityNr"
   end
+
+  # def self.attr_filter
+    # ["_id","created_at","updated_at","entity_id"]
+  # end
 end

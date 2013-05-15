@@ -12,18 +12,22 @@ IFDatahouse::Application.routes.draw do
     collection do
       post :updata
       get :import
+      get :download
     end
   end
   resources :staffs do
     collection do
       post :updata
       get :import
+      get :download
+      get :search
     end
   end
   resources :entities do
     collection do
       post :updata
       get :import
+      get :download
     end
   end
 

@@ -9,21 +9,19 @@ class SessionsController < ApplicationController
     if staff = Staff.authenticate( params[:staffNr], params[:password] )
       session[:staff_id] = staff.id
       # render :json=>{ :status=>1 }
-      redirect_to index_url
+      redirect_to index_path
     else
-      redirect_to login_url
+      redirect_to login_path
     end
   end
 
   def destroy
     session[:staff_id] = nil
-    session[:org_id] = nil
-    session[:orgOpeType] = nil
-    redirect_to login_url, :notice => "已注销"
+    redirect_to login_path, :notice => "已注销"
   end
-  
+
   def index
-   render  :layout =>"application"
+    render  :layout =>"application"
   end
 
 end

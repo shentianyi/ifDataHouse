@@ -2,12 +2,10 @@
 module ApplicationHelper
   def index
     @items=model.paginate(:page=>params[:page],:per_page=>20)
-  # render 'share/index'
   end
 
   def show
     @item= model.find(params[:id])
-  # render 'share/show'
   end
 
   def new
@@ -35,7 +33,7 @@ module ApplicationHelper
     end
   end
 
-  def updata &block
+  def updata
     msg=Message.new(:content=>'')
     begin
       files=params[:files]
@@ -121,4 +119,32 @@ module ApplicationHelper
     end
   end
 
+  def download
+    file_name=SecureRandom.uuid+".csv"
+    path=File.join($DOWNLOADPATH,file_name)
+    File.open(path,'wb') do |f|
+      m=model
+      # attrs=m.fields.collect { |field| field[0] }
+      # if m.respond_to?(:attr_filter)
+      # attrs=attrs-m.attr_filter
+      # end
+      f.puts m.csv_headers.join($CSVSP)
+      m.all.each do |item|
+        line=[]
+        if block_given?
+        yield(line,item)
+        end
+        f.puts line.join($CSVSP)
+      end
+    end
+    send_file path,:type => 'application/csv', :filename =>file_name
+  end
+
+  def search
+    params[@model].each do |k,v|
+      params[@model].delete(k) if v.length==0
+    end
+    @items=model.where(params[@model]).paginate(:page=>params[:page],:per_page=>20)
+    render :index
+  end
 end

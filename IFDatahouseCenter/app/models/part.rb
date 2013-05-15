@@ -18,4 +18,8 @@ class Part
   def map_field
     'partNr'
   end
+# 
+  # def self.attr_filter
+    # ["_id","created_at","updated_at"]
+  # end
 end

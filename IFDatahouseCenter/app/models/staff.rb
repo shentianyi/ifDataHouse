@@ -6,8 +6,7 @@ class Staff
   include Mongoid::Timestamps
   field :pwd
   field :salt
-  field :password
-  field :password_confirmation
+  attr_accessor :password, :password_confirmation
   field :staffNr
   field :name
   field :email
@@ -55,4 +54,8 @@ class Staff
   def self.csv_headers
     ['StaffNr','Name','Title','Email','Contact',$UPMARKER]
   end
+  
+  # def self.attr_filter
+    # ["_id","created_at","updated_at","pwd","salt"]
+  # end
 end

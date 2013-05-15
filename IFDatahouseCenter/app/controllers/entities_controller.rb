@@ -2,25 +2,6 @@
 class EntitiesController < ApplicationController
   before_filter  :authorize
   before_filter :set_model
-  def updata
-    super {|data,query,row,row_line|
-      raise(ArgumentError,"行:#{row_line}, EnityNr/ Level/ Type 不能为空值") if row["EntityNr"].nil? or row["Level"].nil? or row["Type"].nil?
-      data["entityNr"]=row["EntityNr"]
-      data["name"]=row["Name"] if row["Name"]
-      data["level"]=row["Level"]
-      data["type"]=row["Type"]
-      if  row["Parent"] and parent=Entity.find_by(:entityNr=>row["Parent"])
-        data["entity_id"]=parent.id
-      end
-      if  row["ContactStaff"] and staff=Staff.find_by(:staffNr=>row["ContactStaff"])
-        data["contactStaff"]=row["ContactStaff"]
-      end
-      if query
-        query["entityNr"]=row["EntityNr"]
-      end
-    }
-  end
-
   def new
     get_select
     super
@@ -47,6 +28,36 @@ class EntitiesController < ApplicationController
       end
     end
   end
+  
+    def updata
+    super {|data,query,row,row_line|
+      raise(ArgumentError,"行:#{row_line}, EnityNr/ Level/ Type 不能为空值") if row["EntityNr"].nil? or row["Level"].nil? or row["Type"].nil?
+      data["entityNr"]=row["EntityNr"]
+      data["name"]=row["Name"] if row["Name"]
+      data["level"]=row["Level"]
+      data["type"]=row["Type"]
+      if  row["Parent"] and parent=Entity.find_by(:entityNr=>row["Parent"])
+        data["entity_id"]=parent.id
+      end
+      if  row["ContactStaff"] and staff=Staff.find_by(:staffNr=>row["ContactStaff"])
+        data["contactStaff"]=row["ContactStaff"]
+      end
+      if query
+        query["entityNr"]=row["EntityNr"]
+      end
+    }
+  end
+
+def download
+  super{|line,item|
+   line<<item.entityNr
+   line<<item.name  
+   line<<item.contactStaff
+   line<<(item.entity.nil? ? '':item.entity.entityNr)
+   line<<item.level
+   line<<item.type
+  }
+end
 
   private
 
