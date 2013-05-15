@@ -5,16 +5,20 @@ class Entity
   field :entityNr
   field :name
   field :contactStaff
-  field :parent
+  # field :parent
   field :level, type:Integer
   field :type, type:Integer
+  field :entity_id
+  # field :staff_id
   
+  has_many :entities,dependent: :destroy
+  belongs_to :entity 
   def self.uniq
     ['entityNr']
   end
 
-  def self.notNil
-    uniq+['parent','contactStaff','level','type',$UPMARKER]
+  def self.csv_headers
+    ['EntityNr','Name','ContactStaff','Parent','Level','Type',$UPMARKER]
   end
 
   def map_field

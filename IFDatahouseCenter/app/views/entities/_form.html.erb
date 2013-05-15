@@ -27,7 +27,7 @@
           </tr>
           <tr>
                <td>父级组织</td>
-               <td><%= f.text_field :parent%></td>
+               <td><%= f.text_field :entity,{:value=> @item.entity.nil? ? nil :@item.entity.entityNr}%></td>
           </tr>
           <tr>
                <td>组织级别</td>

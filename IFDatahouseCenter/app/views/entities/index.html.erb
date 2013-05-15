@@ -15,7 +15,7 @@
           <td><%= item.entityNr%></td>
           <td><%= item.name%></td>
           <td><%= item.contactStaff%></td>
-          <td><%= item.parent%></td>
+          <td><%= item.entity.entityNr if item.entity%></td>
           <td><%= get_entity_level_desc(item.level)%></td>
           <td><%= get_entity_type_desc(item.type)%></td>
           <td><%= link_to '查看', item %>

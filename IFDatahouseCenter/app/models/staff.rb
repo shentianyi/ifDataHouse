@@ -13,7 +13,6 @@ class Staff
   field :email
   field :contact
   field :title
-  
   def password
     @password
   end
@@ -53,7 +52,7 @@ class Staff
     ['staffNr']
   end
 
-  def self.notNil
-    uniq+[$UPMARKER]
+  def self.csv_headers
+    ['StaffNr','Name','Title','Email','Contact',$UPMARKER]
   end
 end

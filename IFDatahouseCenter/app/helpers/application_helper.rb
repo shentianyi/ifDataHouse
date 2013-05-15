@@ -12,12 +12,12 @@ module ApplicationHelper
 
   def new
     @item=model.new
-  render 'share/new'
+    render 'share/new'
   end
 
   def edit
     @item= model.find(params[:id])
-  render 'share/edit'
+    render 'share/edit'
   end
 
   def import
@@ -41,32 +41,29 @@ module ApplicationHelper
       files=params[:files]
       if files.count==1
         file=files[0]
-        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>Time.now.strftime("%Y%m%d%H%M%S")+file.original_filename)
+        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>SecureRandom.uuid+file.original_filename)
         csv.saveFile
         hfile=File.join($UPDATAPATH,csv.pathName)
+        row_line=0
         CSV.foreach(hfile,:headers=>true,:col_sep=>$CSVSP) do |row|
+          row_line+=1
           m=model
           uniquery=nil
-          if m.respond_to?(:notNil)
-            rheader=m.notNil-row.headers
+          if m.respond_to?(:csv_headers)
+            rheader=m.csv_headers-row.headers
             raise( ArgumentError, "#{rheader}为必需包含列！" )  unless rheader.empty?
           end
-          if m.respond_to?(:uniq)
-            uniquery={}
-            m.uniq.each do |u|
-              uniquery[u]=row[u]
-            end
-          end
           data={}
-          row.each do |k,v|
-            data[k]=v
+          query=nil
+          if block_given?
+            if m.respond_to?(:uniq)
+              query={}
+            end
+          yield(data,query,row,row_line)
           end
           data.delete($UPMARKER)
-          if block
-          yield(data)
-          end
-          if uniquery
-            if item=m.find_by(uniquery)
+          if query
+            if item=m.find_by(query)
               if row[$UPMARKER].to_i==1
               item.update_attributes(data)
               end
@@ -78,7 +75,7 @@ module ApplicationHelper
           end
         end
         msg.result=true
-        msg.content="导入数据成功"
+        msg.content="新建/更新成功！"
       else
         msg.content='未选择文件或只能上传一个文件'
       end
@@ -92,13 +89,13 @@ module ApplicationHelper
     m=model
     @item = m.new(params[@model])
     if m.respond_to?(:uniq)
-      uniquery={}
+      query={}
       m.uniq.each do |u|
-        uniquery[u]=params[@model][u]
+        query[u]=params[@model][u]
       end
     end
     respond_to do |format|
-      if   item=m.find_by(uniquery)
+      if   item=m.find_by(query)
         @item=item
         format.html { redirect_to @item, notice: '数据已存在,新建失败.' }
         format.json { render json: @item, status: :created, location: @item }

@@ -11,8 +11,8 @@ class Part
     ['partNr']
   end
 
-  def self.notNil
-    uniq+['unitTime',$UPMARKER]
+  def self.csv_headers
+    ['PartNr','Name','ClientPartNr','OrderNr','UnitTime',$UPMARKER]
   end
 
   def map_field
