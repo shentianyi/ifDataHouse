@@ -69,7 +69,6 @@ module ApplicationHelper
     end
   end
 
-
   def search
     params[@model].each do |k,v|
       params[@model].delete(k) if v.length==0

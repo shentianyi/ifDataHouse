@@ -48,7 +48,7 @@ class EntitiesController < ApplicationController
     }
   end
 
-  def download 
+  def download
     super &BlockHelper.get_entity_down_block
   end
 
