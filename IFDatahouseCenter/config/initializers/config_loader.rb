@@ -8,5 +8,7 @@ $UPMARKER=format_config[:update_marker]
 #load path
 path_config=config['path']
 $UPDATAPATH=path_config[:updata_file_path]
-$DOWNLOADPATH=path_config[:download_file_path] 
+$DOWNLOADPATH=path_config[:download_file_path]
+
+$AKEY='h-esV6wUMFgRotSc5WpjXQ'
 

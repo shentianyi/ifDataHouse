@@ -17,12 +17,6 @@ class StaffsController < ApplicationController
   end
 
   def download
-    super{|line,item|
-      line<<item.staffNr
-      line<<item.name
-      line<<item.title
-      line<<item.email
-      line<<item.contact
-    }
+    super &BlockHelper.get_staff_down_block
   end
 end

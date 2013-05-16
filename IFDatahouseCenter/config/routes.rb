@@ -45,4 +45,12 @@ IFDatahouse::Application.routes.draw do
   end
 
   resources :mapper_items
+
+  namespace :api,defaults:{format:'json'} do
+    controller :file do
+      match 'file/part'=>:part
+      match 'file/staff'=>:staff
+      match 'file/entity'=>:entity
+    end
+  end
 end

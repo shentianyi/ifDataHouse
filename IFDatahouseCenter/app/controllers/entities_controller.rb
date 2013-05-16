@@ -28,8 +28,8 @@ class EntitiesController < ApplicationController
       end
     end
   end
-  
-    def updata
+
+  def updata
     super {|data,query,row,row_line|
       raise(ArgumentError,"行:#{row_line}, EnityNr/ Level/ Type 不能为空值") if row["EntityNr"].nil? or row["Level"].nil? or row["Type"].nil?
       data["entityNr"]=row["EntityNr"]
@@ -48,16 +48,9 @@ class EntitiesController < ApplicationController
     }
   end
 
-def download
-  super{|line,item|
-   line<<item.entityNr
-   line<<item.name  
-   line<<item.contactStaff
-   line<<(item.entity.nil? ? '':item.entity.entityNr)
-   line<<item.level
-   line<<item.type
-  }
-end
+  def download 
+    super &BlockHelper.get_entity_down_block
+  end
 
   private
 

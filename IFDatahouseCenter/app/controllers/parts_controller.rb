@@ -17,12 +17,6 @@ class PartsController < ApplicationController
   end
 
   def download
-    super{|line,item|
-      line<<item.partNr
-      line<<item.name
-      line<<item.clientPartNr
-      line<<item.orderNr
-      line<<item.unitTime
-    }
+    super &BlockHelper.get_part_down_block
   end
 end

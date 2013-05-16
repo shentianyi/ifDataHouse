@@ -4,6 +4,7 @@ require 'csv'
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include ApplicationHelper
+  include FileHelper
   protected
   def authorize
     unless Staff.where(:id=>session[:staff_id]).exists?
