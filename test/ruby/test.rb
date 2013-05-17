@@ -14,7 +14,7 @@ Dir['data/*.rb','service/*'].each do |f|
   require_relative f
 end
 
-$access_key="p1kCk5ZoxOVs0NUTqEQE_Q"
+$access_key="uv_p5iJBfuLjRoPHQq9ezQ"
 class Test
   def initialize
     @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9001'))
@@ -95,7 +95,7 @@ class Test
         sleep(1)
         if type==1
           partNr=@parts[rand(@parts.count)].partNr
-          @client.addProductPack($access_key,{"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partId"=>partNr})
+          #@client.addProductPack($access_key,{"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partId"=>partNr})
           puts "***PACK:entity:#{entity.entityId}-#{index}:productNr:#{value}-:partNr#{partNr}"
         end
       end

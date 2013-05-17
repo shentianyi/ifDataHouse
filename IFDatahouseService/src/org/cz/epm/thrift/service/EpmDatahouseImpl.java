@@ -56,18 +56,25 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void addProductInspect(String accessKey, Map<String, String> dataMap)
 			throws TException {
-		Mapper mapper = new Mapper(accessKey);
-		dataMap.put("entityId",
-				mapper.GetMapKey("entity", dataMap.get("entityId")));
+		try {
+			Mapper mapper = new Mapper(accessKey);
+			String workstationId = mapper.GetMapKey("entity",
+					dataMap.get("entityId"));
+			Map entity = EpmDataBase.GetEntity(workstationId, "entity_id");
+			dataMap.put("entityId", entity.get("entity_id").toString());
 
-		if (EpmDataBase.AddProductInspectRecord(dataMap)) {
-			EpmDataBase.AddProductInspectTimeCache(dataMap.get("entityId"),
-					Long.parseLong(dataMap.get("inspectTime")),
-					dataMap.get("productNr"));
-			EpmDataBase.AddProductOriOutputCache(dataMap.get("entityId"),
-					Long.parseLong(dataMap.get("inspectTime")),
-					dataMap.get("productNr"));
-			setProductInspectState(accessKey, dataMap);
+			if (EpmDataBase.AddProductInspectRecord(dataMap)) {
+				EpmDataBase.AddProductInspectTimeCache(dataMap.get("entityId"),
+						Long.parseLong(dataMap.get("inspectTime")),
+						dataMap.get("productNr"));
+				EpmDataBase.AddProductOriOutputCache(dataMap.get("entityId"),
+						Long.parseLong(dataMap.get("inspectTime")),
+						dataMap.get("productNr"));
+				setProductInspectState(accessKey, dataMap);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
 	}
 
@@ -149,11 +156,19 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			Set<String> entityIds, long startTime, long endTime)
 			throws TException {
 		Map<String, String> keyV = this.getMapEntityIds(accessKey, entityIds);
-
 		return convertMapValue(
 				keyV,
 				EpmDataBase.GetProductOutputCount(
 						new HashSet<String>(keyV.values()), startTime, endTime));
+	}
+
+	@Override
+	public long getProductOutputNumsByPartId(String accessKey, String entityId,
+			String partId, String startTime, String endTime) throws TException {
+		Mapper mapper = new Mapper(accessKey);
+		entityId = mapper.GetMapKey("entity", entityId);
+		partId = mapper.GetMapKey("part", partId);
+		return EpmDataBase.CountProduct(entityId, partId, startTime, endTime);
 	}
 
 	@Override

@@ -27,6 +27,11 @@ public class DatahouseBase {
 			String... fields) {
 		return getDatas(Conf.getMpartcoll(), key, ins, fields);
 	}
+	
+	// get entity
+	public static Map GetEntity(Map keyValue,String...fields){
+		return getData(Conf.getMentitycoll(),keyValue,fields);
+	}
 
 	// ************ attendance methods
 	// add attendance
@@ -70,6 +75,10 @@ public class DatahouseBase {
 			String... fields) {
 		return getDatas(Conf.getMproductcoll(), key, ins, fields);
 	}
+	// count products
+	public static long CountProducts(Map keyValue,String scopeKey,String start,String end){
+		return count(Conf.getMproductcoll(),keyValue,scopeKey,start,end);
+	}
 
 	public static List<Map> GetProducts(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
@@ -93,7 +102,8 @@ public class DatahouseBase {
 	public static boolean AddOperatingStates(Map<String, String> dataMap) {
 		return insertData(Conf.getMoperatingstatecoll(), dataMap);
 	}
-
+	// ************ target methods
+	// add target
 	public static boolean AddTarget(Map<String, String> dataMap) {
 		return insertData(Conf.getMtarget(), dataMap);
 	}
@@ -190,7 +200,7 @@ public class DatahouseBase {
 			BasicDBObject query = new BasicDBObject();
 			for (Entry entry : keyValue.entrySet()) {
 				query.append(entry.getKey().toString(),
-						entry.equals("_id") ? new ObjectId(entry.getValue()
+						entry.getKey().toString().equals("_id") ? new ObjectId(entry.getValue()
 								.toString()) : entry.getValue());
 			}
 			if (start == null) {
@@ -219,7 +229,7 @@ public class DatahouseBase {
 			BasicDBObject query = new BasicDBObject();
 			for (Entry entry : keyValue.entrySet()) {
 				query.append(entry.getKey().toString(),
-						entry.equals("_id") ? new ObjectId(entry.getValue()
+						entry.getKey().toString().equals("_id") ? new ObjectId(entry.getValue()
 								.toString()) : entry.getValue());
 			}
 			if (start == null) {
@@ -246,10 +256,9 @@ public class DatahouseBase {
 		BasicDBObject query = new BasicDBObject();
 		for (Entry entry : keyValue.entrySet()) {
 			query.append(entry.getKey().toString(),
-					entry.equals("_id") ? new ObjectId(entry.getValue()
+					entry.getKey().toString().equals("_id") ? new ObjectId(entry.getValue()
 							.toString()) : entry.getValue());
 		}
-		// System.out.println(query.toString());
 		return MongoManager.FineOne(collName, query, generateField(fields));
 	}
 
@@ -259,7 +268,7 @@ public class DatahouseBase {
 			BasicDBObject query = new BasicDBObject();
 			for (Entry entry : keyValue.entrySet()) {
 				query.append(entry.getKey().toString(),
-						entry.equals("_id") ? new ObjectId(entry.getValue()
+						entry.getKey().toString().equals("_id") ? new ObjectId(entry.getValue()
 								.toString()) : entry.getValue());
 			}
 			if (start == null) {
@@ -278,7 +287,29 @@ public class DatahouseBase {
 		}
 		return null;
 	}
-
+private static long count(String collName,Map<?,?> keyValue,String scopeKey,String start,String end){
+	try{
+		BasicDBObject query = new BasicDBObject();
+		for (Entry entry : keyValue.entrySet()) {
+			query.append(entry.getKey().toString(),
+					entry.getKey().toString().equals("_id") ? new ObjectId(entry.getValue()
+							.toString()) : entry.getValue());
+		}
+		if (start == null) {
+			if (end != null)
+				query.put(scopeKey, new BasicDBObject("$gte", end));
+		} else if (end == null) {
+			query.put(scopeKey, new BasicDBObject("$lte", start));
+		} else {
+			query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
+					.add("$lte", end).get());
+		}
+		return MongoManager.Count(collName, query);
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	return 0;
+}
 	// generate query filed
 	private static BasicDBObject generateField(String... fields) {
 		if (fields.length > 0) {

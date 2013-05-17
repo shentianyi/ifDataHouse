@@ -49,14 +49,27 @@ public class EpmDataBase {
 				startTime == null ? null : Long.toString(startTime),
 				endTime == null ? null : Long.toString(endTime), fields);
 	}
+	
+	public static Map GetEntity(String entityId,String...fields){
+		Map query = new HashMap();
+		query.put("_id", entityId);
+		return DatahouseBase.GetEntity(query, fields);
+	}
 
 	// add entity attendance staff locus
 	public static String AddStaffAttendanceLocus(String entityId, String staffId) {
 		return EpmDataCacher.SetAttendStaffLocus(entityId, staffId);
 	}
-
+	
 	public static boolean AddProduct(Map<String, String> dataMap) {
 		return DatahouseBase.AddProduct(dataMap);
+	}
+	
+	public static long CountProduct(String entityId,String partId,String start,String end){
+		Map query = new HashMap();
+		query.put("partId", partId);
+		query.put("entityId", entityId);
+		return DatahouseBase.CountProducts(query, "packTime", start, end);
 	}
 
 	public static boolean AddProductPack(Map<String, String> dataMap) {
@@ -77,8 +90,6 @@ public class EpmDataBase {
 	}
 
 	public static Map GetPlanTarget(Map<String, String> query) {
-//		Map<String, String> result = DatahouseBase.GetTarget(query);
-//		return converMapToString(result);
 		return DatahouseBase.GetTarget(query);
 	}
 

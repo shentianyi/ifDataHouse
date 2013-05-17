@@ -156,6 +156,17 @@ service Datahouse{
       4:Timestamp endTime
      )
      
+     /**
+       * get product number by partId,entityId
+       */
+      i64 getProductOutputNumsByPartId(
+      1:string accessKey,
+      2:string entityId,
+      3:string partId,
+      4:string startTime,
+      5:string endTime
+      )
+     
     /**
       * get entity workers on job time
       */

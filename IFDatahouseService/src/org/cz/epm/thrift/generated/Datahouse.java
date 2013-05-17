@@ -143,6 +143,17 @@ public class Datahouse {
     public Map<String,Long> getProductOutputNums(String accessKey, Set<String> entityIds, long startTime, long endTime) throws org.apache.thrift.TException;
 
     /**
+     * get product number by partId,entityId
+     * 
+     * @param accessKey
+     * @param entityId
+     * @param partId
+     * @param startTime
+     * @param endTime
+     */
+    public long getProductOutputNumsByPartId(String accessKey, String entityId, String partId, String startTime, String endTime) throws org.apache.thrift.TException;
+
+    /**
      * get entity workers on job time
      * 
      * @param accessKey
@@ -189,6 +200,8 @@ public class Datahouse {
     public void getFailProductInspectNums(String accessKey, Set<String> entityIds, long startTime, long endTime, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.getFailProductInspectNums_call> resultHandler) throws org.apache.thrift.TException;
 
     public void getProductOutputNums(String accessKey, Set<String> entityIds, long startTime, long endTime, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.getProductOutputNums_call> resultHandler) throws org.apache.thrift.TException;
+
+    public void getProductOutputNumsByPartId(String accessKey, String entityId, String partId, String startTime, String endTime, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.getProductOutputNumsByPartId_call> resultHandler) throws org.apache.thrift.TException;
 
     public void getOnJobTotalTimes(String accessKey, Set<String> entityIds, long startTime, long endTime, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.getOnJobTotalTimes_call> resultHandler) throws org.apache.thrift.TException;
 
@@ -492,6 +505,33 @@ public class Datahouse {
         return result.success;
       }
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getProductOutputNums failed: unknown result");
+    }
+
+    public long getProductOutputNumsByPartId(String accessKey, String entityId, String partId, String startTime, String endTime) throws org.apache.thrift.TException
+    {
+      send_getProductOutputNumsByPartId(accessKey, entityId, partId, startTime, endTime);
+      return recv_getProductOutputNumsByPartId();
+    }
+
+    public void send_getProductOutputNumsByPartId(String accessKey, String entityId, String partId, String startTime, String endTime) throws org.apache.thrift.TException
+    {
+      getProductOutputNumsByPartId_args args = new getProductOutputNumsByPartId_args();
+      args.setAccessKey(accessKey);
+      args.setEntityId(entityId);
+      args.setPartId(partId);
+      args.setStartTime(startTime);
+      args.setEndTime(endTime);
+      sendBase("getProductOutputNumsByPartId", args);
+    }
+
+    public long recv_getProductOutputNumsByPartId() throws org.apache.thrift.TException
+    {
+      getProductOutputNumsByPartId_result result = new getProductOutputNumsByPartId_result();
+      receiveBase(result, "getProductOutputNumsByPartId");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getProductOutputNumsByPartId failed: unknown result");
     }
 
     public Map<String,Long> getOnJobTotalTimes(String accessKey, Set<String> entityIds, long startTime, long endTime) throws org.apache.thrift.TException
@@ -1008,6 +1048,50 @@ public class Datahouse {
       }
     }
 
+    public void getProductOutputNumsByPartId(String accessKey, String entityId, String partId, String startTime, String endTime, org.apache.thrift.async.AsyncMethodCallback<getProductOutputNumsByPartId_call> resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      getProductOutputNumsByPartId_call method_call = new getProductOutputNumsByPartId_call(accessKey, entityId, partId, startTime, endTime, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class getProductOutputNumsByPartId_call extends org.apache.thrift.async.TAsyncMethodCall {
+      private String accessKey;
+      private String entityId;
+      private String partId;
+      private String startTime;
+      private String endTime;
+      public getProductOutputNumsByPartId_call(String accessKey, String entityId, String partId, String startTime, String endTime, org.apache.thrift.async.AsyncMethodCallback<getProductOutputNumsByPartId_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.accessKey = accessKey;
+        this.entityId = entityId;
+        this.partId = partId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getProductOutputNumsByPartId", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        getProductOutputNumsByPartId_args args = new getProductOutputNumsByPartId_args();
+        args.setAccessKey(accessKey);
+        args.setEntityId(entityId);
+        args.setPartId(partId);
+        args.setStartTime(startTime);
+        args.setEndTime(endTime);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public long getResult() throws org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_getProductOutputNumsByPartId();
+      }
+    }
+
     public void getOnJobTotalTimes(String accessKey, Set<String> entityIds, long startTime, long endTime, org.apache.thrift.async.AsyncMethodCallback<getOnJobTotalTimes_call> resultHandler) throws org.apache.thrift.TException {
       checkReady();
       getOnJobTotalTimes_call method_call = new getOnJobTotalTimes_call(accessKey, entityIds, startTime, endTime, resultHandler, this, ___protocolFactory, ___transport);
@@ -1115,6 +1199,7 @@ public class Datahouse {
       processMap.put("getFTRProductNums", new getFTRProductNums());
       processMap.put("getFailProductInspectNums", new getFailProductInspectNums());
       processMap.put("getProductOutputNums", new getProductOutputNums());
+      processMap.put("getProductOutputNumsByPartId", new getProductOutputNumsByPartId());
       processMap.put("getOnJobTotalTimes", new getOnJobTotalTimes());
       processMap.put("getProductOutputNumAndTime", new getProductOutputNumAndTime());
       return processMap;
@@ -1356,6 +1441,27 @@ public class Datahouse {
       public getProductOutputNums_result getResult(I iface, getProductOutputNums_args args) throws org.apache.thrift.TException {
         getProductOutputNums_result result = new getProductOutputNums_result();
         result.success = iface.getProductOutputNums(args.accessKey, args.entityIds, args.startTime, args.endTime);
+        return result;
+      }
+    }
+
+    public static class getProductOutputNumsByPartId<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getProductOutputNumsByPartId_args> {
+      public getProductOutputNumsByPartId() {
+        super("getProductOutputNumsByPartId");
+      }
+
+      public getProductOutputNumsByPartId_args getEmptyArgsInstance() {
+        return new getProductOutputNumsByPartId_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public getProductOutputNumsByPartId_result getResult(I iface, getProductOutputNumsByPartId_args args) throws org.apache.thrift.TException {
+        getProductOutputNumsByPartId_result result = new getProductOutputNumsByPartId_result();
+        result.success = iface.getProductOutputNumsByPartId(args.accessKey, args.entityId, args.partId, args.startTime, args.endTime);
+        result.setSuccessIsSet(true);
         return result;
       }
     }
@@ -12290,6 +12396,1114 @@ public class Datahouse {
               struct.success.put(_key168, _val169);
             }
           }
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getProductOutputNumsByPartId_args implements org.apache.thrift.TBase<getProductOutputNumsByPartId_args, getProductOutputNumsByPartId_args._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getProductOutputNumsByPartId_args");
+
+    private static final org.apache.thrift.protocol.TField ACCESS_KEY_FIELD_DESC = new org.apache.thrift.protocol.TField("accessKey", org.apache.thrift.protocol.TType.STRING, (short)1);
+    private static final org.apache.thrift.protocol.TField ENTITY_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("entityId", org.apache.thrift.protocol.TType.STRING, (short)2);
+    private static final org.apache.thrift.protocol.TField PART_ID_FIELD_DESC = new org.apache.thrift.protocol.TField("partId", org.apache.thrift.protocol.TType.STRING, (short)3);
+    private static final org.apache.thrift.protocol.TField START_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField("startTime", org.apache.thrift.protocol.TType.STRING, (short)4);
+    private static final org.apache.thrift.protocol.TField END_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField("endTime", org.apache.thrift.protocol.TType.STRING, (short)5);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getProductOutputNumsByPartId_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getProductOutputNumsByPartId_argsTupleSchemeFactory());
+    }
+
+    public String accessKey; // required
+    public String entityId; // required
+    public String partId; // required
+    public String startTime; // required
+    public String endTime; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      ACCESS_KEY((short)1, "accessKey"),
+      ENTITY_ID((short)2, "entityId"),
+      PART_ID((short)3, "partId"),
+      START_TIME((short)4, "startTime"),
+      END_TIME((short)5, "endTime");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // ACCESS_KEY
+            return ACCESS_KEY;
+          case 2: // ENTITY_ID
+            return ENTITY_ID;
+          case 3: // PART_ID
+            return PART_ID;
+          case 4: // START_TIME
+            return START_TIME;
+          case 5: // END_TIME
+            return END_TIME;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.ACCESS_KEY, new org.apache.thrift.meta_data.FieldMetaData("accessKey", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.ENTITY_ID, new org.apache.thrift.meta_data.FieldMetaData("entityId", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.PART_ID, new org.apache.thrift.meta_data.FieldMetaData("partId", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.START_TIME, new org.apache.thrift.meta_data.FieldMetaData("startTime", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.END_TIME, new org.apache.thrift.meta_data.FieldMetaData("endTime", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getProductOutputNumsByPartId_args.class, metaDataMap);
+    }
+
+    public getProductOutputNumsByPartId_args() {
+    }
+
+    public getProductOutputNumsByPartId_args(
+      String accessKey,
+      String entityId,
+      String partId,
+      String startTime,
+      String endTime)
+    {
+      this();
+      this.accessKey = accessKey;
+      this.entityId = entityId;
+      this.partId = partId;
+      this.startTime = startTime;
+      this.endTime = endTime;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getProductOutputNumsByPartId_args(getProductOutputNumsByPartId_args other) {
+      if (other.isSetAccessKey()) {
+        this.accessKey = other.accessKey;
+      }
+      if (other.isSetEntityId()) {
+        this.entityId = other.entityId;
+      }
+      if (other.isSetPartId()) {
+        this.partId = other.partId;
+      }
+      if (other.isSetStartTime()) {
+        this.startTime = other.startTime;
+      }
+      if (other.isSetEndTime()) {
+        this.endTime = other.endTime;
+      }
+    }
+
+    public getProductOutputNumsByPartId_args deepCopy() {
+      return new getProductOutputNumsByPartId_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.accessKey = null;
+      this.entityId = null;
+      this.partId = null;
+      this.startTime = null;
+      this.endTime = null;
+    }
+
+    public String getAccessKey() {
+      return this.accessKey;
+    }
+
+    public getProductOutputNumsByPartId_args setAccessKey(String accessKey) {
+      this.accessKey = accessKey;
+      return this;
+    }
+
+    public void unsetAccessKey() {
+      this.accessKey = null;
+    }
+
+    /** Returns true if field accessKey is set (has been assigned a value) and false otherwise */
+    public boolean isSetAccessKey() {
+      return this.accessKey != null;
+    }
+
+    public void setAccessKeyIsSet(boolean value) {
+      if (!value) {
+        this.accessKey = null;
+      }
+    }
+
+    public String getEntityId() {
+      return this.entityId;
+    }
+
+    public getProductOutputNumsByPartId_args setEntityId(String entityId) {
+      this.entityId = entityId;
+      return this;
+    }
+
+    public void unsetEntityId() {
+      this.entityId = null;
+    }
+
+    /** Returns true if field entityId is set (has been assigned a value) and false otherwise */
+    public boolean isSetEntityId() {
+      return this.entityId != null;
+    }
+
+    public void setEntityIdIsSet(boolean value) {
+      if (!value) {
+        this.entityId = null;
+      }
+    }
+
+    public String getPartId() {
+      return this.partId;
+    }
+
+    public getProductOutputNumsByPartId_args setPartId(String partId) {
+      this.partId = partId;
+      return this;
+    }
+
+    public void unsetPartId() {
+      this.partId = null;
+    }
+
+    /** Returns true if field partId is set (has been assigned a value) and false otherwise */
+    public boolean isSetPartId() {
+      return this.partId != null;
+    }
+
+    public void setPartIdIsSet(boolean value) {
+      if (!value) {
+        this.partId = null;
+      }
+    }
+
+    public String getStartTime() {
+      return this.startTime;
+    }
+
+    public getProductOutputNumsByPartId_args setStartTime(String startTime) {
+      this.startTime = startTime;
+      return this;
+    }
+
+    public void unsetStartTime() {
+      this.startTime = null;
+    }
+
+    /** Returns true if field startTime is set (has been assigned a value) and false otherwise */
+    public boolean isSetStartTime() {
+      return this.startTime != null;
+    }
+
+    public void setStartTimeIsSet(boolean value) {
+      if (!value) {
+        this.startTime = null;
+      }
+    }
+
+    public String getEndTime() {
+      return this.endTime;
+    }
+
+    public getProductOutputNumsByPartId_args setEndTime(String endTime) {
+      this.endTime = endTime;
+      return this;
+    }
+
+    public void unsetEndTime() {
+      this.endTime = null;
+    }
+
+    /** Returns true if field endTime is set (has been assigned a value) and false otherwise */
+    public boolean isSetEndTime() {
+      return this.endTime != null;
+    }
+
+    public void setEndTimeIsSet(boolean value) {
+      if (!value) {
+        this.endTime = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case ACCESS_KEY:
+        if (value == null) {
+          unsetAccessKey();
+        } else {
+          setAccessKey((String)value);
+        }
+        break;
+
+      case ENTITY_ID:
+        if (value == null) {
+          unsetEntityId();
+        } else {
+          setEntityId((String)value);
+        }
+        break;
+
+      case PART_ID:
+        if (value == null) {
+          unsetPartId();
+        } else {
+          setPartId((String)value);
+        }
+        break;
+
+      case START_TIME:
+        if (value == null) {
+          unsetStartTime();
+        } else {
+          setStartTime((String)value);
+        }
+        break;
+
+      case END_TIME:
+        if (value == null) {
+          unsetEndTime();
+        } else {
+          setEndTime((String)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case ACCESS_KEY:
+        return getAccessKey();
+
+      case ENTITY_ID:
+        return getEntityId();
+
+      case PART_ID:
+        return getPartId();
+
+      case START_TIME:
+        return getStartTime();
+
+      case END_TIME:
+        return getEndTime();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case ACCESS_KEY:
+        return isSetAccessKey();
+      case ENTITY_ID:
+        return isSetEntityId();
+      case PART_ID:
+        return isSetPartId();
+      case START_TIME:
+        return isSetStartTime();
+      case END_TIME:
+        return isSetEndTime();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getProductOutputNumsByPartId_args)
+        return this.equals((getProductOutputNumsByPartId_args)that);
+      return false;
+    }
+
+    public boolean equals(getProductOutputNumsByPartId_args that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_accessKey = true && this.isSetAccessKey();
+      boolean that_present_accessKey = true && that.isSetAccessKey();
+      if (this_present_accessKey || that_present_accessKey) {
+        if (!(this_present_accessKey && that_present_accessKey))
+          return false;
+        if (!this.accessKey.equals(that.accessKey))
+          return false;
+      }
+
+      boolean this_present_entityId = true && this.isSetEntityId();
+      boolean that_present_entityId = true && that.isSetEntityId();
+      if (this_present_entityId || that_present_entityId) {
+        if (!(this_present_entityId && that_present_entityId))
+          return false;
+        if (!this.entityId.equals(that.entityId))
+          return false;
+      }
+
+      boolean this_present_partId = true && this.isSetPartId();
+      boolean that_present_partId = true && that.isSetPartId();
+      if (this_present_partId || that_present_partId) {
+        if (!(this_present_partId && that_present_partId))
+          return false;
+        if (!this.partId.equals(that.partId))
+          return false;
+      }
+
+      boolean this_present_startTime = true && this.isSetStartTime();
+      boolean that_present_startTime = true && that.isSetStartTime();
+      if (this_present_startTime || that_present_startTime) {
+        if (!(this_present_startTime && that_present_startTime))
+          return false;
+        if (!this.startTime.equals(that.startTime))
+          return false;
+      }
+
+      boolean this_present_endTime = true && this.isSetEndTime();
+      boolean that_present_endTime = true && that.isSetEndTime();
+      if (this_present_endTime || that_present_endTime) {
+        if (!(this_present_endTime && that_present_endTime))
+          return false;
+        if (!this.endTime.equals(that.endTime))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      return 0;
+    }
+
+    public int compareTo(getProductOutputNumsByPartId_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+      getProductOutputNumsByPartId_args typedOther = (getProductOutputNumsByPartId_args)other;
+
+      lastComparison = Boolean.valueOf(isSetAccessKey()).compareTo(typedOther.isSetAccessKey());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetAccessKey()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.accessKey, typedOther.accessKey);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      lastComparison = Boolean.valueOf(isSetEntityId()).compareTo(typedOther.isSetEntityId());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetEntityId()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.entityId, typedOther.entityId);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      lastComparison = Boolean.valueOf(isSetPartId()).compareTo(typedOther.isSetPartId());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetPartId()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.partId, typedOther.partId);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      lastComparison = Boolean.valueOf(isSetStartTime()).compareTo(typedOther.isSetStartTime());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetStartTime()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.startTime, typedOther.startTime);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      lastComparison = Boolean.valueOf(isSetEndTime()).compareTo(typedOther.isSetEndTime());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetEndTime()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.endTime, typedOther.endTime);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getProductOutputNumsByPartId_args(");
+      boolean first = true;
+
+      sb.append("accessKey:");
+      if (this.accessKey == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.accessKey);
+      }
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("entityId:");
+      if (this.entityId == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.entityId);
+      }
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("partId:");
+      if (this.partId == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.partId);
+      }
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("startTime:");
+      if (this.startTime == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.startTime);
+      }
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("endTime:");
+      if (this.endTime == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.endTime);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getProductOutputNumsByPartId_argsStandardSchemeFactory implements SchemeFactory {
+      public getProductOutputNumsByPartId_argsStandardScheme getScheme() {
+        return new getProductOutputNumsByPartId_argsStandardScheme();
+      }
+    }
+
+    private static class getProductOutputNumsByPartId_argsStandardScheme extends StandardScheme<getProductOutputNumsByPartId_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getProductOutputNumsByPartId_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // ACCESS_KEY
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.accessKey = iprot.readString();
+                struct.setAccessKeyIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 2: // ENTITY_ID
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.entityId = iprot.readString();
+                struct.setEntityIdIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 3: // PART_ID
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.partId = iprot.readString();
+                struct.setPartIdIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 4: // START_TIME
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.startTime = iprot.readString();
+                struct.setStartTimeIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 5: // END_TIME
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.endTime = iprot.readString();
+                struct.setEndTimeIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getProductOutputNumsByPartId_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.accessKey != null) {
+          oprot.writeFieldBegin(ACCESS_KEY_FIELD_DESC);
+          oprot.writeString(struct.accessKey);
+          oprot.writeFieldEnd();
+        }
+        if (struct.entityId != null) {
+          oprot.writeFieldBegin(ENTITY_ID_FIELD_DESC);
+          oprot.writeString(struct.entityId);
+          oprot.writeFieldEnd();
+        }
+        if (struct.partId != null) {
+          oprot.writeFieldBegin(PART_ID_FIELD_DESC);
+          oprot.writeString(struct.partId);
+          oprot.writeFieldEnd();
+        }
+        if (struct.startTime != null) {
+          oprot.writeFieldBegin(START_TIME_FIELD_DESC);
+          oprot.writeString(struct.startTime);
+          oprot.writeFieldEnd();
+        }
+        if (struct.endTime != null) {
+          oprot.writeFieldBegin(END_TIME_FIELD_DESC);
+          oprot.writeString(struct.endTime);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getProductOutputNumsByPartId_argsTupleSchemeFactory implements SchemeFactory {
+      public getProductOutputNumsByPartId_argsTupleScheme getScheme() {
+        return new getProductOutputNumsByPartId_argsTupleScheme();
+      }
+    }
+
+    private static class getProductOutputNumsByPartId_argsTupleScheme extends TupleScheme<getProductOutputNumsByPartId_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getProductOutputNumsByPartId_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetAccessKey()) {
+          optionals.set(0);
+        }
+        if (struct.isSetEntityId()) {
+          optionals.set(1);
+        }
+        if (struct.isSetPartId()) {
+          optionals.set(2);
+        }
+        if (struct.isSetStartTime()) {
+          optionals.set(3);
+        }
+        if (struct.isSetEndTime()) {
+          optionals.set(4);
+        }
+        oprot.writeBitSet(optionals, 5);
+        if (struct.isSetAccessKey()) {
+          oprot.writeString(struct.accessKey);
+        }
+        if (struct.isSetEntityId()) {
+          oprot.writeString(struct.entityId);
+        }
+        if (struct.isSetPartId()) {
+          oprot.writeString(struct.partId);
+        }
+        if (struct.isSetStartTime()) {
+          oprot.writeString(struct.startTime);
+        }
+        if (struct.isSetEndTime()) {
+          oprot.writeString(struct.endTime);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getProductOutputNumsByPartId_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(5);
+        if (incoming.get(0)) {
+          struct.accessKey = iprot.readString();
+          struct.setAccessKeyIsSet(true);
+        }
+        if (incoming.get(1)) {
+          struct.entityId = iprot.readString();
+          struct.setEntityIdIsSet(true);
+        }
+        if (incoming.get(2)) {
+          struct.partId = iprot.readString();
+          struct.setPartIdIsSet(true);
+        }
+        if (incoming.get(3)) {
+          struct.startTime = iprot.readString();
+          struct.setStartTimeIsSet(true);
+        }
+        if (incoming.get(4)) {
+          struct.endTime = iprot.readString();
+          struct.setEndTimeIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class getProductOutputNumsByPartId_result implements org.apache.thrift.TBase<getProductOutputNumsByPartId_result, getProductOutputNumsByPartId_result._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getProductOutputNumsByPartId_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.I64, (short)0);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new getProductOutputNumsByPartId_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new getProductOutputNumsByPartId_resultTupleSchemeFactory());
+    }
+
+    public long success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    private static final int __SUCCESS_ISSET_ID = 0;
+    private byte __isset_bitfield = 0;
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I64)));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getProductOutputNumsByPartId_result.class, metaDataMap);
+    }
+
+    public getProductOutputNumsByPartId_result() {
+    }
+
+    public getProductOutputNumsByPartId_result(
+      long success)
+    {
+      this();
+      this.success = success;
+      setSuccessIsSet(true);
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getProductOutputNumsByPartId_result(getProductOutputNumsByPartId_result other) {
+      __isset_bitfield = other.__isset_bitfield;
+      this.success = other.success;
+    }
+
+    public getProductOutputNumsByPartId_result deepCopy() {
+      return new getProductOutputNumsByPartId_result(this);
+    }
+
+    @Override
+    public void clear() {
+      setSuccessIsSet(false);
+      this.success = 0;
+    }
+
+    public long getSuccess() {
+      return this.success;
+    }
+
+    public getProductOutputNumsByPartId_result setSuccess(long success) {
+      this.success = success;
+      setSuccessIsSet(true);
+      return this;
+    }
+
+    public void unsetSuccess() {
+      __isset_bitfield = EncodingUtils.clearBit(__isset_bitfield, __SUCCESS_ISSET_ID);
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return EncodingUtils.testBit(__isset_bitfield, __SUCCESS_ISSET_ID);
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      __isset_bitfield = EncodingUtils.setBit(__isset_bitfield, __SUCCESS_ISSET_ID, value);
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((Long)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return Long.valueOf(getSuccess());
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getProductOutputNumsByPartId_result)
+        return this.equals((getProductOutputNumsByPartId_result)that);
+      return false;
+    }
+
+    public boolean equals(getProductOutputNumsByPartId_result that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_success = true;
+      boolean that_present_success = true;
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (this.success != that.success)
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      return 0;
+    }
+
+    public int compareTo(getProductOutputNumsByPartId_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+      getProductOutputNumsByPartId_result typedOther = (getProductOutputNumsByPartId_result)other;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(typedOther.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, typedOther.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getProductOutputNumsByPartId_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      sb.append(this.success);
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        // it doesn't seem like you should have to do this, but java serialization is wacky, and doesn't call the default constructor.
+        __isset_bitfield = 0;
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getProductOutputNumsByPartId_resultStandardSchemeFactory implements SchemeFactory {
+      public getProductOutputNumsByPartId_resultStandardScheme getScheme() {
+        return new getProductOutputNumsByPartId_resultStandardScheme();
+      }
+    }
+
+    private static class getProductOutputNumsByPartId_resultStandardScheme extends StandardScheme<getProductOutputNumsByPartId_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getProductOutputNumsByPartId_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.I64) {
+                struct.success = iprot.readI64();
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getProductOutputNumsByPartId_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.isSetSuccess()) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          oprot.writeI64(struct.success);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getProductOutputNumsByPartId_resultTupleSchemeFactory implements SchemeFactory {
+      public getProductOutputNumsByPartId_resultTupleScheme getScheme() {
+        return new getProductOutputNumsByPartId_resultTupleScheme();
+      }
+    }
+
+    private static class getProductOutputNumsByPartId_resultTupleScheme extends TupleScheme<getProductOutputNumsByPartId_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getProductOutputNumsByPartId_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          oprot.writeI64(struct.success);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getProductOutputNumsByPartId_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.success = iprot.readI64();
           struct.setSuccessIsSet(true);
         }
       }

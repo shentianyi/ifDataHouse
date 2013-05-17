@@ -188,6 +188,21 @@ module CZ
             raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'getProductOutputNums failed: unknown result')
           end
 
+          def getProductOutputNumsByPartId(accessKey, entityId, partId, startTime, endTime)
+            send_getProductOutputNumsByPartId(accessKey, entityId, partId, startTime, endTime)
+            return recv_getProductOutputNumsByPartId()
+          end
+
+          def send_getProductOutputNumsByPartId(accessKey, entityId, partId, startTime, endTime)
+            send_message('getProductOutputNumsByPartId', GetProductOutputNumsByPartId_args, :accessKey => accessKey, :entityId => entityId, :partId => partId, :startTime => startTime, :endTime => endTime)
+          end
+
+          def recv_getProductOutputNumsByPartId()
+            result = receive_message(GetProductOutputNumsByPartId_result)
+            return result.success unless result.success.nil?
+            raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'getProductOutputNumsByPartId failed: unknown result')
+          end
+
           def getOnJobTotalTimes(accessKey, entityIds, startTime, endTime)
             send_getOnJobTotalTimes(accessKey, entityIds, startTime, endTime)
             return recv_getOnJobTotalTimes()
@@ -305,6 +320,13 @@ module CZ
             result = GetProductOutputNums_result.new()
             result.success = @handler.getProductOutputNums(args.accessKey, args.entityIds, args.startTime, args.endTime)
             write_result(result, oprot, 'getProductOutputNums', seqid)
+          end
+
+          def process_getProductOutputNumsByPartId(seqid, iprot, oprot)
+            args = read_args(iprot, GetProductOutputNumsByPartId_args)
+            result = GetProductOutputNumsByPartId_result.new()
+            result.success = @handler.getProductOutputNumsByPartId(args.accessKey, args.entityId, args.partId, args.startTime, args.endTime)
+            write_result(result, oprot, 'getProductOutputNumsByPartId', seqid)
           end
 
           def process_getOnJobTotalTimes(seqid, iprot, oprot)
@@ -733,6 +755,46 @@ module CZ
 
           FIELDS = {
             SUCCESS => {:type => ::Thrift::Types::MAP, :name => 'success', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::I64}}
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class GetProductOutputNumsByPartId_args
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+          ACCESSKEY = 1
+          ENTITYID = 2
+          PARTID = 3
+          STARTTIME = 4
+          ENDTIME = 5
+
+          FIELDS = {
+            ACCESSKEY => {:type => ::Thrift::Types::STRING, :name => 'accessKey'},
+            ENTITYID => {:type => ::Thrift::Types::STRING, :name => 'entityId'},
+            PARTID => {:type => ::Thrift::Types::STRING, :name => 'partId'},
+            STARTTIME => {:type => ::Thrift::Types::STRING, :name => 'startTime'},
+            ENDTIME => {:type => ::Thrift::Types::STRING, :name => 'endTime'}
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class GetProductOutputNumsByPartId_result
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+          SUCCESS = 0
+
+          FIELDS = {
+            SUCCESS => {:type => ::Thrift::Types::I64, :name => 'success'}
           }
 
           def struct_fields; FIELDS; end

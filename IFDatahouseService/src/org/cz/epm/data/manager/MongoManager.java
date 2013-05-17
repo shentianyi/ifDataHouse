@@ -100,6 +100,11 @@ public class MongoManager {
 			return coll(collName).find(query).sort(orderBy).limit(limit)
 					.toArray();
 	}
+	
+   // count 
+	public static long Count(String collName,BasicDBObject query){
+		return coll(collName).count(query);
+	}
 
 	public static DBCollection coll(String collName) {
 		return getDB().getCollection(collName);
