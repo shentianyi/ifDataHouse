@@ -74,17 +74,20 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
 	}
 
 	@Override
 	public void addPlanTarget(String accessKey, Map<String, String> dataMap)
 			throws TException {
+	
 		Mapper mapper = new Mapper(accessKey);
-		dataMap.put("entityId",
-				mapper.GetMapKey("entity", dataMap.get("entityId")));
-		dataMap.put("partId", mapper.GetMapKey("part", dataMap.get("partId")));
+		if (dataMap.containsKey("entityId"))
+			dataMap.put("entityId",
+					mapper.GetMapKey("entity", dataMap.get("entityId")));
+		if (dataMap.containsKey("partId"))
+			dataMap.put("partId",
+					mapper.GetMapKey("part", dataMap.get("partId")));
 		EpmDataBase.AddPlanTarget(dataMap);
 	}
 
@@ -92,12 +95,24 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	public Map<String, String> getPlanTarget(String accessKey,
 			Map<String, String> dataMap) throws TException {
 		Mapper mapper = new Mapper(accessKey);
-		dataMap.put("entityId",
-				mapper.GetMapKey("entity", dataMap.get("entityId")));
+		if (dataMap.containsKey("entityId"))
+			dataMap.put("entityId",
+					mapper.GetMapKey("entity", dataMap.get("entityId")));
 		Map<String, String> result = EpmDataBase.GetPlanTarget(dataMap);
-		result.put("entityId",
-				mapper.GetMapValue("entity", result.get("entityId")));
+		if (result.containsKey("entityId"))
+			result.put("entityId",
+					mapper.GetMapValue("entity", result.get("entityId")));
 		return converMapToString(result);
+	}
+
+	@Override
+	public void updatePlanTarget(String accessKey, Map<String, String> query,
+			Map<String, String> dataMap) throws TException {
+		Mapper mapper = new Mapper(accessKey);
+		if (dataMap.containsKey("entityId"))
+			dataMap.put("entityId",
+					mapper.GetMapKey("entity", dataMap.get("entityId")));
+		EpmDataBase.UpdatePlanTarget(query, dataMap);
 	}
 
 	@Override
@@ -226,4 +241,5 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 		}
 		return result;
 	}
+
 }

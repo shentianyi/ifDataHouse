@@ -49,8 +49,8 @@ public class EpmDataBase {
 				startTime == null ? null : Long.toString(startTime),
 				endTime == null ? null : Long.toString(endTime), fields);
 	}
-	
-	public static Map GetEntity(String entityId,String...fields){
+
+	public static Map GetEntity(String entityId, String... fields) {
 		Map query = new HashMap();
 		query.put("_id", entityId);
 		return DatahouseBase.GetEntity(query, fields);
@@ -60,12 +60,13 @@ public class EpmDataBase {
 	public static String AddStaffAttendanceLocus(String entityId, String staffId) {
 		return EpmDataCacher.SetAttendStaffLocus(entityId, staffId);
 	}
-	
+
 	public static boolean AddProduct(Map<String, String> dataMap) {
 		return DatahouseBase.AddProduct(dataMap);
 	}
-	
-	public static long CountProduct(String entityId,String partId,String start,String end){
+
+	public static long CountProduct(String entityId, String partId,
+			String start, String end) {
 		Map query = new HashMap();
 		query.put("partId", partId);
 		query.put("entityId", entityId);
@@ -91,6 +92,11 @@ public class EpmDataBase {
 
 	public static Map GetPlanTarget(Map<String, String> query) {
 		return DatahouseBase.GetTarget(query);
+	}
+
+	public static boolean UpdatePlanTarget(Map<String, String> query,
+			Map<String, String> object) {
+		return DatahouseBase.UpdateTarget(query, object);
 	}
 
 	public static void SetProductInspectState(Map<String, String> dataMap) {
@@ -324,16 +330,17 @@ public class EpmDataBase {
 				.SetProductInspectTypeCacheZSet(entityId, type, productNr));
 	}
 
-//	private static Map<String, String> converMapToString(Map<String, String> datas) {
-//		try {
-//			for (Entry<String, String> data : datas.entrySet()) {
-//				if (data.getValue().getClass() != String.class) {
-//					datas.put(data.getKey(), (String) data.getValue());
-//				}
-//			}
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		return datas;
-//	}
+	// private static Map<String, String> converMapToString(Map<String, String>
+	// datas) {
+	// try {
+	// for (Entry<String, String> data : datas.entrySet()) {
+	// if (data.getValue().getClass() != String.class) {
+	// datas.put(data.getKey(), (String) data.getValue());
+	// }
+	// }
+	// } catch (Exception e) {
+	// System.out.println(e.getMessage());
+	// }
+	// return datas;
+	// }
 }

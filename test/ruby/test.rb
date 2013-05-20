@@ -33,7 +33,7 @@ class Test
    1. test_add_attendance() && test_get_current_worker_num()
    2. test_add_product_inspect() && test_add_product_pack()
    3. test_add_operating_state()
-   4. test_get_origin_product_output_num() && test_get_product_output_num()
+   4. test_get_origin_product_output_num() && test_get_product_output_num() && test_get_product_output_num_by_part()
    5. test_get_ftr_product_num() && test_get_fail_product_num()
    6. test_on_job_total_time()
    7. test_product_output_num_time()
@@ -129,6 +129,7 @@ class Test
       startT=endT-10*1000
       puts "ori_output_num:#{@client.getOriProductOutputNums($access_key,ids,startT,endT)}"
       puts "*output_num:#{@client.getProductOutputNums($access_key,ids,startT,endT)}"
+       puts "*output_num:#{@client.getProductOutputNumsByPartId($access_key,@entities[rand(@entities.count)].entityId, @parts[rand(@parts.count)].partNr,startT.to_s,endT.to_s)}"
       puts "*****************************************************************"
       sleep(2)
     end

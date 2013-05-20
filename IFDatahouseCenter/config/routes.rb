@@ -13,6 +13,7 @@ IFDatahouse::Application.routes.draw do
       post :updata
       get :import
       get :download
+      get :search
     end
   end
   resources :staffs do
@@ -28,6 +29,7 @@ IFDatahouse::Application.routes.draw do
       post :updata
       get :import
       get :download
+      get :search
     end
   end
 

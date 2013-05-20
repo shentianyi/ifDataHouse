@@ -105,6 +105,12 @@ service Datahouse{
     1:string accessKey,
     2:map<string,string> dataMap
     )
+    
+    void updatePlanTarget(
+     1:string accessKey,
+     2:map<string,string> query
+     3:map<string,string> dataMap
+    )
    
   /**
    * get current on job workers number

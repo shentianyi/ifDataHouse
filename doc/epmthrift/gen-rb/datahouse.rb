@@ -5,7 +5,7 @@
 #
 
 require 'thrift'
-require 'epm_service_types'
+require_relative 'epm_service_types'
 
 module CZ
   module Epm
@@ -111,6 +111,20 @@ module CZ
             result = receive_message(GetPlanTarget_result)
             return result.success unless result.success.nil?
             raise ::Thrift::ApplicationException.new(::Thrift::ApplicationException::MISSING_RESULT, 'getPlanTarget failed: unknown result')
+          end
+
+          def updatePlanTarget(accessKey, query, dataMap)
+            send_updatePlanTarget(accessKey, query, dataMap)
+            recv_updatePlanTarget()
+          end
+
+          def send_updatePlanTarget(accessKey, query, dataMap)
+            send_message('updatePlanTarget', UpdatePlanTarget_args, :accessKey => accessKey, :query => query, :dataMap => dataMap)
+          end
+
+          def recv_updatePlanTarget()
+            result = receive_message(UpdatePlanTarget_result)
+            return
           end
 
           def getCurrentOnJobWorkerNums(accessKey, entityIds)
@@ -285,6 +299,13 @@ module CZ
             result = GetPlanTarget_result.new()
             result.success = @handler.getPlanTarget(args.accessKey, args.dataMap)
             write_result(result, oprot, 'getPlanTarget', seqid)
+          end
+
+          def process_updatePlanTarget(seqid, iprot, oprot)
+            args = read_args(iprot, UpdatePlanTarget_args)
+            result = UpdatePlanTarget_result.new()
+            @handler.updatePlanTarget(args.accessKey, args.query, args.dataMap)
+            write_result(result, oprot, 'updatePlanTarget', seqid)
           end
 
           def process_getCurrentOnJobWorkerNums(seqid, iprot, oprot)
@@ -569,6 +590,41 @@ module CZ
 
           FIELDS = {
             SUCCESS => {:type => ::Thrift::Types::MAP, :name => 'success', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::STRING}}
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class UpdatePlanTarget_args
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+          ACCESSKEY = 1
+          QUERY = 2
+          DATAMAP = 3
+
+          FIELDS = {
+            ACCESSKEY => {:type => ::Thrift::Types::STRING, :name => 'accessKey'},
+            QUERY => {:type => ::Thrift::Types::MAP, :name => 'query', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::STRING}},
+            DATAMAP => {:type => ::Thrift::Types::MAP, :name => 'dataMap', :key => {:type => ::Thrift::Types::STRING}, :value => {:type => ::Thrift::Types::STRING}}
+          }
+
+          def struct_fields; FIELDS; end
+
+          def validate
+          end
+
+          ::Thrift::Struct.generate_accessors self
+        end
+
+        class UpdatePlanTarget_result
+          include ::Thrift::Struct, ::Thrift::Struct_Union
+
+          FIELDS = {
+
           }
 
           def struct_fields; FIELDS; end

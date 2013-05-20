@@ -318,3 +318,131 @@ INFO   | jvm 1    | 2013/05/17 19:16:56 | Exiting Thrift server.
 INFO   | jvm 1    | 2013/05/17 19:16:56 | 
 INFO   | jvm 1    | 2013/05/17 19:16:56 | ############## Press <Enter> to terminate. ###################
 INFO   | jvm 1    | 2013/05/17 19:16:56 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.
+STATUS | wrapper  | 2013/05/17 19:26:46 | TERM trapped.  Shutting down.
+STATUS | wrapper  | 2013/05/17 19:26:48 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/05/19 13:57:27 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/05/19 13:57:27 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/05/19 13:57:27 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/05/19 13:57:27 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/05/19 13:57:27 | 
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[2] : -classpath
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[4] : -Dwrapper.key=aL4Uvfvq6x26iXiO
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[9] : -Dwrapper.pid=1070
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/05/19 13:57:28 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/05/19 13:57:28 | Launching a JVM...
+INFO   | jvm 1    | 2013/05/19 13:57:31 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/05/19 13:57:34 | **********  EPM Hbase Thrift Server if Firing up on <9001> *****************
+INFO   | jvm 1    | 2013/05/19 13:57:34 | Exiting Thrift server.
+INFO   | jvm 1    | 2013/05/19 13:57:34 | 
+INFO   | jvm 1    | 2013/05/19 13:57:34 | ############## Press <Enter> to terminate. ###################
+INFO   | jvm 1    | 2013/05/19 13:57:34 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.
+STATUS | wrapper  | 2013/05/19 16:54:44 | TERM trapped.  Shutting down.
+STATUS | wrapper  | 2013/05/19 16:54:45 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/05/20 09:24:17 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/05/20 09:24:17 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/05/20 09:24:17 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/05/20 09:24:17 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/05/20 09:24:17 | 
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[2] : -classpath
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[4] : -Dwrapper.key=_gFmrZdOC0wa6DS0
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[9] : -Dwrapper.pid=1109
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/05/20 09:24:17 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/05/20 09:24:17 | Launching a JVM...
+INFO   | jvm 1    | 2013/05/20 09:24:19 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/05/20 09:24:23 | **********  EPM Hbase Thrift Server if Firing up on <9001> *****************
+INFO   | jvm 1    | 2013/05/20 09:24:23 | Exiting Thrift server.
+INFO   | jvm 1    | 2013/05/20 09:24:23 | 
+INFO   | jvm 1    | 2013/05/20 09:24:23 | ############## Press <Enter> to terminate. ###################
+INFO   | jvm 1    | 2013/05/20 09:24:23 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.
+STATUS | wrapper  | 2013/05/20 10:56:05 | TERM trapped.  Shutting down.
+STATUS | wrapper  | 2013/05/20 10:56:06 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/05/20 10:57:42 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/05/20 10:57:42 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/05/20 10:57:42 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/05/20 10:57:42 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/05/20 10:57:42 | 
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[2] : -classpath
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[4] : -Dwrapper.key=c3v2FHLpW6BGuSVm
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[9] : -Dwrapper.pid=5696
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/05/20 10:57:42 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/05/20 10:57:42 | Launching a JVM...
+INFO   | jvm 1    | 2013/05/20 10:57:42 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/05/20 10:57:43 | **********  EPM Hbase Thrift Server if Firing up on <9001> *****************
+INFO   | jvm 1    | 2013/05/20 10:57:43 | Exiting Thrift server.
+INFO   | jvm 1    | 2013/05/20 10:57:43 | 
+INFO   | jvm 1    | 2013/05/20 10:57:43 | ############## Press <Enter> to terminate. ###################
+INFO   | jvm 1    | 2013/05/20 10:57:43 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.
+STATUS | wrapper  | 2013/05/20 10:58:13 | TERM trapped.  Shutting down.
+STATUS | wrapper  | 2013/05/20 10:58:14 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/05/20 11:21:29 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/05/20 11:21:29 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/05/20 11:21:29 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/05/20 11:21:29 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/05/20 11:21:29 | 
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[2] : -classpath
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[4] : -Dwrapper.key=ZqaaY1hba0CT3OrK
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[9] : -Dwrapper.pid=1109
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/05/20 11:21:30 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/05/20 11:21:30 | Launching a JVM...
+INFO   | jvm 1    | 2013/05/20 11:21:31 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/05/20 11:21:32 | **********  EPM Hbase Thrift Server if Firing up on <9001> *****************
+INFO   | jvm 1    | 2013/05/20 11:21:32 | Exiting Thrift server.
+INFO   | jvm 1    | 2013/05/20 11:21:33 | 
+INFO   | jvm 1    | 2013/05/20 11:21:33 | ############## Press <Enter> to terminate. ###################
+INFO   | jvm 1    | 2013/05/20 11:21:33 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.

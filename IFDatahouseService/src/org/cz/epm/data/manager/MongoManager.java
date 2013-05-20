@@ -100,6 +100,10 @@ public class MongoManager {
 			return coll(collName).find(query).sort(orderBy).limit(limit)
 					.toArray();
 	}
+	// update
+	public static void Update(String collName,BasicDBObject q,BasicDBObject o){
+		coll(collName).update(q, o);
+	}
 	
    // count 
 	public static long Count(String collName,BasicDBObject query){
