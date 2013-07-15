@@ -32,6 +32,9 @@ public class Conf {
 	private final static String mOperatingStateColl = "operating_states";
 	private final static String mMapperItemColl = "mapper_items";
 	private final static String mTarget="targets";
+	
+	// access key
+	private static String ifEpmAccessKey="";
 	static {
 		if (property == null) {
 			synchronized (Conf.class) {
@@ -63,6 +66,9 @@ public class Conf {
 					mDb = getProperty("MDb");
 					mUser = getProperty("MUsername");
 					mPwd = getProperty("MPwd");
+					
+					// access key conf
+					ifEpmAccessKey=getProperty("IFEpmAccessKey");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -160,5 +166,13 @@ public class Conf {
 
 	public static String getMtarget() {
 		return mTarget;
+	}
+
+	public static String getIfEpmAccessKey() {
+		return ifEpmAccessKey;
+	}
+
+	public static void setIfEpmAccessKey(String ifEpmAccessKey) {
+		Conf.ifEpmAccessKey = ifEpmAccessKey;
 	}
 }
