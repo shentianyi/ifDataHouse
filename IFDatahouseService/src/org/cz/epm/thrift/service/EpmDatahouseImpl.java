@@ -58,8 +58,11 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			throws TException {
 		try {
 			Mapper mapper = new Mapper(accessKey);
+
 			String workstationId = mapper.GetMapKey("entity",
 					dataMap.get("entityId"));
+			dataMap.put("workstationId", workstationId);
+
 			Map entity = EpmDataBase.GetEntity(workstationId, "entity_id");
 			dataMap.put("entityId", entity.get("entity_id").toString());
 
@@ -80,7 +83,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void addPlanTarget(String accessKey, Map<String, String> dataMap)
 			throws TException {
-	
+
 		Mapper mapper = new Mapper(accessKey);
 		if (dataMap.containsKey("entityId"))
 			dataMap.put("entityId",

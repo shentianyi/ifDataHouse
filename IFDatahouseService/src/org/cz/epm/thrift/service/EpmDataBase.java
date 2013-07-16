@@ -87,6 +87,7 @@ public class EpmDataBase {
 	}
 
 	public static boolean AddPlanTarget(Map<String, String> dataMap) {
+		System.out.println(dataMap);
 		return DatahouseBase.AddTarget(dataMap);
 	}
 
@@ -96,6 +97,7 @@ public class EpmDataBase {
 
 	public static boolean UpdatePlanTarget(Map<String, String> query,
 			Map<String, String> object) {
+		System.out.println(object);
 		return DatahouseBase.UpdateTarget(query, object);
 	}
 
