@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brilliantech.DatahouseService", "Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj", "{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brilliantech.DatahouseService.Testbench", "Brilliantech.DatahouseService.Testbench\Brilliantech.DatahouseService.Testbench.csproj", "{6AB7230F-29B6-4E74-8F6B-59FF02971E82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.DatahouseService", "Test.DatahouseService\Test.DatahouseService.csproj", "{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1F37D8F-0090-472B-ADE6-0059F10A1791}"
+	ProjectSection(SolutionItems) = preProject
+		Brilliantech.DatahouseService.vsmdi = Brilliantech.DatahouseService.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Brilliantech.DatahouseService.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Debug|x86.ActiveCfg = Debug|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Debug|x86.Build.0 = Debug|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Release|Any CPU.ActiveCfg = Release|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Release|x86.ActiveCfg = Release|x86
+		{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}.Release|x86.Build.0 = Release|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Debug|x86.ActiveCfg = Debug|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Debug|x86.Build.0 = Debug|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Release|Any CPU.ActiveCfg = Release|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Release|Mixed Platforms.Build.0 = Release|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Release|x86.ActiveCfg = Release|x86
+		{6AB7230F-29B6-4E74-8F6B-59FF02971E82}.Release|x86.Build.0 = Release|x86
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D1DEEC54-1C92-4985-A2E4-D8898CB36B60}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
