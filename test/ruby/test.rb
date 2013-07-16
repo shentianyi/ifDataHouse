@@ -14,10 +14,10 @@ Dir['data/*.rb','service/*'].each do |f|
   require_relative f
 end
 
-$access_key="uv_p5iJBfuLjRoPHQq9ezQ"
+$access_key="diyeleS3oXBHTQohr5sgmA"
 class Test
   def initialize
-    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9001'))
+    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('192.168.0.21', '9001'))
     protocol=::Thrift::BinaryProtocol.new(@transport)
     @client= CZ::Epm::Thrift::Datahouse::Client.new(protocol)
     @transport.open

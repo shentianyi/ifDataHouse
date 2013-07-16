@@ -1,0 +1,102 @@
+[INFO] 28 May 09:06:32.427 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 28 May 09:06:32.432 AM WrapperSimpleAppMain [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: WrapperSimpleAppMain
+
+[INFO] 28 May 09:06:32.450 AM WrapperSimpleAppMain [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 28 May 09:06:32.452 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 28 May 09:06:32.453 AM WrapperSimpleAppMain [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 28 May 09:06:32.454 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 28 May 09:06:32.454 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 28 May 09:06:32.455 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 28 May 09:06:32.475 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 28 May 11:42:06.977 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 28 May 11:42:07.076 AM WrapperSimpleAppMain [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: WrapperSimpleAppMain
+
+[INFO] 28 May 11:42:07.110 AM WrapperSimpleAppMain [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 28 May 11:42:07.111 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 28 May 11:42:07.128 AM WrapperSimpleAppMain [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 28 May 11:42:07.130 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 28 May 11:42:07.130 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 28 May 11:42:07.130 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 28 May 11:42:07.245 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 28 May 11:59:37.179 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 28 May 11:59:37.196 AM WrapperSimpleAppMain [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: WrapperSimpleAppMain
+
+[INFO] 28 May 11:59:37.215 AM WrapperSimpleAppMain [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 28 May 11:59:37.216 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 28 May 11:59:37.217 AM WrapperSimpleAppMain [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 28 May 11:59:37.219 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 28 May 11:59:37.219 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 28 May 11:59:37.219 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 28 May 11:59:37.239 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+

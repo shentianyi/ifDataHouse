@@ -13,9 +13,11 @@ end
 Dir['data/*.rb','service/*'].each do |f|
   require_relative f
 end
+
+$access_key="uv_p5iJBfuLjRoPHQq9ezQ"
 class Test
   def initialize
-    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9000'))
+    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('192.168.0.21', '9001'))
     protocol=::Thrift::BinaryProtocol.new(@transport)
     @client= CZ::Epm::Thrift::Datahouse::Client.new(protocol)
     @transport.open
@@ -31,10 +33,11 @@ class Test
    1. test_add_attendance() && test_get_current_worker_num()
    2. test_add_product_inspect() && test_add_product_pack()
    3. test_add_operating_state()
-   4. test_get_origin_product_output_num() && test_get_product_output_num()
+   4. test_get_origin_product_output_num() && test_get_product_output_num() && test_get_product_output_num_by_part()
    5. test_get_ftr_product_num() && test_get_fail_product_num()
    6. test_on_job_total_time()
    7. test_product_output_num_time()
+   8. test_add_plan_target && test_get_plan_target
    }
     choose=gets.chomp
     case choose
@@ -52,6 +55,8 @@ class Test
       test_on_job_total_time
     when "7"
       test_product_output_num_time
+    when "8"
+      test_add_get_plan_target
     end
   end
 
@@ -66,8 +71,8 @@ class Test
           @staffs.each do |staff|
             sleep(10)
             puts "staff:#{staff.staffNr}-entity:#{entity.entityId}-type:#{type}"
-            @client.addAttendance({"entityId"=>entity.entityId,"attendTime"=>(Time.now.to_ms).to_s,"staffNr"=>staff.staffNr,"type"=>type.to_s})
-            puts "current worker num:#{@client.getCurrentOnJobWorkerNums(ids)}"
+            @client.addAttendance($access_key,{"entityId"=>entity.entityId,"attendTime"=>(Time.now.to_ms).to_s,"staffId"=>staff.staffNr,"type"=>type.to_s})
+            puts "current worker num:#{@client.getCurrentOnJobWorkerNums($access_key,ids)}"
           end
           sleep(120)
         end
@@ -85,12 +90,12 @@ class Test
       @productNrs.each_with_index do |value,index|
         entity=@entities[rand(@entities.count)]
         type=rand(index+1)%2
-        @client.addProductInspect({"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
+        @client.addProductInspect($access_key,{"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
         puts "INSPECT:#{index}:productNr:#{value}-entity:#{entity.entityId}-type:#{(index%2).to_s}"
         sleep(1)
         if type==1
           partNr=@parts[rand(@parts.count)].partNr
-          @client.addProductPack({"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partNr"=>partNr})
+          #@client.addProductPack($access_key,{"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partId"=>partNr})
           puts "***PACK:entity:#{entity.entityId}-#{index}:productNr:#{value}-:partNr#{partNr}"
         end
       end
@@ -105,7 +110,7 @@ class Test
     while true
       @entities.each_with_index do |entity,index|
         [100,200,300,400].each do |state|
-          @client.addOperatingState({"targetId"=>entity.entityId,"operateTime"=>(Time.now.to_ms).to_s,"state"=>state.to_s})
+          @client.addOperatingState($access_key,{"entityId"=>entity.entityId,"operateTime"=>(Time.now.to_ms).to_s,"state"=>state.to_s})
           puts "#{index}:targetId:#{entity.entityId}-state:#{state}"
           sleep(3)
         end
@@ -122,10 +127,11 @@ class Test
       now=Time.now
       endT=now.to_ms
       startT=endT-10*1000
-      puts "ori_output_num:#{@client.getOriProductOutputNums(ids,startT,endT)}"
-      puts "*output_num:#{@client.getProductOutputNums(ids,startT,endT)}"
+      puts "ori_output_num:#{@client.getOriProductOutputNums($access_key,ids,startT,endT)}"
+      puts "*output_num:#{@client.getProductOutputNums($access_key,ids,startT,endT)}"
+       puts "*output_num:#{@client.getProductOutputNumsByPartId($access_key,@entities[rand(@entities.count)].entityId, @parts[rand(@parts.count)].partNr,startT.to_s,endT.to_s)}"
       puts "*****************************************************************"
-      sleep(10)
+      sleep(2)
     end
   end
 
@@ -138,8 +144,8 @@ class Test
       now=Time.now
       endT=now.to_ms
       startT=endT-10*1000
-      puts "ftr_product_num:#{@client.getFTRProductNums(ids,startT,endT)}"
-      puts "*fail_product_num:#{@client.getFailProductInspectNums(ids,startT,endT)}"
+      puts "ftr_product_num:#{@client.getFTRProductNums($access_key,ids,startT,endT)}"
+      puts "*fail_product_num:#{@client.getFailProductInspectNums($access_key,ids,startT,endT)}"
       puts "*****************************************************************"
       sleep(10)
     end
@@ -155,7 +161,7 @@ class Test
         now=Time.now
         endT=now.to_ms
         startT=endT-20*60*1000
-        puts "on_job_total_time:#{@client.getOnJobTotalTimes(ids,startT,endT)}"
+        puts "on_job_total_time:#{@client.getOnJobTotalTimes($access_key,ids,startT,endT)}"
         sleep(1)
       end
     rescue Exception=>e
@@ -173,7 +179,7 @@ class Test
         now=Time.now
         endT=now.to_ms
         startT=endT-20*60*1000
-        pros=@client.getProductOutputNumAndTime(id,startT,endT)
+        pros=@client.getProductOutputNumAndTime($access_key,id,startT,endT)
         pros.each do |pro|
           puts "product num& time:#{pro}"
         end
@@ -181,6 +187,27 @@ class Test
       end
       puts "*****************************************************************"
       sleep(10)
+    end
+  end
+
+  #
+  # test_add_get_plan_target
+  #
+  def test_add_get_plan_target
+    begin
+      ids=@entities.map{|e| e.entityId}
+      ids.each do |id|
+        ['D','W','M',"Y"].each do |type|
+          part=@parts[rand(@parts.count)]
+          data={"entityId"=>id,"type"=>type,"partId"=>part.partNr,"partAmount"=>rand(1000).to_s,"staffNum"=>rand(100).to_s}
+          @client.addPlanTarget($access_key,data)
+          puts ">>>>>>>#{data}"
+          sleep(1)
+          puts ">>>>>>>>>>#{@client.getPlanTarget($access_key,{"entityId"=>id,"type"=>type})}"
+        end
+      end
+    rescue Exception=>e
+      puts e.message
     end
   end
 

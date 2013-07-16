@@ -1,45 +1,298 @@
-STATUS | wrapper  | 2013/05/03 10:48:07 | --> Wrapper Started as Daemon
-STATUS | wrapper  | 2013/05/03 10:48:07 | Java Service Wrapper Community Edition 32-bit 3.5.19
-STATUS | wrapper  | 2013/05/03 10:48:07 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
-STATUS | wrapper  | 2013/05/03 10:48:07 |     http://wrapper.tanukisoftware.com
-STATUS | wrapper  | 2013/05/03 10:48:07 | 
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[0] : /usr/lib/jvm/java-7-sun/bin/java
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[1] : -Djava.library.path=../lib
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[2] : -classpath
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[4] : -Dwrapper.key=-qI9yY9VK9LsMYyM
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[5] : -Dwrapper.port=32000
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[6] : -Dwrapper.jvm.port.min=31000
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[7] : -Dwrapper.jvm.port.max=31999
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[8] : -Dwrapper.disable_console_input=TRUE
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[9] : -Dwrapper.pid=8409
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[10] : -Dwrapper.version=3.5.19
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[11] : -Dwrapper.native_library=wrapper
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[12] : -Dwrapper.arch=x86
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[13] : -Dwrapper.service=TRUE
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[14] : -Dwrapper.cpu.timeout=10
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[15] : -Dwrapper.jvmid=1
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
-INFO   | wrapper  | 2013/05/03 10:48:07 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
-STATUS | wrapper  | 2013/05/03 10:48:07 | Launching a JVM...
-INFO   | jvm 1    | 2013/05/03 10:48:08 | WrapperManager: Initializing...
-INFO   | jvm 1    | 2013/05/03 10:48:08 | sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@152dbbf
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MConnectionsPerHost
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **RHost
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **TPort
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **RNamespace
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **RPort
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MPwd
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MHost
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MUsername
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **RZSetCacheDefaultDay
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MConnectionMultiplier
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MDb
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **MPort
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **RDb
-INFO   | jvm 1    | 2013/05/03 10:48:08 | ************PORT:6379
-INFO   | jvm 1    | 2013/05/03 10:48:08 | **********  EPM Hbase Thrift Server if Firing up on <9001> *****************
-INFO   | jvm 1    | 2013/05/03 10:48:08 | Exiting Thrift server.
-INFO   | jvm 1    | 2013/05/03 10:48:08 | 
-INFO   | jvm 1    | 2013/05/03 10:48:08 | ############## Press <Enter> to terminate. ###################
-INFO   | jvm 1    | 2013/05/03 10:48:08 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.
+STATUS | wrapper  | 2013/06/23 17:55:56 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/06/23 17:55:56 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/06/23 17:55:56 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/06/23 17:55:56 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/06/23 17:55:56 | 
+WARN   | wrapper  | 2013/06/23 17:55:56 | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[0] : %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[2] : -classpath
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[4] : -Dwrapper.key=Dwb1M5cX5Y-jzwwV
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[9] : -Dwrapper.pid=4195
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/06/23 17:55:56 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/06/23 17:55:56 | Launching a JVM...
+ERROR  | wrapper  | 2013/06/23 17:55:56 | JVM exited while loading the application.
+ERROR  | wrapper  | 2013/06/23 17:55:56 | Unable to start JVM: 没有那个文件或目录 (2)
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | --> Wrapper Started as Daemon
+INFO   | jvm 1    | 2013/06/23 17:55:56 | ]0;Brilliantech IFDatahouse Servicewrapper  | Java Service Wrapper Community Edition 32-bit 3.5.19
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  |     http://wrapper.tanukisoftware.com
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | 
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[0] : %JAVA_HOME%/bin/java
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[1] : -Djava.library.path=../lib
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[2] : -classpath
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[4] : -Dwrapper.key=Dwb1M5cX5Y-jzwwV
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[5] : -Dwrapper.port=32000
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[9] : -Dwrapper.pid=4195
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[10] : -Dwrapper.version=3.5.19
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[12] : -Dwrapper.arch=x86
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[13] : -Dwrapper.service=TRUE
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[15] : -Dwrapper.jvmid=1
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+INFO   | jvm 1    | 2013/06/23 17:55:56 | wrapper  | Launching a JVM...
+ADVICE | wrapper  | 2013/06/23 17:55:56 | 
+ADVICE | wrapper  | 2013/06/23 17:55:56 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:55:56 | Advice:
+ADVICE | wrapper  | 2013/06/23 17:55:56 | Usually when the Wrapper fails to start the JVM process, it is because
+ADVICE | wrapper  | 2013/06/23 17:55:56 | of a problem with the value of the configured Java command.  Currently:
+ADVICE | wrapper  | 2013/06/23 17:55:56 | wrapper.java.command=%JAVA_HOME%/bin/java
+ADVICE | wrapper  | 2013/06/23 17:55:56 | Please make sure that the PATH or any other referenced environment
+ADVICE | wrapper  | 2013/06/23 17:55:56 | variables are correctly defined for the current environment.
+ADVICE | wrapper  | 2013/06/23 17:55:56 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:55:56 | 
+WARN   | wrapper  | 2013/06/23 17:56:01 | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[0] : %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[2] : -classpath
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[4] : -Dwrapper.key=R7EDOybeqa0c4SLH
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[9] : -Dwrapper.pid=4195
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[15] : -Dwrapper.jvmid=2
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/06/23 17:56:01 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/06/23 17:56:01 | Launching a JVM...
+ERROR  | wrapper  | 2013/06/23 17:56:01 | JVM exited while loading the application.
+ERROR  | wrapper  | 2013/06/23 17:56:01 | Unable to start JVM: 没有那个文件或目录 (2)
+INFO   | jvm 2    | 2013/06/23 17:56:01 | er  | wrapper.java.command=%JAVA_HOME%/bin/java
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Please make sure that the PATH or any other referenced environment
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | variables are correctly defined for the current environment.
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | ------------------------------------------------------------------------
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | 
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[0] : %JAVA_HOME%/bin/java
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[1] : -Djava.library.path=../lib
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[2] : -classpath
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[4] : -Dwrapper.key=R7EDOybeqa0c4SLH
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[5] : -Dwrapper.port=32000
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[9] : -Dwrapper.pid=4195
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[10] : -Dwrapper.version=3.5.19
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[12] : -Dwrapper.arch=x86
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[13] : -Dwrapper.service=TRUE
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[15] : -Dwrapper.jvmid=2
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+INFO   | jvm 2    | 2013/06/23 17:56:01 | wrapper  | Launching a JVM...
+ADVICE | wrapper  | 2013/06/23 17:56:01 | 
+ADVICE | wrapper  | 2013/06/23 17:56:01 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:01 | Advice:
+ADVICE | wrapper  | 2013/06/23 17:56:01 | Usually when the Wrapper fails to start the JVM process, it is because
+ADVICE | wrapper  | 2013/06/23 17:56:01 | of a problem with the value of the configured Java command.  Currently:
+ADVICE | wrapper  | 2013/06/23 17:56:01 | wrapper.java.command=%JAVA_HOME%/bin/java
+ADVICE | wrapper  | 2013/06/23 17:56:01 | Please make sure that the PATH or any other referenced environment
+ADVICE | wrapper  | 2013/06/23 17:56:01 | variables are correctly defined for the current environment.
+ADVICE | wrapper  | 2013/06/23 17:56:01 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:01 | 
+WARN   | wrapper  | 2013/06/23 17:56:05 | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[0] : %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[2] : -classpath
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[4] : -Dwrapper.key=nXI70V35R3ppAWip
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[9] : -Dwrapper.pid=4195
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[15] : -Dwrapper.jvmid=3
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/06/23 17:56:05 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/06/23 17:56:05 | Launching a JVM...
+ERROR  | wrapper  | 2013/06/23 17:56:05 | JVM exited while loading the application.
+ERROR  | wrapper  | 2013/06/23 17:56:05 | Unable to start JVM: 没有那个文件或目录 (2)
+INFO   | jvm 3    | 2013/06/23 17:56:05 | and.  Currently:
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | wrapper.java.command=%JAVA_HOME%/bin/java
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Please make sure that the PATH or any other referenced environment
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | variables are correctly defined for the current environment.
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | ------------------------------------------------------------------------
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | 
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[0] : %JAVA_HOME%/bin/java
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[1] : -Djava.library.path=../lib
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[2] : -classpath
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[4] : -Dwrapper.key=nXI70V35R3ppAWip
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[5] : -Dwrapper.port=32000
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[9] : -Dwrapper.pid=4195
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[10] : -Dwrapper.version=3.5.19
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[12] : -Dwrapper.arch=x86
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[13] : -Dwrapper.service=TRUE
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[15] : -Dwrapper.jvmid=3
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+INFO   | jvm 3    | 2013/06/23 17:56:05 | wrapper  | Launching a JVM...
+ADVICE | wrapper  | 2013/06/23 17:56:05 | 
+ADVICE | wrapper  | 2013/06/23 17:56:05 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:05 | Advice:
+ADVICE | wrapper  | 2013/06/23 17:56:05 | Usually when the Wrapper fails to start the JVM process, it is because
+ADVICE | wrapper  | 2013/06/23 17:56:05 | of a problem with the value of the configured Java command.  Currently:
+ADVICE | wrapper  | 2013/06/23 17:56:05 | wrapper.java.command=%JAVA_HOME%/bin/java
+ADVICE | wrapper  | 2013/06/23 17:56:05 | Please make sure that the PATH or any other referenced environment
+ADVICE | wrapper  | 2013/06/23 17:56:05 | variables are correctly defined for the current environment.
+ADVICE | wrapper  | 2013/06/23 17:56:05 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:05 | 
+WARN   | wrapper  | 2013/06/23 17:56:10 | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[0] : %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[2] : -classpath
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[4] : -Dwrapper.key=1X1Qtd2Un34sVQ7h
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[9] : -Dwrapper.pid=4195
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[15] : -Dwrapper.jvmid=4
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/06/23 17:56:10 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/06/23 17:56:10 | Launching a JVM...
+ERROR  | wrapper  | 2013/06/23 17:56:10 | JVM exited while loading the application.
+ERROR  | wrapper  | 2013/06/23 17:56:10 | Unable to start JVM: 没有那个文件或目录 (2)
+INFO   | jvm 4    | 2013/06/23 17:56:10 | of a problem with the value of the configured Java command.  Currently:
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | wrapper.java.command=%JAVA_HOME%/bin/java
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Please make sure that the PATH or any other referenced environment
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | variables are correctly defined for the current environment.
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | ------------------------------------------------------------------------
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | 
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[0] : %JAVA_HOME%/bin/java
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[1] : -Djava.library.path=../lib
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[2] : -classpath
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[4] : -Dwrapper.key=1X1Qtd2Un34sVQ7h
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[5] : -Dwrapper.port=32000
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[9] : -Dwrapper.pid=4195
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[10] : -Dwrapper.version=3.5.19
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[12] : -Dwrapper.arch=x86
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[13] : -Dwrapper.service=TRUE
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[15] : -Dwrapper.jvmid=4
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+INFO   | jvm 4    | 2013/06/23 17:56:10 | wrapper  | Launching a JVM...
+ADVICE | wrapper  | 2013/06/23 17:56:10 | 
+ADVICE | wrapper  | 2013/06/23 17:56:10 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:10 | Advice:
+ADVICE | wrapper  | 2013/06/23 17:56:10 | Usually when the Wrapper fails to start the JVM process, it is because
+ADVICE | wrapper  | 2013/06/23 17:56:10 | of a problem with the value of the configured Java command.  Currently:
+ADVICE | wrapper  | 2013/06/23 17:56:10 | wrapper.java.command=%JAVA_HOME%/bin/java
+ADVICE | wrapper  | 2013/06/23 17:56:10 | Please make sure that the PATH or any other referenced environment
+ADVICE | wrapper  | 2013/06/23 17:56:10 | variables are correctly defined for the current environment.
+ADVICE | wrapper  | 2013/06/23 17:56:10 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:10 | 
+WARN   | wrapper  | 2013/06/23 17:56:14 | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[0] : %JAVA_HOME%/bin/java
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[2] : -classpath
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[4] : -Dwrapper.key=LQpLJsRywfX4aeuc
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[9] : -Dwrapper.pid=4195
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[15] : -Dwrapper.jvmid=5
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/06/23 17:56:14 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/06/23 17:56:14 | Launching a JVM...
+ERROR  | wrapper  | 2013/06/23 17:56:14 | JVM exited while loading the application.
+ERROR  | wrapper  | 2013/06/23 17:56:14 | Unable to start JVM: 没有那个文件或目录 (2)
+INFO   | jvm 5    | 2013/06/23 17:56:14 | apper  | Advice:
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Usually when the Wrapper fails to start the JVM process, it is because
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | of a problem with the value of the configured Java command.  Currently:
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | wrapper.java.command=%JAVA_HOME%/bin/java
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Please make sure that the PATH or any other referenced environment
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | variables are correctly defined for the current environment.
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | ------------------------------------------------------------------------
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | 
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | The configured wrapper.java.command could not be found, attempting to launch anyway: %JAVA_HOME%/bin/java
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[0] : %JAVA_HOME%/bin/java
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[1] : -Djava.library.path=../lib
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[2] : -classpath
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[4] : -Dwrapper.key=LQpLJsRywfX4aeuc
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[5] : -Dwrapper.port=32000
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[9] : -Dwrapper.pid=4195
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[10] : -Dwrapper.version=3.5.19
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[12] : -Dwrapper.arch=x86
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[13] : -Dwrapper.service=TRUE
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[15] : -Dwrapper.jvmid=5
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+INFO   | jvm 5    | 2013/06/23 17:56:14 | wrapper  | Launching a JVM...
+ADVICE | wrapper  | 2013/06/23 17:56:14 | 
+ADVICE | wrapper  | 2013/06/23 17:56:14 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:14 | Advice:
+ADVICE | wrapper  | 2013/06/23 17:56:14 | Usually when the Wrapper fails to start the JVM process, it is because
+ADVICE | wrapper  | 2013/06/23 17:56:14 | of a problem with the value of the configured Java command.  Currently:
+ADVICE | wrapper  | 2013/06/23 17:56:14 | wrapper.java.command=%JAVA_HOME%/bin/java
+ADVICE | wrapper  | 2013/06/23 17:56:14 | Please make sure that the PATH or any other referenced environment
+ADVICE | wrapper  | 2013/06/23 17:56:14 | variables are correctly defined for the current environment.
+ADVICE | wrapper  | 2013/06/23 17:56:14 | ------------------------------------------------------------------------
+ADVICE | wrapper  | 2013/06/23 17:56:14 | 
+FATAL  | wrapper  | 2013/06/23 17:56:15 | There were 5 failed launches in a row, each lasting less than 300 seconds.  Giving up.
+FATAL  | wrapper  | 2013/06/23 17:56:15 |   There may be a configuration problem: please check the logs.
+STATUS | wrapper  | 2013/06/23 17:56:15 | <-- Wrapper Stopped

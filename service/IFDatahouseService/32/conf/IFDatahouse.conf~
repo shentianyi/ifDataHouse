@@ -43,7 +43,7 @@ wrapper.lang.folder=../lang
 #  Locate the java binary on the system PATH:
 wrapper.java.command=java
 #  Specify a specific java binary:
-#set.JAVA_HOME=/java/path
+#set.JAVA_HOME=/usr/lib/jvm/java-7-sun
 wrapper.java.command=%JAVA_HOME%/bin/java
 
 # Tell the Wrapper to log the full generated Java command line.
@@ -75,7 +75,7 @@ wrapper.java.additional.1=
 #wrapper.java.maxmemory=64
 
 # Application parameters.  Add parameters as needed starting from 1
-#wrapper.app.parameter.1=org.cz.epm.thrift.server.EpmServerRunner
+wrapper.app.parameter.1=org.cz.epm.thrift.server.EpmServerRunner
 
 #********************************************************************
 # Wrapper Logging Properties

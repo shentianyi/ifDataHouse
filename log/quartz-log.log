@@ -1,19 +1,19 @@
-[INFO] 20 五月 10:58:19.871 上午 main [org.quartz.impl.StdSchedulerFactory]
+[INFO] 08 七月 01:48:26.627 下午 main [org.quartz.impl.StdSchedulerFactory]
 Using default implementation for ThreadExecutor
 
-[INFO] 20 五月 10:58:19.875 上午 main [org.quartz.simpl.SimpleThreadPool]
+[INFO] 08 七月 01:48:26.631 下午 main [org.quartz.simpl.SimpleThreadPool]
 Job execution threads will use class loader of thread: main
 
-[INFO] 20 五月 10:58:19.899 上午 main [org.quartz.core.SchedulerSignalerImpl]
+[INFO] 08 七月 01:48:26.650 下午 main [org.quartz.core.SchedulerSignalerImpl]
 Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
 
-[INFO] 20 五月 10:58:19.901 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:48:26.651 下午 main [org.quartz.core.QuartzScheduler]
 Quartz Scheduler v.2.1.7 created.
 
-[INFO] 20 五月 10:58:19.902 上午 main [org.quartz.simpl.RAMJobStore]
+[INFO] 08 七月 01:48:26.653 下午 main [org.quartz.simpl.RAMJobStore]
 RAMJobStore initialized.
 
-[INFO] 20 五月 10:58:19.903 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:48:26.654 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -23,40 +23,40 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
-[INFO] 20 五月 10:58:19.903 上午 main [org.quartz.impl.StdSchedulerFactory]
+[INFO] 08 七月 01:48:26.654 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
-[INFO] 20 五月 10:58:19.904 上午 main [org.quartz.impl.StdSchedulerFactory]
+[INFO] 08 七月 01:48:26.654 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler version: 2.1.7
 
-[INFO] 20 五月 10:58:19.937 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:48:26.677 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
 
-[INFO] 20 五月 11:09:06.903 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:48:53.425 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
 
-[INFO] 20 五月 11:09:06.906 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:48:53.425 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
 
-[INFO] 20 五月 11:09:06.907 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:48:53.426 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
 
-[INFO] 20 五月 11:09:08.976 上午 main [org.quartz.impl.StdSchedulerFactory]
+[INFO] 08 七月 01:49:59.042 下午 main [org.quartz.impl.StdSchedulerFactory]
 Using default implementation for ThreadExecutor
 
-[INFO] 20 五月 11:09:08.980 上午 main [org.quartz.simpl.SimpleThreadPool]
+[INFO] 08 七月 01:49:59.046 下午 main [org.quartz.simpl.SimpleThreadPool]
 Job execution threads will use class loader of thread: main
 
-[INFO] 20 五月 11:09:08.999 上午 main [org.quartz.core.SchedulerSignalerImpl]
+[INFO] 08 七月 01:49:59.066 下午 main [org.quartz.core.SchedulerSignalerImpl]
 Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
 
-[INFO] 20 五月 11:09:09.000 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:49:59.068 下午 main [org.quartz.core.QuartzScheduler]
 Quartz Scheduler v.2.1.7 created.
 
-[INFO] 20 五月 11:09:09.002 上午 main [org.quartz.simpl.RAMJobStore]
+[INFO] 08 七月 01:49:59.069 下午 main [org.quartz.simpl.RAMJobStore]
 RAMJobStore initialized.
 
-[INFO] 20 五月 11:09:09.003 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:49:59.070 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -66,21 +66,150 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
-[INFO] 20 五月 11:09:09.003 上午 main [org.quartz.impl.StdSchedulerFactory]
+[INFO] 08 七月 01:49:59.070 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
-[INFO] 20 五月 11:09:09.003 上午 main [org.quartz.impl.StdSchedulerFactory]
+[INFO] 08 七月 01:49:59.071 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler version: 2.1.7
 
-[INFO] 20 五月 11:09:09.025 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:49:59.093 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
 
-[INFO] 20 五月 11:11:11.988 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:51:41.991 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
 
-[INFO] 20 五月 11:11:11.989 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:51:41.992 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
 
-[INFO] 20 五月 11:11:11.995 上午 main [org.quartz.core.QuartzScheduler]
+[INFO] 08 七月 01:51:41.996 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 08 七月 01:51:59.094 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 08 七月 01:51:59.098 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 08 七月 01:51:59.122 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 08 七月 01:51:59.125 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 08 七月 01:51:59.126 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 08 七月 01:51:59.128 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 08 七月 01:51:59.128 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 08 七月 01:51:59.128 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 08 七月 01:51:59.151 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 08 七月 01:52:21.313 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 08 七月 01:52:21.314 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 08 七月 01:52:21.318 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 08 七月 01:52:41.553 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 08 七月 01:52:41.557 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 08 七月 01:52:41.576 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 08 七月 01:52:41.581 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 08 七月 01:52:41.583 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 08 七月 01:52:41.584 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 08 七月 01:52:41.584 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 08 七月 01:52:41.585 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 08 七月 01:52:41.610 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 08 七月 01:53:14.565 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 08 七月 01:53:14.566 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 08 七月 01:53:14.569 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 08 七月 01:53:35.505 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 08 七月 01:53:35.511 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 08 七月 01:53:35.530 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 08 七月 01:53:35.531 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 08 七月 01:53:35.533 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 08 七月 01:53:35.534 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 08 七月 01:53:35.534 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 08 七月 01:53:35.534 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 08 七月 01:53:35.558 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 08 七月 01:57:58.817 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 08 七月 01:57:58.817 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 08 七月 01:57:58.820 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
 
