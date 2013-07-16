@@ -33,8 +33,9 @@ public class Conf {
 	private final static String mMapperItemColl = "mapper_items";
 	private final static String mTarget="targets";
 	
-	// access key
+	// ifepm rest api
 	private static String ifEpmAccessKey="";
+	private static String ifEpmUrl="http://localhost:3000";
 	static {
 		if (property == null) {
 			synchronized (Conf.class) {
@@ -67,8 +68,9 @@ public class Conf {
 					mUser = getProperty("MUsername");
 					mPwd = getProperty("MPwd");
 					
-					// access key conf
+					// ifEpm rest api conf
 					ifEpmAccessKey=getProperty("IFEpmAccessKey");
+					ifEpmUrl=getProperty("IFEpmUrl");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -172,7 +174,9 @@ public class Conf {
 		return ifEpmAccessKey;
 	}
 
-	public static void setIfEpmAccessKey(String ifEpmAccessKey) {
-		Conf.ifEpmAccessKey = ifEpmAccessKey;
+ 
+	public static String getIfEpmUrl() {
+		return ifEpmUrl;
 	}
+ 
 }

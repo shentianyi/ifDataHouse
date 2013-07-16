@@ -13,12 +13,13 @@ import java.util.Map.Entry;
 public class HttpRequestUtil {
 	private final String USER_AGENT = "Mozilla/5.0";
 
-	private void doRequest(String url, String method, Map<String,String> params)
+	public void doRequest(String url, String method,String contentType, Map<String,String> params)
 			throws Exception {
 		URL obj = new URL(url);
 		HttpURLConnection con=(HttpURLConnection)obj.openConnection();
 		con.setRequestMethod(method);
 		con.setRequestProperty("User-Agent", USER_AGENT);
+//		con.setRequestProperty("Content-Type", contentType);
 		// send request
 		con.setDoOutput(true);
 		DataOutputStream wr=new DataOutputStream(con.getOutputStream());
@@ -48,7 +49,7 @@ public class HttpRequestUtil {
 	}
 	
 	private String FormatParams(Map<String,String> params){
-		String paramStr="?";
+		String paramStr="";
 		for(Entry<String, String> param : params.entrySet()){
 			paramStr+=(param.getKey()+"="+param.getValue()+"&");
 		}

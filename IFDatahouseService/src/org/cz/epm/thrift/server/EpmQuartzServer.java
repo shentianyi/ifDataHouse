@@ -5,6 +5,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
 import static org.quartz.CronScheduleBuilder.dailyAtHourAndMinute;
 
 import org.cz.epm.job.CleanRedisZSetCacheJob;
+import org.cz.epm.job.IFEpmRestApiJob;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
@@ -21,19 +22,28 @@ public class EpmQuartzServer {
 		try {
 			SchedulerFactory sf = new StdSchedulerFactory();
 			sched = sf.getScheduler();
-			JobDetail job = newJob(CleanRedisZSetCacheJob.class).withIdentity(
-					"CleanRedisZSetCacheJob", "CleanRedisCacheGroup").build();
-			Trigger trigger = newTrigger()
-					.withIdentity("CleanRedisZSetCacheJobTrigger",
-							"CleanRedisCacheTrigger").startNow()
+			// clean redis cache job
+			JobDetail cleanRedisCacheJob = newJob(CleanRedisZSetCacheJob.class)
+					.withIdentity("CleanRedisZSetCacheJob",
+							"CleanRedisCacheJobGroup").build();
+			Trigger cleanReisCacheTrigger = newTrigger()
+					.withIdentity("CleanRedisCacheTrigger",
+							"CleanRedisCacheTriggerGroup").startNow()
 					.withSchedule(dailyAtHourAndMinute(0, 0)).build();
-			// Trigger trigger = newTrigger()
-			// .withIdentity("CleanRedisZSetCacheJobTrigger",
-			// "CleanRedisCacheTrigger")
-			// .withSchedule(simpleSchedule().withIntervalInSeconds(2).repeatForever()).build();
-			sched.scheduleJob(job, trigger);
+			// call epm rest api job
+			JobDetail ifEpmApiJob = newJob(IFEpmRestApiJob.class).withIdentity(
+					"IFEpmApiJob", "IFEpmApiEpmJobGroup").build();
+ 
+			Trigger ifEpmApiTrigger = newTrigger()
+					.withIdentity("IFEpmApiTrigger", "IFEpmApiTriggerGroup")
+					.withSchedule(simpleSchedule().withIntervalInHours(1).repeatForever()).build();
+//			Trigger ifEpmApiTrigger = newTrigger()
+//					.withIdentity("IFEpmApiTrigger", "IFEpmApiTriggerGroup")
+//					.withSchedule(simpleSchedule().withIntervalInMinutes(1).repeatForever()).build();
+			
+			sched.scheduleJob(cleanRedisCacheJob, cleanReisCacheTrigger);
+			sched.scheduleJob(ifEpmApiJob, ifEpmApiTrigger);
 			sched.start();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;

@@ -175,8 +175,6 @@ public class EpmDataBase {
 			String entityId, long startTime, long endTime) throws TException {
 
 		Set<Map<String, String>> partNumTimes = new HashSet<Map<String, String>>();
-		;
-
 		List<Map> products = DatahouseBase.GetProducts("entityId", entityId,
 				"outputTime", Long.toString(startTime), Long.toString(endTime),
 				"partId");
