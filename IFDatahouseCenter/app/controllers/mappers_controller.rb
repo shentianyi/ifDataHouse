@@ -11,6 +11,10 @@ class MappersController < ApplicationController
   def new
     @access_key=session[:mapper_access_key]= session[:mapper_access_key]||SecureRandom.urlsafe_base64
     @item=session[:mapper].nil? ? Mapper.new : ((m=Mapper.find(session[:mapper])).nil? ? Mapper.new : m)
+    # if params[:mapper] and m=Mapper.find(params[:mapper])
+     # @item=m
+     # @access_key=@item.access_key
+    # end
   end
 
   def create
@@ -18,7 +22,7 @@ class MappersController < ApplicationController
     if params[:mapper]
       if  params[:mapper][:access_key]==session[:mapper_access_key]
         if mapper=Mapper.find_by(:mapperNr=>params[:mapper][:mapperNr])
-           mapper.update_attributes(:name=>params[:mapper][:name])
+           mapper.update_attributes(:name=>params[:mapper][:name]) unless params[:mapper][:name].blank?
         else
           mapper=Mapper.new(params[:mapper])
           mapper.save

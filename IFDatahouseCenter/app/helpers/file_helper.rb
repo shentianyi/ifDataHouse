@@ -6,7 +6,7 @@ module FileHelper
       files=params[:files]
       if files.count==1
         file=files[0]
-        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>SecureRandom.uuid+file.original_filename)
+        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>SecureRandom.urlsafe_base64+file.original_filename)
         csv.saveFile
         hfile=File.join($UPDATAPATH,csv.pathName)
         row_line=0

@@ -17,6 +17,7 @@ module BlockHelper
       line<<item.clientPartNr
       line<<item.orderNr
       line<<item.unitTime
+      line<<item.entity.entityNr if item.entity
     }
   end
 
