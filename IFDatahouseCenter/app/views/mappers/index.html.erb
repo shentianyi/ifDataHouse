@@ -14,7 +14,7 @@
           <td><%=item.access_key%></td>
            <td><%= link_to '查看', item %>
           <%= link_to '编辑',send("edit_#{@model}_path",item) %>
-          <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
      </tr>
      <% end %>
 </table>

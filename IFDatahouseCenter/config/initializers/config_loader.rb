@@ -12,3 +12,5 @@ $DOWNLOADPATH=path_config[:download_file_path]
 
 $AKEY='h-esV6wUMFgRotSc5WpjXQ'
 
+# map access key
+$AccessKey='diyeleS3oXBHTQohr5sgmA'

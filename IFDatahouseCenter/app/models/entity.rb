@@ -10,9 +10,11 @@ class Entity
   field :type, type:Integer
   field :entity_id
   # field :staff_id
-
+  
   has_many :entities,dependent: :destroy
   belongs_to :entity
+  
+  has_many :parts
   def self.uniq
     ['entityNr']
   end

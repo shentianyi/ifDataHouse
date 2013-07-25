@@ -7,6 +7,7 @@
           <th>客户零件号</th>
           <th>零件订单号</th>
           <th>单位生产时间</th>
+          <th>组织号</th>
           <th>&nbsp;</th>
      </tr>
      <% @items.each do |item| %>
@@ -16,6 +17,7 @@
           <td><%= item.clientPartNr%></td>
           <td><%= item.orderNr%></td>
           <td><%= item.unitTime%></td>
+          <td><%= item.entity.entityNr if item.entity%></td>
           <td><%= link_to '查看', item %>
           <%= link_to '编辑',send("edit_#{@model}_path",item) %>
           <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

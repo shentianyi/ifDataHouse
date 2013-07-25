@@ -50,7 +50,7 @@ class MapperItem
     value_key_hash=generate_key "value:key"
     $redis.hdel value_key_hash,self.map_value
     key_value_hash=generate_key "key:value"
-    $redis.hdel value_key_hash,self.map_key
+    $redis.hdel key_value_hash,self.map_key
   end
 
   def generate_key key
