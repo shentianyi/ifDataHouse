@@ -26,14 +26,28 @@ public class IFEpmRestApi {
 	private final static Map<String, String> apiEntiyId = new HashMap() {
 		{
 			// entity_nr, entity_id
-			put("RBA1", "2");
-			put("RBA2", "3");
-			put("RBA4", "4");
-			put("COC", "5");
-			put("Motor", "6");
-			put("MRA", "7");
-			put("Minor", "8");
-			put("NCV3", "9");
+			put("C-RBA","2");
+			put("G-RBA","3");
+			put("E-RBA","4");
+			put("C-COC","5");
+			put("G-COC","6");
+			put("E-COC","7");
+			put("C-MRA","8");
+			put("G-MRA","9");
+			put("E-MRA","10");
+			put("Minor","11");
+			put("Motor","12");
+			put("NCV2-COC","13");
+			put("NCV2-INR","14");
+			put("NCV2-MRA","15");
+			put("NCV2-Minor","16");
+			put("NCV3-COC","17");
+			put("NCV3-BODY","18");
+			put("NCV3-ROOF","19");
+			put("NCV3-Minor","20");
+			put("C-G-COC","21");
+			put("C-G-MRA","22");
+			put("NCV2-3","23");
 		}
 	};
 	private final static Map<String, String> apiKpiId = new HashMap() {
@@ -66,8 +80,8 @@ public class IFEpmRestApi {
 
 	// 出勤人数KPI
 	public static void AddWorkerAttendanceKpiEntry() throws Exception {
-		// System.out.println(mongoEntityId);
-		// System.out.println(mongoEntityIdSet);
+		 System.out.println(mongoEntityId);
+		 System.out.println(mongoEntityIdSet);
 		Map<String, Long> values = EpmDataBase
 				.GetCurrentOnJobWorkerNums(mongoEntityIdSet);
 		DoApiRequest(values, "WorkerAttendanceKpi");

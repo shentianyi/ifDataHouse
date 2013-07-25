@@ -14,7 +14,8 @@ public class IFEpmRestApiJob implements Job {
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
 		// TODO Auto-generated method stub
-		try {
+		try { 
+			System.out.print(23);
 			Calendar cal = Calendar.getInstance();
 			long endTime = cal.getTimeInMillis();
 			cal.add(Calendar.HOUR_OF_DAY, -24);
@@ -37,6 +38,7 @@ public class IFEpmRestApiJob implements Job {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println(e);
 		}
 	}
 

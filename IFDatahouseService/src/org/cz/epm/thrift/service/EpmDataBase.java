@@ -49,7 +49,12 @@ public class EpmDataBase {
 				startTime == null ? null : Long.toString(startTime),
 				endTime == null ? null : Long.toString(endTime), fields);
 	}
-
+	public static Map GetPart(String partId, String... fields) {
+		Map query = new HashMap();
+		query.put("_id", partId);
+		return DatahouseBase.GetEntity(query, fields);
+	}
+	
 	public static Map GetEntity(String entityId, String... fields) {
 		Map query = new HashMap();
 		query.put("_id", entityId);
