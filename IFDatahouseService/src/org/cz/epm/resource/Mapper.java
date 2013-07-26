@@ -12,7 +12,8 @@ public class Mapper {
 	private String access_key;
 
 	public Mapper(String access_key) {
-		this.access_key = access_key;
+		//this.access_key = access_key;
+		this.access_key=Conf.getIfDatahouseMapAccessKey();
 	}
 
 	public String GetMapKey(String model, String map_value) {

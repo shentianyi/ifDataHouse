@@ -1,19 +1,19 @@
-[INFO] 16 Jul 03:29:16.516 PM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+[INFO] 26 Jul 10:04:55.660 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
 Using default implementation for ThreadExecutor
 
-[INFO] 16 Jul 03:29:16.521 PM WrapperSimpleAppMain [org.quartz.simpl.SimpleThreadPool]
+[INFO] 26 Jul 10:04:55.664 AM WrapperSimpleAppMain [org.quartz.simpl.SimpleThreadPool]
 Job execution threads will use class loader of thread: WrapperSimpleAppMain
 
-[INFO] 16 Jul 03:29:16.553 PM WrapperSimpleAppMain [org.quartz.core.SchedulerSignalerImpl]
+[INFO] 26 Jul 10:04:55.684 AM WrapperSimpleAppMain [org.quartz.core.SchedulerSignalerImpl]
 Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
 
-[INFO] 16 Jul 03:29:16.554 PM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+[INFO] 26 Jul 10:04:55.686 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
 Quartz Scheduler v.2.1.7 created.
 
-[INFO] 16 Jul 03:29:16.557 PM WrapperSimpleAppMain [org.quartz.simpl.RAMJobStore]
+[INFO] 26 Jul 10:04:55.693 AM WrapperSimpleAppMain [org.quartz.simpl.RAMJobStore]
 RAMJobStore initialized.
 
-[INFO] 16 Jul 03:29:16.559 PM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+[INFO] 26 Jul 10:04:55.694 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -23,12 +23,12 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
-[INFO] 16 Jul 03:29:16.559 PM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+[INFO] 26 Jul 10:04:55.694 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
-[INFO] 16 Jul 03:29:16.559 PM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
+[INFO] 26 Jul 10:04:55.694 AM WrapperSimpleAppMain [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler version: 2.1.7
 
-[INFO] 16 Jul 03:29:16.683 PM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
+[INFO] 26 Jul 10:04:55.738 AM WrapperSimpleAppMain [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
 

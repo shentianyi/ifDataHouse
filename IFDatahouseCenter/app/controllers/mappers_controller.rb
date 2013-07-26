@@ -1,7 +1,6 @@
 #encoding: utf-8
 class MappersController < ApplicationController
-  before_filter  :authorize
-  before_filter :set_model
+ 
   before_filter :check_access_key,:only=>[:cancel,:map,:domap]
   def index
     clean_session

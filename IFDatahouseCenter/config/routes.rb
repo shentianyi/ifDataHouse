@@ -7,32 +7,18 @@ IFDatahouse::Application.routes.draw do
     get 'logout' => :destroy
     get 'index'=>:index
   end
-
-  resources :parts do
-    collection do
-      post :updata
-      get :import
-      get :download
-      get :search
+  
+  [:part_infos,:parts,:staffs,:entities].each do |model|
+    resources model do
+      collection do
+        post :updata
+        get :import
+        get :download
+        get :search
+      end
     end
   end
-  resources :staffs do
-    collection do
-      post :updata
-      get :import
-      get :download
-      get :search
-    end
-  end
-  resources :entities do
-    collection do
-      post :updata
-      get :import
-      get :download
-      get :search
-    end
-  end
-
+ 
   resources :mappers do
     collection do
       get :cancel

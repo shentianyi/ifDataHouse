@@ -26,12 +26,8 @@
           <td><%= f.text_field :clientPartNr%></td>
      </tr>
      <tr>
-          <td>零件订单号</td>
-          <td><%= f.text_field :orderNr%></td>
-     </tr>
-     <tr>
-          <td>单位生产时间</td>
-          <td><%= f.text_field :unitTime%></td>
+          <td>组织号</td>
+          <td><%= select_tag 'part[entity_id]',options_from_collection_for_select(@entities,'id','entityNr',:selected=>@item.entity_id)%></td>
      </tr>
 </table>
 </div>

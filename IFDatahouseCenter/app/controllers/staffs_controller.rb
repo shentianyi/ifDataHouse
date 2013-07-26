@@ -1,7 +1,6 @@
 #encoding: utf-8
 class StaffsController < ApplicationController
-  before_filter  :authorize
-  before_filter :set_model
+
   def updata
     super {|data,query,row,row_line|
       raise(ArgumentError,"行:#{row_line}, StaffNr 不能为空值") if row["StaffNr"].nil?
@@ -15,8 +14,5 @@ class StaffsController < ApplicationController
       end
     }
   end
-
-  def download
-    super &BlockHelper.get_staff_down_block
-  end
+ 
 end

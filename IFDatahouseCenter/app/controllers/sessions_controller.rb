@@ -1,5 +1,7 @@
 #encoding: utf-8
 class SessionsController < ApplicationController
+  skip_before_filter  :authorize
+  skip_before_filter :set_model
 
   layout "login"
   def new

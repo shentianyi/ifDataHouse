@@ -5,8 +5,6 @@ class Part
   field :partNr
   field :name
   field :clientPartNr
-  field :orderNr
-  field :unitTime, type: Float
   
   belongs_to :entity
   def self.uniq
@@ -14,7 +12,7 @@ class Part
   end
 
   def self.csv_headers
-    ['PartNr','Name','ClientPartNr','OrderNr','UnitTime','EntityNr',$UPMARKER]
+    ['PartNr','Name','ClientPartNr','EntityNr',$UPMARKER]
   end
 
   def map_field

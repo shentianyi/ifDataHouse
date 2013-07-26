@@ -44,7 +44,7 @@ public class EpmThriftServer {
 			
 			server = new TNonblockingServer(args);
 			System.out
-					.println("**********  EPM Hbase Thrift Server if Firing up on <"
+					.println("**********  EPM Thrift Server Firing up on <"
 							+ PORT + "> *****************");
 			final Runnable runnable = new Runnable() {
 				@Override
@@ -57,12 +57,15 @@ public class EpmThriftServer {
 			t.start();
 		} catch (TTransportException e) {
 			e.printStackTrace();
+			System.out.println(e);
 			throw e;
 		} catch (RuntimeException e) {
 			e.printStackTrace();
+			System.out.println(e);
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e);
 			throw e;
 		} finally {
 			System.out.println("Exiting Thrift server.");

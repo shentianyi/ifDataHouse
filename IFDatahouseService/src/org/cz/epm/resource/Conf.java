@@ -36,6 +36,9 @@ public class Conf {
 	// ifepm rest api
 	private static String ifEpmAccessKey="";
 	private static String ifEpmUrl="http://localhost:3000";
+	
+	// ifdatahouse map access key
+	private static String ifDatahouseMapAccessKey="";
 	static {
 		if (property == null) {
 			synchronized (Conf.class) {
@@ -71,6 +74,10 @@ public class Conf {
 					// ifEpm rest api conf
 					ifEpmAccessKey=getProperty("IFEpmAccessKey");
 					ifEpmUrl=getProperty("IFEpmUrl");
+					
+					// ifDatahouse map access key
+					ifDatahouseMapAccessKey=getProperty("IFDatahouseAccessKey");
+					
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -177,6 +184,10 @@ public class Conf {
  
 	public static String getIfEpmUrl() {
 		return ifEpmUrl;
+	}
+
+	public static String getIfDatahouseMapAccessKey() {
+		return ifDatahouseMapAccessKey;
 	}
  
 }

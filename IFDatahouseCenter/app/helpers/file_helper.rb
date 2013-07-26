@@ -1,4 +1,14 @@
 #encoding: utf-8
+class CSV
+  class Row
+    def strip
+      self.each do |value|
+        value[1].strip! if value[1]
+      end
+    end
+  end
+end
+
 module FileHelper
   def updata
     msg=Message.new(:content=>'')
@@ -6,11 +16,12 @@ module FileHelper
       files=params[:files]
       if files.count==1
         file=files[0]
-        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>SecureRandom.urlsafe_base64+file.original_filename)
+        csv=FileData.new(:data=>file,:oriName=>file.original_filename,:path=>$UPDATAPATH,:pathName=>SecureRandom.uuid+file.original_filename)
         csv.saveFile
         hfile=File.join($UPDATAPATH,csv.pathName)
         row_line=0
         CSV.foreach(hfile,:headers=>true,:col_sep=>$CSVSP) do |row|
+          row.strip
           row_line+=1
           m=model
           uniquery=nil
@@ -29,9 +40,7 @@ module FileHelper
           data.delete($UPMARKER)
           if query
             if item=m.find_by(query)
-              if row[$UPMARKER].to_i==1
-              item.update_attributes(data)
-              end
+            item.update_attributes(data) if row[$UPMARKER].to_i==1
             else
             m.create(data)
             end
@@ -51,7 +60,7 @@ module FileHelper
   end
 
   def download query=nil,mm=nil
-    file_name=SecureRandom.uuid+".csv"
+    file_name=@model+".csv"
     path=File.join($DOWNLOADPATH,file_name)
     File.open(path,'wb') do |f|
       m=mm.nil? ? model : mm
@@ -59,9 +68,8 @@ module FileHelper
       items=query.nil? ? m.all : m.where(query)
       items.each do |item|
         line=[]
-        if block_given?
-        yield(line,item)
-        end
+        proc=BlockHelper.send "get_#{@model}_down_block"
+        proc.call(line,item)
         f.puts line.join($CSVSP)
       end
     end

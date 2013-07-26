@@ -1,7 +1,7 @@
 require 'mapper'
 
 class MapperItemObserver < Mongoid::Observer
-  observe :staff,:part,:entity
+  observe :staff,:part,:entity,:part_info
   
   def after_update record
     if record.respond_to?(:map_field)

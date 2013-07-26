@@ -16,12 +16,8 @@
           <td><%= @item.clientPartNr%></td>
      </tr>
      <tr>
-          <td>零件订单号</td>
-          <td><%= @item.orderNr%></td>
-     </tr>
-     <tr>
-          <td>单位生产时间</td>
-          <td><%= @item.unitTime%></td>
+          <td>组织号</td>
+          <td><%= @item.entity.entityNr if @item.entity%></td>
      </tr>
 </table>
 <br />

@@ -1,7 +1,6 @@
 #encoding: utf-8
 class EntitiesController < ApplicationController
-  before_filter  :authorize
-  before_filter :set_model
+ 
   def new
     get_select
     super
@@ -47,11 +46,7 @@ class EntitiesController < ApplicationController
       end
     }
   end
-
-  def download
-    super &BlockHelper.get_entity_down_block
-  end
-
+ 
   private
 
   def get_select
