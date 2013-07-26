@@ -2,7 +2,7 @@
      <%= notice %>
 </p>
 
-<table>
+<table class="table table-bordered table-striped globle-table">
      <tr>
           <td>访问号</td>
           <td><%= @item.access_key%></td>
@@ -20,6 +20,8 @@
 <p>
      <%= link_to '查看详细 >',send("select_#{@model}_path",@item) %>
 </p>
-<%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to '编辑',send("edit_#{@model}_path",@item) %>
-<%= link_to '返回', send("#{@model.pluralize}_path") %>
+<div class="footer-operate">
+     <%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
+     <%= link_to '编辑',send("edit_#{@model}_path",@item) %>
+     <%= link_to '返回', send("#{@model.pluralize}_path") %>
+</div>

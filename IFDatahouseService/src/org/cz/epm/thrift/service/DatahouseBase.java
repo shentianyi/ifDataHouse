@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.bson.types.ObjectId;
+import org.bson.types.ObjectId; 
+import org.cz.epm.conf.MongoConf;
 import org.cz.epm.data.manager.MongoManager;
-import org.cz.epm.resource.Conf;
 import org.cz.epm.resource.MongoUtil;
 import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
@@ -19,110 +19,121 @@ public class DatahouseBase {
 
 	// ************ part methods
 	public static boolean AddPart(Map<String, String> dataMap) {
-		return insertData(Conf.getMpartcoll(), dataMap);
-	}
-	// get part
-	public static Map GetPart(Map keyValue, String... fields) {
-		return getData(Conf.getMpartcoll(), keyValue, fields);
+		return insertData(MongoConf.getMpartcoll(), dataMap);
 	}
 
+	// get part
+	public static Map GetPartInfo(Map keyValue, String... fields) {
+		return getData(MongoConf.getMpartinfocoll(), keyValue, fields);
+	}
+
+	// get parts
+	public static List<Map> GetPartInfos(String key, List<String> ins,
+			String... fields) {
+		return getDatas(MongoConf.getMpartinfocoll(), key, ins, fields);
+	}
+
+	// get part
+	public static Map GetPart(Map keyValue, String... fields) {
+		return getData(MongoConf.getMpartcoll(), keyValue, fields);
+	}
 
 	// get parts
 	public static List<Map> GetParts(String key, List<String> ins,
 			String... fields) {
-		return getDatas(Conf.getMpartcoll(), key, ins, fields);
+		return getDatas(MongoConf.getMpartcoll(), key, ins, fields);
 	}
 
 	// get entity
 	public static Map GetEntity(Map keyValue, String... fields) {
-		return getData(Conf.getMentitycoll(), keyValue, fields);
+		return getData(MongoConf.getMentitycoll(), keyValue, fields);
 	}
 
 	// ************ attendance methods
 	// add attendance
 	public static boolean AddAttendance(Map<String, String> dataMap) {
-		return insertData(Conf.getMattendcoll(), dataMap);
+		return insertData(MongoConf.getMattendcoll(), dataMap);
 	}
 
 	public static List<Map> GetAttendances(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getDatas(Conf.getMattendcoll(), key, value, scopeKey, start,
+		return getDatas(MongoConf.getMattendcoll(), key, value, scopeKey, start,
 				end, fields);
 	}
 
 	public static List<Map> GetAttendances(Map keyValue, String scopeKey,
 			String start, String end, String... fields) {
-		return getDatas(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
+		return getDatas(MongoConf.getMattendcoll(), keyValue, scopeKey, start, end,
 				fields);
 	}
 
 	public static List<Map> GetAttendances(Map keyValue, String scopeKey,
 			String start, String end, String sortKey, int order, int limit,
 			String... fields) {
-		return getDatas(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
+		return getDatas(MongoConf.getMattendcoll(), keyValue, scopeKey, start, end,
 				sortKey, order, limit, fields);
 	}
 
 	public static Map GetAttendance(Map keyValue, String scopeKey,
 			String start, String end, String... fields) {
-		return getData(Conf.getMattendcoll(), keyValue, scopeKey, start, end,
+		return getData(MongoConf.getMattendcoll(), keyValue, scopeKey, start, end,
 				fields);
 	}
 
 	// ************ product methods
 	// add product
 	public static boolean AddProduct(Map<String, String> dataMap) {
-		return insertData(Conf.getMproductcoll(), dataMap);
+		return insertData(MongoConf.getMproductcoll(), dataMap);
 	}
 
 	// get products
 	public static List<Map> GetProducts(String key, List<String> ins,
 			String... fields) {
-		return getDatas(Conf.getMproductcoll(), key, ins, fields);
+		return getDatas(MongoConf.getMproductcoll(), key, ins, fields);
 	}
 
 	// count products
 	public static long CountProducts(Map keyValue, String scopeKey,
 			String start, String end) {
-		return count(Conf.getMproductcoll(), keyValue, scopeKey, start, end);
+		return count(MongoConf.getMproductcoll(), keyValue, scopeKey, start, end);
 	}
 
 	public static List<Map> GetProducts(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getDatas(Conf.getMproductcoll(), key, value, scopeKey, start,
+		return getDatas(MongoConf.getMproductcoll(), key, value, scopeKey, start,
 				end, fields);
 	}
 
 	// update
 	public static boolean UpdateProduct(String key, String value,
 			Map<String, String> fields) {
-		return updateData(Conf.getMproductinspectcoll(), key, value, fields,
+		return updateData(MongoConf.getMproductinspectcoll(), key, value, fields,
 				true);
 	}
 
 	// ************ inspect methods
 	// add product inspect
 	public static boolean AddProductInspect(Map<String, String> dataMap) {
-		return insertData(Conf.getMproductinspectcoll(), dataMap);
+		return insertData(MongoConf.getMproductinspectcoll(), dataMap);
 	}
 
 	public static boolean AddOperatingStates(Map<String, String> dataMap) {
-		return insertData(Conf.getMoperatingstatecoll(), dataMap);
+		return insertData(MongoConf.getMoperatingstatecoll(), dataMap);
 	}
 
 	// ************ target methods
 	// add target
 	public static boolean AddTarget(Map<String, String> dataMap) {
-		return insertData(Conf.getMtarget(), dataMap);
+		return insertData(MongoConf.getMtarget(), dataMap);
 	}
 
 	public static Map GetTarget(Map<String, String> query) {
-		return getData(Conf.getMtarget(), query);
+		return getData(MongoConf.getMtarget(), query);
 	}
 
 	public static boolean UpdateTarget(Map<String, String> query,
 			Map<String, String> object) {
-		return updateData(Conf.getMtarget(), query, object,false);
+		return updateData(MongoConf.getMtarget(), query, object, false);
 	}
 
 	// ************ base methods
@@ -313,7 +324,6 @@ public class DatahouseBase {
 				query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
 						.add("$lte", end).get());
 			}
-			// System.out.println(query.toString());
 			return MongoManager.FineOne(collName, query, generateField(fields));
 		} catch (Exception e) {
 			e.printStackTrace();

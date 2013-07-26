@@ -12,7 +12,7 @@
 </div>
 <% end %>
 <div class="field">
- <table>
+ <table class="table table-bordered table-striped globle-table">
      <tr>
           <td>零件号</td>
           <td><%= f.text_field :partNr%></td>
@@ -25,13 +25,21 @@
           <td>客户零件号</td>
           <td><%= f.text_field :clientPartNr%></td>
      </tr>
+      <tr>
+          <td>零件订单号</td>
+          <td><%= f.text_field :orderNr%></td>
+     </tr>
+     <tr>
+          <td>单位生产时间</td>
+          <td><%= f.text_field :unitTime%></td>
+     </tr>
      <tr>
           <td>组织号</td>
           <td><%= select_tag 'part[entity_id]',options_from_collection_for_select(@entities,'id','entityNr',:selected=>@item.entity_id)%></td>
      </tr>
+       <tr>
+               <td colspan="2">    <%= f.submit "提 交"%></td>
+          </tr>
 </table>
-</div>
-<div class="actions">
-     <%= f.submit "提 交"%>
 </div>
 <% end %>

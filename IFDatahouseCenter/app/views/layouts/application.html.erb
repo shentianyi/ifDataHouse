@@ -7,37 +7,27 @@
           <%= csrf_meta_tags %>
      </head>
      <body>
-          <div>
-               <ul>
-                    <li>
-                         基础数据
-                         <ul>
+          <%= render :partial=>'share/header'%>
+          <div class="container-fluid">
+               <div class="row">
+                    <div class="span3 bs-docs-sidebar">
+                         <ul class="nav nav-list bs-docs-sidenav">
                               <li>
-                                   <a href="/staffs"> 员工</a>
+                                   <a href="/staffs"> <i class="icon-chevron-right"></i>员工</a>
                               </li>
                               <li>
-                                   <a href="/part_infos">零件数据</a>
+                                   <a href="/parts"><i class="icon-chevron-right"></i>零件</a>
                               </li>
                               <li>
-                                   <a href="/parts">零件</a>
+                                   <a href="/entities"> <i class="icon-chevron-right"></i>组织</a>
                               </li>
                               <li>
-                                   <a href="/entities"> 组织</a>
-                              </li>
-                         </ul>
-                    </li>
-                    <li>
-                         配置数据
-                         <ul>
-                              <li>
-                                   <a href="/mappers">接口数据映射</a>
+                                   <a href="/mappers"><i class="icon-chevron-right"></i>接口数据映射</a>
                               </li>
                          </ul>
-                    </li>
-               </ul>
-          </div>
-          <div>
-               <%= yield %>
+                    </div>
+                    <%= yield %>
+               </div>
           </div>
      </body>
 </html>

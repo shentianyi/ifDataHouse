@@ -34,15 +34,11 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	public void addProductPack(String accessKey, Map<String, String> dataMap)
 			throws TException {
 		Mapper mapper = new Mapper(accessKey);
-		String partId = dataMap.get("partId");
-		partId = partId.substring(0, partId.length() - 2);
-		partId = mapper.GetMapKey("part", partId);
-
+		String partId = mapper.GetMapKey("part", dataMap.get("partId"));
 		Map part = EpmDataBase.GetPart(partId, "entity_id");
 		if (part != null && part.get("entity_id") != null) {
-		    dataMap.put("entityId", part.get("entity_id").toString());
-			dataMap.put("partId", mapper.GetMapKey("part", partId));
-
+			dataMap.put("entityId", part.get("entity_id").toString());
+			dataMap.put("partId",partId);
 			dataMap.put("state", Integer.toString(ProductState.PACK.getValue()));
 			dataMap.put("outputTime", dataMap.get("packTime"));
 			if (EpmDataBase.AddProduct(dataMap)) {

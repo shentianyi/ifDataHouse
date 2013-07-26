@@ -184,7 +184,6 @@ public class EpmDataBase {
 				"outputTime", Long.toString(startTime), Long.toString(endTime),
 				"partId");
 		if (products.size() > 0) {
-			// System.out.println(products);
 			List<String> repeatedpartIds = new ArrayList<String>();
 			for (Map product : products) {
 				repeatedpartIds.add(product.get("partId").toString());

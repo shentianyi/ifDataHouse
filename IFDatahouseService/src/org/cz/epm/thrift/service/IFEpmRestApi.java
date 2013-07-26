@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.thrift.TException;
-import org.cz.epm.resource.Conf;
+import org.cz.epm.conf.Conf;
 import org.cz.epm.thrift.generated.ProductInspectHandledType;
 import org.cz.epm.util.HttpRequestUtil;
 

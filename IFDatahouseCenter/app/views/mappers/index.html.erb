@@ -1,24 +1,24 @@
-<h1>Listing <%= @model%></h1>
-
-<table>
+<h1>&nbsp;</h1>
+<h3>映射列表</h3>
+<table class="table table-bordered table-striped globle-table">
      <tr>
           <th>接口映射号</th>
           <th>名称</th>
           <th>访问号</th>
           <th>&nbsp;</th>
      </tr>
-             <% @items.each do |item| %>
+     <% @items.each do |item| %>
      <tr>
-          <td><%=item.mapperNr%></td>
-          <td><%=item.name%></td>
-          <td><%=item.access_key%></td>
-           <td><%= link_to '查看', item %>
+          <td><%= item.mapperNr%></td>
+          <td><%= item.name%></td>
+          <td><%= item.access_key%></td>
+          <td><%= link_to '查看', item %>
           <%= link_to '编辑',send("edit_#{@model}_path",item) %>
           <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
      </tr>
      <% end %>
 </table>
-<br />
-
-<%= will_paginate @items%>
-<%= link_to "新建/编辑映射", send("new_#{@model}_path") %>
+<div class="footer-operate">
+     <%= will_paginate @items%>
+     <%= link_to "新建/编辑映射", send("new_#{@model}_path") %>
+</div>

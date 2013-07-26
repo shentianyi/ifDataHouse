@@ -2,7 +2,6 @@ package org.cz.epm.thrift.server;
 
 import org.apache.thrift.TProcessorFactory;
 import org.apache.thrift.protocol.TBinaryProtocol;
-import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
 import org.apache.thrift.server.TNonblockingServer;
 import org.apache.thrift.server.TServer;
@@ -10,7 +9,7 @@ import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TNonblockingServerSocket;
 import org.apache.thrift.transport.TNonblockingServerTransport;
 import org.apache.thrift.transport.TTransportException;
-import org.cz.epm.resource.Conf;
+import org.cz.epm.conf.Conf;
 import org.cz.epm.thrift.generated.Datahouse;
 import org.cz.epm.thrift.generated.Datahouse.Iface;
 import org.cz.epm.thrift.service.EpmDatahouseImpl;

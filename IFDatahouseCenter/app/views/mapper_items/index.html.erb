@@ -1,6 +1,6 @@
-<h1>Listing <%= @model%></h1>
-
-<table>
+<h1>&nbsp;</h1>
+<h3>映射项列表</h3>
+<table class="table table-bordered table-striped globle-table">
      <tr>
           <th>数据集</th>
           <th>映射键号</th>
@@ -22,6 +22,6 @@
      </tr>
      <% end %>
 </table>
-<br />
-
+<div class="footer-operate">
 <%= will_paginate @items%>
+</div>

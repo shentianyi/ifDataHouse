@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       # render :json=>{ :status=>1 }
       redirect_to index_path
     else
+      flash[:notice]="信息错误"
       redirect_to login_path
     end
   end

@@ -1,10 +1,12 @@
-<h1>Listing <%= @model%></h1>
-
-<table>
+<h1>&nbsp;</h1>
+<h3>零件列表</h3>
+<table class="table table-bordered table-striped globle-table">
      <tr>
           <th>零件号</th>
           <th>名称</th>
           <th>客户零件号</th>
+          <th>零件订单号</th>
+          <th>单位生产时间</th>
           <th>组织号</th>
           <th>&nbsp;</th>
      </tr>
@@ -12,17 +14,19 @@
      <tr>
           <td><%= item.partNr%></td>
           <td><%= item.name%></td>
-          <td><%= item.clientPartNr%></td> 
+          <td><%= item.clientPartNr%></td>
+          <td><%= item.orderNr%></td>
+          <td><%= item.unitTime%></td>
           <td><%= item.entity.entityNr if item.entity%></td>
           <td><%= link_to '查看', item %>
           <%= link_to '编辑',send("edit_#{@model}_path",item) %>
           <%= link_to '删除', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      </tr>
      <% end %>
-</table>
-<br />
-
+</table> 
+<div class="footer-operate">
 <%= will_paginate @items%>
 <%= link_to "新建零件", send("new_#{@model}_path") %>
-<%= link_to "上传/更新零件", send("import_#{@model.pluralize}_path") %><br />
+<%= link_to "上传/更新零件", send("import_#{@model.pluralize}_path") %>
 <%= link_to "下载", send("download_#{@model.pluralize}_path") %>
+</div>

@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.cz.epm.resource.Conf;
+import org.cz.epm.conf.MongoConf;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -16,7 +16,7 @@ import com.mongodb.MongoOptions;
 public class MongoManager {
 
 	private static Mongo mongo = null;
-	private static String db = Conf.getmDb();
+	private static String db = MongoConf.getmDb();
 
 	private MongoManager() {
 
@@ -27,10 +27,10 @@ public class MongoManager {
 			synchronized (MongoManager.class) {
 				if (mongo == null)
 					try {
-						mongo = new Mongo(Conf.getmHost(), Conf.getmPort());
+						mongo = new Mongo(MongoConf.getmHost(), MongoConf.getmPort());
 						MongoOptions option = mongo.getMongoOptions();
-						option.connectionsPerHost = Conf.getmConPerHost();
-						option.threadsAllowedToBlockForConnectionMultiplier = Conf
+						option.connectionsPerHost = MongoConf.getmConPerHost();
+						option.threadsAllowedToBlockForConnectionMultiplier = MongoConf
 								.getmConMutiplier();
 					} catch (Exception e) {
 						e.printStackTrace();

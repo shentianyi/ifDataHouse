@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.cz.epm.conf.Conf;
+import org.cz.epm.conf.MongoConf;
 import org.cz.epm.data.manager.RedisManager;
 import org.cz.epm.thrift.service.DatahouseBase;
 import org.cz.epm.util.BaseUtil;
@@ -50,7 +52,7 @@ public class Mapper {
 			q.put("access_key", this.access_key);
 			q.put(type.getkField(), kv);
 
-			Map<?, ?> result = DatahouseBase.getData(Conf.getMmapperitemcoll(),
+			Map<?, ?> result = DatahouseBase.getData(MongoConf.getMmapperitemcoll(),
 					q, type.getvField());
 			if (result != null)
 				kvresult = result.get(type.getvField()).toString();

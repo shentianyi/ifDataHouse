@@ -3,9 +3,9 @@
           data_upload("#item-data-uploader");
      }); 
 </script>
-<h1>新建/编辑映射</h1>
+<h3>新建/编辑映射</h3>
 
-<%= form_for(@item,:html=>{:id=>'mapper-new-form'}) do |f| %>
+<%= form_for(@item,:html=>{:id=>'mapper-new-form',:class=>"form-horizontal"}) do |f| %>
 <% if @item.errors.any? %>
 <div id="error_explanation">
      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this part from being saved:</h2>
@@ -36,9 +36,10 @@
      </table>
 </div>
 <% end %>
-
-<p>
-     <%= link_to '< 返回', send("#{@model.pluralize}_path") %>
-     <%= link_to '下一步 >', '#',:onclick=>"$('#mapper-new-form').submit();"%>
-</p>
-<%= link_to '| 结束 |', send("cancel_#{@model.pluralize}_path") %>
+<div class="footer-operate">
+     <p>
+          <%= link_to '< 返回', send("#{@model.pluralize}_path") %>
+          <%= link_to '下一步 >', '#',:onclick=>"$('#mapper-new-form').submit();"%>
+     </p>
+     <%= link_to '| 结束 |', send("cancel_#{@model.pluralize}_path") %>
+</div>

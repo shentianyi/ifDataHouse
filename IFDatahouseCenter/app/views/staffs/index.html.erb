@@ -1,4 +1,6 @@
-<h1>Listing <%= @model%></h1>
+<h1>&nbsp;</h1>
+<h3>员工列表</h3>
+
 <div>
      <form method="get" action="<%= send("search_#{@model.pluralize}_path")%>">
           <div>
@@ -11,11 +13,11 @@
                <span>职称：
                     <input type="text" name="staff[title]" />
                </span>
-               <input type="submit" value="查 找" />
+               <input type="submit" value="查 找" class="btn btn-primary"/>
           </div>
      </form>
 </div>
-<table>
+<table class="table table-bordered table-striped globle-table">
      <tr>
           <th>工号</th>
           <th>姓名</th>
@@ -37,10 +39,9 @@
      </tr>
      <% end %>
 </table>
-<br />
-
-<%= will_paginate @items%>
-<%= link_to "新建员工", send("new_#{@model}_path") %>
-<%= link_to "上传/更新员工", send("import_#{@model.pluralize}_path") %>
-<br />
-<%= link_to "下载", send("download_#{@model.pluralize}_path") %>
+<div class="footer-operate">
+     <%= will_paginate @items%>
+     <%= link_to "新建员工", send("new_#{@model}_path") %>
+     <%= link_to "上传/更新员工", send("import_#{@model.pluralize}_path") %>
+     <%= link_to "下载", send("download_#{@model.pluralize}_path") %>
+</div>

@@ -6,12 +6,12 @@ class Mapper
   field :mapperNr
   field :name
   field :access_key
-  MObjects=[['员工',0],['组织',1],['零件',2],['零件数据',3]]
+  MObjects=[['员工',0],['组织',1],['零件',2]]
 
-  MHModels={0=>'staff',1=>'entity',2=>'part',3=>'part_info'}
-
+  MHModels={0=>'staff',1=>'entity',2=>'part'} 
+  
   def self.get_model i
-     MHModels[i]
+    MHModels[i]
   end
 
 end

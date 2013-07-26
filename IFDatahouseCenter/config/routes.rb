@@ -8,7 +8,7 @@ IFDatahouse::Application.routes.draw do
     get 'index'=>:index
   end
   
-  [:part_infos,:parts,:staffs,:entities].each do |model|
+  [:parts,:staffs,:entities].each do |model|
     resources model do
       collection do
         post :updata

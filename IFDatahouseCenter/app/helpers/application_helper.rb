@@ -1,7 +1,7 @@
 #encoding: utf-8
 module ApplicationHelper
   def index
-    @items=model.paginate(:page=>params[:page],:per_page=>20)
+    @items=model.paginate(:page=>params[:page],:per_page=>15)
   end
 
   def show

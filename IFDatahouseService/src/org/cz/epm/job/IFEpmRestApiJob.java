@@ -3,7 +3,7 @@ package org.cz.epm.job;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.cz.epm.resource.Conf;
+import org.cz.epm.conf.Conf;
 import org.cz.epm.thrift.service.IFEpmRestApi;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;

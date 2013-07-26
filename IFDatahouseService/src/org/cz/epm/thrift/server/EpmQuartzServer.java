@@ -41,7 +41,6 @@ public class EpmQuartzServer {
 			// fire api data send next hour
 			Calendar calendar = Calendar.getInstance();
 			calendar.add(Calendar.HOUR, 1);
-//			System.out.println(calendar.getTime());
 			Trigger ifEpmApiTrigger = newTrigger()
 					.withIdentity("IFEpmApiTrigger", "IFEpmApiTriggerGroup")
 					.startAt(dateOf(calendar.getTime().getHours(),0, 0))
