@@ -21,6 +21,11 @@ public class DatahouseBase {
 	public static boolean AddPart(Map<String, String> dataMap) {
 		return insertData(Conf.getMpartcoll(), dataMap);
 	}
+	// get part
+	public static Map GetPart(Map keyValue, String... fields) {
+		return getData(Conf.getMpartcoll(), keyValue, fields);
+	}
+
 
 	// get parts
 	public static List<Map> GetParts(String key, List<String> ins,

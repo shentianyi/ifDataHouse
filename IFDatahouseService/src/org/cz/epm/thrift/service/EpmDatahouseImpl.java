@@ -34,16 +34,22 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	public void addProductPack(String accessKey, Map<String, String> dataMap)
 			throws TException {
 		Mapper mapper = new Mapper(accessKey);
-		dataMap.put("entityId",
-				mapper.GetMapKey("entity", dataMap.get("entityId")));
-		dataMap.put("partId", mapper.GetMapKey("part", dataMap.get("partId")));
+		String partId = dataMap.get("partId");
+		partId = partId.substring(0, partId.length() - 2);
+		partId = mapper.GetMapKey("part", partId);
 
-		dataMap.put("state", Integer.toString(ProductState.PACK.getValue()));
-		dataMap.put("outputTime", dataMap.get("packTime"));
-		if (EpmDataBase.AddProduct(dataMap)) {
-			EpmDataBase.AddProductOutputCache(dataMap.get("entityId"),
-					Long.parseLong(dataMap.get("outputTime")),
-					dataMap.get("productNr"));
+		Map part = EpmDataBase.GetPart(partId, "entity_id");
+		if (part != null && part.get("entity_id") != null) {
+		    dataMap.put("entityId", part.get("entity_id").toString());
+			dataMap.put("partId", mapper.GetMapKey("part", partId));
+
+			dataMap.put("state", Integer.toString(ProductState.PACK.getValue()));
+			dataMap.put("outputTime", dataMap.get("packTime"));
+			if (EpmDataBase.AddProduct(dataMap)) {
+				EpmDataBase.AddProductOutputCache(dataMap.get("entityId"),
+						Long.parseLong(dataMap.get("outputTime")),
+						dataMap.get("productNr"));
+			}
 		}
 	}
 
@@ -58,9 +64,9 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			throws TException {
 		try {
 			Mapper mapper = new Mapper(accessKey);
-
+			// some TSK table number is lower case, convert it to upper case
 			String workstationId = mapper.GetMapKey("entity",
-					dataMap.get("entityId"));
+					dataMap.get("entityId").toUpperCase());
 			dataMap.put("workstationId", workstationId);
 
 			Map entity = EpmDataBase.GetEntity(workstationId, "entity_id");
