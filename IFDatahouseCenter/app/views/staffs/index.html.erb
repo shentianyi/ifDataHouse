@@ -19,6 +19,7 @@
 </div>
 <table class="table table-bordered table-striped globle-table">
      <tr>
+          <th>&nbsp;</th>
           <th>工号</th>
           <th>姓名</th>
           <th>邮件</th>
@@ -26,8 +27,9 @@
           <th>职称</th>
           <th>&nbsp;</th>
      </tr>
-     <% @items.each do |item| %>
+     <%@items.each_with_index do |item,i|%>
      <tr>
+          <td class="td-index"><%= i+1%></td>
           <td><%= item.staffNr%></td>
           <td><%= item.name%></td>
           <td><%= item.email%></td>

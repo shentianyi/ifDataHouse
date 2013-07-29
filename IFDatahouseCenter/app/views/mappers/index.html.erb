@@ -2,13 +2,15 @@
 <h3>映射列表</h3>
 <table class="table table-bordered table-striped globle-table">
      <tr>
+          <th>&nbsp;</th>
           <th>接口映射号</th>
           <th>名称</th>
           <th>访问号</th>
           <th>&nbsp;</th>
      </tr>
-     <% @items.each do |item| %>
+     <%@items.each_with_index do |item,i|%>
      <tr>
+          <td class="td-index"><%= i+1%></td>
           <td><%= item.mapperNr%></td>
           <td><%= item.name%></td>
           <td><%= item.access_key%></td>

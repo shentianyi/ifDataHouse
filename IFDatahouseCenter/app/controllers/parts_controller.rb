@@ -1,6 +1,6 @@
 #encoding: utf-8
 class PartsController < ApplicationController
-  before_filter :get_entities,:only=>[:new,:edit]
+  before_filter :get_entities,:only=>[:index,:new,:edit,:search]
   def updata
     super {|data,query,row,row_line|
       raise(ArgumentError,"行:#{row_line}, PartNr/ UnitTime 不能为空值") if row["PartNr"].nil? or row["UnitTime"].nil?

@@ -1,16 +1,6 @@
 #encoding: utf-8
 class EntitiesController < ApplicationController
- 
-  def new
-    get_select
-    super
-  end
-
-  def edit
-    get_select
-    super
-  end
-
+  before_filter :get_select,:only=>[:index,:search,:new,:edit]
   def update
     @item= model.find(params[:id])
     params[@model]["entity_id"]=if parent=  Entity.find_by(:entityNr=>params[@model]["entity"])

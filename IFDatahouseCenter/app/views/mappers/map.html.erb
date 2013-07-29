@@ -3,37 +3,40 @@
           data_upload("#item-data-uploader");
      }); 
 </script>
-<h1>数据集： <%= @mm%></h1>
+<h1>&nbsp;</h1>
+<h3>数据集： <%= @mm%></h3>
 <div>
      <p>
           访问号: <%= @access_key%>
      </p>
-     <p>
-          <table>
-               <tr>
-                      <td>映射键值</td>
-                    <td>映射值</td>
-               </tr>
-               <%@items.each do |item|%>
-               <tr>
-                    <td id="d-<%= item.id%>"><%= item.send(item.map_field)%>
-                    <input type="hidden" class="default-value-hidden" id="<%= item.id%>" />
-                    </td>
-                    <td>
-                    <input type="text" class="map-value-text" id="m-<%= item.id%>"/>
-                    </td>
-               </tr>
-               <%end%>
-          </table>
-     </p>
+     <table class="table table-bordered table-striped globle-table">
+          <tr>
+               <th>&nbsp;</th>
+               <th>映射键值</th>
+               <th>映射值</th>
+          </tr>
+          <%@items.each_with_index do |item,i|%>
+          <tr>
+               <td class="td-index"><%=i+1%></td>
+               <td id="d-<%= item.id%>"><%= item.send(item.map_field)%>
+               <input type="hidden" class="default-value-hidden" id="<%= item.id%>" />
+               </td>
+               <td>
+               <input type="text" class="map-value-text" id="m-<%= item.id%>"/>
+               </td>
+          </tr>
+          <%end%>
+     </table>
 </div>
-<%if @items.count>0%>
-<input type="button" value="映射此页" onclick="do_map(0);" />
-<input type="button" value="默认映射" onclick="do_map(1);" />
-<%= render :partial => "share/handling_msg_box", :locals => { :handlemsg => "处理中..." } %>
-<%end%>
-<%= will_paginate @items%>
-<p>
-     <%= link_to '< 继续', send("c_#{@model.pluralize}_path") %>
-</p>
-<%= link_to '| 结束 |', send("cancel_#{@model.pluralize}_path") %>
+<div class="footer-operate">
+     <%if @items.count>0%>
+     <input type="button" value="映射此页" onclick="do_map(0);" class="btn btn-primary"/>
+     <input type="button" value="默认映射" onclick="do_map(1);" class="btn btn-primary"/>
+     <%= render :partial => "share/handling_msg_box", :locals => { :handlemsg => "处理中..." } %>
+     <%end%>
+     <%= will_paginate @items%>
+     <p>
+          <%= link_to '< 继续', send("c_#{@model.pluralize}_path") %>
+     </p>
+     <%= link_to '| 结束 |', send("cancel_#{@model.pluralize}_path") %>
+</div>

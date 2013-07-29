@@ -1,7 +1,7 @@
 <p id="notice">
      <%= notice %>
 </p>
-
+<h1>&nbsp;</h1>
 <table class="table table-bordered table-striped globle-table">
      <tr>
           <td>访问号</td>
@@ -17,10 +17,11 @@
      </tr>
 
 </table>
-<p>
-     <%= link_to '查看详细 >',send("select_#{@model}_path",@item) %>
-</p>
+
 <div class="footer-operate">
+     <p>
+          <%= link_to '查看详细 >',send("select_#{@model}_path",@item) %>
+     </p>
      <%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
      <%= link_to '编辑',send("edit_#{@model}_path",@item) %>
      <%= link_to '返回', send("#{@model.pluralize}_path") %>

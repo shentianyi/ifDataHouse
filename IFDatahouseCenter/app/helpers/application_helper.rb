@@ -70,10 +70,7 @@ module ApplicationHelper
   end
 
   def search
-    params[@model].each do |k,v|
-      params[@model].delete(k) if v.length==0
-    end
-    @items=model.where(params[@model]).paginate(:page=>params[:page],:per_page=>20)
+    @items=model.where(params[@model].clone.delete_if{|k,v| v.length==0}).paginate(:page=>params[:page],:per_page=>20)
     render :index
   end
 end

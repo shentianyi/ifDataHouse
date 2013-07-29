@@ -32,7 +32,11 @@ IFDatahouse::Application.routes.draw do
     end
   end
 
-  resources :mapper_items
+  resources :mapper_items do
+    collection do
+      get :search
+    end
+  end
 
   namespace :api,defaults:{format:'json'} do
     controller :file do

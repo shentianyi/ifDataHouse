@@ -1,7 +1,19 @@
 <h1>&nbsp;</h1>
 <h3>映射项列表</h3>
+<form method="get" action="<%= send("search_#{@model.pluralize}_path")%>">
+     <div>
+          <span>映射键值：
+               <input type="text" name="mapper_item[map_field_value]" />
+          </span>
+          <span>映射值：
+               <input type="text" name="mapper_item[map_value]" />
+          </span>
+          <input type="submit" value="查 找" class="btn btn-primary"/>
+     </div>
+</form>
 <table class="table table-bordered table-striped globle-table">
      <tr>
+          <th>&nbsp;</th>
           <th>数据集</th>
           <th>映射键号</th>
           <th>映射键值</th>
@@ -9,8 +21,9 @@
           <th>访问号</th>
           <th>&nbsp;</th>
      </tr>
-     <% @items.each do |item| %>
+     <%@items.each_with_index do |item,i|%>
      <tr>
+          <td class="td-index"><%= i+1%></td>
           <td><%= item.model%></td>
           <td><%= item.map_key%></td>
           <td><%= item.map_field_value%></td>
@@ -23,5 +36,5 @@
      <% end %>
 </table>
 <div class="footer-operate">
-<%= will_paginate @items%>
+     <%= will_paginate @items%>
 </div>

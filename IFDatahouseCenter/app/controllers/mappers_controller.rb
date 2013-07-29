@@ -41,7 +41,7 @@ class MappersController < ApplicationController
   def map
     if @mapper_model=Mapper.get_model(params[:m].to_i)
       session[:mapper_model]=@mapper_model
-      @items=@mapper_model.classify.constantize.paginate(:page=>params[:page],:per_page=>20)
+      @items=@mapper_model.classify.constantize.paginate(:page=>params[:page],:per_page=>15)
       @access_key=session[:mapper_access_key]
     else
       redirect_to new_mapper_path

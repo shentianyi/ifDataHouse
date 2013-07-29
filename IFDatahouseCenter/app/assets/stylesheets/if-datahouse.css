@@ -42,7 +42,13 @@
     word-wrap:break-word;
     font-size:15px;
 } 
-
+.globle-table .td-index{
+     width: 20px;
+     color: grey;
+}
 .footer-operate{
      margin-left:300px;
+}
+.map-value-text{
+    margin-bottom: 0px !important;
 }
