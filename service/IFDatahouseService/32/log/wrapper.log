@@ -4798,3 +4798,116 @@ INFO   | jvm 1    | 2013/07/26 19:00:00 | 	at org.cz.epm.job.IFEpmRestApiJob.exe
 INFO   | jvm 1    | 2013/07/26 19:00:00 | 	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
 INFO   | jvm 1    | 2013/07/26 19:00:00 | 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
 INFO   | jvm 1    | 2013/07/26 19:00:00 | java.net.ConnectException: Connection refused
+STATUS | wrapper  | 2013/07/26 19:55:00 | TERM trapped.  Shutting down.
+STATUS | wrapper  | 2013/07/26 19:55:01 | <-- Wrapper Stopped
+STATUS | wrapper  | 2013/07/29 09:52:50 | --> Wrapper Started as Daemon
+STATUS | wrapper  | 2013/07/29 09:52:50 | Java Service Wrapper Community Edition 32-bit 3.5.19
+STATUS | wrapper  | 2013/07/29 09:52:50 |   Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+STATUS | wrapper  | 2013/07/29 09:52:50 |     http://wrapper.tanukisoftware.com
+STATUS | wrapper  | 2013/07/29 09:52:50 | 
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[0] : /usr/lib/jvm/java-7-openjdk-i386/jre/bin/java
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[1] : -Djava.library.path=../lib
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[2] : -classpath
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[3] : ../lib/IFDatahouseService.jar:../lib/c3p0-0.9.1.1.jar:../lib/commons-configuration-1.6.jar:../lib/commons-lang-2.5.jar:../lib/commons-logging-1.1.1.jar:../lib/commons-pool-1.6.jar:../lib/guava-14.0.1.jar:../lib/jedis-2.1.0.jar:../lib/jedis-namespace.jar:../lib/libthrift-0.9.0.jar:../lib/log4j-1.2.16.jar:../lib/mongo-java-driver-2.9.3.jar:../lib/quartz-all-2.1.7.jar:../lib/slf4j-api-1.6.1.jar:../lib/slf4j-log4j12-1.6.1.jar:../lib/wrapper.jar
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[4] : -Dwrapper.key=TRMehO4NPR9fwHFK
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[5] : -Dwrapper.port=32000
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[6] : -Dwrapper.jvm.port.min=31000
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[7] : -Dwrapper.jvm.port.max=31999
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[8] : -Dwrapper.disable_console_input=TRUE
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[9] : -Dwrapper.pid=1086
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[10] : -Dwrapper.version=3.5.19
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[11] : -Dwrapper.native_library=wrapper
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[12] : -Dwrapper.arch=x86
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[13] : -Dwrapper.service=TRUE
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[14] : -Dwrapper.cpu.timeout=10
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[15] : -Dwrapper.jvmid=1
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[16] : org.tanukisoftware.wrapper.WrapperSimpleApp
+INFO   | wrapper  | 2013/07/29 09:52:51 | Command[17] : org.cz.epm.thrift.server.EpmServerRunner
+STATUS | wrapper  | 2013/07/29 09:52:51 | Launching a JVM...
+INFO   | jvm 1    | 2013/07/29 09:52:52 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2013/07/29 09:52:52 | **********  EPM Thrift Server Firing up on <9001> *****************
+INFO   | jvm 1    | 2013/07/29 09:52:52 | Exiting Thrift server.
+INFO   | jvm 1    | 2013/07/29 09:52:52 | 
+INFO   | jvm 1    | 2013/07/29 09:52:52 | ############## Press <Enter> to terminate. ###################
+INFO   | jvm 1    | 2013/07/29 09:52:52 | WrapperManager: WARNING - System.in has been disabled by the wrapper.disable_console_input property.  Calls will block indefinitely.
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 23{G-COC=51efbf769e2b1c8b58000a3c, Minor=51efbf769e2b1c8b58000a41, G-RBA=51efbf769e2b1c8b58000a39, NCV3-COC=51efbf769e2b1c8b58000a47, Motor=51efbf769e2b1c8b58000a42, NCV2-Minor=51efbf769e2b1c8b58000a46, NCV2-3=51efbf769e2b1c8b58000a4d, NCV3-ROOF=51efbf769e2b1c8b58000a49, C-MRA=51efbf769e2b1c8b58000a3e, G-MRA=51efbf769e2b1c8b58000a3f, E-RBA=51efbf769e2b1c8b58000a3a, C-G-COC=51efbf769e2b1c8b58000a4b, C-RBA=51efbf769e2b1c8b58000a38, NCV2-COC=51efbf769e2b1c8b58000a43, E-COC=51efbf769e2b1c8b58000a3d, NCV3-Minor=51efbf769e2b1c8b58000a4a, NCV3-BODY=51efbf769e2b1c8b58000a48, NCV2-MRA=51efbf769e2b1c8b58000a45, C-COC=51efbf769e2b1c8b58000a3b, E-MRA=51efbf769e2b1c8b58000a40, NCV2-INR=51efbf769e2b1c8b58000a44, C-G-MRA=51efbf769e2b1c8b58000a4c}
+INFO   | jvm 1    | 2013/07/29 10:00:00 | [51efbf769e2b1c8b58000a48, 51efbf769e2b1c8b58000a39, 51efbf769e2b1c8b58000a49, 51efbf769e2b1c8b58000a38, 51efbf769e2b1c8b58000a4d, 51efbf769e2b1c8b58000a4c, 51efbf769e2b1c8b58000a4b, 51efbf769e2b1c8b58000a4a, 51efbf769e2b1c8b58000a3a, 51efbf769e2b1c8b58000a3b, 51efbf769e2b1c8b58000a3c, 51efbf769e2b1c8b58000a3d, 51efbf769e2b1c8b58000a3e, 51efbf769e2b1c8b58000a3f, 51efbf769e2b1c8b58000a41, 51efbf769e2b1c8b58000a40, 51efbf769e2b1c8b58000a43, 51efbf769e2b1c8b58000a42, 51efbf769e2b1c8b58000a45, 51efbf769e2b1c8b58000a44, 51efbf769e2b1c8b58000a47, 51efbf769e2b1c8b58000a46]
+INFO   | jvm 1    | 2013/07/29 10:00:00 | java.net.ConnectException: Connection refused
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.PlainSocketImpl.socketConnect(Native Method)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.Socket.connect(Socket.java:579)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at java.net.Socket.connect(Socket.java:528)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.http.HttpClient.openServer(HttpClient.java:378)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.http.HttpClient.openServer(HttpClient.java:473)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.http.HttpClient.<init>(HttpClient.java:203)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.http.HttpClient.New(HttpClient.java:290)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:995)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:931)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:849)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1090)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at org.cz.epm.util.HttpRequestUtil.doRequest(HttpRequestUtil.java:25)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at org.cz.epm.thrift.service.IFEpmRestApi.DoApiRequest(IFEpmRestApi.java:158)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at org.cz.epm.thrift.service.IFEpmRestApi.AddWorkerAttendanceKpiEntry(IFEpmRestApi.java:87)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:24)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+INFO   | jvm 1    | 2013/07/29 10:00:00 | java.net.ConnectException: Connection refused
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 23{G-COC=51efbf769e2b1c8b58000a3c, Minor=51efbf769e2b1c8b58000a41, G-RBA=51efbf769e2b1c8b58000a39, NCV3-COC=51efbf769e2b1c8b58000a47, Motor=51efbf769e2b1c8b58000a42, NCV2-Minor=51efbf769e2b1c8b58000a46, NCV2-3=51efbf769e2b1c8b58000a4d, NCV3-ROOF=51efbf769e2b1c8b58000a49, C-MRA=51efbf769e2b1c8b58000a3e, G-MRA=51efbf769e2b1c8b58000a3f, E-RBA=51efbf769e2b1c8b58000a3a, C-G-COC=51efbf769e2b1c8b58000a4b, C-RBA=51efbf769e2b1c8b58000a38, NCV2-COC=51efbf769e2b1c8b58000a43, E-COC=51efbf769e2b1c8b58000a3d, NCV3-Minor=51efbf769e2b1c8b58000a4a, NCV3-BODY=51efbf769e2b1c8b58000a48, NCV2-MRA=51efbf769e2b1c8b58000a45, C-COC=51efbf769e2b1c8b58000a3b, E-MRA=51efbf769e2b1c8b58000a40, NCV2-INR=51efbf769e2b1c8b58000a44, C-G-MRA=51efbf769e2b1c8b58000a4c}
+INFO   | jvm 1    | 2013/07/29 11:00:00 | [51efbf769e2b1c8b58000a48, 51efbf769e2b1c8b58000a39, 51efbf769e2b1c8b58000a49, 51efbf769e2b1c8b58000a38, 51efbf769e2b1c8b58000a4d, 51efbf769e2b1c8b58000a4c, 51efbf769e2b1c8b58000a4b, 51efbf769e2b1c8b58000a4a, 51efbf769e2b1c8b58000a3a, 51efbf769e2b1c8b58000a3b, 51efbf769e2b1c8b58000a3c, 51efbf769e2b1c8b58000a3d, 51efbf769e2b1c8b58000a3e, 51efbf769e2b1c8b58000a3f, 51efbf769e2b1c8b58000a41, 51efbf769e2b1c8b58000a40, 51efbf769e2b1c8b58000a43, 51efbf769e2b1c8b58000a42, 51efbf769e2b1c8b58000a45, 51efbf769e2b1c8b58000a44, 51efbf769e2b1c8b58000a47, 51efbf769e2b1c8b58000a46]
+INFO   | jvm 1    | 2013/07/29 11:00:00 | java.net.ConnectException: Connection refused
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.PlainSocketImpl.socketConnect(Native Method)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.Socket.connect(Socket.java:579)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at java.net.Socket.connect(Socket.java:528)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.http.HttpClient.openServer(HttpClient.java:378)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.http.HttpClient.openServer(HttpClient.java:473)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.http.HttpClient.<init>(HttpClient.java:203)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.http.HttpClient.New(HttpClient.java:290)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:995)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:931)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:849)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1090)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at org.cz.epm.util.HttpRequestUtil.doRequest(HttpRequestUtil.java:25)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at org.cz.epm.thrift.service.IFEpmRestApi.DoApiRequest(IFEpmRestApi.java:158)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at org.cz.epm.thrift.service.IFEpmRestApi.AddWorkerAttendanceKpiEntry(IFEpmRestApi.java:87)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:24)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+INFO   | jvm 1    | 2013/07/29 11:00:00 | java.net.ConnectException: Connection refused
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 23{G-COC=51efbf769e2b1c8b58000a3c, Minor=51efbf769e2b1c8b58000a41, G-RBA=51efbf769e2b1c8b58000a39, NCV3-COC=51efbf769e2b1c8b58000a47, Motor=51efbf769e2b1c8b58000a42, NCV2-Minor=51efbf769e2b1c8b58000a46, NCV2-3=51efbf769e2b1c8b58000a4d, NCV3-ROOF=51efbf769e2b1c8b58000a49, C-MRA=51efbf769e2b1c8b58000a3e, G-MRA=51efbf769e2b1c8b58000a3f, E-RBA=51efbf769e2b1c8b58000a3a, C-G-COC=51efbf769e2b1c8b58000a4b, C-RBA=51efbf769e2b1c8b58000a38, NCV2-COC=51efbf769e2b1c8b58000a43, E-COC=51efbf769e2b1c8b58000a3d, NCV3-Minor=51efbf769e2b1c8b58000a4a, NCV3-BODY=51efbf769e2b1c8b58000a48, NCV2-MRA=51efbf769e2b1c8b58000a45, C-COC=51efbf769e2b1c8b58000a3b, E-MRA=51efbf769e2b1c8b58000a40, NCV2-INR=51efbf769e2b1c8b58000a44, C-G-MRA=51efbf769e2b1c8b58000a4c}
+INFO   | jvm 1    | 2013/07/29 12:00:00 | [51efbf769e2b1c8b58000a48, 51efbf769e2b1c8b58000a39, 51efbf769e2b1c8b58000a49, 51efbf769e2b1c8b58000a38, 51efbf769e2b1c8b58000a4d, 51efbf769e2b1c8b58000a4c, 51efbf769e2b1c8b58000a4b, 51efbf769e2b1c8b58000a4a, 51efbf769e2b1c8b58000a3a, 51efbf769e2b1c8b58000a3b, 51efbf769e2b1c8b58000a3c, 51efbf769e2b1c8b58000a3d, 51efbf769e2b1c8b58000a3e, 51efbf769e2b1c8b58000a3f, 51efbf769e2b1c8b58000a41, 51efbf769e2b1c8b58000a40, 51efbf769e2b1c8b58000a43, 51efbf769e2b1c8b58000a42, 51efbf769e2b1c8b58000a45, 51efbf769e2b1c8b58000a44, 51efbf769e2b1c8b58000a47, 51efbf769e2b1c8b58000a46]
+INFO   | jvm 1    | 2013/07/29 12:00:00 | java.net.ConnectException: Connection refused
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.PlainSocketImpl.socketConnect(Native Method)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.Socket.connect(Socket.java:579)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at java.net.Socket.connect(Socket.java:528)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.http.HttpClient.openServer(HttpClient.java:378)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.http.HttpClient.openServer(HttpClient.java:473)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.http.HttpClient.<init>(HttpClient.java:203)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.http.HttpClient.New(HttpClient.java:290)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.http.HttpClient.New(HttpClient.java:306)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:995)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:931)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:849)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1090)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at org.cz.epm.util.HttpRequestUtil.doRequest(HttpRequestUtil.java:25)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at org.cz.epm.thrift.service.IFEpmRestApi.DoApiRequest(IFEpmRestApi.java:158)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at org.cz.epm.thrift.service.IFEpmRestApi.AddWorkerAttendanceKpiEntry(IFEpmRestApi.java:87)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:24)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+INFO   | jvm 1    | 2013/07/29 12:00:00 | java.net.ConnectException: Connection refused
