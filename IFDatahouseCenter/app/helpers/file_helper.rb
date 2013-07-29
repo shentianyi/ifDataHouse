@@ -75,5 +75,10 @@ module FileHelper
     end
     send_file path,:type => 'application/csv', :filename =>file_name
   end
-
+  
+  def template
+    file_name="#{@model}_csv_upload_template.csv"
+    path=File.join($TEMPLATEPATH,file_name)
+    send_file path,:type => 'application/csv', :filename =>file_name
+  end
 end

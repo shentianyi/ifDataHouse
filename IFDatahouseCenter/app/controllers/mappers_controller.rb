@@ -1,6 +1,6 @@
 #encoding: utf-8
 class MappersController < ApplicationController
- 
+
   before_filter :check_access_key,:only=>[:cancel,:map,:domap]
   def index
     clean_session
@@ -10,10 +10,10 @@ class MappersController < ApplicationController
   def new
     @access_key=session[:mapper_access_key]= session[:mapper_access_key]||SecureRandom.urlsafe_base64
     @item=session[:mapper].nil? ? Mapper.new : ((m=Mapper.find(session[:mapper])).nil? ? Mapper.new : m)
-    # if params[:mapper] and m=Mapper.find(params[:mapper])
-     # @item=m
-     # @access_key=@item.access_key
-    # end
+  # if params[:mapper] and m=Mapper.find(params[:mapper])
+  # @item=m
+  # @access_key=@item.access_key
+  # end
   end
 
   def create
@@ -21,11 +21,12 @@ class MappersController < ApplicationController
     if params[:mapper]
       if  params[:mapper][:access_key]==session[:mapper_access_key]
         if mapper=Mapper.find_by(:mapperNr=>params[:mapper][:mapperNr])
-           mapper.update_attributes(:name=>params[:mapper][:name]) unless params[:mapper][:name].blank?
+          mapper.update_attributes(:name=>params[:mapper][:name]) unless params[:mapper][:name].blank?
         else
           mapper=Mapper.new(params[:mapper])
-          mapper.save
+        mapper.save
         end
+        session[:mapper_access_key]=mapper.access_key
         session[:mapper]=mapper.id.to_s
       else
         redirect_to new_mapper_path

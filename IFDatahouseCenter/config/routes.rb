@@ -15,6 +15,7 @@ IFDatahouse::Application.routes.draw do
         get :import
         get :download
         get :search
+        get :template
       end
     end
   end

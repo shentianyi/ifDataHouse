@@ -1,13 +1,16 @@
 <div>
+     <h1>&nbsp;</h1>
      <h2>选择数据集</h2>
      <form id="model-select-form" action="../mappers/map" method="get">
           <p>
                数据集:   <%= select_tag :m,options_for_select(@models),{:class=>'uploadfile select'}%>
           </p>
      </form>
-     <p>
-          <%= link_to '< 返回', send("new_#{@model}_path") %>
-          <%= link_to '下一步 >', '#',:onclick=>"$('#model-select-form').submit();"%>
-     </p>
-     <%= link_to '| 结束 |', send("cancel_#{@model.pluralize}_path") %>
+     <div class="footer-operate">
+          <p>
+               <%= link_to '< 返回', send("new_#{@model}_path") %>
+               <%= link_to '下一步 >', '#',:onclick=>"$('#model-select-form').submit();"%>
+          </p>
+          <%= link_to '| 结束 |', send("cancel_#{@model.pluralize}_path") %>
+     </div>
 </div>

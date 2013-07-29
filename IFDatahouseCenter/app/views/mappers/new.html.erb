@@ -3,6 +3,7 @@
           data_upload("#item-data-uploader");
      }); 
 </script>
+<h1>&nbsp;</h1>
 <h3>新建/编辑映射</h3>
 
 <%= form_for(@item,:html=>{:id=>'mapper-new-form',:class=>"form-horizontal"}) do |f| %>
@@ -19,7 +20,7 @@
 </div>
 <% end %>
 <div class="field">
-     <table>
+     <table class="table table-bordered table-striped globle-table">
           <tr>
                <td>访问号</td>
                <td><%= @access_key%>
