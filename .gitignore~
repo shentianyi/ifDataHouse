@@ -16,5 +16,5 @@
 /IFDatahouseService/bin
 /IFDatahouseService/.classpath
 /IFDatahouseService/.project
-#/service/IFDatahouseService/32/log
-#/service/IFDatahouseService/64/log
+/service/IFDatahouseService/32/log
+/service/IFDatahouseService/64/log
