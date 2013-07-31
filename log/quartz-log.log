@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+[INFO] 30 七月 11:55:30.495 上午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 11:55:30.503 上午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 11:55:30.551 上午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 11:55:30.553 上午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 11:55:30.557 上午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 11:55:30.559 上午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:25:19.561 下午 main [org.quartz.impl.StdSchedulerFactory]
 Using default implementation for ThreadExecutor
 
@@ -14,6 +32,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:25:19.602 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -23,6 +42,140 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 11:55:30.559 上午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 11:55:30.559 上午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 11:55:30.619 上午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 11:55:36.205 上午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 11:55:36.206 上午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 11:55:36.207 上午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 12:05:38.658 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 12:05:38.665 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 12:05:38.694 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 12:05:38.712 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 12:05:38.714 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 12:05:38.716 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 12:05:38.717 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 12:05:38.717 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 12:05:38.785 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 12:05:39.852 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 12:05:39.857 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[INFO] 30 七月 12:13:18.256 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 12:13:18.303 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 12:13:18.304 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 12:13:23.217 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 12:13:23.229 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 12:13:23.263 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 12:13:23.266 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 12:13:23.269 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 12:13:23.270 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:25:19.602 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -57,6 +210,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:26:40.036 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -66,6 +220,319 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 12:13:23.271 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 12:13:23.271 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 12:13:23.312 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 12:13:26.940 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 12:13:26.944 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 12:13:26.945 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 12:13:57.982 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 12:13:57.988 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 12:13:58.023 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 12:13:58.026 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 12:13:58.028 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 12:13:58.030 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 12:13:58.030 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 12:13:58.031 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 12:13:58.070 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 12:13:58.772 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 12:13:58.776 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[INFO] 30 七月 12:14:11.804 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 12:14:11.805 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 12:14:11.806 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 01:46:03.647 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 01:46:03.762 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 01:46:03.801 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 01:46:03.811 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 01:46:03.815 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 01:46:03.818 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 01:46:03.826 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 01:46:03.826 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 01:46:03.958 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 01:46:04.738 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 01:46:04.742 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[INFO] 30 七月 01:46:04.976 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 01:46:04.976 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 01:46:04.977 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 01:46:08.435 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 01:46:08.442 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 01:46:08.476 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 01:46:08.479 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 01:46:08.481 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 01:46:08.484 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 01:46:08.487 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 01:46:08.487 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 01:46:08.527 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 01:46:08.802 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 01:46:08.806 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 02:00:00.004 下午 DefaultQuartzScheduler_Worker-2 [org.quartz.core.JobRunShell]
+Job IFEpmApiEpmJobGroup.IFEpmApiJob threw an unhandled Exception: 
+
+java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
+	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:24)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+[ERROR] 30 七月 02:00:00.004 下午 DefaultQuartzScheduler_Worker-2 [org.quartz.core.ErrorLogger]
+=======
 [INFO] 24 七月 07:26:40.037 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -87,12 +554,141 @@ Caused by: java.lang.NullPointerException
 	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
 	... 3 more
 [ERROR] 24 七月 07:27:00.497 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Job (IFEpmApiEpmJobGroup.IFEpmApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
+	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:24)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+[INFO] 30 七月 02:18:49.928 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:18:49.954 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:18:49.955 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:19:03.879 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:19:03.915 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:19:03.952 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:19:03.954 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:19:03.957 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:19:03.960 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 02:19:03.962 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:19:03.981 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:19:04.042 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 02:19:04.363 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:31)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 02:19:04.367 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
 
 org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
 	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
 Caused by: java.lang.ExceptionInInitializerError
+<<<<<<< HEAD
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:31)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[INFO] 30 七月 02:20:18.803 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:20:18.803 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:20:18.804 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:20:34.027 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:20:34.033 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:20:34.067 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:20:34.069 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:20:34.072 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:20:34.073 下午 main [org.quartz.core.QuartzScheduler]
+=======
 	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
 	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
 	... 1 more
@@ -125,6 +721,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:29:05.231 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -134,6 +731,45 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:20:34.074 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:20:34.074 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:20:34.149 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 02:20:34.430 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:31)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 02:20:34.439 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+=======
 [INFO] 24 七月 07:29:05.231 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -156,11 +792,61 @@ Caused by: java.lang.NullPointerException
 	... 3 more
 [ERROR] 24 七月 07:30:00.210 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
 Job (IFEpmApiEpmJobGroup.IFEpmApiJob threw an exception.
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 
 org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
 	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
 Caused by: java.lang.ExceptionInInitializerError
+<<<<<<< HEAD
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:31)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[INFO] 30 七月 02:21:25.543 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:21:25.547 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:21:25.548 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:21:27.487 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:21:27.494 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:21:27.527 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:21:27.530 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:21:27.533 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:21:27.534 下午 main [org.quartz.core.QuartzScheduler]
+=======
 	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
 	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
 	... 1 more
@@ -193,6 +879,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:31:09.718 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -202,6 +889,42 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:21:27.535 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:21:27.535 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:21:27.574 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:21:39.757 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:21:39.758 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:21:39.759 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:22:43.562 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:22:43.568 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:22:43.600 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:22:43.603 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:22:43.605 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:22:43.607 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:31:09.719 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -261,6 +984,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:32:45.052 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -270,6 +994,42 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:22:43.607 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:22:43.608 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:22:43.646 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:25:18.448 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:25:18.448 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:25:18.449 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:25:20.595 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:25:20.601 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:25:20.631 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:25:20.633 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:25:20.635 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:25:20.637 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:32:45.053 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -329,6 +1089,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:34:59.485 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -338,6 +1099,42 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:25:20.637 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:25:20.638 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:25:20.676 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:25:36.728 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:25:36.729 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:25:36.730 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:25:39.042 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:25:39.048 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:25:39.084 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:25:39.087 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:25:39.089 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:25:39.091 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:34:59.486 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -414,6 +1211,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:36:53.848 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -423,6 +1221,153 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:25:39.094 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:25:39.095 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:25:39.135 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:25:55.158 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:25:55.159 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:25:55.159 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:25:57.263 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:25:57.269 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:25:57.307 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:25:57.309 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:25:57.311 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:25:57.313 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 02:25:57.314 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:25:57.314 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:25:57.354 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:34:59.709 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:34:59.713 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:34:59.714 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:35:07.998 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:35:08.004 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:35:08.038 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:35:08.041 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:35:08.043 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:35:08.045 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+
+[INFO] 30 七月 02:35:08.049 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:35:08.049 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:35:08.088 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 02:35:08.138 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.Error: Unresolved compilation problem: 
+	Unhandled exception type IOException
+
+	at org.cz.epm.conf.Conf.setIfRedoFlag(Conf.java:129)
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:19)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+[ERROR] 30 七月 02:35:08.144 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.Error: Unresolved compilation problem: 
+	Unhandled exception type IOException
+]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Unhandled exception type IOException
+
+	at org.cz.epm.conf.Conf.setIfRedoFlag(Conf.java:129)
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:19)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+[INFO] 30 七月 02:35:30.046 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:35:30.052 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:35:30.053 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:36:11.900 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:36:11.907 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:36:11.938 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:36:11.940 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:36:11.942 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:36:11.944 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:36:53.848 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -482,6 +1427,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:37:11.793 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -491,6 +1437,67 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:36:11.944 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:36:11.945 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:36:11.982 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 02:36:12.010 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.Error: Unresolved compilation problem: 
+	Unhandled exception type IOException
+
+	at org.cz.epm.conf.Conf.setIfRedoFlag(Conf.java:133)
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:19)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+[ERROR] 30 七月 02:36:12.014 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.Error: Unresolved compilation problem: 
+	Unhandled exception type IOException
+]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Unhandled exception type IOException
+
+	at org.cz.epm.conf.Conf.setIfRedoFlag(Conf.java:133)
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:19)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+[INFO] 30 七月 02:36:31.639 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:36:31.639 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:36:31.642 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:36:34.055 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:36:34.061 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:36:34.119 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:36:34.122 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:36:34.124 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:36:34.126 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:37:11.793 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -550,6 +1557,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:37:39.294 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -559,6 +1567,49 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:36:34.126 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:36:34.126 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:36:34.165 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:38:25.473 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:38:25.474 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:38:25.474 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:38:27.558 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:38:27.564 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:38:27.600 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:38:27.603 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:38:27.606 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:38:27.607 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+=======
 [INFO] 24 七月 07:37:39.295 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -646,6 +1697,7 @@ Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm
 	... 1 more
 [ERROR] 24 七月 07:37:51.319 下午 DefaultQuartzScheduler_Worker-5 [org.quartz.core.JobRunShell]
 Job IFEpmApiEpmJobGroup.IFEpmApiJob threw an unhandled Exception: 
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 
 java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
 	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
@@ -654,6 +1706,42 @@ java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.ser
 [ERROR] 24 七月 07:37:51.320 下午 DefaultQuartzScheduler_Worker-5 [org.quartz.core.ErrorLogger]
 Job (IFEpmApiEpmJobGroup.IFEpmApiJob threw an exception.
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:38:27.608 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:38:27.608 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:38:27.648 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:39:57.695 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:39:57.696 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:39:57.698 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:40:00.328 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:40:00.334 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:40:00.369 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:40:00.371 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:40:00.373 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:40:00.375 下午 main [org.quartz.core.QuartzScheduler]
+=======
 org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi]
 	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
 	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
@@ -3627,6 +4715,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:51:05.279 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -3636,6 +4725,42 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:40:00.378 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:40:00.379 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:40:00.419 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[INFO] 30 七月 02:40:10.465 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+
+[INFO] 30 七月 02:40:10.466 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+
+[INFO] 30 七月 02:40:10.472 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+
+[INFO] 30 七月 02:40:43.023 下午 main [org.quartz.impl.StdSchedulerFactory]
+Using default implementation for ThreadExecutor
+
+[INFO] 30 七月 02:40:43.029 下午 main [org.quartz.simpl.SimpleThreadPool]
+Job execution threads will use class loader of thread: main
+
+[INFO] 30 七月 02:40:43.059 下午 main [org.quartz.core.SchedulerSignalerImpl]
+Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+
+[INFO] 30 七月 02:40:43.062 下午 main [org.quartz.core.QuartzScheduler]
+Quartz Scheduler v.2.1.7 created.
+
+[INFO] 30 七月 02:40:43.102 下午 main [org.quartz.simpl.RAMJobStore]
+RAMJobStore initialized.
+
+[INFO] 30 七月 02:40:43.105 下午 main [org.quartz.core.QuartzScheduler]
+=======
 [INFO] 24 七月 07:51:05.279 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -3670,6 +4795,7 @@ Quartz Scheduler v.2.1.7 created.
 RAMJobStore initialized.
 
 [INFO] 24 七月 07:52:16.040 下午 main [org.quartz.core.QuartzScheduler]
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
   Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
   NOT STARTED.
@@ -3679,6 +4805,108 @@ Scheduler meta-data: Quartz Scheduler (v2.1.7) 'DefaultQuartzScheduler' with ins
   Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
 
+<<<<<<< HEAD
+[INFO] 30 七月 02:40:43.105 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+
+[INFO] 30 七月 02:40:43.106 下午 main [org.quartz.impl.StdSchedulerFactory]
+Quartz scheduler version: 2.1.7
+
+[INFO] 30 七月 02:40:43.145 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+
+[ERROR] 30 七月 02:40:43.417 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.JobRunShell]
+Job RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an unhandled Exception: 
+
+java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:31)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 02:40:43.421 下午 DefaultQuartzScheduler_Worker-1 [org.quartz.core.ErrorLogger]
+Job (RedoIFEpmRestApiJobGroup.RedoIFEpmRestApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.ExceptionInInitializerError]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.cz.epm.job.RedoIFEpmRestApiJob.execute(RedoIFEpmRestApiJob.java:31)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+Caused by: com.mongodb.MongoException$Network: can't call something : localhost/127.0.0.1:27017/ifdatadb
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:292)
+	at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:256)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:289)
+	at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:274)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:710)
+	at com.mongodb.DBCollection.findOne(DBCollection.java:664)
+	at org.cz.epm.data.manager.MongoManager.FineOne(MongoManager.java:76)
+	at org.cz.epm.thrift.service.DatahouseBase.getData(DatahouseBase.java:306)
+	at org.cz.epm.thrift.service.DatahouseBase.GetEntity(DatahouseBase.java:49)
+	at org.cz.epm.thrift.service.IFEpmRestApi.getEntityIds(IFEpmRestApi.java:167)
+	at org.cz.epm.thrift.service.IFEpmRestApi.<clinit>(IFEpmRestApi.java:72)
+	... 3 more
+Caused by: java.io.IOException: couldn't connect to [localhost/127.0.0.1:27017] bc:java.net.ConnectException: 拒绝连接
+	at com.mongodb.DBPort._open(DBPort.java:214)
+	at com.mongodb.DBPort.go(DBPort.java:107)
+	at com.mongodb.DBPort.call(DBPort.java:74)
+	at com.mongodb.DBTCPConnector.innerCall(DBTCPConnector.java:283)
+	... 13 more
+[ERROR] 30 七月 03:00:00.027 下午 DefaultQuartzScheduler_Worker-2 [org.quartz.core.JobRunShell]
+Job IFEpmApiEpmJobGroup.IFEpmApiJob threw an unhandled Exception: 
+
+java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
+	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+[ERROR] 30 七月 03:00:00.028 下午 DefaultQuartzScheduler_Worker-2 [org.quartz.core.ErrorLogger]
+Job (IFEpmApiEpmJobGroup.IFEpmApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
+	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+[ERROR] 30 七月 04:00:00.001 下午 DefaultQuartzScheduler_Worker-3 [org.quartz.core.JobRunShell]
+Job IFEpmApiEpmJobGroup.IFEpmApiJob threw an unhandled Exception: 
+
+java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
+	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+[ERROR] 30 七月 04:00:00.002 下午 DefaultQuartzScheduler_Worker-3 [org.quartz.core.ErrorLogger]
+Job (IFEpmApiEpmJobGroup.IFEpmApiJob threw an exception.
+
+org.quartz.SchedulerException: Job threw an unhandled exception. [See nested exception: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi]
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:224)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:557)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.cz.epm.thrift.service.IFEpmRestApi
+	at org.cz.epm.job.IFEpmRestApiJob.execute(IFEpmRestApiJob.java:23)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:213)
+	... 1 more
+[INFO] 30 七月 04:10:45.324 下午 main [org.quartz.core.QuartzScheduler]
+Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+=======
 [INFO] 24 七月 07:52:16.040 下午 main [org.quartz.impl.StdSchedulerFactory]
 Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
 
@@ -3696,4 +4924,5 @@ Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
 
 [INFO] 24 七月 07:53:57.217 下午 main [org.quartz.core.QuartzScheduler]
 Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+>>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 

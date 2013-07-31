@@ -8,8 +8,10 @@ import static org.quartz.DateBuilder.*;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.cz.epm.conf.Conf;
 import org.cz.epm.job.CleanRedisZSetCacheJob;
 import org.cz.epm.job.IFEpmRestApiJob;
+import org.cz.epm.job.RedoIFEpmRestApiJob;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
@@ -17,6 +19,7 @@ import org.quartz.SchedulerFactory;
 import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
+
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
 public class EpmQuartzServer {
@@ -26,7 +29,7 @@ public class EpmQuartzServer {
 		try {
 			SchedulerFactory sf = new StdSchedulerFactory();
 			sched = sf.getScheduler();
-			// clean redis cache job
+			// call clean redis cache job
 			JobDetail cleanRedisCacheJob = newJob(CleanRedisZSetCacheJob.class)
 					.withIdentity("CleanRedisZSetCacheJob",
 							"CleanRedisCacheJobGroup").build();
@@ -34,25 +37,38 @@ public class EpmQuartzServer {
 					.withIdentity("CleanRedisCacheTrigger",
 							"CleanRedisCacheTriggerGroup").startNow()
 					.withSchedule(dailyAtHourAndMinute(0, 0)).build();
+
 			// call epm rest api job
 			JobDetail ifEpmApiJob = newJob(IFEpmRestApiJob.class).withIdentity(
 					"IFEpmApiJob", "IFEpmApiEpmJobGroup").build();
-
 			// fire api data send next hour
 			Calendar calendar = Calendar.getInstance();
 			calendar.add(Calendar.HOUR, 1);
 			Trigger ifEpmApiTrigger = newTrigger()
 					.withIdentity("IFEpmApiTrigger", "IFEpmApiTriggerGroup")
-					.startAt(dateOf(calendar.getTime().getHours(),0, 0))
+					.startAt(dateOf(calendar.getTime().getHours(), 0, 0))
 					.withSchedule(
 							simpleSchedule().withIntervalInHours(1)
 									.repeatForever()).build();
-//			 Trigger ifEpmApiTrigger = newTrigger()
-//		     .withIdentity("IFEpmApiTrigger", "IFEpmApiTriggerGroup").startAt(dateOf(calendar.getTime().getHours(), calendar.getTime().getMinutes(), 0))
-//			 .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
+			// Trigger ifEpmApiTrigger = newTrigger()
+			// .withIdentity("IFEpmApiTrigger",
+			// "IFEpmApiTriggerGroup").startAt(dateOf(calendar.getTime().getHours(),
+			// calendar.getTime().getMinutes(), 0))
+			// .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
+
+			// call api date redo job
+			JobDetail redoIfEpmApiJob = newJob(RedoIFEpmRestApiJob.class)
+					.withIdentity("RedoIFEpmRestApiJob",
+							"RedoIFEpmRestApiJobGroup").build();
+			Trigger redoIfEpmApiTrigger = newTrigger()
+					.withIdentity("RedoIFEpmRestApiTrigger",
+							"RedoIFEpmRestApiTriggerGroup").startNow().build();
 
 			sched.scheduleJob(cleanRedisCacheJob, cleanReisCacheTrigger);
 			sched.scheduleJob(ifEpmApiJob, ifEpmApiTrigger);
+			if (Conf.isIfRedoFlag())
+				sched.scheduleJob(redoIfEpmApiJob, redoIfEpmApiTrigger);
+
 			sched.start();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -20,7 +20,6 @@ public class EpmThriftServer {
 
 	public static void startServer() throws TTransportException {
 		try {
-
 			boolean compact = true;
 			final Datahouse.Processor<Iface> processor = new Datahouse.Processor<Iface>(
 					new EpmDatahouseImpl());
