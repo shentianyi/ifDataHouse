@@ -17,7 +17,7 @@ end
 $access_key="diyeleS3oXBHTQohr5sgmA"
 class Test
   def initialize
-    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('192.168.0.21', '9001'))
+    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9001'))
     protocol=::Thrift::BinaryProtocol.new(@transport)
     @client= CZ::Epm::Thrift::Datahouse::Client.new(protocol)
     @transport.open
@@ -84,23 +84,23 @@ class Test
   # test addProductInspect
   #
   def test_add_product_inspect_pack
-    while true
+    # while true
       @productNrs=[]
       10.times {@productNrs<<UUID.generate}
       @productNrs.each_with_index do |value,index|
         entity=@entities[rand(@entities.count)]
         type=rand(index+1)%2
-        @client.addProductInspect($access_key,{"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
-        puts "INSPECT:#{index}:productNr:#{value}-entity:#{entity.entityId}-type:#{(index%2).to_s}"
-        sleep(1)
+      #  @client.addProductInspect($access_key,{"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
+      #  puts "INSPECT:#{index}:productNr:#{value}-entity:#{entity.entityId}-type:#{(index%2).to_s}"
+       sleep(1)
         if type==1
           partNr=@parts[rand(@parts.count)].partNr
-          #@client.addProductPack($access_key,{"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partId"=>partNr})
+           @client.addProductPack($access_key,{"entityId"=>entity.entityId,"packTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"partId"=>partNr})
           puts "***PACK:entity:#{entity.entityId}-#{index}:productNr:#{value}-:partNr#{partNr}"
         end
       end
       puts "*****************************************************************"
-    end
+    # end
   end
 
   #

@@ -52,7 +52,7 @@ public class EpmDataBase {
 	public static Map GetPart(String partId, String... fields) {
 		Map query = new HashMap();
 		query.put("_id", partId);
-		return DatahouseBase.GetEntity(query, fields);
+		return DatahouseBase.GetPart(query, fields);
 	}
 	
 	public static Map GetEntity(String entityId, String... fields) {

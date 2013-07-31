@@ -6,8 +6,6 @@ import java.util.*;
 public class MongoConf {
 	private static Properties property;
 
-	 
-
 	// mongo conf
 	private static String mHost = "localhost";
 	private static int mPort = 27017;
@@ -37,8 +35,7 @@ public class MongoConf {
 				try {
 					property.load(MongoConf.class.getClassLoader()
 							.getResourceAsStream("config.properties"));
-				 
-
+				
 					// mongo conf
 					mHost = getProperty("MHost");
 					mPort = Integer.parseInt(getProperty("MPort"));

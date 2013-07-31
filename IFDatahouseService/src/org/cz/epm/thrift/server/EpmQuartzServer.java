@@ -6,17 +6,13 @@ import static org.quartz.CronScheduleBuilder.dailyAtHourAndMinute;
 import static org.quartz.DateBuilder.*;
 
 import java.util.Calendar;
-import java.util.Date;
-
 import org.cz.epm.conf.Conf;
 import org.cz.epm.job.CleanRedisZSetCacheJob;
 import org.cz.epm.job.IFEpmRestApiJob;
-import org.cz.epm.job.RedoIFEpmRestApiJob;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
-import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -56,19 +52,10 @@ public class EpmQuartzServer {
 			// calendar.getTime().getMinutes(), 0))
 			// .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
 
-			// call api date redo job
-			JobDetail redoIfEpmApiJob = newJob(RedoIFEpmRestApiJob.class)
-					.withIdentity("RedoIFEpmRestApiJob",
-							"RedoIFEpmRestApiJobGroup").build();
-			Trigger redoIfEpmApiTrigger = newTrigger()
-					.withIdentity("RedoIFEpmRestApiTrigger",
-							"RedoIFEpmRestApiTriggerGroup").startNow().build();
-
+		 
 			sched.scheduleJob(cleanRedisCacheJob, cleanReisCacheTrigger);
 			sched.scheduleJob(ifEpmApiJob, ifEpmApiTrigger);
-			if (Conf.isIfRedoFlag())
-				sched.scheduleJob(redoIfEpmApiJob, redoIfEpmApiTrigger);
-
+ 
 			sched.start();
 		} catch (Exception e) {
 			e.printStackTrace();

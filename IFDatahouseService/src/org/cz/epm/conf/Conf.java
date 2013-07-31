@@ -1,20 +1,15 @@
 package org.cz.epm.conf;
 
-<<<<<<< HEAD
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-=======
->>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 import java.io.IOException;
 import java.util.*;
 
 public class Conf {
 	private static Properties property;
-<<<<<<< HEAD
-	private static FileOutputStream fileOutPutStream;
-=======
 
->>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
+	private static FileOutputStream fileOutPutStream;
+
 	// thrift server conf
 	private static int tPort = 9000;
 	private static String rHost = "locahost";
@@ -26,12 +21,6 @@ public class Conf {
 	// ifepm rest api
 	private static String ifEpmAccessKey = "";
 	private static String ifEpmUrl = "http://localhost:3000";
-<<<<<<< HEAD
-	private static boolean ifRedoFlag = false;
-	private static String ifRedoStartDate = "";
-	private static String ifRedoEndDate = "";
-=======
->>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 
 	// ifdatahouse map access key
 	private static String ifDatahouseMapAccessKey = "";
@@ -59,14 +48,7 @@ public class Conf {
 					// ifEpm rest api conf
 					ifEpmAccessKey = getProperty("IFEpmAccessKey");
 					ifEpmUrl = getProperty("IFEpmUrl");
-<<<<<<< HEAD
-					ifRedoFlag = Boolean
-							.parseBoolean(getProperty("IFRedoFlag"));
-					ifRedoStartDate = getProperty("IFRedoStartDate");
-					ifRedoEndDate = getProperty("IFRedoEndDate");
-=======
 
->>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 					// ifDatahouse map access key
 					ifDatahouseMapAccessKey = getProperty("IFDatahouseAccessKey");
 
@@ -81,23 +63,6 @@ public class Conf {
 		return property.getProperty(key);
 	}
 
-<<<<<<< HEAD
-	private static void setProperty(String key, String value)
-			throws IOException {
-		try {
-			// System.out.println(getProperty(key));
-			property.setProperty(key, value);
-			// //System.out.println(getProperty(key));
-			// fileOutPutStream=new FileOutputStream("config.properties");
-			// property.store(fileOutPutStream, "save property");
-			// fileOutPutStream.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
-=======
->>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 	public static int gettPort() {
 		return tPort;
 	}
@@ -133,25 +98,4 @@ public class Conf {
 	public static String getIfDatahouseMapAccessKey() {
 		return ifDatahouseMapAccessKey;
 	}
-
-<<<<<<< HEAD
-	public static String getIfRedoStartDate() {
-		return ifRedoStartDate;
-	}
-
-	public static String getIfRedoEndDate() {
-		return ifRedoEndDate;
-	}
-
-	public static boolean isIfRedoFlag() {
-		return ifRedoFlag;
-	}
-
-	public static void setIfRedoFlag(boolean ifRedoFlag) throws IOException {
-		Conf.ifRedoFlag = ifRedoFlag;
-		setProperty("IFRedoFlag", Boolean.toString(ifRedoFlag));
-	}
-
-=======
->>>>>>> 6578ea1013fbd463dc76eb1a43553fa2f21d0620
 }

@@ -79,34 +79,35 @@ public class IFEpmRestApi {
 	}
 
 	// 出勤人数KPI
-	public static void AddWorkerAttendanceKpiEntry(Date entry_at) throws Exception {
+	public static void AddWorkerAttendanceKpiEntry(Date entry_at)
+			throws Exception {
 		System.out.println(mongoEntityId);
 		System.out.println(mongoEntityIdSet);
 		Map<String, Long> values = EpmDataBase
 				.GetCurrentOnJobWorkerNums(mongoEntityIdSet);
-		DoApiRequest(values, "WorkerAttendanceKpi",entry_at);
+		DoApiRequest(values, "WorkerAttendanceKpi", entry_at);
 	}
 
 	// 产品总测试数量KPI
 	public static void AddProductTestTotalQuantityKpiEntry(long startTime,
-			long endTime,Date entry_at) throws Exception {
-		Map<String, Long> values = EpmDataBase.GetProductOriOutputCount(
-				mongoEntityIdSet, startTime, endTime);
-		DoApiRequest(values, "ProductTestTotalQuantityKpi",entry_at);
+			long endTime, Date entry_at) throws Exception {
+		Map<String, Long> values = EpmDataBase.GetProductInspectCount(
+				mongoEntityIdSet, startTime, endTime, null);
+		DoApiRequest(values, "ProductTestTotalQuantityKpi", entry_at);
 	}
 
 	// 产品测试通过数量KPI
 	public static void AddProductTestPassQuantityKpiEntry(long startTime,
-			long endTime,Date entry_at) throws Exception {
+			long endTime, Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductInspectCount(
 				mongoEntityIdSet, startTime, endTime,
 				ProductInspectHandledType.FIRSTPASS);
-		DoApiRequest(values, "ProductTestPassQuantityKpi",entry_at);
+		DoApiRequest(values, "ProductTestPassQuantityKpi", entry_at);
 	}
 
 	// 产品测试失败数量KPI
 	public static void AddProductTestFailQuantityKpiEntry(long startTime,
-			long endTime,Date entry_at) throws Exception {
+			long endTime, Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductInspectCount(
 				mongoEntityIdSet, startTime, endTime,
 				ProductInspectHandledType.FAIL);
@@ -114,24 +115,24 @@ public class IFEpmRestApi {
 	}
 
 	// 产品产量 KPI
-	public static void AddProductQuantityKpiEntry(long startTime, long endTime,Date entry_at)
-			throws Exception {
+	public static void AddProductQuantityKpiEntry(long startTime, long endTime,
+			Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductOutputCount(
 				mongoEntityIdSet, startTime, endTime);
-		DoApiRequest(values, "ProductQuantityKpi",entry_at);
+		DoApiRequest(values, "ProductQuantityKpi", entry_at);
 	}
 
 	// 出勤总时间KPI
 	public static void AddWorkerAttendanceTimeKpiEntry(long startTime,
-			long endTime,Date entry_at) throws Exception {
+			long endTime, Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetOnJobTotalTime(
 				mongoEntityIdSet, startTime, endTime);
-		DoApiRequest(values, "WorkerAttendanceTimeKpi",entry_at);
+		DoApiRequest(values, "WorkerAttendanceTimeKpi", entry_at);
 	}
 
 	// 产品理论生产总时间KPI
 	public static void AddProductTotalTargetTimeKpiEntry(long startTime,
-			long endTime,Date entry_at) throws Exception {
+			long endTime, Date entry_at) throws Exception {
 		Map<String, Long> values = new HashMap<String, Long>();
 		for (Entry<String, String> entry : mongoEntityId.entrySet()) {
 			String entityId = entry.getValue();
@@ -144,16 +145,16 @@ public class IFEpmRestApi {
 			}
 			values.put(entityId, time);
 		}
-		DoApiRequest(values, "ProductTotalTargetTimeKpi",entry_at);
+		DoApiRequest(values, "ProductTotalTargetTimeKpi", entry_at);
 	}
 
-	private static void DoApiRequest(Map<String, Long> values, String kpiName,Date entry_at)
-			throws Exception {
+	private static void DoApiRequest(Map<String, Long> values, String kpiName,
+			Date entry_at) throws Exception {
 		String kpiId = apiKpiId.get(kpiName);
 		for (Entry<String, String> entry : mongoEntityId.entrySet()) {
 			Map params = generateKpiEntryApiParams(kpiId,
 					apiEntiyId.get(entry.getKey()),
-					values.get(entry.getValue()),entry_at);
+					values.get(entry.getValue()), entry_at);
 			HttpRequestUtil request = new HttpRequestUtil();
 			request.doRequest(kpiEntryUrl, method, contentType, params);
 		}

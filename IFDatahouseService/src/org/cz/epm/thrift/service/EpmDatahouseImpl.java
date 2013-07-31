@@ -41,6 +41,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			dataMap.put("partId",partId);
 			dataMap.put("state", Integer.toString(ProductState.PACK.getValue()));
 			dataMap.put("outputTime", dataMap.get("packTime"));
+			System.out.println(dataMap);
 			if (EpmDataBase.AddProduct(dataMap)) {
 				EpmDataBase.AddProductOutputCache(dataMap.get("entityId"),
 						Long.parseLong(dataMap.get("outputTime")),
