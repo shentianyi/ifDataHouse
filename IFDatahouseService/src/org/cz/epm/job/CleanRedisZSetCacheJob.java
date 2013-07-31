@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
+import org.cz.epm.conf.Conf;
 import org.cz.epm.data.manager.RedisManager;
-import org.cz.epm.resource.Conf;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.thrift.TException;
-import org.cz.epm.resource.Conf;
+import org.cz.epm.conf.Conf;
 import org.cz.epm.thrift.generated.ProductInspectHandledType;
 import org.cz.epm.util.HttpRequestUtil;
 
@@ -26,28 +26,28 @@ public class IFEpmRestApi {
 	private final static Map<String, String> apiEntiyId = new HashMap() {
 		{
 			// entity_nr, entity_id
-			put("C-RBA","2");
-			put("G-RBA","3");
-			put("E-RBA","4");
-			put("C-COC","5");
-			put("G-COC","6");
-			put("E-COC","7");
-			put("C-MRA","8");
-			put("G-MRA","9");
-			put("E-MRA","10");
-			put("Minor","11");
-			put("Motor","12");
-			put("NCV2-COC","13");
-			put("NCV2-INR","14");
-			put("NCV2-MRA","15");
-			put("NCV2-Minor","16");
-			put("NCV3-COC","17");
-			put("NCV3-BODY","18");
-			put("NCV3-ROOF","19");
-			put("NCV3-Minor","20");
-			put("C-G-COC","21");
-			put("C-G-MRA","22");
-			put("NCV2-3","23");
+			put("C-RBA", "2");
+			put("G-RBA", "3");
+			put("E-RBA", "4");
+			put("C-COC", "5");
+			put("G-COC", "6");
+			put("E-COC", "7");
+			put("C-MRA", "8");
+			put("G-MRA", "9");
+			put("E-MRA", "10");
+			put("Minor", "11");
+			put("Motor", "12");
+			put("NCV2-COC", "13");
+			put("NCV2-INR", "14");
+			put("NCV2-MRA", "15");
+			put("NCV2-Minor", "16");
+			put("NCV3-COC", "17");
+			put("NCV3-BODY", "18");
+			put("NCV3-ROOF", "19");
+			put("NCV3-Minor", "20");
+			put("C-G-COC", "21");
+			put("C-G-MRA", "22");
+			put("NCV2-3", "23");
 		}
 	};
 	private final static Map<String, String> apiKpiId = new HashMap() {
@@ -79,60 +79,60 @@ public class IFEpmRestApi {
 	}
 
 	// 出勤人数KPI
-	public static void AddWorkerAttendanceKpiEntry() throws Exception {
-		 System.out.println(mongoEntityId);
-		 System.out.println(mongoEntityIdSet);
+	public static void AddWorkerAttendanceKpiEntry(Date entry_at) throws Exception {
+		System.out.println(mongoEntityId);
+		System.out.println(mongoEntityIdSet);
 		Map<String, Long> values = EpmDataBase
 				.GetCurrentOnJobWorkerNums(mongoEntityIdSet);
-		DoApiRequest(values, "WorkerAttendanceKpi");
+		DoApiRequest(values, "WorkerAttendanceKpi",entry_at);
 	}
 
 	// 产品总测试数量KPI
 	public static void AddProductTestTotalQuantityKpiEntry(long startTime,
-			long endTime) throws Exception {
+			long endTime,Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductOriOutputCount(
 				mongoEntityIdSet, startTime, endTime);
-		DoApiRequest(values, "ProductTestTotalQuantityKpi");
+		DoApiRequest(values, "ProductTestTotalQuantityKpi",entry_at);
 	}
 
 	// 产品测试通过数量KPI
 	public static void AddProductTestPassQuantityKpiEntry(long startTime,
-			long endTime) throws Exception {
+			long endTime,Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductInspectCount(
 				mongoEntityIdSet, startTime, endTime,
 				ProductInspectHandledType.FIRSTPASS);
-		DoApiRequest(values, "ProductTestPassQuantityKpi");
+		DoApiRequest(values, "ProductTestPassQuantityKpi",entry_at);
 	}
 
 	// 产品测试失败数量KPI
 	public static void AddProductTestFailQuantityKpiEntry(long startTime,
-			long endTime) throws Exception {
+			long endTime,Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductInspectCount(
 				mongoEntityIdSet, startTime, endTime,
 				ProductInspectHandledType.FAIL);
-		DoApiRequest(values, "ProductTestFailQuantityKpi");
+		DoApiRequest(values, "ProductTestFailQuantityKpi", entry_at);
 	}
 
 	// 产品产量 KPI
-	public static void AddProductQuantityKpiEntry(long startTime, long endTime)
+	public static void AddProductQuantityKpiEntry(long startTime, long endTime,Date entry_at)
 			throws Exception {
 		Map<String, Long> values = EpmDataBase.GetProductOutputCount(
 				mongoEntityIdSet, startTime, endTime);
-		DoApiRequest(values, "ProductQuantityKpi");
+		DoApiRequest(values, "ProductQuantityKpi",entry_at);
 	}
 
 	// 出勤总时间KPI
 	public static void AddWorkerAttendanceTimeKpiEntry(long startTime,
-			long endTime) throws Exception {
+			long endTime,Date entry_at) throws Exception {
 		Map<String, Long> values = EpmDataBase.GetOnJobTotalTime(
 				mongoEntityIdSet, startTime, endTime);
-		DoApiRequest(values, "WorkerAttendanceTimeKpi");
+		DoApiRequest(values, "WorkerAttendanceTimeKpi",entry_at);
 	}
 
 	// 产品理论生产总时间KPI
 	public static void AddProductTotalTargetTimeKpiEntry(long startTime,
-			long endTime) throws Exception {
-		Map<String, Long> values=new HashMap<String,Long>();
+			long endTime,Date entry_at) throws Exception {
+		Map<String, Long> values = new HashMap<String, Long>();
 		for (Entry<String, String> entry : mongoEntityId.entrySet()) {
 			String entityId = entry.getValue();
 			Set<Map<String, String>> partQuantityAndProTime = EpmDataBase
@@ -144,16 +144,16 @@ public class IFEpmRestApi {
 			}
 			values.put(entityId, time);
 		}
-		DoApiRequest(values, "ProductTotalTargetTimeKpi");
+		DoApiRequest(values, "ProductTotalTargetTimeKpi",entry_at);
 	}
 
-	private static void DoApiRequest(Map<String, Long> values, String kpiName)
+	private static void DoApiRequest(Map<String, Long> values, String kpiName,Date entry_at)
 			throws Exception {
 		String kpiId = apiKpiId.get(kpiName);
 		for (Entry<String, String> entry : mongoEntityId.entrySet()) {
 			Map params = generateKpiEntryApiParams(kpiId,
 					apiEntiyId.get(entry.getKey()),
-					values.get(entry.getValue()));
+					values.get(entry.getValue()),entry_at);
 			HttpRequestUtil request = new HttpRequestUtil();
 			request.doRequest(kpiEntryUrl, method, contentType, params);
 		}
@@ -174,12 +174,15 @@ public class IFEpmRestApi {
 	}
 
 	private static Map generateKpiEntryApiParams(final String kpiId,
-			final String entityId, final Long value) {
+			final String entityId, final Long value, final Date entry_at) {
 		Map<String, String> params = new HashMap() {
 			{
 				put("kpi_id", kpiId);
 				put("entity_id", entityId);
-				put("entry_at", format.format(new Date()));
+				if (entry_at == null)
+					put("entry_at", format.format(new Date()));
+				else
+					put("entry_at", format.format(entry_at));
 				put("value", Long.toString(value));
 			}
 		};

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.cz.epm.resource.Conf;
+import org.cz.epm.conf.Conf;
 import org.cz.epm.util.BaseUtil;
 
 import com.trigonic.jedis.NamespaceJedisPool;
