@@ -12,7 +12,7 @@
 </div>
 <% end %>
 <div class="field">
- <table>
+ <table class="table table-bordered table-striped globle-table">
      <tr>
           <td>数据集</td>
           <td><%=@item.model%></td>
@@ -33,9 +33,9 @@
           <td>访问号</td>
           <td><%= @item.access_key%></td>
      </tr>
+       <tr>
+               <td colspan="2"> <%= f.submit "提 交"%></td>
+          </tr>
 </table>
-</div>
-<div class="actions">
-     <%= f.submit "提 交"%>
 </div>
 <% end %>

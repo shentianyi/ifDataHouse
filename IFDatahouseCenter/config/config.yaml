@@ -7,3 +7,4 @@ format:
 path:
  :updata_file_path: 'uploadfiles/data'
  :download_file_path: 'uploadfiles/download'
+ :template_file_path: 'uploadfiles/template'

@@ -7,32 +7,19 @@ IFDatahouse::Application.routes.draw do
     get 'logout' => :destroy
     get 'index'=>:index
   end
-
-  resources :parts do
-    collection do
-      post :updata
-      get :import
-      get :download
-      get :search
+  
+  [:parts,:staffs,:entities].each do |model|
+    resources model do
+      collection do
+        post :updata
+        get :import
+        get :download
+        get :search
+        get :template
+      end
     end
   end
-  resources :staffs do
-    collection do
-      post :updata
-      get :import
-      get :download
-      get :search
-    end
-  end
-  resources :entities do
-    collection do
-      post :updata
-      get :import
-      get :download
-      get :search
-    end
-  end
-
+ 
   resources :mappers do
     collection do
       get :cancel
@@ -46,7 +33,11 @@ IFDatahouse::Application.routes.draw do
     end
   end
 
-  resources :mapper_items
+  resources :mapper_items do
+    collection do
+      get :search
+    end
+  end
 
   namespace :api,defaults:{format:'json'} do
     controller :file do

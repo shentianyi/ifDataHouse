@@ -10,6 +10,15 @@ module BlockHelper
     }
   end
 
+  def self.get_part_info_down_block
+    Proc.new {|line,item|
+      line<<item.partNr
+      line<<item.name
+      line<<item.orderNr
+      line<<item.unitTime
+    }
+  end
+  
   def self.get_part_down_block
     Proc.new {|line,item|
       line<<item.partNr

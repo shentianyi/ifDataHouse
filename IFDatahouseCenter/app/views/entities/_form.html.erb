@@ -12,7 +12,7 @@
 </div>
 <% end %>
 <div class="field">
-     <table>
+     <table class="table table-bordered table-striped globle-table">
           <tr>
                <td>组织号</td>
                <td><%= f.text_field :entityNr%></td>
@@ -37,9 +37,9 @@
                <td>组织类型</td>
                <td><%= f.select :type,options_for_select(@types,@item.type)%></td>
           </tr>
+            <tr>
+               <td colspan="2">    <%= f.submit "提 交"%></td>
+          </tr>
      </table>
-</div>
-<div class="actions">
-     <%= f.submit "提 交"%>
 </div>
 <% end %>

@@ -1,9 +1,10 @@
 require 'mapper'
 
 class MapperItemObserver < Mongoid::Observer
-  observe :staff,:part,:entity
+  observe :staff,:part,:entity,:part_info
   
   def after_update record
+    puts record.to_json
     if record.respond_to?(:map_field)
       if  record.send("#{record.map_field}_changed?")
         MapperItem.where(:map_key=>record.id.to_s).update_all(:map_field_value=>record.send("#{record.map_field}"))

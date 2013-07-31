@@ -1,8 +1,9 @@
+<h1>&nbsp;</h1>
 <p id="notice">
      <%= notice %>
 </p>
 
-<table>
+<table class="table table-bordered table-striped globle-table">
      <tr>
           <td>工号</td>
           <td><%= @item.staffNr%></td>
@@ -22,8 +23,10 @@
      <tr>
           <td>职称</td>
           <td><%= @item.title%></td>
-     </tr> 
+     </tr>
 </table>
-<%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to '编辑',send("edit_#{@model}_path",@item) %>
-<%= link_to '返回', send("#{@model.pluralize}_path") %>
+<div class="footer-operate">
+     <%= link_to '删除', @item, metdod: :delete, data: { confirm: 'Are you sure?' } %>
+     <%= link_to '编辑',send("edit_#{@model}_path",@item) %>
+     <%= link_to '返回', send("#{@model.pluralize}_path") %>
+</div>

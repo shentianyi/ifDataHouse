@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include ApplicationHelper
   include FileHelper
+  before_filter  :authorize
+  before_filter :set_model
+
   protected
   def authorize
     unless Staff.where(:id=>session[:staff_id]).exists?

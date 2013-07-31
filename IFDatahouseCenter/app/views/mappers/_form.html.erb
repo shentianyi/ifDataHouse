@@ -1,4 +1,4 @@
-<%= form_for(@item) do |f| %>
+<%= form_for(@item,:html=>{:class=>"form-horizontal"}) do |f| %>
 <% if @item.errors.any? %>
 <div id="error_explanation">
      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this part from being saved:</h2>
@@ -12,7 +12,7 @@
 </div>
 <% end %>
 <div class="field">
-     <table>
+     <table class="table table-bordered table-striped globle-table">
           <tr>
                <td>访问号</td>
                <td><%= @item.access_key%></td>
@@ -25,9 +25,9 @@
                <td>名称</td>
                <td><%= f.text_field :name%></td>
           </tr>
+            <tr>
+               <td colspan="2">    <%= f.submit "提 交"%></td>
+          </tr>
      </table>
-</div>
-<div class="actions">
-     <%= f.submit "提 交"%>
 </div>
 <% end %>

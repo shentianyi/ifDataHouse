@@ -8,10 +8,10 @@ class Mapper
   field :access_key
   MObjects=[['员工',0],['组织',1],['零件',2]]
 
-  MHModels={0=>'staff',1=>'entity',2=>'part'}
-
+  MHModels={0=>'staff',1=>'entity',2=>'part'} 
+  
   def self.get_model i
-    return MHModels[i]
+    MHModels[i]
   end
 
 end

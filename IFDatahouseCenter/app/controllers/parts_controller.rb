@@ -1,8 +1,6 @@
 #encoding: utf-8
 class PartsController < ApplicationController
-  before_filter  :authorize
-  before_filter :set_model
-
+  before_filter :get_entities,:only=>[:index,:new,:edit,:search]
   def updata
     super {|data,query,row,row_line|
       raise(ArgumentError,"行:#{row_line}, PartNr/ UnitTime 不能为空值") if row["PartNr"].nil? or row["UnitTime"].nil?
@@ -13,16 +11,16 @@ class PartsController < ApplicationController
       data["unitTime"]=row["UnitTime"] if row["UnitTime"]
       if row["EntityNr"]
         if entity=Entity.find_by(:entityNr=>row["EntityNr"])
-          data["entity_id"]=entity.id 
+          data["entity_id"]=entity.id
         end
-       end
-      if query
-        query["partNr"]=row["PartNr"]
       end
+      query["partNr"]=row["PartNr"]   if query
     }
   end
 
-  def download
-    super &BlockHelper.get_part_down_block
+  private
+
+  def get_entities
+    @entities=Entity.where(:type=>EntityType::ProLine).all
   end
 end

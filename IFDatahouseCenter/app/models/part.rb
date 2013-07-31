@@ -14,7 +14,7 @@ class Part
   end
 
   def self.csv_headers
-    ['PartNr','Name','ClientPartNr','OrderNr','UnitTime','EntityNr',$UPMARKER]
+       ['PartNr','Name','ClientPartNr','OrderNr','UnitTime','EntityNr',$UPMARKER]
   end
 
   def map_field

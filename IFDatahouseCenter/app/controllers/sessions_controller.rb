@@ -1,5 +1,7 @@
 #encoding: utf-8
 class SessionsController < ApplicationController
+  skip_before_filter  :authorize
+  skip_before_filter :set_model
 
   layout "login"
   def new
@@ -11,6 +13,7 @@ class SessionsController < ApplicationController
       # render :json=>{ :status=>1 }
       redirect_to index_path
     else
+      flash[:notice]="信息错误"
       redirect_to login_path
     end
   end

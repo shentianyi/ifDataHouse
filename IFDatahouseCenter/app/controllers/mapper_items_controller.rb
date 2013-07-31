@@ -1,7 +1,6 @@
 #encoding: utf-8
 class MapperItemsController < ApplicationController
-  before_filter  :authorize
-  before_filter :set_model
+ 
   def index
     @items=if @mapper_model=params[:mapper_model] and @mapper_id=params[:id]
           MapperItem.where(:model=>@mapper_model,:mapper_id=>@mapper_id).paginate(:page=>params[:page],:per_page=>20)

@@ -1,7 +1,23 @@
-<h1>Listing <%= @model%></h1>
-
-<table>
+<h1>&nbsp;</h1>
+<h3>零件列表</h3>
+<div>
+     <form method="get" action="<%= send("search_#{@model.pluralize}_path")%>">
+          <div>
+               <span>零件号：
+                    <input type="text" name="part[partNr]" />
+               </span>
+               <span>客户零件号：
+                    <input type="text" name="part[clientPartNr]" />
+               </span>
+               <span>组织号：
+                    <%= select_tag 'part[entity_id]',options_from_collection_for_select(@entities,'id','entityNr'),{:prompt=>""}%> </span>
+               <input type="submit" value="查 找" class="btn btn-primary"/>
+          </div>
+     </form>
+</div>
+<table class="table table-bordered table-striped globle-table">
      <tr>
+          <th>&nbsp;</th>
           <th>零件号</th>
           <th>名称</th>
           <th>客户零件号</th>
@@ -10,8 +26,9 @@
           <th>组织号</th>
           <th>&nbsp;</th>
      </tr>
-     <% @items.each do |item| %>
+     <%@items.each_with_index do |item,i|%>
      <tr>
+          <td class="td-index"><%= i+1%></td>
           <td><%= item.partNr%></td>
           <td><%= item.name%></td>
           <td><%= item.clientPartNr%></td>
@@ -24,9 +41,9 @@
      </tr>
      <% end %>
 </table>
-<br />
-
-<%= will_paginate @items%>
-<%= link_to "新建零件", send("new_#{@model}_path") %>
-<%= link_to "上传/更新零件", send("import_#{@model.pluralize}_path") %><br />
-<%= link_to "下载", send("download_#{@model.pluralize}_path") %>
+<div class="footer-operate">
+     <%= will_paginate @items%>
+     <%= link_to "新建零件", send("new_#{@model}_path") %>
+     <%= link_to "上传/更新零件", send("import_#{@model.pluralize}_path") %>
+     <%= link_to "下载", send("download_#{@model.pluralize}_path") %>
+</div>

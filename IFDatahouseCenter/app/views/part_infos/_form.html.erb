@@ -1,0 +1,37 @@
+<%= form_for(@item) do |f| %>
+<% if @item.errors.any? %>
+<div id="error_explanation">
+     <h2><%= pluralize(@item.errors.count, "error") %> prohibited this part from being saved:</h2>
+     <ul>
+          <% @item.errors.full_messages.each do |msg| %>
+          <li>
+               <%= msg %>
+          </li>
+          <% end %>
+     </ul>
+</div>
+<% end %>
+<div class="field">
+ <table>
+     <tr>
+          <td>零件号</td>
+          <td><%= f.text_field :partNr%></td>
+     </tr>
+     <tr>
+          <td>名称</td>
+          <td><%= f.text_field :name%></td>
+     </tr> 
+     <tr>
+          <td>零件订单号</td>
+          <td><%= f.text_field :orderNr%></td>
+     </tr>
+     <tr>
+          <td>单位生产时间</td>
+          <td><%= f.text_field :unitTime%></td>
+     </tr>
+</table>
+</div>
+<div class="actions">
+     <%= f.submit "提 交"%>
+</div>
+<% end %>

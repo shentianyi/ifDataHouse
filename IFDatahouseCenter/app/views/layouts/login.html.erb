@@ -3,8 +3,12 @@
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
           <title>IF Datahouse</title>
+          <%= stylesheet_link_tag    "application", :media => "all" %>
      </head>
      <body>
-          <%= yield %>
+          <%=render :partial=>'share/header'%>
+          <div class="container">
+               <%= yield %>
+          </div>
      </body>
 </html>
