@@ -84,14 +84,14 @@ class Test
   # test addProductInspect
   #
   def test_add_product_inspect_pack
-    # while true
+    while true
       @productNrs=[]
       10.times {@productNrs<<UUID.generate}
       @productNrs.each_with_index do |value,index|
         entity=@entities[rand(@entities.count)]
         type=rand(index+1)%2
-      #  @client.addProductInspect($access_key,{"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
-      #  puts "INSPECT:#{index}:productNr:#{value}-entity:#{entity.entityId}-type:#{(index%2).to_s}"
+         @client.addProductInspect($access_key,{"entityId"=>entity.entityId,"inspectTime"=>(Time.now.to_ms).to_s,"productNr"=>value,"type"=>type.to_s})
+        puts "INSPECT:#{index}:productNr:#{value}-entity:#{entity.entityId}-type:#{(index%2).to_s}"
        sleep(1)
         if type==1
           partNr=@parts[rand(@parts.count)].partNr
@@ -100,7 +100,7 @@ class Test
         end
       end
       puts "*****************************************************************"
-    # end
+      end
   end
 
   #

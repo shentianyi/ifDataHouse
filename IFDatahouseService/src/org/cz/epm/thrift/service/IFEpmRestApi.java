@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TimeZone;
 
 import org.apache.thrift.TException;
 import org.cz.epm.conf.Conf;
@@ -21,7 +22,7 @@ public class IFEpmRestApi {
 	private final static String method = "POST";
 	private final static String contentType = "application/json";
 	private static String kpiEntryUrl = "";
-	private final static DateFormat format = new SimpleDateFormat(
+	private static DateFormat format = new SimpleDateFormat(
 			"yyyy-MM-dd HH:00:00");
 	private final static Map<String, String> apiEntiyId = new HashMap() {
 		{
@@ -74,6 +75,7 @@ public class IFEpmRestApi {
 							mongoEntityId.values());
 				}
 				kpiEntryUrl = Conf.getIfEpmUrl() + "api/kpi_entries/entry";
+				// format.setTimeZone(TimeZone.getTimeZone("UTC"));
 			}
 		}
 	}
@@ -81,8 +83,8 @@ public class IFEpmRestApi {
 	// 出勤人数KPI
 	public static void AddWorkerAttendanceKpiEntry(Date entry_at)
 			throws Exception {
-		System.out.println(mongoEntityId);
-		System.out.println(mongoEntityIdSet);
+		// System.out.println(mongoEntityId);
+		// System.out.println(mongoEntityIdSet);
 		Map<String, Long> values = EpmDataBase
 				.GetCurrentOnJobWorkerNums(mongoEntityIdSet);
 		DoApiRequest(values, "WorkerAttendanceKpi", entry_at);
@@ -133,14 +135,15 @@ public class IFEpmRestApi {
 	// 产品理论生产总时间KPI
 	public static void AddProductTotalTargetTimeKpiEntry(long startTime,
 			long endTime, Date entry_at) throws Exception {
-		Map<String, Long> values = new HashMap<String, Long>();
+		Map<String, Double> values = new HashMap<String, Double>();
 		for (Entry<String, String> entry : mongoEntityId.entrySet()) {
 			String entityId = entry.getValue();
 			Set<Map<String, String>> partQuantityAndProTime = EpmDataBase
 					.GetProductOutputNumAndTime(entityId, startTime, endTime);
-			long time = 0;
+			double time = 0;
+
 			for (Map<String, String> partQT : partQuantityAndProTime) {
-				time += Long.parseLong(partQT.get("unitTime"))
+				time += Double.parseDouble(partQT.get("unitTime"))
 						* Long.parseLong(partQT.get("quantity"));
 			}
 			values.put(entityId, time);
@@ -148,7 +151,7 @@ public class IFEpmRestApi {
 		DoApiRequest(values, "ProductTotalTargetTimeKpi", entry_at);
 	}
 
-	private static void DoApiRequest(Map<String, Long> values, String kpiName,
+	private static <T> void DoApiRequest(Map<String, T> values, String kpiName,
 			Date entry_at) throws Exception {
 		String kpiId = apiKpiId.get(kpiName);
 		for (Entry<String, String> entry : mongoEntityId.entrySet()) {
@@ -174,8 +177,8 @@ public class IFEpmRestApi {
 		return ids;
 	}
 
-	private static Map generateKpiEntryApiParams(final String kpiId,
-			final String entityId, final Long value, final Date entry_at) {
+	private static <T> Map generateKpiEntryApiParams(final String kpiId,
+			final String entityId, final T value, final Date entry_at) {
 		Map<String, String> params = new HashMap() {
 			{
 				put("kpi_id", kpiId);
@@ -184,7 +187,10 @@ public class IFEpmRestApi {
 					put("entry_at", format.format(new Date()));
 				else
 					put("entry_at", format.format(entry_at));
-				put("value", Long.toString(value));
+//				put("value", Double.toString(value));
+//				if(value instanceof Double){
+					put("value",value.toString());
+//				}
 			}
 		};
 		return params;

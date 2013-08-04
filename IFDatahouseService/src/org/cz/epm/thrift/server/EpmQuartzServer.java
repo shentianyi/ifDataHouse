@@ -46,11 +46,10 @@ public class EpmQuartzServer {
 					.withSchedule(
 							simpleSchedule().withIntervalInHours(1)
 									.repeatForever()).build();
-			// Trigger ifEpmApiTrigger = newTrigger()
-			// .withIdentity("IFEpmApiTrigger",
-			// "IFEpmApiTriggerGroup").startAt(dateOf(calendar.getTime().getHours(),
-			// calendar.getTime().getMinutes(), 0))
-			// .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
+//			 Trigger ifEpmApiTrigger = newTrigger()
+//			 .withIdentity("IFEpmApiTrigger",
+//			 "IFEpmApiTriggerGroup")
+//			 .withSchedule(simpleSchedule().withIntervalInMinutes(10).repeatForever()).build();
 
 		 
 			sched.scheduleJob(cleanRedisCacheJob, cleanReisCacheTrigger);
