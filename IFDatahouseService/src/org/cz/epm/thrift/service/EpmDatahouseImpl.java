@@ -18,6 +18,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	
 	@Override
 	public void addAttendance(String accessKey, Map<String, String> dataMap) {
+		log.logger.info(dataMap);
 
 		Mapper mapper = new Mapper(accessKey);
 		dataMap.put("entityId",
@@ -63,7 +64,6 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	@Override
 	public void addProductInspect(String accessKey, Map<String, String> dataMap)
 			throws TException {
-		System.out.println(dataMap);
 		log.logger.info(dataMap);
 		try {
 			Mapper mapper = new Mapper(accessKey);
@@ -92,6 +92,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	@Override
 	public void addPlanTarget(String accessKey, Map<String, String> dataMap)
 			throws TException {
+		log.logger.info(dataMap);
 
 		Mapper mapper = new Mapper(accessKey);
 		if (dataMap.containsKey("entityId"))
