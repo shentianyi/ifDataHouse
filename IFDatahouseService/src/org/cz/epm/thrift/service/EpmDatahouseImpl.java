@@ -10,9 +10,12 @@ import org.apache.thrift.TException;
 import org.cz.epm.data.manager.RedisManager;
 import org.cz.epm.resource.Mapper;
 import org.cz.epm.thrift.generated.*;
+import org.cz.epm.util.DataTransportLogger;
 
-public class EpmDatahouseImpl implements Datahouse.Iface {
-
+public class EpmDatahouseImpl implements Datahouse.Iface{
+	
+	DataTransportLogger log=DataTransportLogger.getLogger();
+	
 	@Override
 	public void addAttendance(String accessKey, Map<String, String> dataMap) {
 
@@ -33,6 +36,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void addProductPack(String accessKey, Map<String, String> dataMap)
 			throws TException {
+		log.logger.info(dataMap);		
 		Mapper mapper = new Mapper(accessKey);
 		String partId = mapper.GetMapKey("part", dataMap.get("partId"));
 		Map part = EpmDataBase.GetPart(partId, "entity_id");
@@ -59,6 +63,8 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void addProductInspect(String accessKey, Map<String, String> dataMap)
 			throws TException {
+		System.out.println(dataMap);
+		log.logger.info(dataMap);
 		try {
 			Mapper mapper = new Mapper(accessKey);
 			// some TSK table number is lower case, convert it to upper case

@@ -29,17 +29,32 @@
 			<param name="ConversionPattern" value="[%p] %d{dd MMM hh:mm:ss.SSS aa} %t [%c]%n%m%n%n" />
 		</layout>
 	</appender>
+	
+	<appender name="org.transport.log" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../log/transport-log.log" />
+		<param name="append" value="true" />
+		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d{dd MMM hh:mm:ss.SSS aa} %t [%c]%n%m%n%n" />
+		</layout>
+	</appender>
+	
 
 	<logger name="org.quartz">
 		<level value="info" />
 		<appender-ref ref="org.quartz.log" />
 	</logger>
 
-	<logger name="org.cz">
+	<logger name="org.cz.epm.thrift.service">
 		<level value="info" />
 		<appender-ref ref="org.cz.ifdatahouse.log" />
 	</logger>
 
+     <logger name="org.cz.epm.util">
+		<level value="info" />
+		<appender-ref ref="org.transport.log" />
+	</logger>
+	
 	<root>
 		<level value="info" />
 		<appender-ref ref="default" />

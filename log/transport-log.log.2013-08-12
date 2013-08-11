@@ -1,0 +1,12 @@
+[INFO] 12 八月 02:05:07.768 上午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=TSK-046, productNr=7adaaf30-e4de-0130-58ea-001b383b81d1, type=0, inspectTime=1376244307713}
+
+[INFO] 12 八月 02:05:09.202 上午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=TSK-056, productNr=7adab180-e4de-0130-58ea-001b383b81d1, type=0, inspectTime=1376244309201}
+
+[INFO] 12 八月 02:05:10.208 上午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=TSK-046, productNr=7adab2a0-e4de-0130-58ea-001b383b81d1, type=1, inspectTime=1376244310207}
+
+[INFO] 12 八月 02:05:11.222 上午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=TSK-046, partId=91G410302, productNr=7adab2a0-e4de-0130-58ea-001b383b81d1, packTime=1376244311212}
+
