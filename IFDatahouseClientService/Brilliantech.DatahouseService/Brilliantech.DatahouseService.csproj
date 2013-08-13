@@ -39,11 +39,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>D:\File\DLL\log4net.dll</HintPath>
+      <HintPath>..\..\dll\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\File\DLL\Nini.dll</HintPath>
+      <HintPath>..\..\dll\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,7 +54,7 @@
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="Thrift">
-      <HintPath>D:\File\DLL\Thrift.dll</HintPath>
+      <HintPath>..\..\dll\Thrift.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

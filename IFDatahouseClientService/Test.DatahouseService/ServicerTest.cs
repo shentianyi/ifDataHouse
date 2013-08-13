@@ -68,13 +68,15 @@ namespace Test.DatahouseService
         [TestMethod()]
         public void AddProductPackTest()
         {
+            
+            for(int i=0;i<2;i++){
             try
             {
                 Dictionary<string, string> data = new Dictionary<string, string>();
-                data.Add("entityId", "RBA4");
+                data.Add("entityId", "");
                 data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
                 data.Add("productNr", Guid.NewGuid().ToString());
-                data.Add("partId", "91G9067");
+                data.Add("partId", "91G104803");
                 Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
                 Servicer service = new Servicer();
                 service.AddProductPack(data);
@@ -84,6 +86,7 @@ namespace Test.DatahouseService
                 Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(e.Message);
                 //Brilliantech.Packaging.EpmIntegration.Util.LogUtil.Logger.Error(e.Message);
             }
+        }
         }
 
         /// <summary>
