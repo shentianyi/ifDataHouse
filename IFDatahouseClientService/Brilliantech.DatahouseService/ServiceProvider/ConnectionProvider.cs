@@ -15,27 +15,28 @@ namespace Brilliantech.DatahouseService.ServiceProvider
         private static object locker = new object();
         public ConnectionProvider()
         {
-            CreateResetEvent();
-            CreatePool();
+          //  CreateResetEvent();
+          //  CreatePool();
         }
         public TTransport GetConnection()
         {
-            lock (locker) {
-                TTransport transport;
-                if (idelCount == 0) {
-                    if (pool.Count == Conf.TMaxActive)
-                        resetEvent.WaitOne();
-                    else
-                        PushToPool(CreateInstance());
-                }
-                transport = pool.Pop();
-                transport.Open();
-                if (--idelCount < Conf.TMinIdel && pool.Count() < Conf.TMaxActive)
-                    PushToPool(CreateInstance());
-              //  if (Conf.TValidateOnGet)
-                //    ValidateInstance(transport);
-                return transport;
-            }
+            //lock (locker) {
+            //    TTransport transport;
+            //    if (idelCount == 0) {
+            //        if (pool.Count == Conf.TMaxActive)
+            //            resetEvent.WaitOne();
+            //        else
+            //            PushToPool(CreateInstance());
+            //    }
+            //    transport = pool.Pop();
+            //    transport.Open();
+            //    if (--idelCount < Conf.TMinIdel && pool.Count() < Conf.TMaxActive)
+            //        PushToPool(CreateInstance());
+            //  // if (Conf.TValidateOnGet)
+            //        ValidateInstance(transport);
+            //    return transport;
+            //}
+            return CreateInstance();
         }
 
         public void ReturnConnection(TTransport transport)
@@ -45,8 +46,8 @@ namespace Brilliantech.DatahouseService.ServiceProvider
                     DestoryInstance(transport);
                 else
                 {
-                   // if (Conf.TValidateOnReturn)
-                     //   ValidateInstance(transport);
+                    // if (Conf.TValidateOnReturn)
+                       ValidateInstance(transport);
                     PushToPool(transport);
                     resetEvent.Set();
                 }
@@ -76,13 +77,13 @@ namespace Brilliantech.DatahouseService.ServiceProvider
         private TTransport CreateInstance()
         {
             TTransport transport = new TFramedTransport(new TSocket(Conf.TSeriviceHost, Conf.TServicePort));
-           // transport.Open();
+            transport.Open();
             return transport;
         }
         private void ValidateInstance(TTransport instance)
         {
             if (!instance.IsOpen)
-            {
+            { 
                 instance.Open();
             }
         }

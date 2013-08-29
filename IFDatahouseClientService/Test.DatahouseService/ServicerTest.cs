@@ -68,25 +68,38 @@ namespace Test.DatahouseService
         [TestMethod()]
         public void AddProductPackTest()
         {
-            
-            for(int i=0;i<2;i++){
-            try
-            {
-                Dictionary<string, string> data = new Dictionary<string, string>();
-                data.Add("entityId", "");
-                data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
-                data.Add("productNr", Guid.NewGuid().ToString());
-                data.Add("partId", "91G104803");
-                Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
-                Servicer service = new Servicer();
-                service.AddProductPack(data);
-            }
-            catch (Exception e)
-            {
-                Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(e.Message);
-                //Brilliantech.Packaging.EpmIntegration.Util.LogUtil.Logger.Error(e.Message);
-            }
+            //List<Thread> threads = new List<Thread>();
+            //for (int i = 0; i < 5; i++) {
+            //    threads.Add(new Thread(packTest));
+            //}
+            //foreach (Thread t in threads) {
+            //    t.Start();
+            //}\
+            //packTest();\ 
+            ThreadPool.QueueUserWorkItem(new WaitCallback(packTest));
         }
+
+        public  void packTest(object o)
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                try
+                {
+                    Dictionary<string, string> data = new Dictionary<string, string>();
+                    data.Add("entityId", "");
+                    data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
+                    data.Add("productNr", Guid.NewGuid().ToString());
+                    data.Add("partId", "91G104803");
+                    Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
+                    Servicer service = new Servicer();
+                    service.AddProductPack(data);
+                }
+                catch (Exception e)
+                {
+                    Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(e.Message);
+                    //Brilliantech.Packaging.EpmIntegration.Util.LogUtil.Logger.Error(e.Message);
+                }
+            }
         }
 
         /// <summary>
