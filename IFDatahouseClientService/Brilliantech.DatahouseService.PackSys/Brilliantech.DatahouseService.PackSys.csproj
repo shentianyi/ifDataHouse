@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6AB7230F-29B6-4E74-8F6B-59FF02971E82}</ProjectGuid>
+    <ProjectGuid>{8344C59C-51AF-4235-8A3D-3D243ECB15E9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Brilliantech.DatahouseService.Testbench</RootNamespace>
-    <AssemblyName>Brilliantech.DatahouseService.Testbench</AssemblyName>
+    <RootNamespace>Brilliantech.DatahouseService.PackSys</RootNamespace>
+    <AssemblyName>Brilliantech.DatahouseService.PackSys</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -35,14 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\ThridPart\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,44 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conf.cs" />
-    <Compile Include="DatahouseTestbenchService.cs">
+    <Compile Include="DatahousePackSysService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DatahouseTestbenchService.Designer.cs">
-      <DependentUpon>DatahouseTestbenchService.cs</DependentUpon>
+    <Compile Include="DatahousePackSysService.Designer.cs">
+      <DependentUpon>DatahousePackSysService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProjectInstaller.Designer.cs">
-      <DependentUpon>ProjectInstaller.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
-      <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
-      <Name>Brilliantech.DatahouseService</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DatahouseTestbenchService.resx">
-      <DependentUpon>DatahouseTestbenchService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProjectInstaller.resx">
-      <DependentUpon>ProjectInstaller.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="install.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="uninstall.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
