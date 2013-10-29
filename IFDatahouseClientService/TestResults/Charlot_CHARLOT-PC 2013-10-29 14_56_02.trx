@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="2e4bf3be-ca09-4425-81b1-614656e34113" name="Charlot@CHARLOT-PC 2013-10-29 14:56:02" runUser="Charlot-PC\Charlot" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="2e80b17e-8ab5-4988-ab53-fd31bd810c6b">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment enabled="false" runDeploymentRoot="Charlot_CHARLOT-PC 2013-10-29 14_56_02">
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\ThridPart\log4net.dll" />
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\ThridPart\Thrift.dll" />
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\Brilliantech.DatahouseService\bin\Debug\Brilliantech.DatahouseService.dll" />
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\Brilliantech.DatahouseService.Testbench\bin\Debug\Brilliantech.DatahouseService.Testbench.exe" />
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\ThridPart\Nini.dll" />
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\Brilliantech.BaseClassLib\bin\Debug\Brilliantech.BaseClassLib.dll" />
+      <DeploymentItem filename="C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\Brilliantech.PackSysDataService\bin\Debug\Brilliantech.PackSysDataService.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-10-29T14:56:02.3107353+08:00" queuing="2013-10-29T14:56:09.2341313+08:00" start="2013-10-29T14:56:09.5081469+08:00" finish="2013-10-29T14:56:27.3901697+08:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="CHARLOT-PC" outcome="Warning" timestamp="2013-10-29T14:56:08.2580754+08:00">
+        <Text>当前已禁用部署。未部署测试“Test.DatahouseService.PackSysDbDataServiceTest.readDataTimer_ElapsedTest”中的部署项“Brilliantech.PackSysDataService.exe”。</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="readDataTimer_ElapsedTest" storage="c:\users\charlot\documents\github\ifdatahouse\ifdatahouseclientservice\test.datahouseservice\bin\debug\test.datahouseservice.dll" id="a779c35d-ff92-ec96-24b7-9fcdd2f92ef9">
+      <DeploymentItems>
+        <DeploymentItem filename="Brilliantech.PackSysDataService.exe" />
+      </DeploymentItems>
+      <Execution id="b994d4b7-6781-43a1-8cdc-50060b067db5" />
+      <TestMethod codeBase="C:/Users/Charlot/Documents/GitHub/ifDataHouse/IFDatahouseClientService/Test.DatahouseService/bin/Debug/Test.DatahouseService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.DatahouseService.PackSysDbDataServiceTest, Test.DatahouseService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="readDataTimer_ElapsedTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a779c35d-ff92-ec96-24b7-9fcdd2f92ef9" executionId="b994d4b7-6781-43a1-8cdc-50060b067db5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b994d4b7-6781-43a1-8cdc-50060b067db5" testId="a779c35d-ff92-ec96-24b7-9fcdd2f92ef9" testName="readDataTimer_ElapsedTest" computerName="CHARLOT-PC" duration="00:00:16.0665239" startTime="2013-10-29T14:56:09.5811511+08:00" endTime="2013-10-29T14:56:26.9791462+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b994d4b7-6781-43a1-8cdc-50060b067db5">
+      <Output>
+        <StdErr>log4net:ERROR Failed to find configuration section 'log4net' in the application's .config file. Check your .config file for the &lt;log4net&gt; and &lt;configSections&gt; elements. The configuration section should look like: &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" /&gt;</StdErr>
+        <DebugTrace>log4net:ERROR Failed to find configuration section 'log4net' in the application's .config file. Check your .config file for the &lt;log4net&gt; and &lt;configSections&gt; elements. The configuration section should look like: &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" /&gt;
+</DebugTrace>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive 失败。无法验证不返回值的方法。</Message>
+          <StackTrace>   在 Test.DatahouseService.PackSysDbDataServiceTest.readDataTimer_ElapsedTest() 位置 C:\Users\Charlot\Documents\GitHub\ifDataHouse\IFDatahouseClientService\Test.DatahouseService\PackSysDbDataServiceTest.cs:行号 79
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

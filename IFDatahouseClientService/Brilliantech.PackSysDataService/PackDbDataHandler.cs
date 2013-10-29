@@ -20,6 +20,7 @@ namespace Brilliantech.PackSysDataService
                     List<PackItemView> items = rep.GetByTime(startTime, endTime);
                     if (items.Count == 0)
                         return false;
+                    LogUtil.Logger.Error(items.Count);
                     using (FileStream fs = File.Open(file, FileMode.Create, FileAccess.ReadWrite))
                     {
                         using (StreamWriter writer = new StreamWriter(fs))

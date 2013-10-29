@@ -8,6 +8,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Timers;
 using System.IO;
+using Brilliantech.BaseClassLib.Util;
 
 namespace Brilliantech.PackSysDataService
 {
@@ -20,6 +21,8 @@ namespace Brilliantech.PackSysDataService
 
         protected override void OnStart(string[] args)
         {
+
+            LogUtil.Logger.Error("START");
             readDataTimer.Interval = Conf.ReadDbInterval;
             readDataTimer.Enabled = true;
             readDataTimer.Start();
@@ -32,12 +35,18 @@ namespace Brilliantech.PackSysDataService
 
         private void readDataTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            PackDbDataHandler packDataHandler = new PackDbDataHandler();
-            DateTime dataReadEndTime=DateTime.Now;
-            string fileName=Guid.NewGuid().ToString()+".txt";
-            string file=Path.Combine(Conf.PackDataPath,fileName);
-            packDataHandler.WritePackItemViewToFileBy(Conf.DataReadStartTime, dataReadEndTime, file);
-            Conf.DataReadStartTime = dataReadEndTime;
+            try
+            {
+                PackDbDataHandler packDataHandler = new PackDbDataHandler();
+                DateTime dataReadEndTime = DateTime.Now;
+                string fileName = Guid.NewGuid().ToString() + ".txt";
+                string file = Path.Combine(Conf.PackDataPath, fileName);
+                packDataHandler.WritePackItemViewToFileBy(Conf.DataReadStartTime, dataReadEndTime, file);
+                Conf.DataReadStartTime = dataReadEndTime;
+            }
+            catch (Exception ex) {
+                LogUtil.Logger.Error(ex.Message);
+            }
         }
     }
 }
