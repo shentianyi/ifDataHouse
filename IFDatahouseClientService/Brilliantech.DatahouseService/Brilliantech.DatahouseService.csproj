@@ -69,9 +69,6 @@
     <Compile Include="ServiceProvider\ConnectionProvider.cs" />
     <Compile Include="ServiceProvider\Servicer.cs" />
     <Compile Include="ServiceProvider\IConnectionProvider.cs" />
-    <Compile Include="Util\ConfigUtil.cs" />
-    <Compile Include="Util\LogUtil.cs" />
-    <Compile Include="Util\TimeUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -81,6 +78,12 @@
     <None Include="log4.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.BaseClassLib\Brilliantech.BaseClassLib.csproj">
+      <Project>{32217AA3-69BC-4CA0-B973-27F29D2C584E}</Project>
+      <Name>Brilliantech.BaseClassLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

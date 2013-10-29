@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Brilliantech.DatahouseService.ServiceProvider;
+using Brilliantech.BaseClassLib.Util;
 
 namespace Test.DatahouseService.ConsoleTip
 {
@@ -30,16 +31,16 @@ namespace Test.DatahouseService.ConsoleTip
                 {
                     Dictionary<string, string> data = new Dictionary<string, string>();
                     data.Add("entityId", "");
-                    data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
+                    data.Add("packTime", TimeUtil.GetMilliseconds(DateTime.Now).ToString());
                     data.Add("productNr", Guid.NewGuid().ToString());
                     data.Add("partId", "91G104803");
-                    Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
+                    LogUtil.Logger.Error(data);
                     Servicer service = new Servicer();
                     service.AddProductPack(data);
                 }
                 catch (Exception e)
                 {
-                    Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(e.Message);
+                   LogUtil.Logger.Error(e.Message);
                     //Brilliantech.Packaging.EpmIntegration.Util.LogUtil.Logger.Error(e.Message);
                 }
             }

@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
@@ -66,9 +67,12 @@
     <Compile Include="ConfTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicerTest.cs" />
-    <Compile Include="TimeUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.BaseClassLib\Brilliantech.BaseClassLib.csproj">
+      <Project>{32217AA3-69BC-4CA0-B973-27F29D2C584E}</Project>
+      <Name>Brilliantech.BaseClassLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.DatahouseService.Testbench\Brilliantech.DatahouseService.Testbench.csproj">
       <Project>{6AB7230F-29B6-4E74-8F6B-59FF02971E82}</Project>
       <Name>Brilliantech.DatahouseService.Testbench</Name>
@@ -76,6 +80,10 @@
     <ProjectReference Include="..\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
       <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
       <Name>Brilliantech.DatahouseService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.PackSysDataService\Brilliantech.PackSysDataService.csproj">
+      <Project>{319BF1BE-5D73-4720-92EF-EF2DDD456C38}</Project>
+      <Name>Brilliantech.PackSysDataService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

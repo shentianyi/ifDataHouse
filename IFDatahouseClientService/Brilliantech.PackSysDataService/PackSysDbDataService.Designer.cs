@@ -28,10 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.readDataTimer = new System.Timers.Timer();
+            this.packDataSysEventLog = new System.Diagnostics.EventLog();
+            ((System.ComponentModel.ISupportInitialize)(this.readDataTimer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packDataSysEventLog)).BeginInit();
+            // 
+            // readDataTimer
+            // 
+            this.readDataTimer.Enabled = true;
+            this.readDataTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.readDataTimer_Elapsed);
+            // 
+            // packDataSysEventLog
+            // 
+            this.packDataSysEventLog.Log = "packdataSys.log.new";
+            this.packDataSysEventLog.Source = "packdataSys.log.source";
+            // 
+            // PackSysDbDataService
+            // 
             this.ServiceName = "PackSysDbDataService";
+            ((System.ComponentModel.ISupportInitialize)(this.readDataTimer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packDataSysEventLog)).EndInit();
+
         }
 
         #endregion
+
+        private System.Timers.Timer readDataTimer;
+        private System.Diagnostics.EventLog packDataSysEventLog;
+
     }
 }

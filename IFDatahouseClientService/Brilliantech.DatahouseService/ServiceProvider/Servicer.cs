@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Thrift.Transport;
 using Thrift.Protocol;
-using Brilliantech.DatahouseService.Util;
+using Brilliantech.BaseClassLib.Util; 
 
 namespace Brilliantech.DatahouseService.ServiceProvider
 {

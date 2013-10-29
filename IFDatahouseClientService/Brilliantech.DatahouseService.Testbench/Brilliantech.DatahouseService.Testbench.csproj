@@ -68,6 +68,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.BaseClassLib\Brilliantech.BaseClassLib.csproj">
+      <Project>{32217AA3-69BC-4CA0-B973-27F29D2C584E}</Project>
+      <Name>Brilliantech.BaseClassLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.DatahouseService\Brilliantech.DatahouseService.csproj">
       <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
       <Name>Brilliantech.DatahouseService</Name>
