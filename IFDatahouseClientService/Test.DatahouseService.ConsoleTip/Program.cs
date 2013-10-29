@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using Brilliantech.DatahouseService.ServiceProvider;
 using Brilliantech.BaseClassLib.Util;
+using Brilliantech.PackSysDataService;
 
 namespace Test.DatahouseService.ConsoleTip
 {
@@ -13,10 +14,8 @@ namespace Test.DatahouseService.ConsoleTip
 
         static void Main(string[] args)
         {
-            for (int i = 0; i < 200; i++)
-            {
-                ThreadPool.QueueUserWorkItem(new WaitCallback(new Tester().packTest),i);
-            }
+            PackDbDataHandler h = new PackDbDataHandler();
+            h.WritePackItemViewToFileBy(DateTime.Now, DateTime.Now, "c:\\packdata\\bba.txt");
             Console.Read();
         }
       

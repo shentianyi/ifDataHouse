@@ -65,9 +65,19 @@
       <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
       <Name>Brilliantech.DatahouseService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.PackSysDataService\Brilliantech.PackSysDataService.csproj">
+      <Project>{319BF1BE-5D73-4720-92EF-EF2DDD456C38}</Project>
+      <Name>Brilliantech.PackSysDataService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="conf.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="log4.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -18,9 +18,10 @@ namespace Brilliantech.PackSysDataService
                 {
                     PackItemViewRepository rep = new PackItemViewRepository(unit);
                     List<PackItemView> items = rep.GetByTime(startTime, endTime);
+
+                    LogUtil.Logger.Info(items.Count);
                     if (items.Count == 0)
                         return false;
-                    LogUtil.Logger.Error(items.Count);
                     using (FileStream fs = File.Open(file, FileMode.Create, FileAccess.ReadWrite))
                     {
                         using (StreamWriter writer = new StreamWriter(fs))
@@ -36,7 +37,7 @@ namespace Brilliantech.PackSysDataService
             }
             catch (Exception e)
             {
-                LogUtil.Logger.Error(e.Message);
+                LogUtil.Logger.Info(e.Message);
                 return false;
             }
         }

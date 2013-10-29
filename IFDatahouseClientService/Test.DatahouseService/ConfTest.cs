@@ -113,5 +113,16 @@ namespace Test.DatahouseService
             Assert.AreEqual(expected, actual);   
             PackConf.DataReadStartTime = DateTime.Now;
         }
+
+        /// <summary>
+        ///Connstr 的测试
+        ///</summary>
+        [TestMethod()]
+        public void ConnstrTest()
+        {
+            string actual;
+            actual = PackConf.Connstr;
+            Assert.AreEqual("", actual);   
+        }
     }
 }

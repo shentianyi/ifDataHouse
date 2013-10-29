@@ -22,7 +22,8 @@ namespace Brilliantech.PackSysDataService
         protected override void OnStart(string[] args)
         {
 
-            LogUtil.Logger.Error("START");
+            writeLog("Brillantech.PackSysDbData.Service 【启动中】");
+            LogUtil.Logger.Info("START");
             readDataTimer.Interval = Conf.ReadDbInterval;
             readDataTimer.Enabled = true;
             readDataTimer.Start();
@@ -47,6 +48,12 @@ namespace Brilliantech.PackSysDataService
             catch (Exception ex) {
                 LogUtil.Logger.Error(ex.Message);
             }
+        }
+
+        private void writeLog(string log)
+        {
+            packDataSysEventLog.WriteEntry(new DateTime().ToString("yyyy-MM-dd hh:MM:sss"));
+            packDataSysEventLog.WriteEntry(log);
         }
     }
 }

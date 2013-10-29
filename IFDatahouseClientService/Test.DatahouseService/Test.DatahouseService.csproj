@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfTest.cs" />
+    <Compile Include="PackDbDataHandlerTest.cs" />
     <Compile Include="PackSysDbDataServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicerTest.cs" />

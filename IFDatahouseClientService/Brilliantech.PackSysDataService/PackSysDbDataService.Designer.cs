@@ -40,7 +40,7 @@
             // 
             // packDataSysEventLog
             // 
-            this.packDataSysEventLog.Log = "packdataSys.log.new";
+            this.packDataSysEventLog.Log = "packdataSys.source.new";
             this.packDataSysEventLog.Source = "packdataSys.log.source";
             // 
             // PackSysDbDataService

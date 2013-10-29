@@ -69,9 +69,6 @@
     <Compile Include="ServiceProvider\ConnectionProvider.cs" />
     <Compile Include="ServiceProvider\Servicer.cs" />
     <Compile Include="ServiceProvider\IConnectionProvider.cs" />
-    <Compile Include="Util\ConfigUtil.cs" />
-    <Compile Include="Util\LogUtil.cs" />
-    <Compile Include="Util\TimeUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
