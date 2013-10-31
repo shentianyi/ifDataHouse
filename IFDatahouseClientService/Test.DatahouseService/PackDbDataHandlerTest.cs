@@ -1,6 +1,7 @@
 ﻿using Brilliantech.PackSysDataService;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Brilliantech.BaseClassLib.Util;
 
 namespace Test.DatahouseService
 {
@@ -71,8 +72,8 @@ namespace Test.DatahouseService
         public void WritePackItemViewToFileByTest()
         {
             PackDbDataHandler target = new PackDbDataHandler(); // TODO: 初始化为适当的值
-            DateTime startTime = new DateTime(); // TODO: 初始化为适当的值
-            DateTime endTime = new DateTime(); // TODO: 初始化为适当的值
+            string startTime = TimeUtil.GetDateTimeInMil(); // TODO: 初始化为适当的值
+            string endTime = TimeUtil.GetDateTimeInMil(); // TODO: 初始化为适当的值
             string file = "c:\\packdata\\a.txt"; // TODO: 初始化为适当的值
             bool expected = false; // TODO: 初始化为适当的值
             bool actual;

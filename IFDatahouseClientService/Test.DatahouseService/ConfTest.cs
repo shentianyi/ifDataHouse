@@ -3,10 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Brilliantech.PackSysDataService;
 using PackConf= Brilliantech.PackSysDataService.Conf;
+using Brilliantech.BaseClassLib.Util;
 namespace Test.DatahouseService
-{
-    
-    
+{ 
     /// <summary>
     ///这是 ConfTest 的测试类，旨在
     ///包含所有 ConfTest 单元测试
@@ -14,8 +13,6 @@ namespace Test.DatahouseService
     [TestClass()]
     public class ConfTest
     {
-
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -72,7 +69,7 @@ namespace Test.DatahouseService
         public void TestDataSpliterTest()
         {
             char actual;
-            actual = Brilliantech.DatahouseService.Testbench.Conf.TestDataSpliter;
+            actual = Brilliantech.DatahouseService.Testbench.Conf.DataSpliter;
             char target=';';
             Assert.AreEqual(target , actual);
         }
@@ -107,11 +104,11 @@ namespace Test.DatahouseService
         public void DataReadStartTimeTest()
         {
             DateTime expected =DateTime.Now; // TODO: 初始化为适当的值
-            DateTime actual; 
+            string actual; 
             actual = PackConf.DataReadStartTime;
           
             Assert.AreEqual(expected, actual);   
-            PackConf.DataReadStartTime = DateTime.Now;
+            PackConf.DataReadStartTime = TimeUtil.GetDateTimeInMil();
         }
 
         /// <summary>

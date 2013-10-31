@@ -14,9 +14,10 @@ namespace Brilliantech.PackSysDataService.Repository
             this.context = _context as PackSysDataClassesDataContext;
         }
 
-        public List<PackItemView> GetByTime(DateTime startTime, DateTime endTime)
+        public List<PackItemView> GetByTime(string startTime, string endTime)
         {
-            return context.PackItemView.Where(p => p.packagingTime >= startTime && p.packagingTime < endTime).ToList();
+            return context.ExecuteQuery<PackItemView>("SELECT * FROM PackItemView where packagingTime>={0} and packagingTime<{1}", startTime, endTime).ToList();
+            //return context.PackItemView.Where(p => p.packagingTime >= startTime && p.packagingTime < endTime).ToList();
         }
     }
 }

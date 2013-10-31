@@ -14,12 +14,21 @@ namespace Test.DatahouseService.ConsoleTip
 
         static void Main(string[] args)
         {
-            PackDbDataHandler h = new PackDbDataHandler();
-            h.WritePackItemViewToFileBy(DateTime.Now, DateTime.Now, "c:\\packdata\\bba.txt");
+            // PackDbDataHandler h = new PackDbDataHandler();
+            // h.WritePackItemViewToFileBy(DateTime.Now.AddDays(-20), DateTime.Now, "c:\\packdata\\bba.txt");
+            //Console.WriteLine(string.Format("{0}{4}{1}{4}{2}{4}{3}","item.partNr","item.packageID","item.projectID","item.packagingTime","-"));
+            // DateTime date = DateTime.Parse("2013-10-30 16:07:15");
+            DateTime dt = DateTime.Now;
+                string ds=dt.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            DateTime dta = DateTime.Parse(ds);
+
+            Console.WriteLine(TimeUtil.GetMilliseconds(dt));
+            Console.WriteLine(TimeUtil.GetMilliseconds(dt.ToUniversalTime()));
+            Console.WriteLine(ds);
+            Console.WriteLine(TimeUtil.GetMilliseconds(dta));
+            Console.WriteLine(TimeUtil.GetMilliseconds(dta.ToUniversalTime()));
             Console.Read();
         }
-      
-
     }
     class Tester{  public void packTest(object o)
         {
