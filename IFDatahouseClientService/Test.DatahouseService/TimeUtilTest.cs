@@ -1,7 +1,7 @@
-﻿using Brilliantech.DatahouseService.Util;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
+using Brilliantech.BaseClassLib.Util;
 
 namespace Test.DatahouseService
 {
@@ -90,6 +90,19 @@ namespace Test.DatahouseService
             TestContext.WriteLine(DateTime.MinValue.ToString());
             TestContext.WriteLine("***********2**************");
             TestContext.WriteLine("***********3**************");
+        }
+
+        /// <summary>
+        ///GetDateTimeInMil 的测试
+        ///</summary>
+        [TestMethod()]
+        public void GetDateTimeInMilTest()
+        {
+            DateTime expected = new DateTime(); // TODO: 初始化为适当的值
+            string actual;
+            actual = TimeUtil.GetDateTimeInMil();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("验证此测试方法的正确性。");
         }
     }
 }

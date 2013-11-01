@@ -39,11 +39,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>D:\File\DLL\log4net.dll</HintPath>
+      <HintPath>..\ThridPart\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Nini, Version=1.1.0.0, Culture=neutral, PublicKeyToken=691faec150a7fa7b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\File\DLL\Nini.dll</HintPath>
+      <HintPath>..\ThridPart\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,7 +54,7 @@
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="Thrift">
-      <HintPath>D:\File\DLL\Thrift.dll</HintPath>
+      <HintPath>..\ThridPart\Thrift.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +69,6 @@
     <Compile Include="ServiceProvider\ConnectionProvider.cs" />
     <Compile Include="ServiceProvider\Servicer.cs" />
     <Compile Include="ServiceProvider\IConnectionProvider.cs" />
-    <Compile Include="Util\ConfigUtil.cs" />
-    <Compile Include="Util\LogUtil.cs" />
-    <Compile Include="Util\TimeUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -80,7 +77,14 @@
     </Content>
     <None Include="log4.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.BaseClassLib\Brilliantech.BaseClassLib.csproj">
+      <Project>{32217AA3-69BC-4CA0-B973-27F29D2C584E}</Project>
+      <Name>Brilliantech.BaseClassLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

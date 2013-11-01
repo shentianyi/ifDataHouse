@@ -1,9 +1,9 @@
 ﻿using Brilliantech.DatahouseService.ServiceProvider;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using Brilliantech.DatahouseService.Util;
+using System.Collections.Generic; 
 using System.Threading;
+using Brilliantech.BaseClassLib.Util;
 namespace Test.DatahouseService
 {
     /// <summary>
@@ -68,21 +68,36 @@ namespace Test.DatahouseService
         [TestMethod()]
         public void AddProductPackTest()
         {
-            try
+            //List<Thread> threads = new List<Thread>();
+            //for (int i = 0; i < 5; i++) {
+            //    threads.Add(new Thread(packTest));
+            //}
+            //foreach (Thread t in threads) {
+            //    t.Start();
+            //}\
+            //packTest();\ 
+            ThreadPool.QueueUserWorkItem(new WaitCallback(packTest));
+        }
+
+        public  void packTest(object o)
+        {
+            for (int i = 0; i < 200; i++)
             {
-                Dictionary<string, string> data = new Dictionary<string, string>();
-                data.Add("entityId", "RBA4");
-                data.Add("packTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
-                data.Add("productNr", Guid.NewGuid().ToString());
-                data.Add("partId", "91G9067");
-                Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
-                Servicer service = new Servicer();
-                service.AddProductPack(data);
-            }
-            catch (Exception e)
-            {
-                Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(e.Message);
-                //Brilliantech.Packaging.EpmIntegration.Util.LogUtil.Logger.Error(e.Message);
+                try
+                {
+                    Dictionary<string, string> data = new Dictionary<string, string>();
+                    data.Add("entityId", "");
+                    data.Add("packTime",  TimeUtil.GetMilliseconds(DateTime.Now).ToString());
+                    data.Add("productNr", Guid.NewGuid().ToString());
+                    data.Add("partId", "91G104803");
+                     LogUtil.Logger.Error(data);
+                    Servicer service = new Servicer();
+                    service.AddProductPack(data);
+                }
+                catch (Exception e)
+                { 
+                    LogUtil.Logger.Error(e.Message);
+                }
             }
         }
 
@@ -96,11 +111,11 @@ namespace Test.DatahouseService
             {
                 Dictionary<string, string> data = new Dictionary<string, string>();
                 data.Add("entityId", "RBA4");
-                data.Add("inspectTime", Brilliantech.DatahouseService.Util.TimeUtil.GetMilliseconds(DateTime.Now).ToString());
+                data.Add("inspectTime", TimeUtil.GetMilliseconds(DateTime.Now).ToString());
                 data.Add("productNr", Guid.NewGuid().ToString());
                 data.Add("partId", "91G9067");
                 data.Add("type", (i % 2).ToString());
-                Brilliantech.DatahouseService.Util.LogUtil.Logger.Error(data);
+                LogUtil.Logger.Error(data);
                 Servicer service = new Servicer();
                 service.AddProductInspect(data);
                 Thread.Sleep(2000);

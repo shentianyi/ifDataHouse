@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Thrift.Transport;
 using Thrift.Protocol;
-using Brilliantech.DatahouseService.Util;
+using Brilliantech.BaseClassLib.Util; 
 
 namespace Brilliantech.DatahouseService.ServiceProvider
 {
@@ -24,7 +24,8 @@ namespace Brilliantech.DatahouseService.ServiceProvider
                 TProtocol protocol = new TBinaryProtocol(transport);
                 client = new Datahouse.Client(protocol);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 LogUtil.Logger.Error(e.Message);
             }
         }
@@ -61,13 +62,14 @@ namespace Brilliantech.DatahouseService.ServiceProvider
             }
         }
 
-        public void Log(string message) {
+        public void Log(string message)
+        {
             LogUtil.Logger.Error(message);
         }
 
         ~Servicer()
         {
-            Dispose(false);
+            Dispose(true);
         }
         protected void Dispose(bool disposing)
         {
@@ -75,11 +77,14 @@ namespace Brilliantech.DatahouseService.ServiceProvider
             {
                 if (disposing)
                 {
-                    pool.ReturnConnection(transport);
+                    if (transport != null && transport.IsOpen)
+                    {
+                        transport.Close();
+                        transport.Dispose();
+                    }
                 }
                 disposed = true;
             }
-
         }
         public void Dispose()
         {

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="51a0256d-a5ce-483e-a2b5-497afeb65bf2" name="Wangsong@WANGSONG-PC 2013-10-29 12:11:26" runUser="Wangsong-PC\Wangsong" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本地" id="2e80b17e-8ab5-4988-ab53-fd31bd810c6b">
+    <Description>这些设置为本地测试运行的默认测试设置。</Description>
+    <Deployment enabled="false" runDeploymentRoot="Wangsong_WANGSONG-PC 2013-10-29 12_11_26">
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\ThridPart\Nini.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\Brilliantech.BaseClassLib\bin\Debug\Brilliantech.BaseClassLib.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\Brilliantech.DatahouseService\bin\Debug\Brilliantech.DatahouseService.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\ThridPart\log4net.dll" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\Brilliantech.DatahouseService.Testbench\bin\Debug\Brilliantech.DatahouseService.Testbench.exe" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\Brilliantech.PackSysDataService\bin\Debug\Brilliantech.PackSysDataService.exe" />
+      <DeploymentItem filename="C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\ThridPart\Thrift.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-10-29T12:11:26.0772000+08:00" queuing="2013-10-29T12:11:26.0902000+08:00" start="2013-10-29T12:11:26.1122000+08:00" finish="2013-10-29T12:11:26.3882000+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DataReadStartTimeTest" storage="c:\users\wangsong\documents\visual studio 2010\projects\ifdatahouse\ifdatahouseclientservice\test.datahouseservice\bin\debug\test.datahouseservice.dll" id="461ed95f-c4ca-b38d-fec1-cc1a05384a18">
+      <Execution id="1395167c-a1f1-4bdd-a553-d6dd7774cb1c" />
+      <TestMethod codeBase="C:/Users/Wangsong/Documents/Visual Studio 2010/Projects/ifDataHouse/IFDatahouseClientService/Test.DatahouseService/bin/Debug/Test.DatahouseService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Test.DatahouseService.ConfTest, Test.DatahouseService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DataReadStartTimeTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="列表中未列出的结果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有已加载的结果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="461ed95f-c4ca-b38d-fec1-cc1a05384a18" executionId="1395167c-a1f1-4bdd-a553-d6dd7774cb1c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="1395167c-a1f1-4bdd-a553-d6dd7774cb1c" testId="461ed95f-c4ca-b38d-fec1-cc1a05384a18" testName="DataReadStartTimeTest" computerName="WANGSONG-PC" duration="00:00:00.0491378" startTime="2013-10-29T12:11:26.1302000+08:00" endTime="2013-10-29T12:11:26.3602000+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1395167c-a1f1-4bdd-a553-d6dd7774cb1c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失败。应为: &lt;2013/10/29 12:11:26&gt;，实际为: &lt;2013/10/29 12:10:15&gt;。</Message>
+          <StackTrace>   在 Test.DatahouseService.ConfTest.DataReadStartTimeTest() 位置 C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\IFDatahouseClientService\Test.DatahouseService\ConfTest.cs:行号 113
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

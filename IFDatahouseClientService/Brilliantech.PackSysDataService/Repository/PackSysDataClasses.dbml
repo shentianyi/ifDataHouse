@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Leoni_Packaging_prod" Class="PackSysDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=wangsong-pc;Initial Catalog=Leoni_Packaging_prod;Persist Security Info=True;User ID=sa" SettingsObjectName="Brilliantech.PackSysDataService.Properties.Settings" SettingsPropertyName="LeoniPacking_prodConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PackItemView" Member="PackItemView">
+    <Type Name="PackItemView">
+      <Column Name="packageID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="projectID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="wrkStnID" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="partNr" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="packagingTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
