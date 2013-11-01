@@ -17,7 +17,7 @@ end
 $access_key="diyeleS3oXBHTQohr5sgmA"
 class Test
   def initialize
-    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('localhost', '9001'))
+    @transport = ::Thrift::FramedTransport.new(::Thrift::Socket.new('192.168.0.247', '9001'))
     protocol=::Thrift::BinaryProtocol.new(@transport)
     @client= CZ::Epm::Thrift::Datahouse::Client.new(protocol)
     @transport.open

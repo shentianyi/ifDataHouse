@@ -10,10 +10,12 @@ class Entity
   field :type, type:Integer
   field :entity_id
   # field :staff_id
-  
+
   has_many :entities,dependent: :destroy
+  # has_many :inspects, :foreign_key=>:entityId
+  # has_many :attendances, :foreign_key=>:entityId
   belongs_to :entity
-  
+
   has_many :parts
   def self.uniq
     ['entityNr']
@@ -27,7 +29,7 @@ class Entity
     "entityNr"
   end
 
-  # def self.attr_filter
-    # ["_id","created_at","updated_at","entity_id"]
-  # end
+# def self.attr_filter
+# ["_id","created_at","updated_at","entity_id"]
+# end
 end

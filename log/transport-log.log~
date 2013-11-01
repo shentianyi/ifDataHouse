@@ -1,0 +1,33 @@
+[INFO] 13 八月 03:32:20.090 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=COC-1, partId=91G004702, productNr=5463c10b-7b2f-4c7f-b4e9-e51e2552380b, packTime=1376407940629}
+
+[INFO] 13 八月 03:34:07.836 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=COC-1, partId=91G004702, productNr=63ca6246-f14f-4821-9cfd-f54e2d29b25e, packTime=1376408048167}
+
+[INFO] 13 八月 03:35:57.070 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=COC-1, partId=91G004702, productNr=f0d13ec8-6f0e-4281-89e5-268047dfa72e, packTime=1376408157607}
+
+[INFO] 13 八月 03:36:28.606 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G201302, productNr=db367c6f-04c9-4edc-872f-010a3a884b6e, packTime=1376408189155}
+
+[INFO] 13 八月 03:39:22.272 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=COC-1, partId=91G004702, productNr=9576e924-67ba-4a06-8977-63f7bbde58cd, packTime=1376408362800}
+
+[INFO] 13 八月 04:03:56.582 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G306001, productNr=6ae33e72-25a1-406e-a495-3897605ceef9, packTime=1376409836821}
+
+[INFO] 13 八月 04:04:19.184 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G306001, productNr=d9d37b2e-1d81-4d02-9220-102008ba68a9, packTime=1376409859621}
+
+[INFO] 13 八月 04:04:43.322 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G306001, productNr=f7f20aa0-787c-4cc6-9e82-4039e9bfb4d9, packTime=1376409883788}
+
+[INFO] 13 八月 04:05:04.961 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G306001, productNr=cfe12db6-2c63-4787-8c0a-675e68e1a960, packTime=1376409905426}
+
+[INFO] 13 八月 04:05:28.511 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G306001, productNr=4e7e22ef-e4c1-488a-83c7-f3aa42bfb1c2, packTime=1376409928949}
+
+[INFO] 13 八月 04:05:55.812 下午 Thread-1 [org.cz.epm.util.DataTransportLogger]
+{entityId=, partId=91G306001, productNr=c56f1672-140f-4ae5-a36e-4b9a41f7c7b3, packTime=1376409956252}
+
