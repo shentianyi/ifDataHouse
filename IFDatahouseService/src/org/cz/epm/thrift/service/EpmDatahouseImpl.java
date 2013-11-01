@@ -7,7 +7,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import org.apache.thrift.TException;
-import org.cz.epm.data.manager.RedisManager;
 import org.cz.epm.resource.Mapper;
 import org.cz.epm.thrift.generated.*;
 import org.cz.epm.util.DataTransportLogger;
@@ -19,7 +18,6 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	@Override
 	public void addAttendance(String accessKey, Map<String, String> dataMap) {
 		log.logger.info(dataMap);
-
 		Mapper mapper = new Mapper(accessKey);
 		dataMap.put("entityId",
 				mapper.GetMapKey("entity", dataMap.get("entityId")));
@@ -37,6 +35,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	@Override
 	public void addProductPack(String accessKey, Map<String, String> dataMap)
 			throws TException {
+		System.out.println(dataMap);
 		log.logger.info(dataMap);		
 		Mapper mapper = new Mapper(accessKey);
 		String partId = mapper.GetMapKey("part", dataMap.get("partId"));
@@ -46,7 +45,6 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 			dataMap.put("partId",partId);
 			dataMap.put("state", Integer.toString(ProductState.PACK.getValue()));
 			dataMap.put("outputTime", dataMap.get("packTime"));
-			System.out.println(dataMap);
 			if (EpmDataBase.AddProduct(dataMap)) {
 				EpmDataBase.AddProductOutputCache(dataMap.get("entityId"),
 						Long.parseLong(dataMap.get("outputTime")),

@@ -34,12 +34,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net">
-      <HintPath>..\..\dll\log4net.dll</HintPath>
+      <HintPath>..\ThridPart\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Nini">
-      <HintPath>..\..\dll\Nini.dll</HintPath>
+      <HintPath>..\ThridPart\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -48,13 +48,14 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Thrift">
-      <HintPath>..\..\dll\Thrift.dll</HintPath>
+      <HintPath>..\ThridPart\Thrift.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,11 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfTest.cs" />
+    <Compile Include="PackDbDataHandlerTest.cs" />
+    <Compile Include="PackSysDbDataServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicerTest.cs" />
     <Compile Include="TimeUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Brilliantech.BaseClassLib\Brilliantech.BaseClassLib.csproj">
+      <Project>{32217AA3-69BC-4CA0-B973-27F29D2C584E}</Project>
+      <Name>Brilliantech.BaseClassLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Brilliantech.DatahouseService.Testbench\Brilliantech.DatahouseService.Testbench.csproj">
       <Project>{6AB7230F-29B6-4E74-8F6B-59FF02971E82}</Project>
       <Name>Brilliantech.DatahouseService.Testbench</Name>
@@ -77,6 +84,13 @@
       <Project>{B4B90588-10EA-4BBD-9BF4-50EA56FA0D47}</Project>
       <Name>Brilliantech.DatahouseService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Brilliantech.PackSysDataService\Brilliantech.PackSysDataService.csproj">
+      <Project>{319BF1BE-5D73-4720-92EF-EF2DDD456C38}</Project>
+      <Name>Brilliantech.PackSysDataService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Shadow Include="测试引用\Brilliantech.PackSysDataService.accessor" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

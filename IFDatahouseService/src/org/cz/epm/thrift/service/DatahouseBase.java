@@ -147,7 +147,7 @@ public class DatahouseBase {
 							.append("created_at", (new Date()).getTime())
 							.append("updated_at", (new Date()).getTime()));
 			return true;
-		} catch (Exception e) {
+		} catch (Exception e) { 
 			e.printStackTrace();
 		}
 		return false;
