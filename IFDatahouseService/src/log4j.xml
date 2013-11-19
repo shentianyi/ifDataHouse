@@ -3,37 +3,41 @@
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-	<appender name="default" class="org.apache.log4j.DailyRollingFileAppender">
+	<appender name="default" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="../log/cz.ifdatahouse.log" />
 		<param name="append" value="true" />
-		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxFileSize" value="10MB" />  
+        <param name="MaxBackupIndex" value="10" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%p] %d{dd MMM hh:mm:ss.SSS aa} %t [%c]%n%m%n%n" />
 		</layout>
 	</appender>
 	
-	<appender name="org.cz.ifdatahouse.log" class="org.apache.log4j.DailyRollingFileAppender">
+	<appender name="org.cz.ifdatahouse.log" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="../log/cz.ifdatahouse.log" />
 		<param name="append" value="true" />
-		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxFileSize" value="10MB" />  
+        <param name="MaxBackupIndex" value="10" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%p] %d{dd MMM hh:mm:ss.SSS aa} %t [%c]%n%m%n%n" />
 		</layout>
 	</appender>
 
-	<appender name="org.quartz.log" class="org.apache.log4j.DailyRollingFileAppender">
+	<appender name="org.quartz.log" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="../log/quartz-log.log" />
 		<param name="append" value="true" />
-		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxFileSize" value="10MB" />  
+        <param name="MaxBackupIndex" value="10" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%p] %d{dd MMM hh:mm:ss.SSS aa} %t [%c]%n%m%n%n" />
 		</layout>
 	</appender>
 	
-	<appender name="org.transport.log" class="org.apache.log4j.DailyRollingFileAppender">
+	<appender name="org.transport.log" class="org.apache.log4j.RollingFileAppender">
 		<param name="File" value="../log/transport-log.log" />
 		<param name="append" value="true" />
-		<param name="datePattern" value="'.'yyyy-MM-dd" />
+		<param name="MaxFileSize" value="10MB" />  
+        <param name="MaxBackupIndex" value="10" />  
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%p] %d{dd MMM hh:mm:ss.SSS aa} %t [%c]%n%m%n%n" />
 		</layout>

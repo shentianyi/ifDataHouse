@@ -116,9 +116,20 @@ public class DatahouseBase {
 	public static boolean AddProductInspect(Map<String, String> dataMap) {
 		return insertData(MongoConf.getMproductinspectcoll(), dataMap);
 	}
+	// count product inspect 
+	public static long CountInspects(Map keyValue, String scopeKey,
+			String start, String end) {
+		return count(MongoConf.getMproductinspectcoll(), keyValue, scopeKey, start, end);
+	}
 
 	public static boolean AddOperatingStates(Map<String, String> dataMap) {
 		return insertData(MongoConf.getMoperatingstatecoll(), dataMap);
+	}
+	
+	public static List<Map> GetInspects(String key, String value,
+			String scopeKey, String start, String end, String... fields) {
+		return getDatas(MongoConf.getMproductinspectcoll(), key, value, scopeKey, start,
+				end, fields);
 	}
 
 	// ************ target methods
@@ -226,7 +237,7 @@ public class DatahouseBase {
 					new ObjectId(value)) : new BasicDBObject(key, value);
 			query.put(key, value);
 			query.put(scopeKey,
-					BasicDBObjectBuilder.start("$gte", start).add("$lte", end)
+					BasicDBObjectBuilder.start("$gt", start).add("$lte", end)
 							.get());
 			return MongoUtil.DBObjectsToMaps(MongoManager.Find(collName, query,
 					generateField(fields)));
@@ -249,11 +260,11 @@ public class DatahouseBase {
 			}
 			if (start == null) {
 				if (end != null)
-					query.put(scopeKey, new BasicDBObject("$gte", end));
+					query.put(scopeKey, new BasicDBObject("$gt", end));
 			} else if (end == null) {
 				query.put(scopeKey, new BasicDBObject("$lte", start));
 			} else {
-				query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
+				query.put(scopeKey, BasicDBObjectBuilder.start("$gt", start)
 						.add("$lte", end).get());
 			}
 			return MongoUtil.DBObjectsToMaps(MongoManager.Find(collName, query,
@@ -278,11 +289,11 @@ public class DatahouseBase {
 			}
 			if (start == null) {
 				if (end != null)
-					query.put(scopeKey, new BasicDBObject("$gte", end));
+					query.put(scopeKey, new BasicDBObject("$gt", end));
 			} else if (end == null) {
 				query.put(scopeKey, new BasicDBObject("$lte", start));
 			} else {
-				query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
+				query.put(scopeKey, BasicDBObjectBuilder.start("$gt", start)
 						.add("$lte", end).get());
 			}
 			BasicDBObject orderBy = new BasicDBObject(orderKey, order);
@@ -317,11 +328,11 @@ public class DatahouseBase {
 			}
 			if (start == null) {
 				if (end != null)
-					query.put(scopeKey, new BasicDBObject("$gte", end));
+					query.put(scopeKey, new BasicDBObject("$gt", end));
 			} else if (end == null) {
 				query.put(scopeKey, new BasicDBObject("$lte", start));
 			} else {
-				query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
+				query.put(scopeKey, BasicDBObjectBuilder.start("$gt", start)
 						.add("$lte", end).get());
 			}
 			return MongoManager.FineOne(collName, query, generateField(fields));
@@ -342,11 +353,11 @@ public class DatahouseBase {
 			}
 			if (start == null) {
 				if (end != null)
-					query.put(scopeKey, new BasicDBObject("$gte", end));
+					query.put(scopeKey, new BasicDBObject("$gt", end));
 			} else if (end == null) {
 				query.put(scopeKey, new BasicDBObject("$lte", start));
 			} else {
-				query.put(scopeKey, BasicDBObjectBuilder.start("$gte", start)
+				query.put(scopeKey, BasicDBObjectBuilder.start("$gt", start)
 						.add("$lte", end).get());
 			}
 			return MongoManager.Count(collName, query);

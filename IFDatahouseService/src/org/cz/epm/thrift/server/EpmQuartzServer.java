@@ -42,7 +42,7 @@ public class EpmQuartzServer {
 			calendar.add(Calendar.HOUR, 1);
 			Trigger ifEpmApiTrigger = newTrigger()
 					.withIdentity("IFEpmApiTrigger", "IFEpmApiTriggerGroup")
-					.startAt(dateOf(calendar.getTime().getHours(), 0, 0))
+					.startAt(dateOf(calendar.getTime().getHours(), 1, 0))
 					.withSchedule(
 							simpleSchedule().withIntervalInHours(1)
 									.repeatForever()).build();

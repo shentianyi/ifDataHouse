@@ -6,19 +6,19 @@ dir = Rails.root.join('script','compare')
 y=[]
 n=[]
 CSV.foreach(File.join(dir,'compare_pack_part.csv'),:headers=>true,:col_sep=>$CSVSP) do |row|
-  if !part=Part.find_by(:partNr=>row["partNr"])
+  if !part=Part.find_by(:partNr=>row["PartNr"])
     j+=1
-    n<< "#{i};#{row['partNr']};#{row['partName']}"
+    n<< "#{i};#{row['PartNr']};#{row['EntityNr']};#{row['ClientPartNr']}"
     puts "#{i}-#{j}-#{row['partNr']} not exsits"
     
   else
-       y<< "#{i};#{row['partNr']};#{row['partName']};#{part.entity.entityNr}"
+       y<< "#{i};#{row['partNr']};#{row['Name']};#{part.entity.entityNr}"
   end
   i+=1
 end
 
 File.open(File.join(dir,'compare_pack_part_lack.csv'),'wb') do |f|
-  f.puts 'line;partNr;partName'
+  f.puts 'line;PartNr;EntityNr;ClientPartNr'
   n.each do |item|
     f.puts item
   end

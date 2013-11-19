@@ -49,12 +49,13 @@ public class EpmDataBase {
 				startTime == null ? null : Long.toString(startTime),
 				endTime == null ? null : Long.toString(endTime), fields);
 	}
+
 	public static Map GetPart(String partId, String... fields) {
 		Map query = new HashMap();
 		query.put("_id", partId);
 		return DatahouseBase.GetPart(query, fields);
 	}
-	
+
 	public static Map GetEntity(String entityId, String... fields) {
 		Map query = new HashMap();
 		query.put("_id", entityId);
@@ -106,11 +107,11 @@ public class EpmDataBase {
 		return DatahouseBase.UpdateTarget(query, object);
 	}
 
-	public static void SetProductInspectState(Map<String, String> dataMap) {
-		EpmDataBase.AddProductInspectTypeCache(dataMap.get("entityId"),
-				ProductInspectType.findByValue(Integer.parseInt(dataMap
-						.get("type"))), dataMap.get("productNr"));
-	}
+//	public static void SetProductInspectState(Map<String, String> dataMap) {
+//		EpmDataBase.AddProductInspectTypeCache(dataMap.get("entityId"),
+//				ProductInspectType.findByValue(Integer.parseInt(dataMap
+//						.get("type"))), dataMap.get("productNr"));
+//	}
 
 	public static Map<String, Long> GetCurrentOnJobWorkerNums(
 			Set<String> entityIds) throws TException {
@@ -160,21 +161,21 @@ public class EpmDataBase {
 		return result;
 	}
 
-	public static Map<String, Long> GetProductOriOutputCount(
-			Set<String> entityIds, long startTime, long endTime)
-			throws TException {
-		HashMap<String, Long> result = new HashMap<String, Long>();
-		for (String entityId : entityIds) {
-			result.put(entityId, 0L);
-			try {
-				result.put(entityId,
-						GetProductOriOutputCount(entityId, startTime, endTime));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
+//	public static Map<String, Long> GetProductOriOutputCount(
+//			Set<String> entityIds, long startTime, long endTime)
+//			throws TException {
+//		HashMap<String, Long> result = new HashMap<String, Long>();
+//		for (String entityId : entityIds) {
+//			result.put(entityId, 0L);
+//			try {
+//				result.put(entityId,
+//						GetProductOriOutputCount(entityId, startTime, endTime));
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return result;
+//	}
 
 	public static Set<Map<String, String>> GetProductOutputNumAndTime(
 			String entityId, long startTime, long endTime) throws TException {
@@ -277,28 +278,54 @@ public class EpmDataBase {
 		return EpmDataCacher.GetAttendCount(entityId);
 	}
 
-	public static long GetProductOriOutputCount(String entityId,
-			long startTime, long endTime) {
-		return EpmDataCacher.GetProductOriOutputCacheCount(entityId, startTime,
-				endTime);
-	}
+//	public static long GetProductOriOutputCount(String entityId,
+//			long startTime, long endTime) {
+//		return EpmDataCacher.GetProductOriOutputCacheCount(entityId, startTime,
+//				endTime);
+//	}
 
+	// public static long GetProductOutputCount(String entityId, long startTime,
+	// long endTime) {
+	// return EpmDataCacher.GetProductOutputCacheCount(entityId, startTime,
+	// endTime);
+	// }
 	public static long GetProductOutputCount(String entityId, long startTime,
 			long endTime) {
-		return EpmDataCacher.GetProductOutputCacheCount(entityId, startTime,
-				endTime);
+		// List<Map> products = DatahouseBase.GetProducts("entityId", entityId,
+		// "outputTime", Long.toString(startTime), Long.toString(endTime),
+		// "partId");
+		// return products.size();
+		Map<String, String> keyValue = new HashMap<String, String>();
+		keyValue.put("entityId", entityId);
+
+		return DatahouseBase.CountProducts(keyValue, "outputTime",
+				Long.toString(startTime), Long.toString(endTime));
 	}
 
-	public static Set<String> GetProductOutputID(String entityId,
-			long startTime, long endTime) {
-		return EpmDataCacher.GetProductOutputIDRangeCache(entityId, startTime,
-				endTime);
-	}
+//	public static Set<String> GetProductOutputID(String entityId,
+//			long startTime, long endTime) {
+//		return EpmDataCacher.GetProductOutputIDRangeCache(entityId, startTime,
+//				endTime);
+//	}
 
 	public static long GetProductInspectCount(String entityId, long startTime,
 			long endTime, ProductInspectHandledType type) {
-		return EpmDataCacher.GetProductInspectCacheCount(entityId, startTime,
-				endTime, type);
+		Map<String, String> keyValue = new HashMap<String, String>();
+		keyValue.put("entityId", entityId);
+		if (type != null) {
+			if (type.equals(ProductInspectHandledType.FIRSTPASS)
+					|| type.equals(ProductInspectHandledType.PASS)) {
+				keyValue.put("type",
+						Integer.toString(ProductInspectType.PASS.getValue()));
+			} else if (type.equals(ProductInspectHandledType.FAIL)) {
+				keyValue.put("type",
+						Integer.toString(ProductInspectType.FAIL.getValue()));
+			}
+		}
+		return DatahouseBase.CountInspects(keyValue, "inspectTime",
+				Long.toString(startTime), Long.toString(endTime));
+		// return EpmDataCacher.GetProductInspectCacheCount(entityId, startTime,
+		// endTime, type);
 	}
 
 	// add attendance record count cache
@@ -306,33 +333,33 @@ public class EpmDataBase {
 		EpmDataCacher.SetAttendCounter(entityId, type);
 	}
 
-	// add product ori out put cache
-	public static void AddProductOriOutputCache(String entityId,
-			long produceTime, String productNr) {
-		CleanRedisZSetCacheJob
-				.Enqueue(EpmDataCacher.SetProductOriOutputCacheZSet(entityId,
-						produceTime, productNr));
-	}
+//	// add product ori out put cache
+//	public static void AddProductOriOutputCache(String entityId,
+//			long produceTime, String productNr) {
+//		CleanRedisZSetCacheJob
+//				.Enqueue(EpmDataCacher.SetProductOriOutputCacheZSet(entityId,
+//						produceTime, productNr));
+//	}
 
-	// add product out put cache
-	public static void AddProductOutputCache(String entityId, long produceTime,
-			String productNr) {
-		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher.SetProductOutputCacheZSet(
-				entityId, produceTime, productNr));
-	}
-
-	public static void AddProductInspectTimeCache(String entityId,
-			long inspectTime, String productNr) {
-		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
-				.SetProductInspectTimeCacheZSet(entityId, inspectTime,
-						productNr));
-	}
-
-	public static void AddProductInspectTypeCache(String entityId,
-			ProductInspectType type, String productNr) {
-		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
-				.SetProductInspectTypeCacheZSet(entityId, type, productNr));
-	}
+//	// add product out put cache
+//	public static void AddProductOutputCache(String entityId, long produceTime,
+//			String productNr) {
+//		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher.SetProductOutputCacheZSet(
+//				entityId, produceTime, productNr));
+//	}
+//
+//	public static void AddProductInspectTimeCache(String entityId,
+//			long inspectTime, String productNr) {
+//		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
+//				.SetProductInspectTimeCacheZSet(entityId, inspectTime,
+//						productNr));
+//	}
+//
+//	public static void AddProductInspectTypeCache(String entityId,
+//			ProductInspectType type, String productNr) {
+//		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
+//				.SetProductInspectTypeCacheZSet(entityId, type, productNr));
+//	}
 
 	// private static Map<String, String> converMapToString(Map<String, String>
 	// datas) {

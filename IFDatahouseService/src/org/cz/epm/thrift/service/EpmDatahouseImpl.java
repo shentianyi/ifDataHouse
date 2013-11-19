@@ -11,13 +11,13 @@ import org.cz.epm.resource.Mapper;
 import org.cz.epm.thrift.generated.*;
 import org.cz.epm.util.DataTransportLogger;
 
-public class EpmDatahouseImpl implements Datahouse.Iface{
-	
-	DataTransportLogger log=DataTransportLogger.getLogger();
-	
+public class EpmDatahouseImpl implements Datahouse.Iface {
+
+	DataTransportLogger log = DataTransportLogger.getLogger();
+
 	@Override
 	public void addAttendance(String accessKey, Map<String, String> dataMap) {
-		log.logger.info(dataMap);
+		// log.logger.info(dataMap);
 		Mapper mapper = new Mapper(accessKey);
 		dataMap.put("entityId",
 				mapper.GetMapKey("entity", dataMap.get("entityId")));
@@ -33,22 +33,51 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	}
 
 	@Override
+	public void addAttendances(String accessKey, Map<String, String> dataMap) {
+		// System.out.println(dataMap.remove("staffIds"));
+		try {
+			String[] staffIds = dataMap.remove("staffIds").split(",");
+			Mapper mapper = new Mapper(accessKey);
+			dataMap.put("entityId",
+					mapper.GetMapKey("entity", dataMap.get("entityId")));
+			if (dataMap.get("entityId") != null) {
+				for (int i = 0; i < staffIds.length; i++) {
+					dataMap.put("staffId",
+							mapper.GetMapKey("staff", staffIds[i]));
+					if (dataMap.get("staffId") != null) {
+						if (EpmDataBase.AddAttendance(dataMap)) {
+							EpmDataBase.AddAttendanceCountCache(
+									dataMap.get("entityId"),
+									Long.parseLong(dataMap.get("type")));
+							EpmDataBase.AddStaffAttendanceLocus(
+									dataMap.get("entityId"),
+									dataMap.get("staffId"));
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Override
 	public void addProductPack(String accessKey, Map<String, String> dataMap)
 			throws TException {
 		System.out.println(dataMap);
-		log.logger.info(dataMap);		
+		// log.logger.info(dataMap);
 		Mapper mapper = new Mapper(accessKey);
 		String partId = mapper.GetMapKey("part", dataMap.get("partId"));
 		Map part = EpmDataBase.GetPart(partId, "entity_id");
 		if (part != null && part.get("entity_id") != null) {
 			dataMap.put("entityId", part.get("entity_id").toString());
-			dataMap.put("partId",partId);
+			dataMap.put("partId", partId);
 			dataMap.put("state", Integer.toString(ProductState.PACK.getValue()));
 			dataMap.put("outputTime", dataMap.get("packTime"));
 			if (EpmDataBase.AddProduct(dataMap)) {
-				EpmDataBase.AddProductOutputCache(dataMap.get("entityId"),
-						Long.parseLong(dataMap.get("outputTime")),
-						dataMap.get("productNr"));
+				// EpmDataBase.AddProductOutputCache(dataMap.get("entityId"),
+				// Long.parseLong(dataMap.get("outputTime")),
+				// dataMap.get("productNr"));
 			}
 		}
 	}
@@ -56,13 +85,13 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	@Override
 	public void setProductInspectState(String accessKey,
 			Map<String, String> dataMap) throws TException {
-		EpmDataBase.SetProductInspectState(dataMap);
+//		EpmDataBase.SetProductInspectState(dataMap);
 	}
 
 	@Override
 	public void addProductInspect(String accessKey, Map<String, String> dataMap)
 			throws TException {
-		log.logger.info(dataMap);
+		// log.logger.info(dataMap);
 		try {
 			Mapper mapper = new Mapper(accessKey);
 			// some TSK table number is lower case, convert it to upper case
@@ -74,13 +103,13 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 			dataMap.put("entityId", entity.get("entity_id").toString());
 
 			if (EpmDataBase.AddProductInspectRecord(dataMap)) {
-				EpmDataBase.AddProductInspectTimeCache(dataMap.get("entityId"),
-						Long.parseLong(dataMap.get("inspectTime")),
-						dataMap.get("productNr"));
-				EpmDataBase.AddProductOriOutputCache(dataMap.get("entityId"),
-						Long.parseLong(dataMap.get("inspectTime")),
-						dataMap.get("productNr"));
-				setProductInspectState(accessKey, dataMap);
+//				EpmDataBase.AddProductInspectTimeCache(dataMap.get("entityId"),
+//						Long.parseLong(dataMap.get("inspectTime")),
+//						dataMap.get("productNr"));
+//				EpmDataBase.AddProductOriOutputCache(dataMap.get("entityId"),
+//						Long.parseLong(dataMap.get("inspectTime")),
+//						dataMap.get("productNr"));
+//				setProductInspectState(accessKey, dataMap);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,7 +119,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 	@Override
 	public void addPlanTarget(String accessKey, Map<String, String> dataMap)
 			throws TException {
-		log.logger.info(dataMap);
+		// log.logger.info(dataMap);
 
 		Mapper mapper = new Mapper(accessKey);
 		if (dataMap.containsKey("entityId"))
@@ -152,8 +181,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface{
 		Map<String, String> keyV = this.getMapEntityIds(accessKey, entityIds);
 		return convertMapValue(
 				keyV,
-				EpmDataBase.GetProductOriOutputCount(
-						new HashSet<String>(keyV.values()), startTime, endTime));
+				EpmDataBase.GetProductInspectCount(entityIds, startTime, endTime,null));
 	}
 
 	@Override

@@ -14,6 +14,7 @@ public class IFEpmRestApiJob implements Job {
 		// TODO Auto-generated method stub
 		try { 
 			Calendar cal = Calendar.getInstance();
+			cal.add(Calendar.MINUTE, -1);
 			long endTime = cal.getTimeInMillis();
 			cal.add(Calendar.HOUR, -1);
 			long startTime = cal.getTimeInMillis();
