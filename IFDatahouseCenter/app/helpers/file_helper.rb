@@ -20,7 +20,8 @@ module FileHelper
         csv.saveFile
         hfile=File.join($UPDATAPATH,csv.pathName)
         row_line=0
-        CSV.foreach(hfile,:headers=>true,:col_sep=>$CSVSP) do |row|
+        csv_encode=FileHelper.csv_write_encode request.user_agent
+        CSV.foreach(hfile,:headers=>true,:col_sep=>$CSVSP,:encoding=>csv_encode) do |row|
           row.strip
           row_line+=1
           m=model
@@ -81,4 +82,37 @@ module FileHelper
     path=File.join($TEMPLATEPATH,file_name)
     send_file path,:type => 'application/csv', :filename =>file_name
   end
+  
+   # ws : get os name
+  def self.get_os_name user_agent
+    user_agent=user_agent.downcase
+    [/windows/,/linux/].each do |o|
+      if os=o.match(user_agent)
+      return os[0]
+      end
+    end
+  end
+
+  # ws : csv encode
+  def self.csv_write_encode user_agent
+
+    user_agent=user_agent.downcase
+    os=nil
+    [/windows/,/linux/].each do |o|
+      if s=o.match(user_agent)
+      os=s[0]
+      break
+      end
+    end
+
+    case os
+    when 'windows'
+      return 'GB18030'
+    when 'linux'
+      return 'UTF-8'
+    else
+    return nil
+    end
+  end
+  
 end
