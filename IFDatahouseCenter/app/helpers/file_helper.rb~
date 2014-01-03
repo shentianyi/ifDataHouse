@@ -20,7 +20,7 @@ module FileHelper
         csv.saveFile
         hfile=File.join($UPDATAPATH,csv.pathName)
         row_line=0
-        csv_encode=FileHelper.csv_write_encode request.user_agent
+        csv_encode=FileHelper.csv_write_encode user_agent
         CSV.foreach(hfile,:headers=>true,:col_sep=>$CSVSP,:encoding=>csv_encode) do |row|
           row.strip
           row_line+=1
