@@ -14,6 +14,7 @@ import java.util.TimeZone;
 
 import org.apache.thrift.TException;
 import org.cz.epm.conf.Conf;
+import org.cz.epm.resource.ApiConf;
 import org.cz.epm.thrift.generated.ProductInspectHandledType;
 import org.cz.epm.util.HttpRequestUtil;
 
@@ -24,33 +25,7 @@ public class IFEpmRestApi {
 	private static String kpiEntryUrl = "";
 	private static DateFormat format = new SimpleDateFormat(
 			"yyyy-MM-dd HH:00:00");
-	private final static Map<String, String> apiEntiyId = new HashMap() {
-		{
-			// entity_nr, entity_id
-			put("C-RBA", "2");
-			put("G-RBA", "3");
-			put("E-RBA", "4");
-			put("C-COC", "5");
-			put("G-COC", "6");
-			put("E-COC", "7");
-			put("C-MRA", "8");
-			put("G-MRA", "9");
-			put("E-MRA", "10");
-			put("Minor", "11");
-			put("Motor", "12");
-			put("NCV2-COC", "13");
-			put("NCV2-INR", "14");
-			put("NCV2-MRA", "15");
-			put("NCV2-Minor", "16");
-			put("NCV3-COC", "17");
-			put("NCV3-BODY", "18");
-			put("NCV3-ROOF", "19");
-			put("NCV3-Minor", "20");
-			put("C-G-COC", "21");
-			put("C-G-MRA", "22");
-			put("NCV2-3", "23");
-		}
-	};
+	private  static Map<String, String> apiEntiyId;
 	private final static Map<String, String> apiKpiId = new HashMap() {
 		{
 			// kpi_name, kpi_id
@@ -70,6 +45,7 @@ public class IFEpmRestApi {
 		if (mongoEntityId == null) {
 			synchronized (IFEpmRestApi.class) {
 				if (mongoEntityId == null) {
+					apiEntiyId=ApiConf.getEntity();
 					mongoEntityId = getEntityIds();
 					mongoEntityIdSet = new HashSet<String>(
 							mongoEntityId.values());
@@ -167,12 +143,14 @@ public class IFEpmRestApi {
 		Map<String, String> ids = new HashMap();
 		int i = 0;
 		for (final Entry<String, String> entry : apiEntiyId.entrySet()) {
-			ids.put(entry.getKey(),
-					DatahouseBase.GetEntity(new HashMap<String, String>() {
-						{
-							put("entityNr", entry.getKey());
-						}
-					}, "_id").get("_id").toString());
+			Map entity = DatahouseBase.GetEntity(new HashMap<String, String>() {
+				{
+					put("entityNr", entry.getKey());
+				}
+			}, "_id");
+			if (entity != null && entity.get("_id")!=null) {
+				ids.put(entry.getKey(),entity.get("_id").toString());
+			}
 		}
 		return ids;
 	}
@@ -187,10 +165,10 @@ public class IFEpmRestApi {
 					put("entry_at", format.format(new Date()));
 				else
 					put("entry_at", format.format(entry_at));
-//				put("value", Double.toString(value));
-//				if(value instanceof Double){
-					put("value",value.toString());
-//				}
+				// put("value", Double.toString(value));
+				// if(value instanceof Double){
+				put("value", value.toString());
+				// }
 			}
 		};
 		return params;

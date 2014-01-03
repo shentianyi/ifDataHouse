@@ -85,7 +85,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void setProductInspectState(String accessKey,
 			Map<String, String> dataMap) throws TException {
-//		EpmDataBase.SetProductInspectState(dataMap);
+		// EpmDataBase.SetProductInspectState(dataMap);
 	}
 
 	@Override
@@ -99,17 +99,22 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 					dataMap.get("entityId").toUpperCase());
 			dataMap.put("workstationId", workstationId);
 
-			Map entity = EpmDataBase.GetEntity(workstationId, "entity_id");
-			dataMap.put("entityId", entity.get("entity_id").toString());
-
-			if (EpmDataBase.AddProductInspectRecord(dataMap)) {
-//				EpmDataBase.AddProductInspectTimeCache(dataMap.get("entityId"),
-//						Long.parseLong(dataMap.get("inspectTime")),
-//						dataMap.get("productNr"));
-//				EpmDataBase.AddProductOriOutputCache(dataMap.get("entityId"),
-//						Long.parseLong(dataMap.get("inspectTime")),
-//						dataMap.get("productNr"));
-//				setProductInspectState(accessKey, dataMap);
+			// Map entity = EpmDataBase.GetEntity(workstationId,
+			// "entity_id");
+			// dataMap.put("entityId", entity.get("entity_id").toString());
+			
+			String partId = mapper.GetMapKey("part", dataMap.get("partNr"));
+			Map part = EpmDataBase.GetPart(partId, "entity_id");
+			if (part != null && part.get("entity_id") != null) {
+				dataMap.put("entityId", part.get("entity_id").toString());
+				dataMap.put("partId", partId);
+				if (EpmDataBase.AddProductInspectRecord(dataMap)) {
+					// EpmDataBase.AddProductInspectTimeCache(dataMap.get("entityId"),
+					// Long.parseLong(dataMap.get("inspectTime")),dataMap.get("productNr"));
+					// EpmDataBase.AddProductOriOutputCache(dataMap.get("entityId"),
+					// Long.parseLong(dataMap.get("inspectTime")),dataMap.get("productNr"));
+					// setProductInspectState(accessKey, dataMap);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -179,9 +184,8 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			Set<String> entityIds, long startTime, long endTime)
 			throws TException {
 		Map<String, String> keyV = this.getMapEntityIds(accessKey, entityIds);
-		return convertMapValue(
-				keyV,
-				EpmDataBase.GetProductInspectCount(entityIds, startTime, endTime,null));
+		return convertMapValue(keyV, EpmDataBase.GetProductInspectCount(
+				entityIds, startTime, endTime, null));
 	}
 
 	@Override

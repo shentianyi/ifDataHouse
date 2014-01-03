@@ -2,10 +2,12 @@ package org.cz.epm.thrift.server;
 
 import org.apache.thrift.transport.TTransportException;
 import org.cz.epm.conf.Conf;
+import org.cz.epm.resource.ApiConf;
 import org.cz.epm.util.ServerUtil;
 
 public class EpmServerRunner {
 	public static void main(String[] args) throws TTransportException {
+//		System.out.print(ApiConf.getEntity());
 		int retcode = 0;
 		try {
 			if (ServerUtil.PortAvailable(Conf.gettPort())) {
