@@ -1,5 +1,6 @@
 package org.cz.epm.thrift.service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -102,7 +103,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			// Map entity = EpmDataBase.GetEntity(workstationId,
 			// "entity_id");
 			// dataMap.put("entityId", entity.get("entity_id").toString());
-			
+			dataMap.put("inspectTime",Long.toString(new Date().getTime()));
 			String partId = mapper.GetMapKey("part", dataMap.get("partNr"));
 			Map part = EpmDataBase.GetPart(partId, "entity_id");
 			if (part != null && part.get("entity_id") != null) {

@@ -13,8 +13,8 @@ import java.util.Set;
 import java.util.TimeZone;
 
 import org.apache.thrift.TException;
+import org.cz.epm.conf.ApiConf;
 import org.cz.epm.conf.Conf;
-import org.cz.epm.resource.ApiConf;
 import org.cz.epm.thrift.generated.ProductInspectHandledType;
 import org.cz.epm.util.HttpRequestUtil;
 
@@ -25,7 +25,7 @@ public class IFEpmRestApi {
 	private static String kpiEntryUrl = "";
 	private static DateFormat format = new SimpleDateFormat(
 			"yyyy-MM-dd HH:00:00");
-	private  static Map<String, String> apiEntiyId;
+	private static Map<String, String> apiEntiyId;
 	private final static Map<String, String> apiKpiId = new HashMap() {
 		{
 			// kpi_name, kpi_id
@@ -45,7 +45,7 @@ public class IFEpmRestApi {
 		if (mongoEntityId == null) {
 			synchronized (IFEpmRestApi.class) {
 				if (mongoEntityId == null) {
-					apiEntiyId=ApiConf.getEntity();
+					apiEntiyId = ApiConf.getEntity();
 					mongoEntityId = getEntityIds();
 					mongoEntityIdSet = new HashSet<String>(
 							mongoEntityId.values());
@@ -148,8 +148,8 @@ public class IFEpmRestApi {
 					put("entityNr", entry.getKey());
 				}
 			}, "_id");
-			if (entity != null && entity.get("_id")!=null) {
-				ids.put(entry.getKey(),entity.get("_id").toString());
+			if (entity != null && entity.get("_id") != null) {
+				ids.put(entry.getKey(), entity.get("_id").toString());
 			}
 		}
 		return ids;

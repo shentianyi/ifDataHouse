@@ -204,6 +204,7 @@ public class EpmDataBase {
 				unit.put("quantity",
 						Integer.toString(java.util.Collections.frequency(
 								repeatedpartIds, part.get("_id").toString())));
+//				 System.out.println(unit);
 				partNumTimes.add(unit);
 			}
 		}
