@@ -52,10 +52,9 @@ public class IFEpmCsvWriter {
 		}
 	}
 
-	public static void StartWrite() {
+	public static void StartWrite(Calendar cal) {
 		// TODO Auto-generated method stub
 		try {
-			Calendar cal = Calendar.getInstance();
 			// cal.add(Calendar.MINUTE, -1);
 			long endTime = cal.getTimeInMillis();
 			cal.add(Calendar.DATE, -1);
