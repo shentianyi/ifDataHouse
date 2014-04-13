@@ -22,6 +22,7 @@ public class MongoConf {
 	private final static String mAttendColl = "attendances";
 	private final static String mProductColl = "products";
 	private final static String mInspectColl = "inspects";
+	private final static String mInspectOriColl="inspect_originals";
 	private final static String mOperatingStateColl = "operating_states";
 	private final static String mMapperItemColl = "mapper_items";
 	private final static String mTarget = "targets";
@@ -126,6 +127,10 @@ public class MongoConf {
 
 	public static String getMtarget() {
 		return mTarget;
+	}
+
+	public static String getMinspectoricoll() {
+		return mInspectOriColl;
 	}
 
 }

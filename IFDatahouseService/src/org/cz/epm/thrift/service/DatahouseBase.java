@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.bson.types.ObjectId; 
+import org.bson.types.ObjectId;
 import org.cz.epm.conf.MongoConf;
 import org.cz.epm.data.manager.MongoManager;
 import org.cz.epm.resource.MongoUtil;
@@ -57,27 +57,27 @@ public class DatahouseBase {
 
 	public static List<Map> GetAttendances(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getDatas(MongoConf.getMattendcoll(), key, value, scopeKey, start,
-				end, fields);
+		return getDatas(MongoConf.getMattendcoll(), key, value, scopeKey,
+				start, end, fields);
 	}
 
 	public static List<Map> GetAttendances(Map keyValue, String scopeKey,
 			String start, String end, String... fields) {
-		return getDatas(MongoConf.getMattendcoll(), keyValue, scopeKey, start, end,
-				fields);
+		return getDatas(MongoConf.getMattendcoll(), keyValue, scopeKey, start,
+				end, fields);
 	}
 
 	public static List<Map> GetAttendances(Map keyValue, String scopeKey,
 			String start, String end, String sortKey, int order, int limit,
 			String... fields) {
-		return getDatas(MongoConf.getMattendcoll(), keyValue, scopeKey, start, end,
-				sortKey, order, limit, fields);
+		return getDatas(MongoConf.getMattendcoll(), keyValue, scopeKey, start,
+				end, sortKey, order, limit, fields);
 	}
 
 	public static Map GetAttendance(Map keyValue, String scopeKey,
 			String start, String end, String... fields) {
-		return getData(MongoConf.getMattendcoll(), keyValue, scopeKey, start, end,
-				fields);
+		return getData(MongoConf.getMattendcoll(), keyValue, scopeKey, start,
+				end, fields);
 	}
 
 	// ************ product methods
@@ -95,41 +95,49 @@ public class DatahouseBase {
 	// count products
 	public static long CountProducts(Map keyValue, String scopeKey,
 			String start, String end) {
-		return count(MongoConf.getMproductcoll(), keyValue, scopeKey, start, end);
+		return count(MongoConf.getMproductcoll(), keyValue, scopeKey, start,
+				end);
 	}
 
 	public static List<Map> GetProducts(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getDatas(MongoConf.getMproductcoll(), key, value, scopeKey, start,
-				end, fields);
+		return getDatas(MongoConf.getMproductcoll(), key, value, scopeKey,
+				start, end, fields);
 	}
 
 	// update
 	public static boolean UpdateProduct(String key, String value,
 			Map<String, String> fields) {
-		return updateData(MongoConf.getMproductinspectcoll(), key, value, fields,
-				true);
+		return updateData(MongoConf.getMproductinspectcoll(), key, value,
+				fields, true);
 	}
 
 	// ************ inspect methods
+	// add transported product inspect originals
+	public static boolean AddProudctInspectOri(Map<String, String> dataMap) {
+		return insertData(MongoConf.getMinspectoricoll(), dataMap);
+	}
+
 	// add product inspect
 	public static boolean AddProductInspect(Map<String, String> dataMap) {
 		return insertData(MongoConf.getMproductinspectcoll(), dataMap);
 	}
-	// count product inspect 
+
+	// count product inspect
 	public static long CountInspects(Map keyValue, String scopeKey,
 			String start, String end) {
-		return count(MongoConf.getMproductinspectcoll(), keyValue, scopeKey, start, end);
+		return count(MongoConf.getMproductinspectcoll(), keyValue, scopeKey,
+				start, end);
 	}
 
 	public static boolean AddOperatingStates(Map<String, String> dataMap) {
 		return insertData(MongoConf.getMoperatingstatecoll(), dataMap);
 	}
-	
+
 	public static List<Map> GetInspects(String key, String value,
 			String scopeKey, String start, String end, String... fields) {
-		return getDatas(MongoConf.getMproductinspectcoll(), key, value, scopeKey, start,
-				end, fields);
+		return getDatas(MongoConf.getMproductinspectcoll(), key, value,
+				scopeKey, start, end, fields);
 	}
 
 	// ************ target methods
@@ -158,7 +166,7 @@ public class DatahouseBase {
 							.append("created_at", (new Date()).getTime())
 							.append("updated_at", (new Date()).getTime()));
 			return true;
-		} catch (Exception e) { 
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
