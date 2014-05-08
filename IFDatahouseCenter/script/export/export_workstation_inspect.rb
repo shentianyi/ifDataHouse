@@ -4,7 +4,7 @@ path=File.join($DOWNLOADPATH, 'workstation_inspect.csv')
 File.open(path, 'wb') do |f|
   f.puts ['productNr', 'partNr', 'type', 'time', 'created_at'].join($CSVSP)
   if entity=Entity.where(entityNr: ARGV[0]).first
-    Inspect.where(entityId: entity.id).all.each do |item|
+    Inspect.where(entityId: "5199a4b88de3e84db600045d").all.each do |item|
       line=[]
       line<<item.productNr
       line<< item.partNr
