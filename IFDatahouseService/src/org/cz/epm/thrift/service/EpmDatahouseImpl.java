@@ -94,6 +94,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			throws TException {
 		// log.logger.info(dataMap);
 		try {
+			EpmDataBase.AddProudctInspectOriRecord(dataMap);
 			Mapper mapper = new Mapper(accessKey);
 			// some TSK table number is lower case, convert it to upper case
 			String workstationId = mapper.GetMapKey("entity",

@@ -84,6 +84,10 @@ public class EpmDataBase {
 				dataMap.get("productNr"), dataMap);
 	}
 
+	public static boolean AddProudctInspectOriRecord(Map<String, String> dataMap) {
+		return DatahouseBase.AddProudctInspectOri(dataMap);
+	}
+
 	public static boolean AddProductInspectRecord(Map<String, String> dataMap) {
 		return DatahouseBase.AddProductInspect(dataMap);
 	}
@@ -107,11 +111,11 @@ public class EpmDataBase {
 		return DatahouseBase.UpdateTarget(query, object);
 	}
 
-//	public static void SetProductInspectState(Map<String, String> dataMap) {
-//		EpmDataBase.AddProductInspectTypeCache(dataMap.get("entityId"),
-//				ProductInspectType.findByValue(Integer.parseInt(dataMap
-//						.get("type"))), dataMap.get("productNr"));
-//	}
+	// public static void SetProductInspectState(Map<String, String> dataMap) {
+	// EpmDataBase.AddProductInspectTypeCache(dataMap.get("entityId"),
+	// ProductInspectType.findByValue(Integer.parseInt(dataMap
+	// .get("type"))), dataMap.get("productNr"));
+	// }
 
 	public static Map<String, Long> GetCurrentOnJobWorkerNums(
 			Set<String> entityIds) throws TException {
@@ -161,21 +165,21 @@ public class EpmDataBase {
 		return result;
 	}
 
-//	public static Map<String, Long> GetProductOriOutputCount(
-//			Set<String> entityIds, long startTime, long endTime)
-//			throws TException {
-//		HashMap<String, Long> result = new HashMap<String, Long>();
-//		for (String entityId : entityIds) {
-//			result.put(entityId, 0L);
-//			try {
-//				result.put(entityId,
-//						GetProductOriOutputCount(entityId, startTime, endTime));
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return result;
-//	}
+	// public static Map<String, Long> GetProductOriOutputCount(
+	// Set<String> entityIds, long startTime, long endTime)
+	// throws TException {
+	// HashMap<String, Long> result = new HashMap<String, Long>();
+	// for (String entityId : entityIds) {
+	// result.put(entityId, 0L);
+	// try {
+	// result.put(entityId,
+	// GetProductOriOutputCount(entityId, startTime, endTime));
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// }
+	// return result;
+	// }
 
 	public static Set<Map<String, String>> GetProductOutputNumAndTime(
 			String entityId, long startTime, long endTime) throws TException {
@@ -204,7 +208,7 @@ public class EpmDataBase {
 				unit.put("quantity",
 						Integer.toString(java.util.Collections.frequency(
 								repeatedpartIds, part.get("_id").toString())));
-//				 System.out.println(unit);
+				// System.out.println(unit);
 				partNumTimes.add(unit);
 			}
 		}
@@ -279,11 +283,11 @@ public class EpmDataBase {
 		return EpmDataCacher.GetAttendCount(entityId);
 	}
 
-//	public static long GetProductOriOutputCount(String entityId,
-//			long startTime, long endTime) {
-//		return EpmDataCacher.GetProductOriOutputCacheCount(entityId, startTime,
-//				endTime);
-//	}
+	// public static long GetProductOriOutputCount(String entityId,
+	// long startTime, long endTime) {
+	// return EpmDataCacher.GetProductOriOutputCacheCount(entityId, startTime,
+	// endTime);
+	// }
 
 	// public static long GetProductOutputCount(String entityId, long startTime,
 	// long endTime) {
@@ -303,11 +307,11 @@ public class EpmDataBase {
 				Long.toString(startTime), Long.toString(endTime));
 	}
 
-//	public static Set<String> GetProductOutputID(String entityId,
-//			long startTime, long endTime) {
-//		return EpmDataCacher.GetProductOutputIDRangeCache(entityId, startTime,
-//				endTime);
-//	}
+	// public static Set<String> GetProductOutputID(String entityId,
+	// long startTime, long endTime) {
+	// return EpmDataCacher.GetProductOutputIDRangeCache(entityId, startTime,
+	// endTime);
+	// }
 
 	public static long GetProductInspectCount(String entityId, long startTime,
 			long endTime, ProductInspectHandledType type) {
@@ -334,33 +338,34 @@ public class EpmDataBase {
 		EpmDataCacher.SetAttendCounter(entityId, type);
 	}
 
-//	// add product ori out put cache
-//	public static void AddProductOriOutputCache(String entityId,
-//			long produceTime, String productNr) {
-//		CleanRedisZSetCacheJob
-//				.Enqueue(EpmDataCacher.SetProductOriOutputCacheZSet(entityId,
-//						produceTime, productNr));
-//	}
+	// // add product ori out put cache
+	// public static void AddProductOriOutputCache(String entityId,
+	// long produceTime, String productNr) {
+	// CleanRedisZSetCacheJob
+	// .Enqueue(EpmDataCacher.SetProductOriOutputCacheZSet(entityId,
+	// produceTime, productNr));
+	// }
 
-//	// add product out put cache
-//	public static void AddProductOutputCache(String entityId, long produceTime,
-//			String productNr) {
-//		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher.SetProductOutputCacheZSet(
-//				entityId, produceTime, productNr));
-//	}
-//
-//	public static void AddProductInspectTimeCache(String entityId,
-//			long inspectTime, String productNr) {
-//		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
-//				.SetProductInspectTimeCacheZSet(entityId, inspectTime,
-//						productNr));
-//	}
-//
-//	public static void AddProductInspectTypeCache(String entityId,
-//			ProductInspectType type, String productNr) {
-//		CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
-//				.SetProductInspectTypeCacheZSet(entityId, type, productNr));
-//	}
+	// // add product out put cache
+	// public static void AddProductOutputCache(String entityId, long
+	// produceTime,
+	// String productNr) {
+	// CleanRedisZSetCacheJob.Enqueue(EpmDataCacher.SetProductOutputCacheZSet(
+	// entityId, produceTime, productNr));
+	// }
+	//
+	// public static void AddProductInspectTimeCache(String entityId,
+	// long inspectTime, String productNr) {
+	// CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
+	// .SetProductInspectTimeCacheZSet(entityId, inspectTime,
+	// productNr));
+	// }
+	//
+	// public static void AddProductInspectTypeCache(String entityId,
+	// ProductInspectType type, String productNr) {
+	// CleanRedisZSetCacheJob.Enqueue(EpmDataCacher
+	// .SetProductInspectTypeCacheZSet(entityId, type, productNr));
+	// }
 
 	// private static Map<String, String> converMapToString(Map<String, String>
 	// datas) {
