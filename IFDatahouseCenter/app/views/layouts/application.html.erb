@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
-     <head>
-          <title>IFDatahouse</title>
-          <%= stylesheet_link_tag    "application", :media => "all" %>
-          <%= javascript_include_tag "application" %>
-          <%= csrf_meta_tags %>
-     </head>
-     <body>
-          <%= render :partial=>'share/header'%>
-          <div class="container-fluid">
-               <div class="row">
-                    <div class="span3 bs-docs-sidebar">
-                         <ul class="nav nav-list bs-docs-sidenav">
-                              <li>
-                                   <a href="/staffs"> <i class="icon-chevron-right"></i>员工</a>
-                              </li>
-                              <li>
-                                   <a href="/parts"><i class="icon-chevron-right"></i>零件</a>
-                              </li>
-                              <li>
-                                   <a href="/entities"> <i class="icon-chevron-right"></i>组织</a>
-                              </li>
-                              <li>
-                                   <a href="/mappers"><i class="icon-chevron-right"></i>接口数据映射</a>
-                              </li>
-                         </ul>
-                    </div>
-                    <%= yield %>
-               </div>
-          </div>
-     </body>
+<head>
+  <title>IFDatahouse</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render :partial => 'share/header' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav">
+        <li>
+          <a href="/staffs"> <i class="icon-chevron-right"></i>员工</a>
+        </li>
+        <li>
+          <a href="/parts"><i class="icon-chevron-right"></i>零件</a>
+        </li>
+        <li>
+          <a href="/entities"> <i class="icon-chevron-right"></i>组织</a>
+        </li>
+        <li>
+          <a href="/inspect_originals"> <i class="icon-chevron-right"></i>测试台原始数据</a>
+        </li>
+        <li>
+          <a href="/mappers"><i class="icon-chevron-right"></i>接口数据映射</a>
+        </li>
+      </ul>
+    </div>
+    <%= yield %>
+  </div>
+</div>
+</body>
 </html>

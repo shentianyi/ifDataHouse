@@ -1,4 +1,5 @@
 IFDatahouse::Application.routes.draw do
+
   root :to=>"sessions#new"
 
   controller :sessions do
@@ -7,7 +8,11 @@ IFDatahouse::Application.routes.draw do
     get 'logout' => :destroy
     get 'index'=>:index
   end
-  
+  resources   :inspect_originals   do
+    collection do
+      match :search
+    end
+  end
   [:parts,:staffs,:entities].each do |model|
     resources model do
       collection do

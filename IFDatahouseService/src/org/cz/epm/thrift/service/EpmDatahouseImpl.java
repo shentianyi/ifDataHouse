@@ -65,8 +65,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void addProductPack(String accessKey, Map<String, String> dataMap)
 			throws TException {
-		System.out.println(dataMap);
-		// log.logger.info(dataMap);
+		log.logger.info(dataMap);
 		Mapper mapper = new Mapper(accessKey);
 		String partId = mapper.GetMapKey("part", dataMap.get("partId"));
 		Map part = EpmDataBase.GetPart(partId, "entity_id");
@@ -92,7 +91,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 	@Override
 	public void addProductInspect(String accessKey, Map<String, String> dataMap)
 			throws TException {
-		// log.logger.info(dataMap);
+		log.logger.info(dataMap);
 		try {
 			EpmDataBase.AddProudctInspectOriRecord(dataMap);
 			Mapper mapper = new Mapper(accessKey);
@@ -104,7 +103,7 @@ public class EpmDatahouseImpl implements Datahouse.Iface {
 			// Map entity = EpmDataBase.GetEntity(workstationId,
 			// "entity_id");
 			// dataMap.put("entityId", entity.get("entity_id").toString());
-			dataMap.put("inspectTime",Long.toString(new Date().getTime()));
+			dataMap.put("inspectTime", Long.toString(new Date().getTime()));
 			String partId = mapper.GetMapKey("part", dataMap.get("partNr"));
 			Map part = EpmDataBase.GetPart(partId, "entity_id");
 			if (part != null && part.get("entity_id") != null) {
