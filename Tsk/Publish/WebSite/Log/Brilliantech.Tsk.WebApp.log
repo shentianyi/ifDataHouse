@@ -19,3 +19,6 @@
 [2014-08-02 09:23:03,698]  MyScheduler_Worker-1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:welovesong@sina.com, File: Inspect201408020922_3dda4ad071ff48ea97a1fb2b4d9e7773
 [2014-08-02 09:23:39,466]  MyScheduler_Worker-1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:iwangsong@163.com, File: Inspect201408020923_e87808e9ab744300ad8929cce798be3b
 [2014-08-02 09:23:39,663]  MyScheduler_Worker-1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:song.wang@cz-tek.com, File: Inspect201408020923_072edc5817f44316b2a7e1db76141a56
+[2014-08-02 09:25:06,654]  MyScheduler_Worker-2 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:welovesong@sina.com, File: Inspect201408020924_733828cadd6a4ad5a674056bd1e9bf7b
+[2014-08-02 09:25:36,599]  MyScheduler_Worker-2 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:iwangsong@163.com, File: Inspect201408020925_85b25b2555024c8d84530381fcf9829f
+[2014-08-02 09:25:36,790]  MyScheduler_Worker-2 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:song.wang@cz-tek.com, File: Inspect201408020925_8067292878924b88a3d7534f9847c9bc
