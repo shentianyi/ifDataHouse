@@ -31,66 +31,66 @@ Dim i
 For i=0 To UBound(userTskEmail,1)-1
 
 	'query sqlserver with proce
-'	Dim objConnection, objCommand, objRecordset
-'	rowCount = 0
+	Dim objConnection, objCommand, objRecordset
+	rowCount = 0
 	
-'	Set objConnection = CreateObject("ADODB.Connection")
-'	objConnection.connectionString = "Provider = SQLOLEDB;Data Source=charlot-pc;Initial Catalog=Leoni_Tsk_JN;Persist Security Info=True;User ID=sa;Password=123456@"
-'	Set objCommand = CreateObject("ADODB.Command")
-'	objCommand.CommandType = 4
-'	objCommand.CommandText = "QueryUserTskDetailData" 
+	Set objConnection = CreateObject("ADODB.Connection")
+	objConnection.connectionString = "Provider = SQLOLEDB;Data Source=charlot-pc;Initial Catalog=Leoni_Tsk_JN;Persist Security Info=True;User ID=sa;Password=123456@"
+	Set objCommand = CreateObject("ADODB.Command")
+	objCommand.CommandType = 4
+	objCommand.CommandText = "QueryUserTskDetailData" 
 	' set parameter
-'	Dim p1
-'	Set p1 = CreateObject("ADODB.Parameter")
-'	p1.Name = "UserTskNo"
-'	p1.Type = 200
-'	p1.Size = 2000
-'	p1.Direction = 1
-'	p1.Value = userTskEmail(i,1)
+	Dim p1
+	Set p1 = CreateObject("ADODB.Parameter")
+	p1.Name = "UserTskNo"
+	p1.Type = 200
+	p1.Size = 2000
+	p1.Direction = 1
+	p1.Value = userTskEmail(i,1)
 	
-'	objCommand.Parameters.Append(p1)
+	objCommand.Parameters.Append(p1)
 	
-'	objConnection.Open
-'	Set objCommand.ActiveConnection = objConnection 
-'	Set objRecordset=objCommand.Execute
+	objConnection.Open
+	Set objCommand.ActiveConnection = objConnection 
+	Set objRecordset=objCommand.Execute
 	
 	'init excel
-'	Set objExcel = CreateObject("Excel.Application")
-'	objExcel.Visible = False
-'	Set objWorkbook = objExcel.Workbooks.Add()
+	Set objExcel = CreateObject("Excel.Application")
+	objExcel.Visible = False
+	Set objWorkbook = objExcel.Workbooks.Add()
 	
-'	Do Until objRecordset.EOF
+	Do Until objRecordset.EOF
 		'Wscript.Echo "Name: " & objRecordset.Fields.Item("Id")
-'		rowCount=rowCount+1
+		rowCount=rowCount+1
 		''objExcel.Cells(rowCount,1).Value=Mid(objRecordset.Fields.Item("Id"),2,36)
-'		objExcel.Cells(rowCount,1).Value=objRecordset.Fields.Item("TskNo")
-'		objExcel.Cells(rowCount,2).Value=objRecordset.Fields.Item("LeoniNo")
-'		objExcel.Cells(rowCount,3).Value=objRecordset.Fields.Item("CusNo")
-'		objExcel.Cells(rowCount,4).Value=objRecordset.Fields.Item("ClipScanNo")
-'		objExcel.Cells(rowCount,5).Value=objRecordset.Fields.Item("ClipScanTime1")
-'		objExcel.Cells(rowCount,6).Value=objRecordset.Fields.Item("ClipScanTime2")
-'		objExcel.Cells(rowCount,7).Value=objRecordset.Fields.Item("TskScanNo")
-'		objExcel.Cells(rowCount,8).Value=objRecordset.Fields.Item("TskScanTime3")
-'		objExcel.Cells(rowCount,9).Value=objRecordset.Fields.Item("Time3MinTime2")
-'		objExcel.Cells(rowCount,10).Value=objRecordset.Fields.Item("OkOrNot")
-'		objRecordSet.MoveNext
-'	Loop
+		objExcel.Cells(rowCount,1).Value=objRecordset.Fields.Item("TskNo")
+		objExcel.Cells(rowCount,2).Value=objRecordset.Fields.Item("LeoniNo")
+		objExcel.Cells(rowCount,3).Value=objRecordset.Fields.Item("CusNo")
+		objExcel.Cells(rowCount,4).Value=objRecordset.Fields.Item("ClipScanNo")
+		objExcel.Cells(rowCount,5).Value=objRecordset.Fields.Item("ClipScanTime1")
+		objExcel.Cells(rowCount,6).Value=objRecordset.Fields.Item("ClipScanTime2")
+		objExcel.Cells(rowCount,7).Value=objRecordset.Fields.Item("TskScanNo")
+		objExcel.Cells(rowCount,8).Value=objRecordset.Fields.Item("TskScanTime3")
+		objExcel.Cells(rowCount,9).Value=objRecordset.Fields.Item("Time3MinTime2")
+		objExcel.Cells(rowCount,10).Value=objRecordset.Fields.Item("OkOrNot")
+		objRecordSet.MoveNext
+	Loop
 	
 	
-'	objConnection.Close
-'	Set objConnection = Nothing
+	objConnection.Close
+	Set objConnection = Nothing
 	''	MsgBox rowCount
 	'call send email with attachment
-'	If rowCount>0 Then
+	If rowCount>0 Then
 		
-'		Set TypeLib = CreateObject("Scriptlet.TypeLib")
-'		strFileName=Year(Date()) & Right("0" & Month(Date()),2) & Right("0" & Day(Date()),2) & "_" & Mid(TypeLib.Guid, 2, 36) & ".xlsx"
+		Set TypeLib = CreateObject("Scriptlet.TypeLib")
+		strFileName=Year(Date()) & Right("0" & Month(Date()),2) & Right("0" & Day(Date()),2) & "_" & Mid(TypeLib.Guid, 2, 36) & ".xlsx"
  
-'		strFilePath=currentPath & "\" & strFileName
-'		objWorkbook.SaveAs(strFilePath)
+		strFilePath=currentPath & "\" & strFileName
+		objWorkbook.SaveAs(strFilePath)
 	    
-'	    objWorkbook.Close    
-'		objExcel.Quit
+	    objWorkbook.Close    
+		objExcel.Quit
 		
 		'Call SendEMail( userTskEmail(i,0),"Tsk Inspect Detail",strFilePath)
 		'' send email
@@ -112,12 +112,12 @@ For i=0 To UBound(userTskEmail,1)-1
 		oMessage.From = strSMTPFrom
 		oMessage.To = userTskEmail(i,0)
 		oMessage.TextBody = strTextBody
-		oMessage.AddAttachment "C:\log.txt"
+		oMessage.AddAttachment strFilePath
 		
 		oMessage.Send
-'		Else 
-'		 objWorkbook.Close
-'	   	objExcel.Quit
-'	End If 
-'	objExcel.Quit
+		Else 
+		 objWorkbook.Close
+	   	objExcel.Quit
+	End If 
+	objExcel.Quit
 Next
