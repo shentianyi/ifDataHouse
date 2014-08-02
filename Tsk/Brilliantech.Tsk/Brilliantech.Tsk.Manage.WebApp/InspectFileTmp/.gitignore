@@ -1,4 +1,5 @@
-*.xls
-*.pdf
-*.xlsx
+*
 *.csv
+*.zip
+!.gitignore
+!read.md

@@ -1,0 +1,9 @@
+[2014-08-02 09:10:25,980]  47 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- InspectEmailQueryDate:2014/8/1 7:00:00~2014/8/2 7:00:00
+[2014-08-02 09:10:26,014]  47 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- 添加触发器:TskDataEmailCronGroup.trigger0
+[2014-08-02 09:10:26,014]  47 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- 测试数据文件邮件任务启动成功
+[2014-08-02 09:13:06,888]  MyScheduler_Worker-1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:welovesong@sina.com, File: Inspect201408020912_7970e2893eca4f6a8ad84fda25f96d08
+[2014-08-02 09:13:38,151]  MyScheduler_Worker-1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:iwangsong@163.com, File: Inspect201408020913_c832137a18cb4969b91450a6a58652fe
+[2014-08-02 09:13:38,450]  MyScheduler_Worker-1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:song.wang@cz-tek.com, File: Inspect201408020913_2eafa637385b41d794418583675c16b1
+[2014-08-02 09:15:05,526]  MyScheduler_Worker-2 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:welovesong@sina.com, File: Inspect201408020914_8984ee738fdc4f9da1abf3fa04b501a0
+[2014-08-02 09:15:36,654]  MyScheduler_Worker-2 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:iwangsong@163.com, File: Inspect201408020915_ce45fc6a362e4b3688187ec4a9508d3b
+[2014-08-02 09:15:36,897]  MyScheduler_Worker-2 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Execute] -- Send Inspect Email to:song.wang@cz-tek.com, File: Inspect201408020915_50b038307c02454fb3dc9c9e97248fe8

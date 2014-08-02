@@ -68,14 +68,5 @@ namespace Brilliantech.Tsk.Manage.WebApp.Properties {
                 return ResourceManager.GetString("PageSize", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   查找类似 0/2 * * * * ? 的本地化字符串。
-        /// </summary>
-        internal static string TskDataEmailCron {
-            get {
-                return ResourceManager.GetString("TskDataEmailCron", resourceCulture);
-            }
-        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;  
 using Brilliantech.Tsk.ConsoleCmd.InspectService;
 using System.Net.Mail;
+using Ionic.Zip;
 
 namespace Brilliantech.Tsk.ConsoleCmd
 {
@@ -59,19 +60,36 @@ namespace Brilliantech.Tsk.ConsoleCmd
             //{
             //    Console.WriteLine(e.Message);
             //}
-            SmtpClient smtpServer = new SmtpClient("smtp.163.com");
-            smtpServer.Credentials = new System.Net.NetworkCredential("iwangsong@163.com", "iwangsong520520");
-            smtpServer.Port = 25;
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("iwangsong@163.com");
-            mail.To.Add("iwangsong@163.com");
-            mail.Subject = "Inspect Data File";
-            Attachment att = new Attachment(@"C:\Excel\b.xml");
-            mail.Attachments.Add(att);
-            smtpServer.Send(mail);
+            //SmtpClient smtpServer = new SmtpClient("smtp.163.com");
+            //smtpServer.Credentials = new System.Net.NetworkCredential("iwangsong@163.com", "iwangsong520520");
+            //smtpServer.Port = 25;
+            //MailMessage mail = new MailMessage();
+            //mail.From = new MailAddress("iwangsong@163.com");
+            //mail.To.Add("iwangsong@163.com");
+            //mail.Subject = "Inspect Data File";
+            //Attachment att = new Attachment(@"C:\Excel\b.xml");
+            //mail.Attachments.Add(att);
+            //smtpServer.Send(mail);
 
-            Console.WriteLine(DateTime.Now.ToString("yyyy/M/d HH:mm:ss"));
-            Console.Read();
+        //    Console.WriteLine(DateTime.Now.ToString("yyyy/M/d HH:mm:ss"));
+        //    Console.WriteLine(DateTime.Now);
+        //    Console.WriteLine(DateTime.Today);
+        //    Console.WriteLine(DateTime.Today.AddDays(-1).AddHours(6).AddMinutes(10));
+        //     Guid GStart = Guid.NewGuid();
+        //     string guidB = GStart.ToString("B");
+
+        //     string guidN = GStart.ToString("N");
+        //Console.WriteLine(guidB);
+        //Console.WriteLine(guidN);
+
+            using (ZipFile zip = new ZipFile())
+            {
+                //zip.AddDirectory(@"C:\Excel");
+                zip.AddFile(@"C:\Excel\a.xml");
+                zip.Save("a.zip");
+            }
+
+            //Console.Read();
         }
     }
 }

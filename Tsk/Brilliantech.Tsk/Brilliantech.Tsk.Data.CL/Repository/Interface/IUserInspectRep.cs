@@ -8,6 +8,6 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Interface
 {
     public interface IUserInspectRep : IBaseRep<UserInspect>
     {
-        List<UserInspect> ListByUserId(int userId);
+        List<UserInspect> ListByUserId(int userId, DateTime? startTime = null, DateTime? endTime = null);
     }
 }

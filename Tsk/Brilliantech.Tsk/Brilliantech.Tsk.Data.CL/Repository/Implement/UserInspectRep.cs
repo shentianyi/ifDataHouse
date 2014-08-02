@@ -17,10 +17,17 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
 
 
 
-        public List<UserInspect> ListByUserId(int userId)
+        public List<UserInspect> ListByUserId(int userId,DateTime? startTime=null,DateTime? endTime=null)
         {
-            return context.UserInspect.Where(u => u.UserId.Equals(userId)).Take(100).ToList();
+            var query= context.UserInspect.Where(u => u.UserId.Equals(userId));
+            if (startTime.HasValue && endTime.HasValue)
+            {
+                query = query.Where(u => (u.ClipScanTime1.Value >= startTime.Value && u.ClipScanTime1.Value <= endTime.Value));
+            }
+            return query.ToList();
         }
+
+      
 
         public void Create(UserInspect entity)
         {

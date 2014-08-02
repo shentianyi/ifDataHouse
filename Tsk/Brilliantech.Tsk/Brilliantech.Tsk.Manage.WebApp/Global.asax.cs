@@ -59,7 +59,7 @@ namespace Brilliantech.Tsk.Manage.WebApp
                 ISchedulerFactory sf = new StdSchedulerFactory();
                 Scheduler = sf.GetScheduler();
 
-                new TskDataEmailCronTrigger().Run();
+                new TskDataEmailCronTrigger();
                 Scheduler.Start();
                 //TskDataEmailCronScheduler.Instance.Start();
             }
