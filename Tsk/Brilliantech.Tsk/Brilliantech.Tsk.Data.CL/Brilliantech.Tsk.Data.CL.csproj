@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\InspectOriginPartial.cs" />
+    <Compile Include="Model\InspectOriginQueryModel.cs" />
     <Compile Include="Model\InspectPartial.cs" />
+    <Compile Include="Model\InspectQueryModel.cs" />
     <Compile Include="Model\IUnitOfWork.cs" />
     <Compile Include="Model\TskData.designer.cs">
       <AutoGen>True</AutoGen>

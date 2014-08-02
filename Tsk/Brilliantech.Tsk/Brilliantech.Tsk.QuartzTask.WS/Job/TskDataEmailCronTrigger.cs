@@ -7,7 +7,7 @@ using Quartz.Impl;
 using System.Configuration;
 using Brilliantech.Framwork.Utils.LogUtil;
 
-namespace Brilliantech.Tsk.Manage.WebApp.Job
+namespace Brilliantech.Tsk.QuartzTask.WS.Job
 {
     public class TskDataEmailCronTriggerItem
     {
@@ -122,9 +122,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
     {
         private static string groupId = "TskDataEmailCronGroup";
         private static List<TskDataEmailCronTriggerItem> triggerItems = TskDataEmailCronTriggerItem.GetList(groupId);
-      
-       // private List<ICronTrigger> triggers;
- 
+       
         public string Name
         {
             get { throw new NotImplementedException(); }
@@ -147,24 +145,14 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
                 job.JobDataMap.Add("StartDate",item.StartDate);
                 job.JobDataMap.Add("EndDate", item.EndDate);
 
-               
-                MvcApplication.Scheduler.ScheduleJob(job, trigger);
+
+                TskQuartzTaskService.Scheduler.ScheduleJob(job, trigger);
                 i += 1;
                 LogUtil.Logger.Info("InspectEmailQueryDate:" + item.StartDate.ToString()+"~"+ item.EndDate.ToString());
                 LogUtil.Logger.Info("添加触发器:" + trigger.Key);
                 //this.triggers.Add(trigger);
             }
             LogUtil.Logger.Info("测试数据文件邮件任务启动成功");
-        }
-
-        //public void Run()
-        //{
-        //    foreach (var trigger in triggers)
-        //    {
-        //        LogUtil.Logger.Info("添加触发器:" + trigger.Key);
-        //        MvcApplication.Scheduler.ScheduleJob(job, trigger);
-        //    }
-        //    LogUtil.Logger.Info("测试数据文件邮件任务启动成功");
-        //}
+        }         
     }
 }
