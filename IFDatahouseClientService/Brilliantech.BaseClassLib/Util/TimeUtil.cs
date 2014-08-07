@@ -15,5 +15,9 @@ namespace Brilliantech.BaseClassLib.Util
         public static long GetMilliseconds(DateTime date) {
             return (long)(date-new DateTime(1970, 1, 1)).TotalMilliseconds;
         }
+
+        public static string GetDateTimeInMil() {
+            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+        }
     }
 }

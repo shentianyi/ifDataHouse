@@ -1,0 +1,50 @@
+<h3>测试台原始数据</h3>
+<p style="color:red">**测试结果：1 代表通过，0 代表未通过**</p>
+<p style="color:red">**<%=flash[:notice]%></p>
+<div>
+  <form method="get" action="<%= send("search_#{@model.pluralize}_path") %>">
+    <div>
+               <span>测试台号：
+                    <input type="text" name="entity_nr" value="<%= @entity_nr %>"/>
+               </span>
+               <span>开始时间：
+                    <input type="text" name="start_time" value="<%= @start_time %>"  class="datepicker"/>
+               </span>
+               <span>结束时间：
+                    <input type="text" name="end_time" value="<%= @end_time %>" class="datepicker"/> </span>
+      <input type="submit" value="查 找" class="btn btn-primary"/>
+      <input type="submit" value="导 出" class="btn btn-primary" name="export"/>
+    </div>
+  </form>
+</div>
+
+<table class="table table-bordered table-striped globle-table">
+  <tr>
+    <th>&nbsp;</th>
+    <th>零件号</th>
+    <th>产品号</th>
+    <th>测试台号</th>
+    <th>测试结果</th>
+    <th>测试时间</th>
+  </tr>
+  <% @items.each_with_index do |item, i| %>
+      <tr>
+        <td class="td-index"><%= i+1 %></td>
+        <td><%= item.partNr %></td>
+        <td><%= item.productNr %></td>
+        <td><%= item.entityId %></td>
+        <td><%= item.type %></td>
+        <td><%= Time.at(item.inspectTime.to_i/1000) %></td>
+      </tr>
+  <% end if @items %>
+</table>
+<div class="footer-operate">
+  <%= will_paginate @items if @items%>
+</div>
+<script>
+    $(function() {
+        $( ".datepicker" ).datepicker({
+            showButtonPanel: true
+        });
+    });
+</script>

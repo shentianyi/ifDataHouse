@@ -28,10 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.ServiceName = "Service1";
+            this.scanTimer = new System.Timers.Timer();
+            this.datahousePackEventLog = new System.Diagnostics.EventLog();
+            ((System.ComponentModel.ISupportInitialize)(this.scanTimer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datahousePackEventLog)).BeginInit();
+            // 
+            // scanTimer
+            // 
+            this.scanTimer.Enabled = true;
+            this.scanTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.scanTimer_Elapsed);
+            // 
+            // datahousePackEventLog
+            // 
+            this.datahousePackEventLog.Log = "ifdatahouse.pack.source.new";
+            this.datahousePackEventLog.Source = "ifdatahouse.pack.log.source";
+            // 
+            // DatahousePackSysService
+            // 
+            this.ServiceName = "DatahousePackSysService";
+            ((System.ComponentModel.ISupportInitialize)(this.scanTimer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datahousePackEventLog)).EndInit();
+
         }
 
         #endregion
+
+        private System.Timers.Timer scanTimer;
+        private System.Diagnostics.EventLog datahousePackEventLog;
+
     }
 }

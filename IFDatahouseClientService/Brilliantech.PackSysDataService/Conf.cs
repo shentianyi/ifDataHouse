@@ -21,8 +21,10 @@ namespace Brilliantech.PackSysDataService
         private static string connstr;
 
         // read start time
-        private static DateTime dataReadStartTime = DateTime.Now;
+        private static string dataReadStartTime = TimeUtil.GetDateTimeInMil();
         private static char dataSpliter = ';';
+
+    
         static Conf()
         {
             packDataPath = conf.Get("FilePath");
@@ -40,9 +42,9 @@ namespace Brilliantech.PackSysDataService
              connstr = string.Format("Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",host,db,user, pass);
             // read start time 
              if (conf.Get("DataReadStartTime") != null && conf.Get("DataReadStartTime").Length > 0)
-                 DateTime.TryParse(conf.Get("DataReadStartTime"), out dataReadStartTime);
+               dataReadStartTime= conf.Get("DataReadStartTime");
              else
-                 DataReadStartTime = DateTime.Now;
+                 DataReadStartTime = TimeUtil.GetDateTimeInMil();
 
              int c = 59;
              int.TryParse(conf.Get("FileDataSpliter").Trim(), out c);
@@ -65,7 +67,7 @@ namespace Brilliantech.PackSysDataService
         }
 
 
-        public static DateTime DataReadStartTime
+        public static string DataReadStartTime
         {
             get { return Conf.dataReadStartTime; }
             set { Conf.dataReadStartTime = value;
@@ -73,6 +75,9 @@ namespace Brilliantech.PackSysDataService
             conf.Save();
             }
         }
-
+        public static char DataSpliter
+        {
+            get { return Conf.dataSpliter; }
+        }
     }
 }

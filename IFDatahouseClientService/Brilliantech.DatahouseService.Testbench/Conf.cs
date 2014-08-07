@@ -12,22 +12,22 @@ namespace Brilliantech.DatahouseService.Testbench
         private static string testFilePath;
         private static string testErrorFilePath;
         private static string testMovedFilePath;
-        private static int testScanInt = 2;
+        private static int scanInt = 2;
         private static int testParamCount = 0;
-        private static char testDataSpliter = ';';
+        private static char dataSpliter = ';';
 
      
         static Conf()
         {
-            ConfigUtil conf = new ConfigUtil("TestbechConfig", "conf.ini");
-            testFilePath = conf.Get("FilePath");
-            testErrorFilePath = conf.Get("ErrorFilePath");
-            testMovedFilePath = conf.Get("MovedFilePath");
-            int.TryParse(conf.Get("ScanInt"), out testScanInt);
-            int.TryParse(conf.Get("ParamCount"), out testParamCount);
+            ConfigUtil conf = new ConfigUtil("FileScanConfig", "conf.ini");
+            testFilePath = conf.Get("TestFilePath");
+            testErrorFilePath = conf.Get("TestErrorFilePath");
+            testMovedFilePath = conf.Get("TestMovedFilePath");
+            int.TryParse(conf.Get("ScanInt"), out scanInt);
+            int.TryParse(conf.Get("TestParamCount"), out testParamCount);
             int c = 59;
             int.TryParse(conf.Get("FileDataSpliter").Trim(), out c);
-            testDataSpliter = (char)c;
+            dataSpliter = (char)c;
         }
         public static string TestFilePath
         {
@@ -41,17 +41,17 @@ namespace Brilliantech.DatahouseService.Testbench
         {
             get { return Conf.testMovedFilePath; }
         }
-        public static int TestScanInt
+        public static int ScanInt
         {
-            get { return Conf.testScanInt; }
+            get { return Conf.scanInt; }
         }
         public static int TestParamCount
         {
             get { return Conf.testParamCount; }
         }
-        public static char TestDataSpliter
+        public static char DataSpliter
         {
-            get { return Conf.testDataSpliter; }
+            get { return Conf.dataSpliter; }
         }
 
     }

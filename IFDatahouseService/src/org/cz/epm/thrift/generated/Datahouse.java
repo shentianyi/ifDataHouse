@@ -45,6 +45,17 @@ public class Datahouse {
     public void addAttendance(String accessKey, Map<String,String> dataMap) throws org.apache.thrift.TException;
 
     /**
+     * add attendances
+     * entityId,attendTime,type are required
+     * staffIds
+     * type: -1:off,1:on
+     * 
+     * @param accessKey
+     * @param dataMap
+     */
+    public void addAttendances(String accessKey, Map<String,String> dataMap) throws org.apache.thrift.TException;
+
+    /**
      * add product inspect
      * entityId,inspectTime,productNr,type are required
      * type 0:fail,1:pass
@@ -181,6 +192,8 @@ public class Datahouse {
 
     public void addAttendance(String accessKey, Map<String,String> dataMap, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.addAttendance_call> resultHandler) throws org.apache.thrift.TException;
 
+    public void addAttendances(String accessKey, Map<String,String> dataMap, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.addAttendances_call> resultHandler) throws org.apache.thrift.TException;
+
     public void addProductInspect(String accessKey, Map<String,String> dataMap, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.addProductInspect_call> resultHandler) throws org.apache.thrift.TException;
 
     public void addProductPack(String accessKey, Map<String,String> dataMap, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.addProductPack_call> resultHandler) throws org.apache.thrift.TException;
@@ -251,6 +264,27 @@ public class Datahouse {
     {
       addAttendance_result result = new addAttendance_result();
       receiveBase(result, "addAttendance");
+      return;
+    }
+
+    public void addAttendances(String accessKey, Map<String,String> dataMap) throws org.apache.thrift.TException
+    {
+      send_addAttendances(accessKey, dataMap);
+      recv_addAttendances();
+    }
+
+    public void send_addAttendances(String accessKey, Map<String,String> dataMap) throws org.apache.thrift.TException
+    {
+      addAttendances_args args = new addAttendances_args();
+      args.setAccessKey(accessKey);
+      args.setDataMap(dataMap);
+      sendBase("addAttendances", args);
+    }
+
+    public void recv_addAttendances() throws org.apache.thrift.TException
+    {
+      addAttendances_result result = new addAttendances_result();
+      receiveBase(result, "addAttendances");
       return;
     }
 
@@ -662,6 +696,41 @@ public class Datahouse {
         org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
         org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
         (new Client(prot)).recv_addAttendance();
+      }
+    }
+
+    public void addAttendances(String accessKey, Map<String,String> dataMap, org.apache.thrift.async.AsyncMethodCallback<addAttendances_call> resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      addAttendances_call method_call = new addAttendances_call(accessKey, dataMap, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class addAttendances_call extends org.apache.thrift.async.TAsyncMethodCall {
+      private String accessKey;
+      private Map<String,String> dataMap;
+      public addAttendances_call(String accessKey, Map<String,String> dataMap, org.apache.thrift.async.AsyncMethodCallback<addAttendances_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.accessKey = accessKey;
+        this.dataMap = dataMap;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("addAttendances", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        addAttendances_args args = new addAttendances_args();
+        args.setAccessKey(accessKey);
+        args.setDataMap(dataMap);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public void getResult() throws org.apache.thrift.TException {
+        if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        (new Client(prot)).recv_addAttendances();
       }
     }
 
@@ -1252,6 +1321,7 @@ public class Datahouse {
 
     private static <I extends Iface> Map<String,  org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> getProcessMap(Map<String,  org.apache.thrift.ProcessFunction<I, ? extends  org.apache.thrift.TBase>> processMap) {
       processMap.put("addAttendance", new addAttendance());
+      processMap.put("addAttendances", new addAttendances());
       processMap.put("addProductInspect", new addProductInspect());
       processMap.put("addProductPack", new addProductPack());
       processMap.put("setProductInspectState", new setProductInspectState());
@@ -1286,6 +1356,26 @@ public class Datahouse {
       public addAttendance_result getResult(I iface, addAttendance_args args) throws org.apache.thrift.TException {
         addAttendance_result result = new addAttendance_result();
         iface.addAttendance(args.accessKey, args.dataMap);
+        return result;
+      }
+    }
+
+    public static class addAttendances<I extends Iface> extends org.apache.thrift.ProcessFunction<I, addAttendances_args> {
+      public addAttendances() {
+        super("addAttendances");
+      }
+
+      public addAttendances_args getEmptyArgsInstance() {
+        return new addAttendances_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public addAttendances_result getResult(I iface, addAttendances_args args) throws org.apache.thrift.TException {
+        addAttendances_result result = new addAttendances_result();
+        iface.addAttendances(args.accessKey, args.dataMap);
         return result;
       }
     }
@@ -2356,6 +2446,769 @@ public class Datahouse {
 
   }
 
+  public static class addAttendances_args implements org.apache.thrift.TBase<addAttendances_args, addAttendances_args._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("addAttendances_args");
+
+    private static final org.apache.thrift.protocol.TField ACCESS_KEY_FIELD_DESC = new org.apache.thrift.protocol.TField("accessKey", org.apache.thrift.protocol.TType.STRING, (short)1);
+    private static final org.apache.thrift.protocol.TField DATA_MAP_FIELD_DESC = new org.apache.thrift.protocol.TField("dataMap", org.apache.thrift.protocol.TType.MAP, (short)2);
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new addAttendances_argsStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new addAttendances_argsTupleSchemeFactory());
+    }
+
+    public String accessKey; // required
+    public Map<String,String> dataMap; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      ACCESS_KEY((short)1, "accessKey"),
+      DATA_MAP((short)2, "dataMap");
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // ACCESS_KEY
+            return ACCESS_KEY;
+          case 2: // DATA_MAP
+            return DATA_MAP;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.ACCESS_KEY, new org.apache.thrift.meta_data.FieldMetaData("accessKey", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      tmpMap.put(_Fields.DATA_MAP, new org.apache.thrift.meta_data.FieldMetaData("dataMap", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.MapMetaData(org.apache.thrift.protocol.TType.MAP, 
+              new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING), 
+              new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(addAttendances_args.class, metaDataMap);
+    }
+
+    public addAttendances_args() {
+    }
+
+    public addAttendances_args(
+      String accessKey,
+      Map<String,String> dataMap)
+    {
+      this();
+      this.accessKey = accessKey;
+      this.dataMap = dataMap;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public addAttendances_args(addAttendances_args other) {
+      if (other.isSetAccessKey()) {
+        this.accessKey = other.accessKey;
+      }
+      if (other.isSetDataMap()) {
+        Map<String,String> __this__dataMap = new HashMap<String,String>();
+        for (Map.Entry<String, String> other_element : other.dataMap.entrySet()) {
+
+          String other_element_key = other_element.getKey();
+          String other_element_value = other_element.getValue();
+
+          String __this__dataMap_copy_key = other_element_key;
+
+          String __this__dataMap_copy_value = other_element_value;
+
+          __this__dataMap.put(__this__dataMap_copy_key, __this__dataMap_copy_value);
+        }
+        this.dataMap = __this__dataMap;
+      }
+    }
+
+    public addAttendances_args deepCopy() {
+      return new addAttendances_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.accessKey = null;
+      this.dataMap = null;
+    }
+
+    public String getAccessKey() {
+      return this.accessKey;
+    }
+
+    public addAttendances_args setAccessKey(String accessKey) {
+      this.accessKey = accessKey;
+      return this;
+    }
+
+    public void unsetAccessKey() {
+      this.accessKey = null;
+    }
+
+    /** Returns true if field accessKey is set (has been assigned a value) and false otherwise */
+    public boolean isSetAccessKey() {
+      return this.accessKey != null;
+    }
+
+    public void setAccessKeyIsSet(boolean value) {
+      if (!value) {
+        this.accessKey = null;
+      }
+    }
+
+    public int getDataMapSize() {
+      return (this.dataMap == null) ? 0 : this.dataMap.size();
+    }
+
+    public void putToDataMap(String key, String val) {
+      if (this.dataMap == null) {
+        this.dataMap = new HashMap<String,String>();
+      }
+      this.dataMap.put(key, val);
+    }
+
+    public Map<String,String> getDataMap() {
+      return this.dataMap;
+    }
+
+    public addAttendances_args setDataMap(Map<String,String> dataMap) {
+      this.dataMap = dataMap;
+      return this;
+    }
+
+    public void unsetDataMap() {
+      this.dataMap = null;
+    }
+
+    /** Returns true if field dataMap is set (has been assigned a value) and false otherwise */
+    public boolean isSetDataMap() {
+      return this.dataMap != null;
+    }
+
+    public void setDataMapIsSet(boolean value) {
+      if (!value) {
+        this.dataMap = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case ACCESS_KEY:
+        if (value == null) {
+          unsetAccessKey();
+        } else {
+          setAccessKey((String)value);
+        }
+        break;
+
+      case DATA_MAP:
+        if (value == null) {
+          unsetDataMap();
+        } else {
+          setDataMap((Map<String,String>)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case ACCESS_KEY:
+        return getAccessKey();
+
+      case DATA_MAP:
+        return getDataMap();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case ACCESS_KEY:
+        return isSetAccessKey();
+      case DATA_MAP:
+        return isSetDataMap();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof addAttendances_args)
+        return this.equals((addAttendances_args)that);
+      return false;
+    }
+
+    public boolean equals(addAttendances_args that) {
+      if (that == null)
+        return false;
+
+      boolean this_present_accessKey = true && this.isSetAccessKey();
+      boolean that_present_accessKey = true && that.isSetAccessKey();
+      if (this_present_accessKey || that_present_accessKey) {
+        if (!(this_present_accessKey && that_present_accessKey))
+          return false;
+        if (!this.accessKey.equals(that.accessKey))
+          return false;
+      }
+
+      boolean this_present_dataMap = true && this.isSetDataMap();
+      boolean that_present_dataMap = true && that.isSetDataMap();
+      if (this_present_dataMap || that_present_dataMap) {
+        if (!(this_present_dataMap && that_present_dataMap))
+          return false;
+        if (!this.dataMap.equals(that.dataMap))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      return 0;
+    }
+
+    public int compareTo(addAttendances_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+      addAttendances_args typedOther = (addAttendances_args)other;
+
+      lastComparison = Boolean.valueOf(isSetAccessKey()).compareTo(typedOther.isSetAccessKey());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetAccessKey()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.accessKey, typedOther.accessKey);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      lastComparison = Boolean.valueOf(isSetDataMap()).compareTo(typedOther.isSetDataMap());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetDataMap()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.dataMap, typedOther.dataMap);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("addAttendances_args(");
+      boolean first = true;
+
+      sb.append("accessKey:");
+      if (this.accessKey == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.accessKey);
+      }
+      first = false;
+      if (!first) sb.append(", ");
+      sb.append("dataMap:");
+      if (this.dataMap == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.dataMap);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class addAttendances_argsStandardSchemeFactory implements SchemeFactory {
+      public addAttendances_argsStandardScheme getScheme() {
+        return new addAttendances_argsStandardScheme();
+      }
+    }
+
+    private static class addAttendances_argsStandardScheme extends StandardScheme<addAttendances_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, addAttendances_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // ACCESS_KEY
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.accessKey = iprot.readString();
+                struct.setAccessKeyIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            case 2: // DATA_MAP
+              if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
+                {
+                  org.apache.thrift.protocol.TMap _map10 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map10.size);
+                  for (int _i11 = 0; _i11 < _map10.size; ++_i11)
+                  {
+                    String _key12; // required
+                    String _val13; // required
+                    _key12 = iprot.readString();
+                    _val13 = iprot.readString();
+                    struct.dataMap.put(_key12, _val13);
+                  }
+                  iprot.readMapEnd();
+                }
+                struct.setDataMapIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, addAttendances_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.accessKey != null) {
+          oprot.writeFieldBegin(ACCESS_KEY_FIELD_DESC);
+          oprot.writeString(struct.accessKey);
+          oprot.writeFieldEnd();
+        }
+        if (struct.dataMap != null) {
+          oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
+          {
+            oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
+            for (Map.Entry<String, String> _iter14 : struct.dataMap.entrySet())
+            {
+              oprot.writeString(_iter14.getKey());
+              oprot.writeString(_iter14.getValue());
+            }
+            oprot.writeMapEnd();
+          }
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class addAttendances_argsTupleSchemeFactory implements SchemeFactory {
+      public addAttendances_argsTupleScheme getScheme() {
+        return new addAttendances_argsTupleScheme();
+      }
+    }
+
+    private static class addAttendances_argsTupleScheme extends TupleScheme<addAttendances_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, addAttendances_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+        BitSet optionals = new BitSet();
+        if (struct.isSetAccessKey()) {
+          optionals.set(0);
+        }
+        if (struct.isSetDataMap()) {
+          optionals.set(1);
+        }
+        oprot.writeBitSet(optionals, 2);
+        if (struct.isSetAccessKey()) {
+          oprot.writeString(struct.accessKey);
+        }
+        if (struct.isSetDataMap()) {
+          {
+            oprot.writeI32(struct.dataMap.size());
+            for (Map.Entry<String, String> _iter15 : struct.dataMap.entrySet())
+            {
+              oprot.writeString(_iter15.getKey());
+              oprot.writeString(_iter15.getValue());
+            }
+          }
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, addAttendances_args struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+        BitSet incoming = iprot.readBitSet(2);
+        if (incoming.get(0)) {
+          struct.accessKey = iprot.readString();
+          struct.setAccessKeyIsSet(true);
+        }
+        if (incoming.get(1)) {
+          {
+            org.apache.thrift.protocol.TMap _map16 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map16.size);
+            for (int _i17 = 0; _i17 < _map16.size; ++_i17)
+            {
+              String _key18; // required
+              String _val19; // required
+              _key18 = iprot.readString();
+              _val19 = iprot.readString();
+              struct.dataMap.put(_key18, _val19);
+            }
+          }
+          struct.setDataMapIsSet(true);
+        }
+      }
+    }
+
+  }
+
+  public static class addAttendances_result implements org.apache.thrift.TBase<addAttendances_result, addAttendances_result._Fields>, java.io.Serializable, Cloneable   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("addAttendances_result");
+
+
+    private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
+    static {
+      schemes.put(StandardScheme.class, new addAttendances_resultStandardSchemeFactory());
+      schemes.put(TupleScheme.class, new addAttendances_resultTupleSchemeFactory());
+    }
+
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+;
+
+      private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+    public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      metaDataMap = Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(addAttendances_result.class, metaDataMap);
+    }
+
+    public addAttendances_result() {
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public addAttendances_result(addAttendances_result other) {
+    }
+
+    public addAttendances_result deepCopy() {
+      return new addAttendances_result(this);
+    }
+
+    @Override
+    public void clear() {
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof addAttendances_result)
+        return this.equals((addAttendances_result)that);
+      return false;
+    }
+
+    public boolean equals(addAttendances_result that) {
+      if (that == null)
+        return false;
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      return 0;
+    }
+
+    public int compareTo(addAttendances_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+      addAttendances_result typedOther = (addAttendances_result)other;
+
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      schemes.get(iprot.getScheme()).getScheme().read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      schemes.get(oprot.getScheme()).getScheme().write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("addAttendances_result(");
+      boolean first = true;
+
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class addAttendances_resultStandardSchemeFactory implements SchemeFactory {
+      public addAttendances_resultStandardScheme getScheme() {
+        return new addAttendances_resultStandardScheme();
+      }
+    }
+
+    private static class addAttendances_resultStandardScheme extends StandardScheme<addAttendances_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, addAttendances_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, addAttendances_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class addAttendances_resultTupleSchemeFactory implements SchemeFactory {
+      public addAttendances_resultTupleScheme getScheme() {
+        return new addAttendances_resultTupleScheme();
+      }
+    }
+
+    private static class addAttendances_resultTupleScheme extends TupleScheme<addAttendances_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, addAttendances_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol oprot = (TTupleProtocol) prot;
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, addAttendances_result struct) throws org.apache.thrift.TException {
+        TTupleProtocol iprot = (TTupleProtocol) prot;
+      }
+    }
+
+  }
+
   public static class addProductInspect_args implements org.apache.thrift.TBase<addProductInspect_args, addProductInspect_args._Fields>, java.io.Serializable, Cloneable   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("addProductInspect_args");
 
@@ -2755,15 +3608,15 @@ public class Datahouse {
             case 2: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map10 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map10.size);
-                  for (int _i11 = 0; _i11 < _map10.size; ++_i11)
+                  org.apache.thrift.protocol.TMap _map20 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map20.size);
+                  for (int _i21 = 0; _i21 < _map20.size; ++_i21)
                   {
-                    String _key12; // required
-                    String _val13; // required
-                    _key12 = iprot.readString();
-                    _val13 = iprot.readString();
-                    struct.dataMap.put(_key12, _val13);
+                    String _key22; // required
+                    String _val23; // required
+                    _key22 = iprot.readString();
+                    _val23 = iprot.readString();
+                    struct.dataMap.put(_key22, _val23);
                   }
                   iprot.readMapEnd();
                 }
@@ -2796,10 +3649,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter14 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter24 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter14.getKey());
-              oprot.writeString(_iter14.getValue());
+              oprot.writeString(_iter24.getKey());
+              oprot.writeString(_iter24.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -2836,10 +3689,10 @@ public class Datahouse {
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter15 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter25 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter15.getKey());
-              oprot.writeString(_iter15.getValue());
+              oprot.writeString(_iter25.getKey());
+              oprot.writeString(_iter25.getValue());
             }
           }
         }
@@ -2855,15 +3708,15 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map16 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map16.size);
-            for (int _i17 = 0; _i17 < _map16.size; ++_i17)
+            org.apache.thrift.protocol.TMap _map26 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map26.size);
+            for (int _i27 = 0; _i27 < _map26.size; ++_i27)
             {
-              String _key18; // required
-              String _val19; // required
-              _key18 = iprot.readString();
-              _val19 = iprot.readString();
-              struct.dataMap.put(_key18, _val19);
+              String _key28; // required
+              String _val29; // required
+              _key28 = iprot.readString();
+              _val29 = iprot.readString();
+              struct.dataMap.put(_key28, _val29);
             }
           }
           struct.setDataMapIsSet(true);
@@ -3518,15 +4371,15 @@ public class Datahouse {
             case 2: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map20 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map20.size);
-                  for (int _i21 = 0; _i21 < _map20.size; ++_i21)
+                  org.apache.thrift.protocol.TMap _map30 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map30.size);
+                  for (int _i31 = 0; _i31 < _map30.size; ++_i31)
                   {
-                    String _key22; // required
-                    String _val23; // required
-                    _key22 = iprot.readString();
-                    _val23 = iprot.readString();
-                    struct.dataMap.put(_key22, _val23);
+                    String _key32; // required
+                    String _val33; // required
+                    _key32 = iprot.readString();
+                    _val33 = iprot.readString();
+                    struct.dataMap.put(_key32, _val33);
                   }
                   iprot.readMapEnd();
                 }
@@ -3559,10 +4412,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter24 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter34 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter24.getKey());
-              oprot.writeString(_iter24.getValue());
+              oprot.writeString(_iter34.getKey());
+              oprot.writeString(_iter34.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -3599,10 +4452,10 @@ public class Datahouse {
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter25 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter35 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter25.getKey());
-              oprot.writeString(_iter25.getValue());
+              oprot.writeString(_iter35.getKey());
+              oprot.writeString(_iter35.getValue());
             }
           }
         }
@@ -3618,15 +4471,15 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map26 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map26.size);
-            for (int _i27 = 0; _i27 < _map26.size; ++_i27)
+            org.apache.thrift.protocol.TMap _map36 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map36.size);
+            for (int _i37 = 0; _i37 < _map36.size; ++_i37)
             {
-              String _key28; // required
-              String _val29; // required
-              _key28 = iprot.readString();
-              _val29 = iprot.readString();
-              struct.dataMap.put(_key28, _val29);
+              String _key38; // required
+              String _val39; // required
+              _key38 = iprot.readString();
+              _val39 = iprot.readString();
+              struct.dataMap.put(_key38, _val39);
             }
           }
           struct.setDataMapIsSet(true);
@@ -4281,15 +5134,15 @@ public class Datahouse {
             case 2: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map30 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map30.size);
-                  for (int _i31 = 0; _i31 < _map30.size; ++_i31)
+                  org.apache.thrift.protocol.TMap _map40 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map40.size);
+                  for (int _i41 = 0; _i41 < _map40.size; ++_i41)
                   {
-                    String _key32; // required
-                    String _val33; // required
-                    _key32 = iprot.readString();
-                    _val33 = iprot.readString();
-                    struct.dataMap.put(_key32, _val33);
+                    String _key42; // required
+                    String _val43; // required
+                    _key42 = iprot.readString();
+                    _val43 = iprot.readString();
+                    struct.dataMap.put(_key42, _val43);
                   }
                   iprot.readMapEnd();
                 }
@@ -4322,10 +5175,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter34 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter44 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter34.getKey());
-              oprot.writeString(_iter34.getValue());
+              oprot.writeString(_iter44.getKey());
+              oprot.writeString(_iter44.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -4362,10 +5215,10 @@ public class Datahouse {
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter35 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter45 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter35.getKey());
-              oprot.writeString(_iter35.getValue());
+              oprot.writeString(_iter45.getKey());
+              oprot.writeString(_iter45.getValue());
             }
           }
         }
@@ -4381,15 +5234,15 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map36 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map36.size);
-            for (int _i37 = 0; _i37 < _map36.size; ++_i37)
+            org.apache.thrift.protocol.TMap _map46 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map46.size);
+            for (int _i47 = 0; _i47 < _map46.size; ++_i47)
             {
-              String _key38; // required
-              String _val39; // required
-              _key38 = iprot.readString();
-              _val39 = iprot.readString();
-              struct.dataMap.put(_key38, _val39);
+              String _key48; // required
+              String _val49; // required
+              _key48 = iprot.readString();
+              _val49 = iprot.readString();
+              struct.dataMap.put(_key48, _val49);
             }
           }
           struct.setDataMapIsSet(true);
@@ -5044,15 +5897,15 @@ public class Datahouse {
             case 2: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map40 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map40.size);
-                  for (int _i41 = 0; _i41 < _map40.size; ++_i41)
+                  org.apache.thrift.protocol.TMap _map50 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map50.size);
+                  for (int _i51 = 0; _i51 < _map50.size; ++_i51)
                   {
-                    String _key42; // required
-                    String _val43; // required
-                    _key42 = iprot.readString();
-                    _val43 = iprot.readString();
-                    struct.dataMap.put(_key42, _val43);
+                    String _key52; // required
+                    String _val53; // required
+                    _key52 = iprot.readString();
+                    _val53 = iprot.readString();
+                    struct.dataMap.put(_key52, _val53);
                   }
                   iprot.readMapEnd();
                 }
@@ -5085,10 +5938,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter44 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter54 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter44.getKey());
-              oprot.writeString(_iter44.getValue());
+              oprot.writeString(_iter54.getKey());
+              oprot.writeString(_iter54.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -5125,10 +5978,10 @@ public class Datahouse {
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter45 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter55 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter45.getKey());
-              oprot.writeString(_iter45.getValue());
+              oprot.writeString(_iter55.getKey());
+              oprot.writeString(_iter55.getValue());
             }
           }
         }
@@ -5144,15 +5997,15 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map46 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map46.size);
-            for (int _i47 = 0; _i47 < _map46.size; ++_i47)
+            org.apache.thrift.protocol.TMap _map56 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map56.size);
+            for (int _i57 = 0; _i57 < _map56.size; ++_i57)
             {
-              String _key48; // required
-              String _val49; // required
-              _key48 = iprot.readString();
-              _val49 = iprot.readString();
-              struct.dataMap.put(_key48, _val49);
+              String _key58; // required
+              String _val59; // required
+              _key58 = iprot.readString();
+              _val59 = iprot.readString();
+              struct.dataMap.put(_key58, _val59);
             }
           }
           struct.setDataMapIsSet(true);
@@ -5807,15 +6660,15 @@ public class Datahouse {
             case 2: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map50 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map50.size);
-                  for (int _i51 = 0; _i51 < _map50.size; ++_i51)
+                  org.apache.thrift.protocol.TMap _map60 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map60.size);
+                  for (int _i61 = 0; _i61 < _map60.size; ++_i61)
                   {
-                    String _key52; // required
-                    String _val53; // required
-                    _key52 = iprot.readString();
-                    _val53 = iprot.readString();
-                    struct.dataMap.put(_key52, _val53);
+                    String _key62; // required
+                    String _val63; // required
+                    _key62 = iprot.readString();
+                    _val63 = iprot.readString();
+                    struct.dataMap.put(_key62, _val63);
                   }
                   iprot.readMapEnd();
                 }
@@ -5848,10 +6701,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter54 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter64 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter54.getKey());
-              oprot.writeString(_iter54.getValue());
+              oprot.writeString(_iter64.getKey());
+              oprot.writeString(_iter64.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -5888,10 +6741,10 @@ public class Datahouse {
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter55 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter65 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter55.getKey());
-              oprot.writeString(_iter55.getValue());
+              oprot.writeString(_iter65.getKey());
+              oprot.writeString(_iter65.getValue());
             }
           }
         }
@@ -5907,15 +6760,15 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map56 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map56.size);
-            for (int _i57 = 0; _i57 < _map56.size; ++_i57)
+            org.apache.thrift.protocol.TMap _map66 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map66.size);
+            for (int _i67 = 0; _i67 < _map66.size; ++_i67)
             {
-              String _key58; // required
-              String _val59; // required
-              _key58 = iprot.readString();
-              _val59 = iprot.readString();
-              struct.dataMap.put(_key58, _val59);
+              String _key68; // required
+              String _val69; // required
+              _key68 = iprot.readString();
+              _val69 = iprot.readString();
+              struct.dataMap.put(_key68, _val69);
             }
           }
           struct.setDataMapIsSet(true);
@@ -6570,15 +7423,15 @@ public class Datahouse {
             case 2: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map60 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map60.size);
-                  for (int _i61 = 0; _i61 < _map60.size; ++_i61)
+                  org.apache.thrift.protocol.TMap _map70 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map70.size);
+                  for (int _i71 = 0; _i71 < _map70.size; ++_i71)
                   {
-                    String _key62; // required
-                    String _val63; // required
-                    _key62 = iprot.readString();
-                    _val63 = iprot.readString();
-                    struct.dataMap.put(_key62, _val63);
+                    String _key72; // required
+                    String _val73; // required
+                    _key72 = iprot.readString();
+                    _val73 = iprot.readString();
+                    struct.dataMap.put(_key72, _val73);
                   }
                   iprot.readMapEnd();
                 }
@@ -6611,10 +7464,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter64 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter74 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter64.getKey());
-              oprot.writeString(_iter64.getValue());
+              oprot.writeString(_iter74.getKey());
+              oprot.writeString(_iter74.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -6651,10 +7504,10 @@ public class Datahouse {
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter65 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter75 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter65.getKey());
-              oprot.writeString(_iter65.getValue());
+              oprot.writeString(_iter75.getKey());
+              oprot.writeString(_iter75.getValue());
             }
           }
         }
@@ -6670,15 +7523,15 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map66 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map66.size);
-            for (int _i67 = 0; _i67 < _map66.size; ++_i67)
+            org.apache.thrift.protocol.TMap _map76 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map76.size);
+            for (int _i77 = 0; _i77 < _map76.size; ++_i77)
             {
-              String _key68; // required
-              String _val69; // required
-              _key68 = iprot.readString();
-              _val69 = iprot.readString();
-              struct.dataMap.put(_key68, _val69);
+              String _key78; // required
+              String _val79; // required
+              _key78 = iprot.readString();
+              _val79 = iprot.readString();
+              struct.dataMap.put(_key78, _val79);
             }
           }
           struct.setDataMapIsSet(true);
@@ -7002,15 +7855,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map70 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,String>(2*_map70.size);
-                  for (int _i71 = 0; _i71 < _map70.size; ++_i71)
+                  org.apache.thrift.protocol.TMap _map80 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,String>(2*_map80.size);
+                  for (int _i81 = 0; _i81 < _map80.size; ++_i81)
                   {
-                    String _key72; // required
-                    String _val73; // required
-                    _key72 = iprot.readString();
-                    _val73 = iprot.readString();
-                    struct.success.put(_key72, _val73);
+                    String _key82; // required
+                    String _val83; // required
+                    _key82 = iprot.readString();
+                    _val83 = iprot.readString();
+                    struct.success.put(_key82, _val83);
                   }
                   iprot.readMapEnd();
                 }
@@ -7038,10 +7891,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.success.size()));
-            for (Map.Entry<String, String> _iter74 : struct.success.entrySet())
+            for (Map.Entry<String, String> _iter84 : struct.success.entrySet())
             {
-              oprot.writeString(_iter74.getKey());
-              oprot.writeString(_iter74.getValue());
+              oprot.writeString(_iter84.getKey());
+              oprot.writeString(_iter84.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -7072,10 +7925,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, String> _iter75 : struct.success.entrySet())
+            for (Map.Entry<String, String> _iter85 : struct.success.entrySet())
             {
-              oprot.writeString(_iter75.getKey());
-              oprot.writeString(_iter75.getValue());
+              oprot.writeString(_iter85.getKey());
+              oprot.writeString(_iter85.getValue());
             }
           }
         }
@@ -7087,15 +7940,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map76 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.success = new HashMap<String,String>(2*_map76.size);
-            for (int _i77 = 0; _i77 < _map76.size; ++_i77)
+            org.apache.thrift.protocol.TMap _map86 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.success = new HashMap<String,String>(2*_map86.size);
+            for (int _i87 = 0; _i87 < _map86.size; ++_i87)
             {
-              String _key78; // required
-              String _val79; // required
-              _key78 = iprot.readString();
-              _val79 = iprot.readString();
-              struct.success.put(_key78, _val79);
+              String _key88; // required
+              String _val89; // required
+              _key88 = iprot.readString();
+              _val89 = iprot.readString();
+              struct.success.put(_key88, _val89);
             }
           }
           struct.setSuccessIsSet(true);
@@ -7606,15 +8459,15 @@ public class Datahouse {
             case 2: // QUERY
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map80 = iprot.readMapBegin();
-                  struct.query = new HashMap<String,String>(2*_map80.size);
-                  for (int _i81 = 0; _i81 < _map80.size; ++_i81)
+                  org.apache.thrift.protocol.TMap _map90 = iprot.readMapBegin();
+                  struct.query = new HashMap<String,String>(2*_map90.size);
+                  for (int _i91 = 0; _i91 < _map90.size; ++_i91)
                   {
-                    String _key82; // required
-                    String _val83; // required
-                    _key82 = iprot.readString();
-                    _val83 = iprot.readString();
-                    struct.query.put(_key82, _val83);
+                    String _key92; // required
+                    String _val93; // required
+                    _key92 = iprot.readString();
+                    _val93 = iprot.readString();
+                    struct.query.put(_key92, _val93);
                   }
                   iprot.readMapEnd();
                 }
@@ -7626,15 +8479,15 @@ public class Datahouse {
             case 3: // DATA_MAP
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map84 = iprot.readMapBegin();
-                  struct.dataMap = new HashMap<String,String>(2*_map84.size);
-                  for (int _i85 = 0; _i85 < _map84.size; ++_i85)
+                  org.apache.thrift.protocol.TMap _map94 = iprot.readMapBegin();
+                  struct.dataMap = new HashMap<String,String>(2*_map94.size);
+                  for (int _i95 = 0; _i95 < _map94.size; ++_i95)
                   {
-                    String _key86; // required
-                    String _val87; // required
-                    _key86 = iprot.readString();
-                    _val87 = iprot.readString();
-                    struct.dataMap.put(_key86, _val87);
+                    String _key96; // required
+                    String _val97; // required
+                    _key96 = iprot.readString();
+                    _val97 = iprot.readString();
+                    struct.dataMap.put(_key96, _val97);
                   }
                   iprot.readMapEnd();
                 }
@@ -7667,10 +8520,10 @@ public class Datahouse {
           oprot.writeFieldBegin(QUERY_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.query.size()));
-            for (Map.Entry<String, String> _iter88 : struct.query.entrySet())
+            for (Map.Entry<String, String> _iter98 : struct.query.entrySet())
             {
-              oprot.writeString(_iter88.getKey());
-              oprot.writeString(_iter88.getValue());
+              oprot.writeString(_iter98.getKey());
+              oprot.writeString(_iter98.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -7680,10 +8533,10 @@ public class Datahouse {
           oprot.writeFieldBegin(DATA_MAP_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, struct.dataMap.size()));
-            for (Map.Entry<String, String> _iter89 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter99 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter89.getKey());
-              oprot.writeString(_iter89.getValue());
+              oprot.writeString(_iter99.getKey());
+              oprot.writeString(_iter99.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -7723,20 +8576,20 @@ public class Datahouse {
         if (struct.isSetQuery()) {
           {
             oprot.writeI32(struct.query.size());
-            for (Map.Entry<String, String> _iter90 : struct.query.entrySet())
+            for (Map.Entry<String, String> _iter100 : struct.query.entrySet())
             {
-              oprot.writeString(_iter90.getKey());
-              oprot.writeString(_iter90.getValue());
+              oprot.writeString(_iter100.getKey());
+              oprot.writeString(_iter100.getValue());
             }
           }
         }
         if (struct.isSetDataMap()) {
           {
             oprot.writeI32(struct.dataMap.size());
-            for (Map.Entry<String, String> _iter91 : struct.dataMap.entrySet())
+            for (Map.Entry<String, String> _iter101 : struct.dataMap.entrySet())
             {
-              oprot.writeString(_iter91.getKey());
-              oprot.writeString(_iter91.getValue());
+              oprot.writeString(_iter101.getKey());
+              oprot.writeString(_iter101.getValue());
             }
           }
         }
@@ -7752,30 +8605,30 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TMap _map92 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.query = new HashMap<String,String>(2*_map92.size);
-            for (int _i93 = 0; _i93 < _map92.size; ++_i93)
+            org.apache.thrift.protocol.TMap _map102 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.query = new HashMap<String,String>(2*_map102.size);
+            for (int _i103 = 0; _i103 < _map102.size; ++_i103)
             {
-              String _key94; // required
-              String _val95; // required
-              _key94 = iprot.readString();
-              _val95 = iprot.readString();
-              struct.query.put(_key94, _val95);
+              String _key104; // required
+              String _val105; // required
+              _key104 = iprot.readString();
+              _val105 = iprot.readString();
+              struct.query.put(_key104, _val105);
             }
           }
           struct.setQueryIsSet(true);
         }
         if (incoming.get(2)) {
           {
-            org.apache.thrift.protocol.TMap _map96 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.dataMap = new HashMap<String,String>(2*_map96.size);
-            for (int _i97 = 0; _i97 < _map96.size; ++_i97)
+            org.apache.thrift.protocol.TMap _map106 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.dataMap = new HashMap<String,String>(2*_map106.size);
+            for (int _i107 = 0; _i107 < _map106.size; ++_i107)
             {
-              String _key98; // required
-              String _val99; // required
-              _key98 = iprot.readString();
-              _val99 = iprot.readString();
-              struct.dataMap.put(_key98, _val99);
+              String _key108; // required
+              String _val109; // required
+              _key108 = iprot.readString();
+              _val109 = iprot.readString();
+              struct.dataMap.put(_key108, _val109);
             }
           }
           struct.setDataMapIsSet(true);
@@ -8425,13 +9278,13 @@ public class Datahouse {
             case 2: // ENTITY_IDS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set100 = iprot.readSetBegin();
-                  struct.entityIds = new HashSet<String>(2*_set100.size);
-                  for (int _i101 = 0; _i101 < _set100.size; ++_i101)
+                  org.apache.thrift.protocol.TSet _set110 = iprot.readSetBegin();
+                  struct.entityIds = new HashSet<String>(2*_set110.size);
+                  for (int _i111 = 0; _i111 < _set110.size; ++_i111)
                   {
-                    String _elem102; // required
-                    _elem102 = iprot.readString();
-                    struct.entityIds.add(_elem102);
+                    String _elem112; // required
+                    _elem112 = iprot.readString();
+                    struct.entityIds.add(_elem112);
                   }
                   iprot.readSetEnd();
                 }
@@ -8464,9 +9317,9 @@ public class Datahouse {
           oprot.writeFieldBegin(ENTITY_IDS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, struct.entityIds.size()));
-            for (String _iter103 : struct.entityIds)
+            for (String _iter113 : struct.entityIds)
             {
-              oprot.writeString(_iter103);
+              oprot.writeString(_iter113);
             }
             oprot.writeSetEnd();
           }
@@ -8503,9 +9356,9 @@ public class Datahouse {
         if (struct.isSetEntityIds()) {
           {
             oprot.writeI32(struct.entityIds.size());
-            for (String _iter104 : struct.entityIds)
+            for (String _iter114 : struct.entityIds)
             {
-              oprot.writeString(_iter104);
+              oprot.writeString(_iter114);
             }
           }
         }
@@ -8521,13 +9374,13 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TSet _set105 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.entityIds = new HashSet<String>(2*_set105.size);
-            for (int _i106 = 0; _i106 < _set105.size; ++_i106)
+            org.apache.thrift.protocol.TSet _set115 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.entityIds = new HashSet<String>(2*_set115.size);
+            for (int _i116 = 0; _i116 < _set115.size; ++_i116)
             {
-              String _elem107; // required
-              _elem107 = iprot.readString();
-              struct.entityIds.add(_elem107);
+              String _elem117; // required
+              _elem117 = iprot.readString();
+              struct.entityIds.add(_elem117);
             }
           }
           struct.setEntityIdsIsSet(true);
@@ -8851,15 +9704,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map108 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,Long>(2*_map108.size);
-                  for (int _i109 = 0; _i109 < _map108.size; ++_i109)
+                  org.apache.thrift.protocol.TMap _map118 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,Long>(2*_map118.size);
+                  for (int _i119 = 0; _i119 < _map118.size; ++_i119)
                   {
-                    String _key110; // required
-                    long _val111; // required
-                    _key110 = iprot.readString();
-                    _val111 = iprot.readI64();
-                    struct.success.put(_key110, _val111);
+                    String _key120; // required
+                    long _val121; // required
+                    _key120 = iprot.readString();
+                    _val121 = iprot.readI64();
+                    struct.success.put(_key120, _val121);
                   }
                   iprot.readMapEnd();
                 }
@@ -8887,10 +9740,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.success.size()));
-            for (Map.Entry<String, Long> _iter112 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter122 : struct.success.entrySet())
             {
-              oprot.writeString(_iter112.getKey());
-              oprot.writeI64(_iter112.getValue());
+              oprot.writeString(_iter122.getKey());
+              oprot.writeI64(_iter122.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -8921,10 +9774,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, Long> _iter113 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter123 : struct.success.entrySet())
             {
-              oprot.writeString(_iter113.getKey());
-              oprot.writeI64(_iter113.getValue());
+              oprot.writeString(_iter123.getKey());
+              oprot.writeI64(_iter123.getValue());
             }
           }
         }
@@ -8936,15 +9789,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map114 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
-            struct.success = new HashMap<String,Long>(2*_map114.size);
-            for (int _i115 = 0; _i115 < _map114.size; ++_i115)
+            org.apache.thrift.protocol.TMap _map124 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
+            struct.success = new HashMap<String,Long>(2*_map124.size);
+            for (int _i125 = 0; _i125 < _map124.size; ++_i125)
             {
-              String _key116; // required
-              long _val117; // required
-              _key116 = iprot.readString();
-              _val117 = iprot.readI64();
-              struct.success.put(_key116, _val117);
+              String _key126; // required
+              long _val127; // required
+              _key126 = iprot.readString();
+              _val127 = iprot.readI64();
+              struct.success.put(_key126, _val127);
             }
           }
           struct.setSuccessIsSet(true);
@@ -9498,13 +10351,13 @@ public class Datahouse {
             case 2: // ENTITY_IDS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set118 = iprot.readSetBegin();
-                  struct.entityIds = new HashSet<String>(2*_set118.size);
-                  for (int _i119 = 0; _i119 < _set118.size; ++_i119)
+                  org.apache.thrift.protocol.TSet _set128 = iprot.readSetBegin();
+                  struct.entityIds = new HashSet<String>(2*_set128.size);
+                  for (int _i129 = 0; _i129 < _set128.size; ++_i129)
                   {
-                    String _elem120; // required
-                    _elem120 = iprot.readString();
-                    struct.entityIds.add(_elem120);
+                    String _elem130; // required
+                    _elem130 = iprot.readString();
+                    struct.entityIds.add(_elem130);
                   }
                   iprot.readSetEnd();
                 }
@@ -9553,9 +10406,9 @@ public class Datahouse {
           oprot.writeFieldBegin(ENTITY_IDS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, struct.entityIds.size()));
-            for (String _iter121 : struct.entityIds)
+            for (String _iter131 : struct.entityIds)
             {
-              oprot.writeString(_iter121);
+              oprot.writeString(_iter131);
             }
             oprot.writeSetEnd();
           }
@@ -9604,9 +10457,9 @@ public class Datahouse {
         if (struct.isSetEntityIds()) {
           {
             oprot.writeI32(struct.entityIds.size());
-            for (String _iter122 : struct.entityIds)
+            for (String _iter132 : struct.entityIds)
             {
-              oprot.writeString(_iter122);
+              oprot.writeString(_iter132);
             }
           }
         }
@@ -9628,13 +10481,13 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TSet _set123 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.entityIds = new HashSet<String>(2*_set123.size);
-            for (int _i124 = 0; _i124 < _set123.size; ++_i124)
+            org.apache.thrift.protocol.TSet _set133 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.entityIds = new HashSet<String>(2*_set133.size);
+            for (int _i134 = 0; _i134 < _set133.size; ++_i134)
             {
-              String _elem125; // required
-              _elem125 = iprot.readString();
-              struct.entityIds.add(_elem125);
+              String _elem135; // required
+              _elem135 = iprot.readString();
+              struct.entityIds.add(_elem135);
             }
           }
           struct.setEntityIdsIsSet(true);
@@ -9966,15 +10819,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map126 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,Long>(2*_map126.size);
-                  for (int _i127 = 0; _i127 < _map126.size; ++_i127)
+                  org.apache.thrift.protocol.TMap _map136 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,Long>(2*_map136.size);
+                  for (int _i137 = 0; _i137 < _map136.size; ++_i137)
                   {
-                    String _key128; // required
-                    long _val129; // required
-                    _key128 = iprot.readString();
-                    _val129 = iprot.readI64();
-                    struct.success.put(_key128, _val129);
+                    String _key138; // required
+                    long _val139; // required
+                    _key138 = iprot.readString();
+                    _val139 = iprot.readI64();
+                    struct.success.put(_key138, _val139);
                   }
                   iprot.readMapEnd();
                 }
@@ -10002,10 +10855,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.success.size()));
-            for (Map.Entry<String, Long> _iter130 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter140 : struct.success.entrySet())
             {
-              oprot.writeString(_iter130.getKey());
-              oprot.writeI64(_iter130.getValue());
+              oprot.writeString(_iter140.getKey());
+              oprot.writeI64(_iter140.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -10036,10 +10889,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, Long> _iter131 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter141 : struct.success.entrySet())
             {
-              oprot.writeString(_iter131.getKey());
-              oprot.writeI64(_iter131.getValue());
+              oprot.writeString(_iter141.getKey());
+              oprot.writeI64(_iter141.getValue());
             }
           }
         }
@@ -10051,15 +10904,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map132 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
-            struct.success = new HashMap<String,Long>(2*_map132.size);
-            for (int _i133 = 0; _i133 < _map132.size; ++_i133)
+            org.apache.thrift.protocol.TMap _map142 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
+            struct.success = new HashMap<String,Long>(2*_map142.size);
+            for (int _i143 = 0; _i143 < _map142.size; ++_i143)
             {
-              String _key134; // required
-              long _val135; // required
-              _key134 = iprot.readString();
-              _val135 = iprot.readI64();
-              struct.success.put(_key134, _val135);
+              String _key144; // required
+              long _val145; // required
+              _key144 = iprot.readString();
+              _val145 = iprot.readI64();
+              struct.success.put(_key144, _val145);
             }
           }
           struct.setSuccessIsSet(true);
@@ -10613,13 +11466,13 @@ public class Datahouse {
             case 2: // ENTITY_IDS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set136 = iprot.readSetBegin();
-                  struct.entityIds = new HashSet<String>(2*_set136.size);
-                  for (int _i137 = 0; _i137 < _set136.size; ++_i137)
+                  org.apache.thrift.protocol.TSet _set146 = iprot.readSetBegin();
+                  struct.entityIds = new HashSet<String>(2*_set146.size);
+                  for (int _i147 = 0; _i147 < _set146.size; ++_i147)
                   {
-                    String _elem138; // required
-                    _elem138 = iprot.readString();
-                    struct.entityIds.add(_elem138);
+                    String _elem148; // required
+                    _elem148 = iprot.readString();
+                    struct.entityIds.add(_elem148);
                   }
                   iprot.readSetEnd();
                 }
@@ -10668,9 +11521,9 @@ public class Datahouse {
           oprot.writeFieldBegin(ENTITY_IDS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, struct.entityIds.size()));
-            for (String _iter139 : struct.entityIds)
+            for (String _iter149 : struct.entityIds)
             {
-              oprot.writeString(_iter139);
+              oprot.writeString(_iter149);
             }
             oprot.writeSetEnd();
           }
@@ -10719,9 +11572,9 @@ public class Datahouse {
         if (struct.isSetEntityIds()) {
           {
             oprot.writeI32(struct.entityIds.size());
-            for (String _iter140 : struct.entityIds)
+            for (String _iter150 : struct.entityIds)
             {
-              oprot.writeString(_iter140);
+              oprot.writeString(_iter150);
             }
           }
         }
@@ -10743,13 +11596,13 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TSet _set141 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.entityIds = new HashSet<String>(2*_set141.size);
-            for (int _i142 = 0; _i142 < _set141.size; ++_i142)
+            org.apache.thrift.protocol.TSet _set151 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.entityIds = new HashSet<String>(2*_set151.size);
+            for (int _i152 = 0; _i152 < _set151.size; ++_i152)
             {
-              String _elem143; // required
-              _elem143 = iprot.readString();
-              struct.entityIds.add(_elem143);
+              String _elem153; // required
+              _elem153 = iprot.readString();
+              struct.entityIds.add(_elem153);
             }
           }
           struct.setEntityIdsIsSet(true);
@@ -11081,15 +11934,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map144 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,Long>(2*_map144.size);
-                  for (int _i145 = 0; _i145 < _map144.size; ++_i145)
+                  org.apache.thrift.protocol.TMap _map154 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,Long>(2*_map154.size);
+                  for (int _i155 = 0; _i155 < _map154.size; ++_i155)
                   {
-                    String _key146; // required
-                    long _val147; // required
-                    _key146 = iprot.readString();
-                    _val147 = iprot.readI64();
-                    struct.success.put(_key146, _val147);
+                    String _key156; // required
+                    long _val157; // required
+                    _key156 = iprot.readString();
+                    _val157 = iprot.readI64();
+                    struct.success.put(_key156, _val157);
                   }
                   iprot.readMapEnd();
                 }
@@ -11117,10 +11970,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.success.size()));
-            for (Map.Entry<String, Long> _iter148 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter158 : struct.success.entrySet())
             {
-              oprot.writeString(_iter148.getKey());
-              oprot.writeI64(_iter148.getValue());
+              oprot.writeString(_iter158.getKey());
+              oprot.writeI64(_iter158.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -11151,10 +12004,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, Long> _iter149 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter159 : struct.success.entrySet())
             {
-              oprot.writeString(_iter149.getKey());
-              oprot.writeI64(_iter149.getValue());
+              oprot.writeString(_iter159.getKey());
+              oprot.writeI64(_iter159.getValue());
             }
           }
         }
@@ -11166,15 +12019,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map150 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
-            struct.success = new HashMap<String,Long>(2*_map150.size);
-            for (int _i151 = 0; _i151 < _map150.size; ++_i151)
+            org.apache.thrift.protocol.TMap _map160 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
+            struct.success = new HashMap<String,Long>(2*_map160.size);
+            for (int _i161 = 0; _i161 < _map160.size; ++_i161)
             {
-              String _key152; // required
-              long _val153; // required
-              _key152 = iprot.readString();
-              _val153 = iprot.readI64();
-              struct.success.put(_key152, _val153);
+              String _key162; // required
+              long _val163; // required
+              _key162 = iprot.readString();
+              _val163 = iprot.readI64();
+              struct.success.put(_key162, _val163);
             }
           }
           struct.setSuccessIsSet(true);
@@ -11728,13 +12581,13 @@ public class Datahouse {
             case 2: // ENTITY_IDS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set154 = iprot.readSetBegin();
-                  struct.entityIds = new HashSet<String>(2*_set154.size);
-                  for (int _i155 = 0; _i155 < _set154.size; ++_i155)
+                  org.apache.thrift.protocol.TSet _set164 = iprot.readSetBegin();
+                  struct.entityIds = new HashSet<String>(2*_set164.size);
+                  for (int _i165 = 0; _i165 < _set164.size; ++_i165)
                   {
-                    String _elem156; // required
-                    _elem156 = iprot.readString();
-                    struct.entityIds.add(_elem156);
+                    String _elem166; // required
+                    _elem166 = iprot.readString();
+                    struct.entityIds.add(_elem166);
                   }
                   iprot.readSetEnd();
                 }
@@ -11783,9 +12636,9 @@ public class Datahouse {
           oprot.writeFieldBegin(ENTITY_IDS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, struct.entityIds.size()));
-            for (String _iter157 : struct.entityIds)
+            for (String _iter167 : struct.entityIds)
             {
-              oprot.writeString(_iter157);
+              oprot.writeString(_iter167);
             }
             oprot.writeSetEnd();
           }
@@ -11834,9 +12687,9 @@ public class Datahouse {
         if (struct.isSetEntityIds()) {
           {
             oprot.writeI32(struct.entityIds.size());
-            for (String _iter158 : struct.entityIds)
+            for (String _iter168 : struct.entityIds)
             {
-              oprot.writeString(_iter158);
+              oprot.writeString(_iter168);
             }
           }
         }
@@ -11858,13 +12711,13 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TSet _set159 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.entityIds = new HashSet<String>(2*_set159.size);
-            for (int _i160 = 0; _i160 < _set159.size; ++_i160)
+            org.apache.thrift.protocol.TSet _set169 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.entityIds = new HashSet<String>(2*_set169.size);
+            for (int _i170 = 0; _i170 < _set169.size; ++_i170)
             {
-              String _elem161; // required
-              _elem161 = iprot.readString();
-              struct.entityIds.add(_elem161);
+              String _elem171; // required
+              _elem171 = iprot.readString();
+              struct.entityIds.add(_elem171);
             }
           }
           struct.setEntityIdsIsSet(true);
@@ -12196,15 +13049,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map162 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,Long>(2*_map162.size);
-                  for (int _i163 = 0; _i163 < _map162.size; ++_i163)
+                  org.apache.thrift.protocol.TMap _map172 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,Long>(2*_map172.size);
+                  for (int _i173 = 0; _i173 < _map172.size; ++_i173)
                   {
-                    String _key164; // required
-                    long _val165; // required
-                    _key164 = iprot.readString();
-                    _val165 = iprot.readI64();
-                    struct.success.put(_key164, _val165);
+                    String _key174; // required
+                    long _val175; // required
+                    _key174 = iprot.readString();
+                    _val175 = iprot.readI64();
+                    struct.success.put(_key174, _val175);
                   }
                   iprot.readMapEnd();
                 }
@@ -12232,10 +13085,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.success.size()));
-            for (Map.Entry<String, Long> _iter166 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter176 : struct.success.entrySet())
             {
-              oprot.writeString(_iter166.getKey());
-              oprot.writeI64(_iter166.getValue());
+              oprot.writeString(_iter176.getKey());
+              oprot.writeI64(_iter176.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -12266,10 +13119,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, Long> _iter167 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter177 : struct.success.entrySet())
             {
-              oprot.writeString(_iter167.getKey());
-              oprot.writeI64(_iter167.getValue());
+              oprot.writeString(_iter177.getKey());
+              oprot.writeI64(_iter177.getValue());
             }
           }
         }
@@ -12281,15 +13134,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map168 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
-            struct.success = new HashMap<String,Long>(2*_map168.size);
-            for (int _i169 = 0; _i169 < _map168.size; ++_i169)
+            org.apache.thrift.protocol.TMap _map178 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
+            struct.success = new HashMap<String,Long>(2*_map178.size);
+            for (int _i179 = 0; _i179 < _map178.size; ++_i179)
             {
-              String _key170; // required
-              long _val171; // required
-              _key170 = iprot.readString();
-              _val171 = iprot.readI64();
-              struct.success.put(_key170, _val171);
+              String _key180; // required
+              long _val181; // required
+              _key180 = iprot.readString();
+              _val181 = iprot.readI64();
+              struct.success.put(_key180, _val181);
             }
           }
           struct.setSuccessIsSet(true);
@@ -12843,13 +13696,13 @@ public class Datahouse {
             case 2: // ENTITY_IDS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set172 = iprot.readSetBegin();
-                  struct.entityIds = new HashSet<String>(2*_set172.size);
-                  for (int _i173 = 0; _i173 < _set172.size; ++_i173)
+                  org.apache.thrift.protocol.TSet _set182 = iprot.readSetBegin();
+                  struct.entityIds = new HashSet<String>(2*_set182.size);
+                  for (int _i183 = 0; _i183 < _set182.size; ++_i183)
                   {
-                    String _elem174; // required
-                    _elem174 = iprot.readString();
-                    struct.entityIds.add(_elem174);
+                    String _elem184; // required
+                    _elem184 = iprot.readString();
+                    struct.entityIds.add(_elem184);
                   }
                   iprot.readSetEnd();
                 }
@@ -12898,9 +13751,9 @@ public class Datahouse {
           oprot.writeFieldBegin(ENTITY_IDS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, struct.entityIds.size()));
-            for (String _iter175 : struct.entityIds)
+            for (String _iter185 : struct.entityIds)
             {
-              oprot.writeString(_iter175);
+              oprot.writeString(_iter185);
             }
             oprot.writeSetEnd();
           }
@@ -12949,9 +13802,9 @@ public class Datahouse {
         if (struct.isSetEntityIds()) {
           {
             oprot.writeI32(struct.entityIds.size());
-            for (String _iter176 : struct.entityIds)
+            for (String _iter186 : struct.entityIds)
             {
-              oprot.writeString(_iter176);
+              oprot.writeString(_iter186);
             }
           }
         }
@@ -12973,13 +13826,13 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TSet _set177 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.entityIds = new HashSet<String>(2*_set177.size);
-            for (int _i178 = 0; _i178 < _set177.size; ++_i178)
+            org.apache.thrift.protocol.TSet _set187 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.entityIds = new HashSet<String>(2*_set187.size);
+            for (int _i188 = 0; _i188 < _set187.size; ++_i188)
             {
-              String _elem179; // required
-              _elem179 = iprot.readString();
-              struct.entityIds.add(_elem179);
+              String _elem189; // required
+              _elem189 = iprot.readString();
+              struct.entityIds.add(_elem189);
             }
           }
           struct.setEntityIdsIsSet(true);
@@ -13311,15 +14164,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map180 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,Long>(2*_map180.size);
-                  for (int _i181 = 0; _i181 < _map180.size; ++_i181)
+                  org.apache.thrift.protocol.TMap _map190 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,Long>(2*_map190.size);
+                  for (int _i191 = 0; _i191 < _map190.size; ++_i191)
                   {
-                    String _key182; // required
-                    long _val183; // required
-                    _key182 = iprot.readString();
-                    _val183 = iprot.readI64();
-                    struct.success.put(_key182, _val183);
+                    String _key192; // required
+                    long _val193; // required
+                    _key192 = iprot.readString();
+                    _val193 = iprot.readI64();
+                    struct.success.put(_key192, _val193);
                   }
                   iprot.readMapEnd();
                 }
@@ -13347,10 +14200,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.success.size()));
-            for (Map.Entry<String, Long> _iter184 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter194 : struct.success.entrySet())
             {
-              oprot.writeString(_iter184.getKey());
-              oprot.writeI64(_iter184.getValue());
+              oprot.writeString(_iter194.getKey());
+              oprot.writeI64(_iter194.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -13381,10 +14234,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, Long> _iter185 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter195 : struct.success.entrySet())
             {
-              oprot.writeString(_iter185.getKey());
-              oprot.writeI64(_iter185.getValue());
+              oprot.writeString(_iter195.getKey());
+              oprot.writeI64(_iter195.getValue());
             }
           }
         }
@@ -13396,15 +14249,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map186 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
-            struct.success = new HashMap<String,Long>(2*_map186.size);
-            for (int _i187 = 0; _i187 < _map186.size; ++_i187)
+            org.apache.thrift.protocol.TMap _map196 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
+            struct.success = new HashMap<String,Long>(2*_map196.size);
+            for (int _i197 = 0; _i197 < _map196.size; ++_i197)
             {
-              String _key188; // required
-              long _val189; // required
-              _key188 = iprot.readString();
-              _val189 = iprot.readI64();
-              struct.success.put(_key188, _val189);
+              String _key198; // required
+              long _val199; // required
+              _key198 = iprot.readString();
+              _val199 = iprot.readI64();
+              struct.success.put(_key198, _val199);
             }
           }
           struct.setSuccessIsSet(true);
@@ -15066,13 +15919,13 @@ public class Datahouse {
             case 2: // ENTITY_IDS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set190 = iprot.readSetBegin();
-                  struct.entityIds = new HashSet<String>(2*_set190.size);
-                  for (int _i191 = 0; _i191 < _set190.size; ++_i191)
+                  org.apache.thrift.protocol.TSet _set200 = iprot.readSetBegin();
+                  struct.entityIds = new HashSet<String>(2*_set200.size);
+                  for (int _i201 = 0; _i201 < _set200.size; ++_i201)
                   {
-                    String _elem192; // required
-                    _elem192 = iprot.readString();
-                    struct.entityIds.add(_elem192);
+                    String _elem202; // required
+                    _elem202 = iprot.readString();
+                    struct.entityIds.add(_elem202);
                   }
                   iprot.readSetEnd();
                 }
@@ -15121,9 +15974,9 @@ public class Datahouse {
           oprot.writeFieldBegin(ENTITY_IDS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, struct.entityIds.size()));
-            for (String _iter193 : struct.entityIds)
+            for (String _iter203 : struct.entityIds)
             {
-              oprot.writeString(_iter193);
+              oprot.writeString(_iter203);
             }
             oprot.writeSetEnd();
           }
@@ -15172,9 +16025,9 @@ public class Datahouse {
         if (struct.isSetEntityIds()) {
           {
             oprot.writeI32(struct.entityIds.size());
-            for (String _iter194 : struct.entityIds)
+            for (String _iter204 : struct.entityIds)
             {
-              oprot.writeString(_iter194);
+              oprot.writeString(_iter204);
             }
           }
         }
@@ -15196,13 +16049,13 @@ public class Datahouse {
         }
         if (incoming.get(1)) {
           {
-            org.apache.thrift.protocol.TSet _set195 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-            struct.entityIds = new HashSet<String>(2*_set195.size);
-            for (int _i196 = 0; _i196 < _set195.size; ++_i196)
+            org.apache.thrift.protocol.TSet _set205 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+            struct.entityIds = new HashSet<String>(2*_set205.size);
+            for (int _i206 = 0; _i206 < _set205.size; ++_i206)
             {
-              String _elem197; // required
-              _elem197 = iprot.readString();
-              struct.entityIds.add(_elem197);
+              String _elem207; // required
+              _elem207 = iprot.readString();
+              struct.entityIds.add(_elem207);
             }
           }
           struct.setEntityIdsIsSet(true);
@@ -15534,15 +16387,15 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
                 {
-                  org.apache.thrift.protocol.TMap _map198 = iprot.readMapBegin();
-                  struct.success = new HashMap<String,Long>(2*_map198.size);
-                  for (int _i199 = 0; _i199 < _map198.size; ++_i199)
+                  org.apache.thrift.protocol.TMap _map208 = iprot.readMapBegin();
+                  struct.success = new HashMap<String,Long>(2*_map208.size);
+                  for (int _i209 = 0; _i209 < _map208.size; ++_i209)
                   {
-                    String _key200; // required
-                    long _val201; // required
-                    _key200 = iprot.readString();
-                    _val201 = iprot.readI64();
-                    struct.success.put(_key200, _val201);
+                    String _key210; // required
+                    long _val211; // required
+                    _key210 = iprot.readString();
+                    _val211 = iprot.readI64();
+                    struct.success.put(_key210, _val211);
                   }
                   iprot.readMapEnd();
                 }
@@ -15570,10 +16423,10 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.success.size()));
-            for (Map.Entry<String, Long> _iter202 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter212 : struct.success.entrySet())
             {
-              oprot.writeString(_iter202.getKey());
-              oprot.writeI64(_iter202.getValue());
+              oprot.writeString(_iter212.getKey());
+              oprot.writeI64(_iter212.getValue());
             }
             oprot.writeMapEnd();
           }
@@ -15604,10 +16457,10 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map.Entry<String, Long> _iter203 : struct.success.entrySet())
+            for (Map.Entry<String, Long> _iter213 : struct.success.entrySet())
             {
-              oprot.writeString(_iter203.getKey());
-              oprot.writeI64(_iter203.getValue());
+              oprot.writeString(_iter213.getKey());
+              oprot.writeI64(_iter213.getValue());
             }
           }
         }
@@ -15619,15 +16472,15 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TMap _map204 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
-            struct.success = new HashMap<String,Long>(2*_map204.size);
-            for (int _i205 = 0; _i205 < _map204.size; ++_i205)
+            org.apache.thrift.protocol.TMap _map214 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, iprot.readI32());
+            struct.success = new HashMap<String,Long>(2*_map214.size);
+            for (int _i215 = 0; _i215 < _map214.size; ++_i215)
             {
-              String _key206; // required
-              long _val207; // required
-              _key206 = iprot.readString();
-              _val207 = iprot.readI64();
-              struct.success.put(_key206, _val207);
+              String _key216; // required
+              long _val217; // required
+              _key216 = iprot.readString();
+              _val217 = iprot.readI64();
+              struct.success.put(_key216, _val217);
             }
           }
           struct.setSuccessIsSet(true);
@@ -16606,25 +17459,25 @@ public class Datahouse {
             case 0: // SUCCESS
               if (schemeField.type == org.apache.thrift.protocol.TType.SET) {
                 {
-                  org.apache.thrift.protocol.TSet _set208 = iprot.readSetBegin();
-                  struct.success = new HashSet<Map<String,String>>(2*_set208.size);
-                  for (int _i209 = 0; _i209 < _set208.size; ++_i209)
+                  org.apache.thrift.protocol.TSet _set218 = iprot.readSetBegin();
+                  struct.success = new HashSet<Map<String,String>>(2*_set218.size);
+                  for (int _i219 = 0; _i219 < _set218.size; ++_i219)
                   {
-                    Map<String,String> _elem210; // required
+                    Map<String,String> _elem220; // required
                     {
-                      org.apache.thrift.protocol.TMap _map211 = iprot.readMapBegin();
-                      _elem210 = new HashMap<String,String>(2*_map211.size);
-                      for (int _i212 = 0; _i212 < _map211.size; ++_i212)
+                      org.apache.thrift.protocol.TMap _map221 = iprot.readMapBegin();
+                      _elem220 = new HashMap<String,String>(2*_map221.size);
+                      for (int _i222 = 0; _i222 < _map221.size; ++_i222)
                       {
-                        String _key213; // required
-                        String _val214; // required
-                        _key213 = iprot.readString();
-                        _val214 = iprot.readString();
-                        _elem210.put(_key213, _val214);
+                        String _key223; // required
+                        String _val224; // required
+                        _key223 = iprot.readString();
+                        _val224 = iprot.readString();
+                        _elem220.put(_key223, _val224);
                       }
                       iprot.readMapEnd();
                     }
-                    struct.success.add(_elem210);
+                    struct.success.add(_elem220);
                   }
                   iprot.readSetEnd();
                 }
@@ -16652,14 +17505,14 @@ public class Datahouse {
           oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
           {
             oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.MAP, struct.success.size()));
-            for (Map<String,String> _iter215 : struct.success)
+            for (Map<String,String> _iter225 : struct.success)
             {
               {
-                oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, _iter215.size()));
-                for (Map.Entry<String, String> _iter216 : _iter215.entrySet())
+                oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, _iter225.size()));
+                for (Map.Entry<String, String> _iter226 : _iter225.entrySet())
                 {
-                  oprot.writeString(_iter216.getKey());
-                  oprot.writeString(_iter216.getValue());
+                  oprot.writeString(_iter226.getKey());
+                  oprot.writeString(_iter226.getValue());
                 }
                 oprot.writeMapEnd();
               }
@@ -16693,14 +17546,14 @@ public class Datahouse {
         if (struct.isSetSuccess()) {
           {
             oprot.writeI32(struct.success.size());
-            for (Map<String,String> _iter217 : struct.success)
+            for (Map<String,String> _iter227 : struct.success)
             {
               {
-                oprot.writeI32(_iter217.size());
-                for (Map.Entry<String, String> _iter218 : _iter217.entrySet())
+                oprot.writeI32(_iter227.size());
+                for (Map.Entry<String, String> _iter228 : _iter227.entrySet())
                 {
-                  oprot.writeString(_iter218.getKey());
-                  oprot.writeString(_iter218.getValue());
+                  oprot.writeString(_iter228.getKey());
+                  oprot.writeString(_iter228.getValue());
                 }
               }
             }
@@ -16714,24 +17567,24 @@ public class Datahouse {
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           {
-            org.apache.thrift.protocol.TSet _set219 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.MAP, iprot.readI32());
-            struct.success = new HashSet<Map<String,String>>(2*_set219.size);
-            for (int _i220 = 0; _i220 < _set219.size; ++_i220)
+            org.apache.thrift.protocol.TSet _set229 = new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.MAP, iprot.readI32());
+            struct.success = new HashSet<Map<String,String>>(2*_set229.size);
+            for (int _i230 = 0; _i230 < _set229.size; ++_i230)
             {
-              Map<String,String> _elem221; // required
+              Map<String,String> _elem231; // required
               {
-                org.apache.thrift.protocol.TMap _map222 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-                _elem221 = new HashMap<String,String>(2*_map222.size);
-                for (int _i223 = 0; _i223 < _map222.size; ++_i223)
+                org.apache.thrift.protocol.TMap _map232 = new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+                _elem231 = new HashMap<String,String>(2*_map232.size);
+                for (int _i233 = 0; _i233 < _map232.size; ++_i233)
                 {
-                  String _key224; // required
-                  String _val225; // required
-                  _key224 = iprot.readString();
-                  _val225 = iprot.readString();
-                  _elem221.put(_key224, _val225);
+                  String _key234; // required
+                  String _val235; // required
+                  _key234 = iprot.readString();
+                  _val235 = iprot.readString();
+                  _elem231.put(_key234, _val235);
                 }
               }
-              struct.success.add(_elem221);
+              struct.success.add(_elem231);
             }
           }
           struct.setSuccessIsSet(true);

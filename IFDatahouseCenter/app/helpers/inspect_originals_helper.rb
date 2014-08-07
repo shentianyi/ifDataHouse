@@ -1,0 +1,2 @@
+module InspectOriginalsHelper
+end

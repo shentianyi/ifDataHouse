@@ -17,13 +17,13 @@ namespace Brilliantech.PackSysDataService
         public PackSysDbDataService()
         {
             InitializeComponent();
+            readDataTimer.Enabled = false;
         }
 
         protected override void OnStart(string[] args)
         {
-
             writeLog("Brillantech.PackSysDbData.Service 【启动中】");
-            LogUtil.Logger.Info("START");
+            LogUtil.Logger.Info("---[ START ]----");
             readDataTimer.Interval = Conf.ReadDbInterval;
             readDataTimer.Enabled = true;
             readDataTimer.Start();
@@ -39,7 +39,8 @@ namespace Brilliantech.PackSysDataService
             try
             {
                 PackDbDataHandler packDataHandler = new PackDbDataHandler();
-                DateTime dataReadEndTime = DateTime.Now;
+              //  DateTime dataReadEndTime = Conf.DataReadStartTime.AddMilliseconds(10000);
+                string dataReadEndTime = TimeUtil.GetDateTimeInMil();
                 string fileName = Guid.NewGuid().ToString() + ".txt";
                 string file = Path.Combine(Conf.PackDataPath, fileName);
                 packDataHandler.WritePackItemViewToFileBy(Conf.DataReadStartTime, dataReadEndTime, file);
@@ -47,6 +48,7 @@ namespace Brilliantech.PackSysDataService
             }
             catch (Exception ex) {
                 LogUtil.Logger.Error(ex.Message);
+                this.Stop();
             }
         }
 

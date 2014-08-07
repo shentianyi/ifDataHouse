@@ -35,6 +35,7 @@ module ApplicationHelper
 
   def create
     m=model
+    params[@model]=JSON.parse(params[@model])  if params[@model].is_a?(String)
     @item = m.new(params[@model])
     if m.respond_to?(:uniq)
       query={}

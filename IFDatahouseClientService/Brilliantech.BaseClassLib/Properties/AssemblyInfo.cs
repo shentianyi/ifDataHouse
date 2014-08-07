@@ -19,6 +19,7 @@ using System.Runtime.InteropServices;
 // 则将该类型上的 ComVisible 特性设置为 true。
 [assembly: ComVisible(false)]
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4.config", Watch = true)]
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
 [assembly: Guid("89bfc024-40be-4898-8da4-ba72d342d402")]
 

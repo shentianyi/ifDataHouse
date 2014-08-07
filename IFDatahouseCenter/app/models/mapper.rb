@@ -8,12 +8,24 @@ class Mapper
   field :access_key
   MObjects=[['员工',0],['组织',1],['零件',2]]
 
-  MHModels={0=>'staff',1=>'entity',2=>'part'} 
-  
+  MHModels={0=>'staff',1=>'entity',2=>'part'}
+
   def self.get_model i
     MHModels[i]
   end
 
+  def self.generate_mapper_items mapper_model,map_key,map_value,map_field_value,mapper_id=nil
+    mappers=mapper_id.nil? ? Mapper.all : [Mapper.find(mapper_id)]
+    mappers.each do |mapper|
+    if mi=MapperItem.find_by(:map_key=>map_key,:mapper_id=>mapper.id)
+      mi.update_attributes(:map_value=>map_value) if mi.map_value!=map_value
+      mi.g_update_in_redis
+    else
+      mi=MapperItem.new(:model=>mapper_model, :map_value=>map_value,:map_key=>map_key,:map_field_value=>map_field_value,:access_key=>mapper.access_key)
+    mapper.mapper_items<<mi
+    end
+    end
+  end
 end
 
 class MapperItem
@@ -38,12 +50,16 @@ class MapperItem
 
   def update_in_redis
     if self.map_value_changed?
-      value_key_hash=generate_key "value:key"
-      $redis.hset value_key_hash,self.map_value,self.map_key
-      $redis.hdel value_key_hash,self.map_value_was
-      key_value_hash=generate_key "key:value"
-    $redis.hset key_value_hash,self.map_key,self.map_value
+      g_update_in_redis
     end
+  end
+
+  def g_update_in_redis
+    value_key_hash=generate_key "value:key"
+    $redis.hset value_key_hash,self.map_value,self.map_key
+    $redis.hdel value_key_hash,self.map_value_was
+    key_value_hash=generate_key "key:value"
+    $redis.hset key_value_hash,self.map_key,self.map_value
   end
 
   def delete_from_redis

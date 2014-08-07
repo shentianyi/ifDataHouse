@@ -5,7 +5,7 @@
 #
 
 require 'thrift'
-require_relative 'epm_service_types'
+require 'epm_service_types'
 
 module CZ
   module Epm

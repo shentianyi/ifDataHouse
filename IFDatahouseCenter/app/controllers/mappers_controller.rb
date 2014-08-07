@@ -59,14 +59,15 @@ class MappersController < ApplicationController
           params[:data].each_pair do |map_key,map_value|
             if  mii=mapper_model.classify.constantize.find(map_key)
               map_value=map_value.length==0 ? mii.send(mii.map_field) : map_value
-              generate_mapper_item mapper_model,map_key,map_value,mii.send(mii.map_field)
+              # generate_mapper_item mapper_model,map_key,map_value,mii.send(mii.map_field)
+              Mapper.generate_mapper_items mapper_model,map_key,map_value,mii.send(mii.map_field),session[:mapper]
             end
           end
         else
           mapper_model.classify.constantize.all.each do |m|
             map_value=m.send(m.map_field)
             map_key=m.id.to_s
-            generate_mapper_item mapper_model,map_key,map_value,map_value
+            Mapper.generate_mapper_items mapper_model,map_key,map_value,map_value,session[:mapper]
           end
         end
         msg.content='finish'
@@ -110,13 +111,13 @@ class MappersController < ApplicationController
     session[:mapper]=session[:mapper_model]=session[:mapper_access_key]=nil
   end
 
-  def generate_mapper_item mapper_model,map_key,map_value,map_field_value
-    mapper=Mapper.find(session[:mapper])
-    if mi=MapperItem.find_by(:map_key=>map_key,:mapper_id=>mapper.id)
-      mi.update_attributes(:map_value=>map_value) if mi.map_value!=map_value
-    else
-      mi=MapperItem.new(:model=>mapper_model, :map_value=>map_value,:map_key=>map_key,:map_field_value=>map_field_value,:access_key=>mapper.access_key)
-    mapper.mapper_items<<mi
-    end
-  end
+  # def generate_mapper_item mapper_model,map_key,map_value,map_field_value
+    # mapper=Mapper.find(session[:mapper])
+    # if mi=MapperItem.find_by(:map_key=>map_key,:mapper_id=>mapper.id)
+      # mi.update_attributes(:map_value=>map_value) if mi.map_value!=map_value
+    # else
+      # mi=MapperItem.new(:model=>mapper_model, :map_value=>map_value,:map_key=>map_key,:map_field_value=>map_field_value,:access_key=>mapper.access_key)
+    # mapper.mapper_items<<mi
+    # end
+  # end
 end

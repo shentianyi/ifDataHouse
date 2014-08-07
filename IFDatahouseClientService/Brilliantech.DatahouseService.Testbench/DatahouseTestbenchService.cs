@@ -39,7 +39,7 @@ namespace Brilliantech.DatahouseService.Testbench
                         Process(file);
                     }
                 }
-                scanTimer.Interval = Conf.TestScanInt;
+                scanTimer.Interval = Conf.ScanInt;
                 scanTimer.Enabled = true;
                 scanTimer.Start();
                 writeLog("Brillantech.Datahouse.Testbench.Service 【已启动】");
@@ -67,17 +67,17 @@ namespace Brilliantech.DatahouseService.Testbench
                     using (StreamReader reader = new StreamReader(fs))
                     {
                         string s = reader.ReadLine();
-                        if (s == null || s.Length == 0 || s.Split(Conf.TestDataSpliter).Length != Conf.TestParamCount)
+                        if (s == null || s.Length == 0 || s.Split(Conf.DataSpliter).Length != Conf.TestParamCount)
                         {
                             LogUtil.Logger.Error("【数据错误】【文件】" + Path.GetFileName(fullPath));
-                            LogUtil.Logger.Error(s.Split(Conf.TestDataSpliter));
-                            LogUtil.Logger.Error(Conf.TestDataSpliter);
-                            LogUtil.Logger.Error(s.Split(Conf.TestDataSpliter).Length);
+                            LogUtil.Logger.Error(s.Split(Conf.DataSpliter));
+                            LogUtil.Logger.Error(Conf.DataSpliter);
+                            LogUtil.Logger.Error(s.Split(Conf.DataSpliter).Length);
                             nextDir = Path.Combine(Conf.TestErrorFilePath, DateTime.Today.ToString("yyyy-MM-dd"));
                         }
                         else
                         {
-                            string[] data = s.Split(Conf.TestDataSpliter);
+                            string[] data = s.Split(Conf.DataSpliter);
                             Dictionary<string, string> dataMap = new Dictionary<string, string>();
                             dataMap.Add("entityId", data[0]);
                             DateTime date = DateTime.Now;

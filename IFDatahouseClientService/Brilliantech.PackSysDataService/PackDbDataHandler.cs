@@ -10,16 +10,19 @@ namespace Brilliantech.PackSysDataService
 {
     public class PackDbDataHandler
     {
-        public bool WritePackItemViewToFileBy(DateTime startTime, DateTime endTime, string file)
+        public bool WritePackItemViewToFileBy(string startTime, string endTime, string file)
         {
             try
             {
                 using (IUnitOfWork unit = new PackSysDataClassesDataContext(Conf.Connstr))
                 {
+                    //LogUtil.Logger.Info("----------------start time:");
+                    //LogUtil.Logger.Info(startTime);
+                    //LogUtil.Logger.Info("----------------end time:");
+                    //LogUtil.Logger.Info(endTime);
                     PackItemViewRepository rep = new PackItemViewRepository(unit);
                     List<PackItemView> items = rep.GetByTime(startTime, endTime);
-
-                    LogUtil.Logger.Info(items.Count);
+                    //LogUtil.Logger.Info(items.Count);
                     if (items.Count == 0)
                         return false;
                     using (FileStream fs = File.Open(file, FileMode.Create, FileAccess.ReadWrite))
@@ -28,7 +31,7 @@ namespace Brilliantech.PackSysDataService
                         {
                             foreach (PackItemView item in items)
                             {
-                                writer.WriteLine(item.partNr);
+                                writer.WriteLine(string.Format("{0}{4}{1}{4}{2}{4}{3}", item.partNr, item.packageID, item.projectID,TimeUtil.GetMilliseconds( item.packagingTime.ToUniversalTime()), Conf.DataSpliter));
                             }
                         }
                     }

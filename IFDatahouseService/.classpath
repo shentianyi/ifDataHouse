@@ -2,19 +2,20 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/c3p0-0.9.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/commons-configuration-1.6.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/commons-pool-1.6.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/guava-14.0.1.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/jedis-2.1.0.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/jedis-namespace.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/libthrift-0.9.0.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/mongo-java-driver-2.9.3.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/quartz-all-2.1.7.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/home/charlot/project/brilliantech/ifDataHouse/lib/used/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/c3p0-0.9.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/commons-configuration-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/jedis-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/jedis-namespace.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/libthrift-0.9.0.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/quartz-all-2.1.7.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/wangsong/project/brilliantech/ifDatahouse/lib/used/mongo-java-driver-2.9.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -42,11 +42,11 @@ exception IllegalArgument{
 //
 service Datahouse{
   //
-  //*******  hbase thrift services  ********/
+  //*******  ifdatahouse thrift services  ********/
   //
   /**
    * add attendance
-   * entityId,attendTime,staffNr,type are required
+   * entityId,attendTime,staffId,type are required
    * type: -1:off,1:on
    */
   void addAttendance(
@@ -54,6 +54,18 @@ service Datahouse{
    2:map<string,string> dataMap
   )
   
+ /**
+   * add attendances
+   * entityId,attendTime,type are required
+   * staffIds
+   * type: -1:off,1:on
+   */
+  void addAttendances(
+   1:string accessKey,
+   2:map<string,string> dataMap
+  )
+
+
     /**
     * add product inspect
     * entityId,inspectTime,productNr,type are required
@@ -66,7 +78,7 @@ service Datahouse{
   
   /**
     * add out put
-    * entityId,packTime,productNr,partNr are required
+    * entityId,packTime,productNr,partId are required
     */
   void addProductPack(
     1:string accessKey,
@@ -81,16 +93,37 @@ service Datahouse{
     */
     void setProductInspectState(
        1:string accessKey,
-   2:map<string,string> dataMap
+       2:map<string,string> dataMap
     )
   /**
     * add entity operation record
-    * targetId,operateTime,state are required
+    * entityId,operateTime,state are required
     */
   void addOperatingState(
    1:string accessKey,
    2:map<string,string> dataMap
    )
+   
+    /**
+    * add target
+    * entityId,partId are required
+    */
+    void addPlanTarget(
+    1:string accessKey,
+    2:map<string,string> dataMap
+    )
+    
+    map<string,string> getPlanTarget(
+    1:string accessKey,
+    2:map<string,string> dataMap
+    )
+    
+    void updatePlanTarget(
+     1:string accessKey,
+     2:map<string,string> query
+     3:map<string,string> dataMap
+    )
+   
   /**
    * get current on job workers number
    */
@@ -140,6 +173,17 @@ service Datahouse{
       3:Timestamp startTime,
       4:Timestamp endTime
      )
+     
+     /**
+       * get product number by partId,entityId
+       */
+      i64 getProductOutputNumsByPartId(
+      1:string accessKey,
+      2:string entityId,
+      3:string partId,
+      4:string startTime,
+      5:string endTime
+      )
      
     /**
       * get entity workers on job time

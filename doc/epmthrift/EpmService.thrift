@@ -54,6 +54,18 @@ service Datahouse{
    2:map<string,string> dataMap
   )
   
+ /**
+   * add attendances
+   * entityId,attendTime,type,staffIds are required
+   * 
+   * type: -1:off,1:on
+   */
+  void addAttendances(
+   1:string accessKey,
+   2:map<string,string> dataMap
+  )
+
+
     /**
     * add product inspect
     * entityId,inspectTime,productNr,type are required

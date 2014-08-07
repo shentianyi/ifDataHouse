@@ -110,6 +110,7 @@
     </None>
     <None Include="log4.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Repository\PackSysDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
