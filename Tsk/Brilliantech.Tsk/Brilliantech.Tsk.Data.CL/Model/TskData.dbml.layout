@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TskData">
+  <DataContextMoniker Name="/TskDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f7ce6a75-40b7-4a12-84d8-6c5d582e8ff9" absoluteBounds="2.75, 2.25, 2, 2.5266442871093751">
+      <DataClassMoniker Name="/TskDataDataContext/Inspect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a01f4272-9c05-4174-a41d-de22ffce1d14" absoluteBounds="2.765, 2.71, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

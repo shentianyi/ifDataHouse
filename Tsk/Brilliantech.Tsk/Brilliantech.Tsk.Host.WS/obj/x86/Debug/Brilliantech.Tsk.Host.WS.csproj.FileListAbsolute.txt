@@ -1,0 +1,4 @@
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.exe
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.pdb
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.exe
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.pdb

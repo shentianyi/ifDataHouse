@@ -1,0 +1,5 @@
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Service.Wcf.dll.config
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Service.Wcf.dll
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Service.Wcf.pdb
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.dll
+C:\Users\Wangsong\Documents\Visual Studio 2010\Projects\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.pdb
