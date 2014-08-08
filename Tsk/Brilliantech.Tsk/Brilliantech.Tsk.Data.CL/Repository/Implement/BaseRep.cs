@@ -8,15 +8,15 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
 {
     public class BaseRep
     {
-        protected TskDataDataContext _context;
-        public BaseRep(TskDataDataContext context)
+        protected TskDataDataContext context;
+        public BaseRep(IUnitOfWork _unit)
         {
-            if (context == null)
+            if (_unit == null)
             {
                 throw new ArgumentNullException("Data context is null");
             }
             else {
-                this._context = context;
+                this.context = _unit as TskDataDataContext;
             }
         }
     }

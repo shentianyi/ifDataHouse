@@ -2,10 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TskData">
   <DataContextMoniker Name="/TskDataDataContext" />
   <nestedChildShapes>
-    <classShape Id="f7ce6a75-40b7-4a12-84d8-6c5d582e8ff9" absoluteBounds="2.75, 2.25, 2, 2.5266442871093751">
+    <classShape Id="7cb77ad9-ff2e-4d0f-b63d-2910926318a6" absoluteBounds="3.75, 0.75, 2, 1.7625655110677081">
+      <DataClassMoniker Name="/TskDataDataContext/InspectOrigin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77b885a7-ab44-4145-bde6-5f25ed51caf0" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a3f3e6f-7765-4ce1-8938-bda832198933" absoluteBounds="1.125, 0.875, 2, 3.2907230631510416">
       <DataClassMoniker Name="/TskDataDataContext/Inspect" />
       <nestedChildShapes>
-        <elementListCompartment Id="a01f4272-9c05-4174-a41d-de22ffce1d14" absoluteBounds="2.765, 2.71, 1.9700000000000002, 1.966644287109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ddeb87c2-5450-40f0-aca7-0b9c22104a24" absoluteBounds="1.1400000000000001, 1.335, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

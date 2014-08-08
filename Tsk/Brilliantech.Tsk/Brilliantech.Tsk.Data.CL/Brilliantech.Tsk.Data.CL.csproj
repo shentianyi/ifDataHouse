@@ -12,6 +12,8 @@
     <AssemblyName>Brilliantech.Tsk.Data.CL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Model\IUnitOfWork.cs" />
     <Compile Include="Model\TskData.designer.cs">
       <AutoGen>True</AutoGen>
@@ -57,11 +58,15 @@
     </Compile>
     <Compile Include="Repository\Implement\BaseRep.cs" />
     <Compile Include="Repository\Implement\InspectRep.cs" />
+    <Compile Include="Repository\Implement\InspectOriginRep.cs" />
     <Compile Include="Repository\Interface\IBaseRep.cs" />
+    <Compile Include="Repository\Interface\IInspectOriginRep.cs" />
     <Compile Include="Repository\Interface\IInspectRep.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Model\TskData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>TskData.designer.cs</LastGenOutput>

@@ -30,6 +30,12 @@ namespace Brilliantech.Tsk.Data.CL.Model
 		
     #region 可扩展性方法定义
     partial void OnCreated();
+    partial void InsertInspectOrigin(InspectOrigin instance);
+    partial void UpdateInspectOrigin(InspectOrigin instance);
+    partial void DeleteInspectOrigin(InspectOrigin instance);
+    partial void InsertInspect(Inspect instance);
+    partial void UpdateInspect(Inspect instance);
+    partial void DeleteInspect(Inspect instance);
     #endregion
 		
 		public TskDataDataContext() : 
@@ -62,6 +68,14 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<InspectOrigin> InspectOrigin
+		{
+			get
+			{
+				return this.GetTable<InspectOrigin>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Inspect> Inspect
 		{
 			get
@@ -71,9 +85,171 @@ namespace Brilliantech.Tsk.Data.CL.Model
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Inspect")]
-	public partial class Inspect
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InspectOrigin")]
+	public partial class InspectOrigin : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Id;
+		
+		private string _Text;
+		
+		private System.Nullable<bool> _ProcessResult;
+		
+		private string _ProcessMessage;
+		
+		private System.Nullable<System.DateTime> _CreatedAt;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(System.Guid value);
+    partial void OnIdChanged();
+    partial void OnTextChanging(string value);
+    partial void OnTextChanged();
+    partial void OnProcessResultChanging(System.Nullable<bool> value);
+    partial void OnProcessResultChanged();
+    partial void OnProcessMessageChanging(string value);
+    partial void OnProcessMessageChanged();
+    partial void OnCreatedAtChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedAtChanged();
+    #endregion
+		
+		public InspectOrigin()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Text
+		{
+			get
+			{
+				return this._Text;
+			}
+			set
+			{
+				if ((this._Text != value))
+				{
+					this.OnTextChanging(value);
+					this.SendPropertyChanging();
+					this._Text = value;
+					this.SendPropertyChanged("Text");
+					this.OnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProcessResult", DbType="Bit")]
+		public System.Nullable<bool> ProcessResult
+		{
+			get
+			{
+				return this._ProcessResult;
+			}
+			set
+			{
+				if ((this._ProcessResult != value))
+				{
+					this.OnProcessResultChanging(value);
+					this.SendPropertyChanging();
+					this._ProcessResult = value;
+					this.SendPropertyChanged("ProcessResult");
+					this.OnProcessResultChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProcessMessage", DbType="VarChar(1000)")]
+		public string ProcessMessage
+		{
+			get
+			{
+				return this._ProcessMessage;
+			}
+			set
+			{
+				if ((this._ProcessMessage != value))
+				{
+					this.OnProcessMessageChanging(value);
+					this.SendPropertyChanging();
+					this._ProcessMessage = value;
+					this.SendPropertyChanged("ProcessMessage");
+					this.OnProcessMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedAt
+		{
+			get
+			{
+				return this._CreatedAt;
+			}
+			set
+			{
+				if ((this._CreatedAt != value))
+				{
+					this.OnCreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedAt = value;
+					this.SendPropertyChanged("CreatedAt");
+					this.OnCreatedAtChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Inspect")]
+	public partial class Inspect : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Id;
 		
 		private string _TskNo;
 		
@@ -83,21 +259,80 @@ namespace Brilliantech.Tsk.Data.CL.Model
 		
 		private string _ClipScanNo;
 		
-		private System.Nullable<System.DateTime> _ClipScanTime1;
+		private string _ClipScanTime1;
 		
-		private System.Nullable<System.DateTime> _ClipScanTime2;
+		private string _ClipScanTime2;
 		
 		private string _TskScanNo;
 		
-		private System.Nullable<System.DateTime> _TskScanTime3;
+		private string _TskScanTime3;
+		
+		private string _Time3MinTime2;
 		
 		private string _OkOrNot;
 		
+		private System.Nullable<System.DateTime> _CreatedAt;
+		
+		private System.Nullable<System.Guid> _OriginId;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(System.Guid value);
+    partial void OnIdChanged();
+    partial void OnTskNoChanging(string value);
+    partial void OnTskNoChanged();
+    partial void OnLeoniNoChanging(string value);
+    partial void OnLeoniNoChanged();
+    partial void OnCusNoChanging(string value);
+    partial void OnCusNoChanged();
+    partial void OnClipScanNoChanging(string value);
+    partial void OnClipScanNoChanged();
+    partial void OnClipScanTime1Changing(string value);
+    partial void OnClipScanTime1Changed();
+    partial void OnClipScanTime2Changing(string value);
+    partial void OnClipScanTime2Changed();
+    partial void OnTskScanNoChanging(string value);
+    partial void OnTskScanNoChanged();
+    partial void OnTskScanTime3Changing(string value);
+    partial void OnTskScanTime3Changed();
+    partial void OnTime3MinTime2Changing(string value);
+    partial void OnTime3MinTime2Changed();
+    partial void OnOkOrNotChanging(string value);
+    partial void OnOkOrNotChanged();
+    partial void OnCreatedAtChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedAtChanged();
+    partial void OnOriginIdChanging(System.Nullable<System.Guid> value);
+    partial void OnOriginIdChanged();
+    #endregion
+		
 		public Inspect()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskNo", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskNo", DbType="VarChar(100)")]
 		public string TskNo
 		{
 			get
@@ -108,12 +343,16 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._TskNo != value))
 				{
+					this.OnTskNoChanging(value);
+					this.SendPropertyChanging();
 					this._TskNo = value;
+					this.SendPropertyChanged("TskNo");
+					this.OnTskNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeoniNo", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeoniNo", DbType="VarChar(100)")]
 		public string LeoniNo
 		{
 			get
@@ -124,12 +363,16 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._LeoniNo != value))
 				{
+					this.OnLeoniNoChanging(value);
+					this.SendPropertyChanging();
 					this._LeoniNo = value;
+					this.SendPropertyChanged("LeoniNo");
+					this.OnLeoniNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CusNo", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CusNo", DbType="VarChar(100)")]
 		public string CusNo
 		{
 			get
@@ -140,7 +383,11 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._CusNo != value))
 				{
+					this.OnCusNoChanging(value);
+					this.SendPropertyChanging();
 					this._CusNo = value;
+					this.SendPropertyChanged("CusNo");
+					this.OnCusNoChanged();
 				}
 			}
 		}
@@ -156,13 +403,17 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._ClipScanNo != value))
 				{
+					this.OnClipScanNoChanging(value);
+					this.SendPropertyChanging();
 					this._ClipScanNo = value;
+					this.SendPropertyChanged("ClipScanNo");
+					this.OnClipScanNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanTime1", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ClipScanTime1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanTime1", DbType="VarChar(50)")]
+		public string ClipScanTime1
 		{
 			get
 			{
@@ -172,13 +423,17 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._ClipScanTime1 != value))
 				{
+					this.OnClipScanTime1Changing(value);
+					this.SendPropertyChanging();
 					this._ClipScanTime1 = value;
+					this.SendPropertyChanged("ClipScanTime1");
+					this.OnClipScanTime1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanTime2", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ClipScanTime2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanTime2", DbType="VarChar(50)")]
+		public string ClipScanTime2
 		{
 			get
 			{
@@ -188,7 +443,11 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._ClipScanTime2 != value))
 				{
+					this.OnClipScanTime2Changing(value);
+					this.SendPropertyChanging();
 					this._ClipScanTime2 = value;
+					this.SendPropertyChanged("ClipScanTime2");
+					this.OnClipScanTime2Changed();
 				}
 			}
 		}
@@ -204,13 +463,17 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._TskScanNo != value))
 				{
+					this.OnTskScanNoChanging(value);
+					this.SendPropertyChanging();
 					this._TskScanNo = value;
+					this.SendPropertyChanged("TskScanNo");
+					this.OnTskScanNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskScanTime3", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TskScanTime3
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskScanTime3", DbType="VarChar(50)")]
+		public string TskScanTime3
 		{
 			get
 			{
@@ -220,12 +483,36 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._TskScanTime3 != value))
 				{
+					this.OnTskScanTime3Changing(value);
+					this.SendPropertyChanging();
 					this._TskScanTime3 = value;
+					this.SendPropertyChanged("TskScanTime3");
+					this.OnTskScanTime3Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OkOrNot", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time3MinTime2", DbType="VarChar(50)")]
+		public string Time3MinTime2
+		{
+			get
+			{
+				return this._Time3MinTime2;
+			}
+			set
+			{
+				if ((this._Time3MinTime2 != value))
+				{
+					this.OnTime3MinTime2Changing(value);
+					this.SendPropertyChanging();
+					this._Time3MinTime2 = value;
+					this.SendPropertyChanged("Time3MinTime2");
+					this.OnTime3MinTime2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OkOrNot", DbType="VarChar(50)")]
 		public string OkOrNot
 		{
 			get
@@ -236,8 +523,72 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			{
 				if ((this._OkOrNot != value))
 				{
+					this.OnOkOrNotChanging(value);
+					this.SendPropertyChanging();
 					this._OkOrNot = value;
+					this.SendPropertyChanged("OkOrNot");
+					this.OnOkOrNotChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedAt
+		{
+			get
+			{
+				return this._CreatedAt;
+			}
+			set
+			{
+				if ((this._CreatedAt != value))
+				{
+					this.OnCreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedAt = value;
+					this.SendPropertyChanged("CreatedAt");
+					this.OnCreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OriginId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> OriginId
+		{
+			get
+			{
+				return this._OriginId;
+			}
+			set
+			{
+				if ((this._OriginId != value))
+				{
+					this.OnOriginIdChanging(value);
+					this.SendPropertyChanging();
+					this._OriginId = value;
+					this.SendPropertyChanged("OriginId");
+					this.OnOriginIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

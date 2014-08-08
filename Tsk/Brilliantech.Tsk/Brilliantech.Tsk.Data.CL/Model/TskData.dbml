@@ -1,16 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Leoni_Tsk_JN" Class="TskDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=wangsong-pc;Initial Catalog=Leoni_Tsk_JN;Persist Security Info=True;User ID=sa" SettingsObjectName="Brilliantech.Tsk.Data.CL.Properties.Settings" SettingsPropertyName="Leoni_Tsk_JNConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InspectOrigin" Member="InspectOrigin">
+    <Type Name="InspectOrigin">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ProcessResult" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProcessMessage" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Inspect" Member="Inspect">
     <Type Name="Inspect">
-      <Column Name="TskNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="LeoniNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CusNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TskNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LeoniNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CusNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="ClipScanNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ClipScanTime1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ClipScanTime2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClipScanTime1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ClipScanTime2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="TskScanNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="TskScanTime3" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="OkOrNot" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="TskScanTime3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Time3MinTime2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OkOrNot" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OriginId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -9,7 +9,7 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
 {
     public class InspectRep : BaseRep, IInspectRep
     {
-        public InspectRep(TskDataDataContext context)
+        public InspectRep(IUnitOfWork context)
             : base(context)
         {
 
@@ -26,7 +26,7 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
             }
             else
             {
-                this._context.Inspect.InsertOnSubmit(entity);
+                this.context.Inspect.InsertOnSubmit(entity);
             }
         }
     }
