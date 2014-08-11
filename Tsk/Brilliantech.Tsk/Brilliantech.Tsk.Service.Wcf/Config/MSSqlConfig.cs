@@ -15,7 +15,7 @@ namespace Brilliantech.Tsk.Service.Wcf.Config
         {
             try
             {
-                config = new ConfigUtil("Connection", "Ini/SqlConfig.ini");
+                config = new ConfigUtil("Connection", @"Ini\SqlConfig.ini");
                 connectionString = config.Get("ConnectionString");
             }
             catch (Exception e)

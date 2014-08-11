@@ -15,7 +15,7 @@ namespace Brilliantech.Tsk.Service.Wcf.Config
         {
             try
             {
-                config = new ConfigUtil("Ini/TskConfig.ini");
+                config = new ConfigUtil(@"Ini\TskConfig.ini");
                 int.TryParse(config.Get("DataCount", "DataFormat"), out dataCount);
                 dataSpliter = config.Get("DataSpliter", "DataFormat").ToCharArray().First();
             }

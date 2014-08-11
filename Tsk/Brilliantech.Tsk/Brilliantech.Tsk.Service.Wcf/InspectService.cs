@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
-using Brilliantech.Tsk.Service.Wcf.Message;
+using System.Text; 
 using Brilliantech.Tsk.Data.CL.Model;
 using Brilliantech.Tsk.Service.Wcf.Config;
 using Brilliantech.Tsk.Data.CL.Repository.Interface;
 using Brilliantech.Tsk.Data.CL.Repository.Implement;
-using Brilliantech.Framwork.Utils.LogUtil; 
+using Brilliantech.Framwork.Utils.LogUtil;
+using Brilliantech.Framwork.Message; 
 
 namespace Brilliantech.Tsk.Service.Wcf
 {
@@ -38,7 +38,7 @@ namespace Brilliantech.Tsk.Service.Wcf
                             message.Messages.Add("数据为空或数据格式不存在");
                             message.Messages.Add("数据属性长度为：" + text.Split(TskConfig.DataSpliter).Length.ToString());
                             message.Messages.Add("分隔符为：" + TskConfig.DataSpliter.ToString());
-                            LogUtil.Logger.Error(message.MessageContent);
+                            LogUtil.Logger.Error(message.GetMessageContent());
                         }
                         else
                         {
@@ -72,7 +72,7 @@ namespace Brilliantech.Tsk.Service.Wcf
                         message.Messages.Add(e.Message);
                     }
                     inspectOrigin.ProcessResult = message.Result;
-                    inspectOrigin.ProcessMessage = message.MessageContent;
+                    inspectOrigin.ProcessMessage = message.GetMessageContent();
                     inspectOriginRep.Create(inspectOrigin);
 
                     unitOfWork.Submit();

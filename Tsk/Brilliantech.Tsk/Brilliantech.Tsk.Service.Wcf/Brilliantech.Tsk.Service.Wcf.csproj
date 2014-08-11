@@ -52,8 +52,6 @@
     <Compile Include="Config\MSSqlConfig.cs" />
     <Compile Include="Config\TskConfig.cs" />
     <Compile Include="IInspectService.cs" />
-    <Compile Include="Message\BaseMessage.cs" />
-    <Compile Include="Message\ProcessMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InspectService.cs" />
   </ItemGroup>

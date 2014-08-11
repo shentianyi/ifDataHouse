@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using Brilliantech.Tsk.Service.Wcf.Message;
+using Brilliantech.Framwork.Message; 
 
 namespace Brilliantech.Tsk.Service.Wcf
 {
@@ -12,7 +12,7 @@ namespace Brilliantech.Tsk.Service.Wcf
     [ServiceContract]
     public interface IInspectService
     {
-        [OperationContract]
+        [OperationContract] 
         ProcessMessage CreateInspect(string text);
     } 
 }

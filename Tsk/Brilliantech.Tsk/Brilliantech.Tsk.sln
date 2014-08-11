@@ -25,6 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brilliantech.Tsk.ConsoleCmd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brilliantech.Tsk.Host.ConsoleCmd", "Brilliantech.Tsk.Host.ConsoleCmd\Brilliantech.Tsk.Host.ConsoleCmd.csproj", "{5F12E705-3EC7-425D-B0D8-5E8A6496EAB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brilliantech.Tsk.Client.WPFUI", "Brilliantech.Tsk.Client.WPFUI\Brilliantech.Tsk.Client.WPFUI.csproj", "{70592109-1AC4-480B-B222-6965797AF075}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4AE8D14F-ECF1-4D72-A997-D8D7C05F999C} = {4AE8D14F-ECF1-4D72-A997-D8D7C05F999C}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Brilliantech.Tsk.vsmdi
@@ -108,6 +113,16 @@ Global
 		{5F12E705-3EC7-425D-B0D8-5E8A6496EAB3}.Release|Mixed Platforms.Build.0 = Release|x86
 		{5F12E705-3EC7-425D-B0D8-5E8A6496EAB3}.Release|x86.ActiveCfg = Release|x86
 		{5F12E705-3EC7-425D-B0D8-5E8A6496EAB3}.Release|x86.Build.0 = Release|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Debug|x86.ActiveCfg = Debug|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Debug|x86.Build.0 = Debug|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Release|Any CPU.ActiveCfg = Release|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Release|Mixed Platforms.Build.0 = Release|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Release|x86.ActiveCfg = Release|x86
+		{70592109-1AC4-480B-B222-6965797AF075}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

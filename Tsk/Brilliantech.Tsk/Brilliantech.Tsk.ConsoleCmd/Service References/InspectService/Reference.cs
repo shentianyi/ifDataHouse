@@ -24,9 +24,6 @@ namespace Brilliantech.Tsk.ConsoleCmd.InspectService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageContentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] MessagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -39,19 +36,6 @@ namespace Brilliantech.Tsk.ConsoleCmd.InspectService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MessageContent {
-            get {
-                return this.MessageContentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageContentField, value) != true)) {
-                    this.MessageContentField = value;
-                    this.RaisePropertyChanged("MessageContent");
-                }
             }
         }
         
