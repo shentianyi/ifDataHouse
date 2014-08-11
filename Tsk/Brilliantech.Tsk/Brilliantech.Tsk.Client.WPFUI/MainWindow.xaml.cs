@@ -108,6 +108,8 @@ namespace Brilliantech.Tsk.Client.WPFUI
         /// <param name="fullPath"></param>
         private void Process(string fullPath)
         {
+            bool canAccessRemoteService = true;
+
             string nextDir = System.IO.Path.Combine(TskBaseConfig.ErrorFilePath, DateTime.Today.ToString("yyyy-MM-dd"));
             try
             {
@@ -119,7 +121,7 @@ namespace Brilliantech.Tsk.Client.WPFUI
                         {
                             string s = reader.ReadLine();
                             InspectServiceClient client = new InspectServiceClient("BasicHttpBinding_IInspectService",
-                                "");
+                                TskBaseConfig.InspectServiceAddress);
                             ProcessMessage msg = client.CreateInspect(s);
                             if (msg.Result)
                             {
@@ -135,21 +137,31 @@ namespace Brilliantech.Tsk.Client.WPFUI
             }
             catch (Exception e)
             {
+                LogUtil.Logger.Error(e.GetType());
+                if (e is System.ServiceModel.EndpointNotFoundException) {
+                    canAccessRemoteService = false;
+                }
                 LogUtil.Logger.Error(e.Message);
             }
-            // 是否删除文件
-            if (TskBaseConfig.DeleteFileAfterRead)
+            // 是否可以访问服务
+            if (canAccessRemoteService)
             {
-                // 删除文件
-                if (IsFileClosed(fullPath)) {
-                    File.Delete(fullPath);
-                    LogUtil.Logger.Warn("【删除读完的数据文件】"+fullPath);
+                // 是否删除文件
+                if (TskBaseConfig.DeleteFileAfterRead)
+                {
+                    // 删除文件
+                    if (IsFileClosed(fullPath))
+                    {
+                        File.Delete(fullPath);
+                        LogUtil.Logger.Warn("【删除读完的数据文件】" + fullPath);
+                    }
                 }
-            }
-            else {
-                // 移动文件
-                CheckDirectory(nextDir);
-                MoveFile(fullPath, System.IO.Path.Combine(nextDir, System.IO.Path.GetFileName(fullPath)));
+                else
+                {
+                    // 移动文件
+                    CheckDirectory(nextDir);
+                    MoveFile(fullPath, System.IO.Path.Combine(nextDir, System.IO.Path.GetFileName(fullPath)));
+                }
             }
         }
 
