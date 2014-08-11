@@ -27,10 +27,15 @@ namespace Brilliantech.Tsk.Client.WPFUI
             LoadDefaultSettings();
         }
 
+        /// <summary>
+        /// load default config
+        /// </summary>
         private void LoadDefaultSettings()
         {
             try
             {
+                RemoteServerIPTB.Text = TskBaseConfig.RemoteServerIP;
+                RemoteServerPortTB.Text = TskBaseConfig.RemoteServerPort;
                 DataFilePathTB.Text = TskBaseConfig.DataFilePath;
                 MoveFilePathTB.Text = TskBaseConfig.MovedFilePath;
                 ErrorFilePathTB.Text = TskBaseConfig.ErrorFilePath;
