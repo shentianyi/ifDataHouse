@@ -34,15 +34,21 @@ namespace Brilliantech.DatahouseService.ServiceProvider
         /// api for package system
         /// </summary>
         /// <param name="dataMap"></param>
-        public void AddProductPack(Dictionary<string, string> dataMap)
+        public bool AddProductPack(Dictionary<string, string> dataMap)
         {
             try
             {
                 client.addProductPack(Conf.TServiceAccessKey, dataMap);
+                return true;
             }
             catch (Exception e)
             {
+                LogUtil.Logger.Error(e.GetType());
                 LogUtil.Logger.Error(e.Message);
+                if (e is Thrift.TApplicationException) {
+                    return true;
+                }
+                return false;
             }
         }
 
@@ -50,15 +56,22 @@ namespace Brilliantech.DatahouseService.ServiceProvider
         /// api for testing system
         /// </summary>
         /// <param name="dataMap"></param>
-        public void AddProductInspect(Dictionary<string, string> dataMap)
+        public bool AddProductInspect(Dictionary<string, string> dataMap)
         {
             try
             {
                 client.addProductInspect(Conf.TServiceAccessKey, dataMap);
+                return true;
             }
             catch (Exception e)
             {
+                LogUtil.Logger.Error(e.GetType());
                 LogUtil.Logger.Error(e.Message);
+                if (e is Thrift.TApplicationException)
+                {
+                    return true;
+                }
+                return false;
             }
         }
 

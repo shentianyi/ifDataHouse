@@ -14,7 +14,7 @@ namespace Brilliantech.Tsk.Host.ConsoleCmd
         {
             LogUtil.Logger.Info("Service Starting");
             ServiceHost host = new ServiceHost(typeof(InspectService));
-            host.Open();
+            host.Close();
             Console.Read();
         }
     }

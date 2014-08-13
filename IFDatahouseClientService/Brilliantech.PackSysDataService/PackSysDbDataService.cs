@@ -36,19 +36,25 @@ namespace Brilliantech.PackSysDataService
 
         private void readDataTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
+            bool success = false;
+            string dataReadEndTime = string.Empty;
             try
             {
                 PackDbDataHandler packDataHandler = new PackDbDataHandler();
               //  DateTime dataReadEndTime = Conf.DataReadStartTime.AddMilliseconds(10000);
-                string dataReadEndTime = TimeUtil.GetDateTimeInMil();
+                dataReadEndTime = TimeUtil.GetDateTimeInMil();
                 string fileName = Guid.NewGuid().ToString() + ".txt";
                 string file = Path.Combine(Conf.PackDataPath, fileName);
                 packDataHandler.WritePackItemViewToFileBy(Conf.DataReadStartTime, dataReadEndTime, file);
-                Conf.DataReadStartTime = dataReadEndTime;
+                success = true;
             }
             catch (Exception ex) {
+                success = false;
                 LogUtil.Logger.Error(ex.Message);
-                this.Stop();
+               // this.Stop();
+            }
+            if (success) {
+                Conf.DataReadStartTime = dataReadEndTime;
             }
         }
 

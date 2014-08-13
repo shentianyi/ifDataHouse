@@ -21,3 +21,17 @@ C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.csprojResolveAssemblyReference.cache
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.dll
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Ini\SqlConfig.ini
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Ini\TskConfig.ini
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Service.Wcf.dll.config
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Service.Wcf.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Service.Wcf.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Framwork.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Data.CL.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\log4net.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Nini.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Framwork.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\Brilliantech.Tsk.Data.CL.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.csprojResolveAssemblyReference.cache
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.pdb

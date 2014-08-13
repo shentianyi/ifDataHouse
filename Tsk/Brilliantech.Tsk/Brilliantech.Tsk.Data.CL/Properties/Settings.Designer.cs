@@ -26,8 +26,8 @@ namespace Brilliantech.Tsk.Data.CL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=wangsong-pc;Initial Catalog=Leoni_Tsk_JN;Persist Security Info=True;U" +
-            "ser ID=sa;Password=wangsong")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CHARLOT-PC;Initial Catalog=Leoni_Tsk_JN;Persist Security Info=True;Us" +
+            "er ID=sa;Password=123456@")]
         public string Leoni_Tsk_JNConnectionString {
             get {
                 return ((string)(this["Leoni_Tsk_JNConnectionString"]));
