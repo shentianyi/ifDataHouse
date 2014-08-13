@@ -29,5 +29,38 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
                 this.context.Inspect.InsertOnSubmit(entity);
             }
         }
+
+        /// <summary>
+        /// Get Count
+        /// </summary>
+        /// <returns></returns>
+        public int GetCount()
+        {
+            return context.Inspect.Count();
+        }
+
+        public IQueryable<Inspect> Queryable() {
+            return context.Inspect.OrderByDescending(item => item.CreatedAt);
+        }
+
+        /// <summary>
+        /// Get List
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public List<Inspect> GetList(int pageIndex = 0, int pageSize = 20)
+        {
+            return context.Inspect.OrderByDescending(item=>item.CreatedAt).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+        }
+
+        /// <summary>
+        /// Query List
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public List<Inspect> Query(Dictionary<string, string> query) {
+            return context.Inspect.Where(item=>item.TskNo=="TSK110").ToList();
+        }
     }
 }

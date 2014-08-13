@@ -1,0 +1,119 @@
+﻿@using MvcPaging;
+
+@model IPagedList<Brilliantech.Tsk.Data.CL.Model.Inspect>
+
+@{
+    ViewBag.Title = "TSK 测试数据首页";
+}
+
+<h2>TSK 测试数据</h2>
+<form action="/Inspect/Query" method="get">
+<div>
+ <span>
+  TskNo <input type="text" name="TskNo" id="TskNo" />
+ <span>
+ <input type="text" class="datepicker" />
+ <p><input type="submit" value="查询" /></p>
+</div>
+</form>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            TskNo
+        </th>
+        <th>
+            LeoniNo
+        </th>
+        <th>
+            CusNo
+        </th>
+        <th>
+            ClipScanNo
+        </th>
+        <th>
+            ClipScanTime1
+        </th>
+        <th>
+            ClipScanTime2
+        </th>
+        <th>
+            TskScanNo
+        </th>
+        <th>
+            TskScanTime3
+        </th>
+        <th>
+            Time3MinTime2
+        </th>
+        <th>
+            OkOrNot
+        </th>
+        <th>
+            数据保存时间
+        </th>
+        <th>
+            原始数据
+        </th>
+    </tr>
+    @{
+        int i = 0;   
+     }
+     @if (Model != null)
+     {
+         foreach (var item in Model)
+         {
+    <tr>
+        <td>
+            @(i + 1)
+        </td>
+        <td>
+            @item.TskNo
+        </td>
+        <td>
+            @item.LeoniNo
+        </td>
+        <td>
+            @item.CusNo
+        </td>
+        <td>
+            @item.ClipScanNo
+        </td>
+        <td>
+            @item.ClipScanTime1
+        </td>
+        <td>
+            @item.ClipScanTime2
+        </td>
+        <td>
+            @item.TskScanNo
+        </td>
+        <td>
+            @item.TskScanTime3
+        </td>
+        <td>
+            @item.Time3MinTime2
+        </td>
+        <td>
+            @item.OkOrNot
+        </td>
+        <td>
+            @String.Format("{0:g}", item.CreatedAt)
+        </td>
+        <td>
+            @item.OriginId
+        </td>
+    </tr>
+       i++;
+         }
+     }
+
+</table>
+<div class="clearfix pagination"> 
+   <div class="pagination-inner"> 
+   @if (Model != null)
+   {
+    @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+   }
+   </div>
+</div>

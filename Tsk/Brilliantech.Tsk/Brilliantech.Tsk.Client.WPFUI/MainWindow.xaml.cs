@@ -143,7 +143,7 @@ namespace Brilliantech.Tsk.Client.WPFUI
                 }
                 LogUtil.Logger.Error(e.Message);
             }
-            // 是否可以访问服务
+            // 是否可以访问服务 不可以访问时保持文件不处理
             if (canAccessRemoteService)
             {
                 // 是否删除文件

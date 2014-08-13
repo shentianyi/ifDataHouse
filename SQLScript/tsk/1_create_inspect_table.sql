@@ -1,7 +1,7 @@
 USE [Leoni_Tsk_JN]
 GO
 
-/****** Object:  Table [dbo].[Inspect]    Script Date: 08/08/2014 19:17:43 ******/
+/****** Object:  Table [dbo].[Inspect]    Script Date: 08/13/2014 18:02:06 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -41,5 +41,4 @@ GO
 
 ALTER TABLE [dbo].[Inspect] ADD  CONSTRAINT [DF_Inspect_CreatedAt]  DEFAULT (getdate()) FOR [CreatedAt]
 GO
-
 

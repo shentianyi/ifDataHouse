@@ -7,3 +7,4 @@ C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.pdb
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.exe
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.pdb
+C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.csprojResolveAssemblyReference.cache
