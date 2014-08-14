@@ -24,10 +24,17 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         private string okOrNot;
         private DateTime? createdAtStart;
         private DateTime? createdAtEnd;
+        private static List<string> csvHead = new List<string>() { 
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","数据保存时间"
+        };
+        private static List<string> fileds= new List<string>() { 
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","CreatedAt"
+        };
+
 
         public InspectQueryModel(NameValueCollection collection)
         {
-            
+
             this.TskNo = collection.Get("TskNo");
             this.LeoniNo = collection.Get("LeoniNo");
             this.CusNo = collection.Get("CusNo");
@@ -85,11 +92,11 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
 
             if (collection.Get("createdAtStart") != null && collection.Get("createdAtStart").Trim().Length > 0)
             {
-                this.createdAtStart = DateTime.Parse(collection.Get("createdAtStart"));
+                this.CreatedAtStart = DateTime.Parse(collection.Get("CreatedAtStart"));
             }
-            if (collection.Get("createdAtEnd") != null && collection.Get("createdAtEnd").Trim().Length > 0)
+            if (collection.Get("CreatedAtEnd") != null && collection.Get("CreatedAtEnd").Trim().Length > 0)
             {
-                this.createdAtEnd = DateTime.Parse(collection.Get("createdAtEnd"));
+                this.CreatedAtEnd = DateTime.Parse(collection.Get("CreatedAtEnd"));
             }
 
         }
@@ -199,9 +206,17 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
 
         public DateTime? CreatedAtEnd
         {
-            get { return CreatedAtEnd; }
-            set { CreatedAtEnd = value; }
+            get { return createdAtEnd; }
+            set { createdAtEnd = value; }
         }
-
+        public static List<string> CsvHead
+        {
+            get { return InspectQueryModel.csvHead; }
+        }
+        public static List<string> Fileds
+        {
+            get { return InspectQueryModel.fileds; }
+        }
+     
     }
 }

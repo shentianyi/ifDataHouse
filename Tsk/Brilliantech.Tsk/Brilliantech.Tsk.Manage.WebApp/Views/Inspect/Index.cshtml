@@ -7,6 +7,7 @@
 }
 
 <h2>TSK 测试数据</h2>
+<div>
 <form action="/Inspect/Query" method="get">
 <div>
  <span>
@@ -60,12 +61,39 @@
   --
   <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
  </span>
- <p><input type="submit" value="查询" /></p>
+ <p><input type="submit" value="查询" /> </p>
+ <div> @if (ViewBag.Query != null)
+       {
+ @Html.ActionLink("导出数据报表", "Export",
+ new
+ {
+     TskNo = ViewBag.Query.TskNo,
+     LeoniNo = ViewBag.Query.LeoniNo,
+     CusNo = ViewBag.Query.CusNo,
+     ClipScanNo = ViewBag.Query.ClipScanNo,
+     ClipScanTime1Start = ViewBag.Query.ClipScanTime1Start,
+     ClipScanTime1End = ViewBag.Query.ClipScanTime1End,
+     ClipScanTime2Start = ViewBag.Query.ClipScanTime2Start,
+     ClipScanTime2End = ViewBag.Query.ClipScanTime2End,
+     TskScanNo = ViewBag.Query.TskScanNo,
+     TskScanTime3Start = ViewBag.Query.TskScanTime3Start,
+     TskScanTime3End = ViewBag.Query.TskScanTime3End,
+     Time3MinTime2Start = ViewBag.Query.Time3MinTime2Start,
+     Time3MinTime2End = ViewBag.Query.Time3MinTime2End,
+     CreatedAtStart = ViewBag.Query.CreatedAtStart,
+     CreatedAtEnd = ViewBag.Query.CreatedAtEnd,
+     OkOrNot = ViewBag.Query.OkOrNot
+ }, null)}
+       else { 
+        @Html.ActionLink("导出数据报表", "Export")
+       }
+</div>
+
 </div>
 </form>
-
+</div>
  <div>
- 
+  共：@Model.TotalItemCount
  </div>
  
 <table>
@@ -172,6 +200,7 @@
           var html=Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
              .Options(o => o.AddRouteValue("TskNo", ViewBag.Query.TskNo))
              .Options(o => o.AddRouteValue("LeoniNo", ViewBag.Query.LeoniNo))
+             .Options(o => o.AddRouteValue("CusNo", ViewBag.Query.CusNo))
              .Options(o => o.AddRouteValue("ClipScanNo", ViewBag.Query.ClipScanNo))
              .Options(o => o.AddRouteValue("ClipScanTime1Start", ViewBag.Query.ClipScanTime1Start))
              .Options(o => o.AddRouteValue("ClipScanTime1End", ViewBag.Query.ClipScanTime1End))
