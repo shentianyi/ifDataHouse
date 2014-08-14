@@ -10,12 +10,64 @@
 <form action="/Inspect/Query" method="get">
 <div>
  <span>
-  TskNo <input type="text" name="TskNo" id="TskNo" />
- <span>
- <input type="text" class="datepicker" />
+  TskNo <input type="text" name="TskNo" id="TskNo"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskNo}"/>
+ </span>
+  <span>
+  LeoniNo <input type="text" name="LeoniNo" id="LeoniNo"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.LeoniNo}"/>
+ </span>
+   <span>
+  CusNo <input type="text" name="CusNo" id="CusNo"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.CusNo}"/>
+ </span>
+   <span>
+  ClipScanNo <input type="text" name="ClipScanNo" id="ClipScanNo"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanNo}"/>
+ </span>
+ <br />
+  <span>
+  ClipScanTime1 
+  <input type="text" class="datepicker" name="ClipScanTime1Start" id="ClipScanTime1Start"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime1Start}"/>
+   --
+   <input type="text" class="datepicker" name="ClipScanTime1End" id="ClipScanTime1End"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime1End}"/>
+ </span>
+   <span>
+  ClipScanTime2 
+  <input type="text" class="datepicker" name="ClipScanTime2Start" id="ClipScanTime2Start"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime2Start}"/>
+   --
+   <input type="text" class="datepicker" name="ClipScanTime2End" id="ClipScanTime2End"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime2End}"/>
+ </span>
+   <span>
+  TskScanNo <input type="text" name="TskScanNo" id="TskScanNo"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanNo}"/>
+ </span>
+  <br />
+   <span>
+  TskScanTime3
+   <input type="text" class="datepicker" name="TskScanTime3Start" id="TskScanTime3Start"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanTime3Start}"/>
+   --
+   <input type="text" class="datepicker" name="TskScanTime3End" id="TskScanTime3End"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanTime3End}"/>
+ </span>
+   <span>
+  Time3MinTime2 
+  <input type="text"  name="Time3MinTime2Start" id="Time3MinTime2Start"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.Time3MinTime2Start}"/>
+  --
+  <input type="text"  name="Time3MinTime2End" id="Time3MinTime2End"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.Time3MinTime2End}"/>
+ </span>
+   <span>
+  OkOrNot <input type="text" name="OkOrNot" id="OkOrNot"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.OkOrNot}"/>
+ </span>
+ <br />
+  <span>
+  数据保存时间 
+  <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
+  --
+  <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
+ </span>
  <p><input type="submit" value="查询" /></p>
 </div>
 </form>
+
+ <div>
+ 
+ </div>
+ 
 <table>
     <tr>
         <th></th>
@@ -89,7 +141,7 @@
             @item.TskScanNo
         </td>
         <td>
-            @item.TskScanTime3
+            @item.TskScanTime3.ToString()
         </td>
         <td>
             @item.Time3MinTime2
@@ -109,11 +161,36 @@
      }
 
 </table>
+
 <div class="clearfix pagination"> 
    <div class="pagination-inner"> 
    @if (Model != null)
    {
-    @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+       if (ViewBag.Query!=null)
+       {
+         
+          var html=Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+             .Options(o => o.AddRouteValue("TskNo", ViewBag.Query.TskNo))
+             .Options(o => o.AddRouteValue("LeoniNo", ViewBag.Query.LeoniNo))
+             .Options(o => o.AddRouteValue("ClipScanNo", ViewBag.Query.ClipScanNo))
+             .Options(o => o.AddRouteValue("ClipScanTime1Start", ViewBag.Query.ClipScanTime1Start))
+             .Options(o => o.AddRouteValue("ClipScanTime1End", ViewBag.Query.ClipScanTime1End))
+             .Options(o => o.AddRouteValue("ClipScanTime2Start", ViewBag.Query.ClipScanTime2Start))
+             .Options(o => o.AddRouteValue("ClipScanTime2End", ViewBag.Query.ClipScanTime2End))
+             .Options(o => o.AddRouteValue("TskScanNo", ViewBag.Query.TskScanNo))
+             .Options(o => o.AddRouteValue("TskScanTime3Start", ViewBag.Query.TskScanTime3Start))
+             .Options(o => o.AddRouteValue("TskScanTime3End", ViewBag.Query.TskScanTime3End))
+             .Options(o => o.AddRouteValue("Time3MinTime2Start", ViewBag.Query.Time3MinTime2Start))
+             .Options(o => o.AddRouteValue("Time3MinTime2End", ViewBag.Query.Time3MinTime2End))
+             .Options(o => o.AddRouteValue("CreatedAtStart", ViewBag.Query.CreatedAtStart))
+             .Options(o => o.AddRouteValue("CreatedAtEnd", ViewBag.Query.CreatedAtEnd))
+             .Options(o => o.AddRouteValue("OkOrNot", ViewBag.Query.OkOrNot));
+          @html
+       }
+       else
+       { 
+          @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+       }
    }
    </div>
 </div>

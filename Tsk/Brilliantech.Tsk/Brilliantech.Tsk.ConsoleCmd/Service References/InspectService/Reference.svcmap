@@ -24,7 +24,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="0bc8b782-8a68-4c08-9d1e-50921d6e5457" SourceId="1" SourceUrl="http://localhost:8000/Brilliantech.Tsk.Service.Wcf/InspectService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="887b2ee5-0af8-4109-acde-b58b0ee4ca05" SourceId="1" SourceUrl="http://localhost:8000/Brilliantech.Tsk.Service.Wcf/InspectService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e5c2f06-e36c-40f5-a580-b1ef1609d512" SourceId="1" SourceUrl="http://localhost:8000/Brilliantech.Tsk.Service.Wcf/InspectService/mex" />
-    <MetadataFile FileName="Brilliantech.Tsk.Service.Wcf.Message.xsd" MetadataType="Schema" ID="6f2e9646-ff99-4174-84bc-46fd0a9f3eb8" SourceId="1" SourceUrl="http://localhost:8000/Brilliantech.Tsk.Service.Wcf/InspectService/mex" />
+    <MetadataFile FileName="Brilliantech.Framwork.Message.xsd" MetadataType="Schema" ID="68f17912-5894-4f88-a233-e2fcb4f71440" SourceId="1" SourceUrl="http://localhost:8000/Brilliantech.Tsk.Service.Wcf/InspectService/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="6ee28919-14ed-4e6a-8660-865facdc7ca6" SourceId="1" SourceUrl="http://localhost:8000/Brilliantech.Tsk.Service.Wcf/InspectService/mex" />
   </Metadata>
   <Extensions>

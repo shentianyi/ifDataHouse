@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.datahouseTestEventLog = new System.Diagnostics.EventLog();
             this.scanTimer = new System.Timers.Timer();
-            ((System.ComponentModel.ISupportInitialize)(this.datahouseTestEventLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scanTimer)).BeginInit();
-            // 
-            // datahouseTestEventLog
-            // 
-            this.datahouseTestEventLog.Log = "ifdatahouse.testbench.source.new";
-            this.datahouseTestEventLog.Source = "ifdatahouse.testbench.log.source";
             // 
             // scanTimer
             // 
@@ -47,14 +40,12 @@
             // DatahouseTestbenchService
             // 
             this.ServiceName = "DatahouseTestbenchService";
-            ((System.ComponentModel.ISupportInitialize)(this.datahouseTestEventLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scanTimer)).EndInit();
 
         }
 
         #endregion
 
-        private System.Diagnostics.EventLog datahouseTestEventLog;
         private System.Timers.Timer scanTimer;
     }
 }

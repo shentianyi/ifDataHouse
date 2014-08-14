@@ -7,4 +7,28 @@ C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.pdb
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.exe
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.pdb
+<<<<<<< HEAD
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.csprojResolveAssemblyReference.cache
+=======
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Ini\SqlConfig.ini
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Ini\TskConfig.ini
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\app.config
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\log4.config
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.exe.config
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.exe
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Host.WS.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Framwork.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Service.Wcf.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\log4net.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Nini.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Data.CL.dll
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Framwork.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Service.Wcf.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\bin\Debug\Brilliantech.Tsk.Data.CL.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.csprojResolveAssemblyReference.cache
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.ProjectInstaller.resources
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.TskService.resources
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.csproj.GenerateResource.Cache
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.exe
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Host.WS\obj\x86\Debug\Brilliantech.Tsk.Host.WS.pdb
+>>>>>>> 4eadced350a644796d5d48ae00feaf50719f0c20

@@ -9,6 +9,7 @@ using Brilliantech.Tsk.Data.CL.Model;
 using Brilliantech.Tsk.Manage.WebApp.Properties;
 using Brilliantech.Tsk.Manage.WebApp.Util;
 using MvcPaging;
+using Brilliantech.Tsk.Manage.WebApp.Models;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 {
@@ -25,26 +26,22 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             {
                 int currentPageIndex = page.HasValue ? (page.Value<=0 ? 0 : page.Value - 1) : 0;
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
-                inspects = inspectRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize), inspectRep.GetCount());
+                inspects = inspectRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
             }
             return View(inspects);
         }
 
-        public ActionResult Query(FormCollection collection)
+        public ActionResult Query(String collection)
         {
-             IPagedList<Inspect> inspects = null;
-             using (IUnitOfWork unitOfWork = new TskDataDataContext())
-             {
-                 //int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
-                 //int pageSize = int.Parse(Resources.PageSize);
-                 //IInspectRep inspectRep = new InspectRep(unitOfWork);
-                 //  inspects = inspectRep.GetList(pageI, pageSize);
-                 //int totalCount = inspectRep.GetCount();
-                 //int totalPages = totalCount / pageSize + (totalCount % pageSize == 0 ? 0 : 1);
-                 //pageList = new PageListUtil<Inspect>(inspects, pageI, pageSize, totalPages);
-                 IInspectRep inspectRep = new InspectRep(unitOfWork);
-             }
-             return View("Index", inspects);
+            InspectQueryModel query = new InspectQueryModel(Request.QueryString);
+            int currentPageIndex = 0;
+            int.TryParse(Request.QueryString.Get("page"), out currentPageIndex);
+            currentPageIndex = currentPageIndex <= 0 ? 0 : currentPageIndex - 1;
+            int pageSize = int.Parse(Resources.PageSize);
+            ViewBag.Query = query;
+            // set query params
+
+            return View("Index", QueryInspect<IPagedList>(query, currentPageIndex, pageSize));
         }
 
         //
@@ -131,6 +128,41 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             {
                 return View();
             }
+        }
+
+        private T QueryInspect<T>(InspectQueryModel query, int? currentPageIndex,int? pageSize)
+        { 
+            T inspects;
+            
+            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            {
+                IInspectRep inspectRep = new InspectRep(unitOfWork);
+                IQueryable<Inspect> inspectQ = inspectRep.Queryable().Where(item => (string.IsNullOrEmpty(query.TskNo) ? true : item.TskNo.Contains(query.TskNo))
+                    && (string.IsNullOrEmpty(query.LeoniNo) ? true : item.LeoniNo.Contains(query.LeoniNo))
+                    && (string.IsNullOrEmpty(query.CusNo) ? true : item.CusNo.Contains(query.CusNo))
+                    && (string.IsNullOrEmpty(query.ClipScanNo) ? true : item.ClipScanNo.Contains(query.ClipScanNo))
+                    && (query.ClipScanTime1Start.HasValue ? item.ClipScanTime1 >= query.ClipScanTime1Start : true)
+                    && (query.ClipScanTime1End.HasValue ? item.ClipScanTime1 <= query.ClipScanTime1End : true)
+                    && (query.ClipScanTime2Start.HasValue ? item.ClipScanTime2 >= query.ClipScanTime2Start : true)
+                    && (query.ClipScanTime2End.HasValue ? item.ClipScanTime2 <= query.ClipScanTime2End : true)
+                    && (string.IsNullOrEmpty(query.TskScanNo) ? true : item.TskScanNo.Contains(query.TskScanNo))
+                    && (query.TskScanTime3Start.HasValue ? item.TskScanTime3 >= query.TskScanTime3Start : true)
+                    && (query.TskScanTime3End.HasValue ? item.TskScanTime3 <= query.TskScanTime3End : true)
+                    && (query.Time3MinTime2Start.HasValue ? item.Time3MinTime2 >= query.Time3MinTime2Start : true)
+                    && (query.Time3MinTime2End.HasValue ?  item.Time3MinTime2<=query.Time3MinTime2End : true)
+                    && (query.CreatedAtStart.HasValue ? item.CreatedAt >= query.CreatedAtStart : true)
+                    && (query.CreatedAtEnd.HasValue ? item.CreatedAt <= query.CreatedAtEnd : true)
+                    && (string.IsNullOrEmpty(query.OkOrNot) ? true : item.OkOrNot.Contains(query.OkOrNot))
+                    );
+                if (currentPageIndex.HasValue)
+                {
+                    inspects =(T)inspectQ.ToPagedList(currentPageIndex.Value, pageSize.Value);
+                }
+                else {
+                    inspects = (T)inspectQ;
+                }
+            }
+            return inspects;
         }
     }
 }

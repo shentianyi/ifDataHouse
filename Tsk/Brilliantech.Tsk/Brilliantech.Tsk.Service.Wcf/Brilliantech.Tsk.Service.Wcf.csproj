@@ -59,16 +59,12 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Ini\SqlConfig.ini">
+    <Content Include="Ini\SqlConfig.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Ini\TskConfig.ini">
+    </Content>
+    <Content Include="Ini\TskConfig.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="log4.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Brilliantech.Framwork\Brilliantech.Framwork.csproj">

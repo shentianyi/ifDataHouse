@@ -1,7 +1,7 @@
 USE [Leoni_Tsk_JN]
 GO
 
-/****** Object:  Table [dbo].[Inspect]    Script Date: 08/13/2014 18:02:06 ******/
+/****** Object:  Table [dbo].[Inspect]    Script Date: 08/14/2014 18:13:31 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -17,11 +17,11 @@ CREATE TABLE [dbo].[Inspect](
 	[LeoniNo] [varchar](100) NULL,
 	[CusNo] [varchar](100) NULL,
 	[ClipScanNo] [varchar](100) NULL,
-	[ClipScanTime1] [varchar](50) NULL,
-	[ClipScanTime2] [varchar](50) NULL,
+	[ClipScanTime1] [datetime] NULL,
+	[ClipScanTime2] [datetime] NULL,
 	[TskScanNo] [varchar](100) NULL,
-	[TskScanTime3] [varchar](50) NULL,
-	[Time3MinTime2] [varchar](50) NULL,
+	[TskScanTime3] [datetime] NULL,
+	[Time3MinTime2] [float] NULL,
 	[OkOrNot] [varchar](50) NULL,
 	[CreatedAt] [datetime] NULL,
 	[OriginId] [uniqueidentifier] NULL,

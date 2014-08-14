@@ -35,7 +35,7 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
         /// </summary>
         /// <returns></returns>
         public int GetCount()
-        {
+        { 
             return context.Inspect.Count();
         }
 

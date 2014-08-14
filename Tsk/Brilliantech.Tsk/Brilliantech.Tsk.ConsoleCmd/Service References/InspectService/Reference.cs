@@ -9,85 +9,14 @@
 //------------------------------------------------------------------------------
 
 namespace Brilliantech.Tsk.ConsoleCmd.InspectService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BaseMessage", Namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Tsk.Service.Wcf.Message")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Brilliantech.Tsk.ConsoleCmd.InspectService.ProcessMessage))]
-    public partial class BaseMessage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] MessagesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ResultField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] Messages {
-            get {
-                return this.MessagesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessagesField, value) != true)) {
-                    this.MessagesField = value;
-                    this.RaisePropertyChanged("Messages");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Result {
-            get {
-                return this.ResultField;
-            }
-            set {
-                if ((this.ResultField.Equals(value) != true)) {
-                    this.ResultField = value;
-                    this.RaisePropertyChanged("Result");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProcessMessage", Namespace="http://schemas.datacontract.org/2004/07/Brilliantech.Tsk.Service.Wcf.Message")]
-    [System.SerializableAttribute()]
-    public partial class ProcessMessage : Brilliantech.Tsk.ConsoleCmd.InspectService.BaseMessage {
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="InspectService.IInspectService")]
     public interface IInspectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInspectService/CreateInspect", ReplyAction="http://tempuri.org/IInspectService/CreateInspectResponse")]
-        Brilliantech.Tsk.ConsoleCmd.InspectService.ProcessMessage CreateInspect(string text);
+        Brilliantech.Framwork.Message.ProcessMessage CreateInspect(string text);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -117,7 +46,7 @@ namespace Brilliantech.Tsk.ConsoleCmd.InspectService {
                 base(binding, remoteAddress) {
         }
         
-        public Brilliantech.Tsk.ConsoleCmd.InspectService.ProcessMessage CreateInspect(string text) {
+        public Brilliantech.Framwork.Message.ProcessMessage CreateInspect(string text) {
             return base.Channel.CreateInspect(text);
         }
     }

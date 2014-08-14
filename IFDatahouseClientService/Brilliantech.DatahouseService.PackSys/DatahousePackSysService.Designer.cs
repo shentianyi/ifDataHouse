@@ -40,8 +40,8 @@
             // 
             // datahousePackEventLog
             // 
-            this.datahousePackEventLog.Log = "ifdatahouse.pack.source.new";
-            this.datahousePackEventLog.Source = "ifdatahouse.pack.log.source";
+            this.datahousePackEventLog.Log = "pack.ifdatahouse.source.new";
+            this.datahousePackEventLog.Source = "pack.ifdatahouse.log.source";
             // 
             // DatahousePackSysService
             // 

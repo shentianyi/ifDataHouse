@@ -28,11 +28,6 @@ namespace Brilliantech.Tsk.Manage.WebApp
                 new { action = "Index", pageIndex = UrlParameter.Optional }
                );
 
-            //routes.MapRoute(
-            // "QueryPageList",
-            //  "{controller}/Query/{pageIndex}",
-            //  new { action = "Query", pageIndex = UrlParameter.Optional }
-            // );
 
             routes.MapRoute(
                 "Default", // 路由名称
