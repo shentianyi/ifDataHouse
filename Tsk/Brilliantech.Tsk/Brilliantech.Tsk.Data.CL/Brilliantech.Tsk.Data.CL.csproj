@@ -59,9 +59,11 @@
     <Compile Include="Repository\Implement\BaseRep.cs" />
     <Compile Include="Repository\Implement\InspectRep.cs" />
     <Compile Include="Repository\Implement\InspectOriginRep.cs" />
+    <Compile Include="Repository\Implement\UserRep.cs" />
     <Compile Include="Repository\Interface\IBaseRep.cs" />
     <Compile Include="Repository\Interface\IInspectOriginRep.cs" />
     <Compile Include="Repository\Interface\IInspectRep.cs" />
+    <Compile Include="Repository\Interface\IUserRep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

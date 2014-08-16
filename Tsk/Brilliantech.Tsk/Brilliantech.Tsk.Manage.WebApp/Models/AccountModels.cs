@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Brilliantech.Tsk.Manage.WebApp.Util;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Models
 {
@@ -55,9 +56,8 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         public string UserName { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "电子邮件地址")]
-        public string Email { get; set; }
+        [Display(Name = "权限")]
+        public string Role { get; set; } 
 
         [Required]
         [ValidatePasswordLength]
@@ -83,22 +83,19 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         int MinPasswordLength { get; }
 
         bool ValidateUser(string userName, string password);
-        MembershipCreateStatus CreateUser(string userName, string password, string email);
+        MembershipCreateStatus CreateUser(string userName, string password, string role);
         bool ChangePassword(string userName, string oldPassword, string newPassword);
     }
 
     public class AccountMembershipService : IMembershipService
     {
-        private readonly MembershipProvider _provider;
+        private readonly CustomMembershipProvider _provider;
+
+
 
         public AccountMembershipService()
-            : this(null)
         {
-        }
-
-        public AccountMembershipService(MembershipProvider provider)
-        {
-            _provider = provider ?? Membership.Provider;
+            _provider = new CustomMembershipProvider() ;
         }
 
         public int MinPasswordLength
@@ -117,14 +114,14 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
             return _provider.ValidateUser(userName, password);
         }
 
-        public MembershipCreateStatus CreateUser(string userName, string password, string email)
+        public MembershipCreateStatus CreateUser(string userName, string password, string role)
         {
             if (String.IsNullOrEmpty(userName)) throw new ArgumentException("值不能为 null 或为空。", "userName");
             if (String.IsNullOrEmpty(password)) throw new ArgumentException("值不能为 null 或为空。", "password");
-            if (String.IsNullOrEmpty(email)) throw new ArgumentException("值不能为 null 或为空。", "email");
+            if (String.IsNullOrEmpty(role)) throw new ArgumentException("值不能为 null 或为空。", "role");
 
             MembershipCreateStatus status;
-            _provider.CreateUser(userName, password, email, null, null, true, null, out status);
+            _provider.CreateUser(userName, password, role , out status);
             return status;
         }
 
@@ -138,8 +135,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
             // 而不是返回 false。
             try
             {
-                MembershipUser currentUser = _provider.GetUser(userName, true /* userIsOnline */);
-                return currentUser.ChangePassword(oldPassword, newPassword);
+                return _provider.ChangePassword(userName,oldPassword, newPassword);
             }
             catch (ArgumentException)
             {

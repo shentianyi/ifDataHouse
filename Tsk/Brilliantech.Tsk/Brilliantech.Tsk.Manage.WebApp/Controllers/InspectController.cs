@@ -18,21 +18,20 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
     public class InspectController : Controller
     {
         //
-        // GET: /Inspect/
-      //  IInspectRep inspectRep = new InspectRep();
-
+        // GET: /Inspect/ 
+        [Authorize]
         public ActionResult Index(int? page)
         {
             IPagedList<Inspect> inspects = null;
             using (IUnitOfWork unitOfWork = new TskDataDataContext())
             {
-                int currentPageIndex = page.HasValue ? (page.Value<=0 ? 0 : page.Value - 1) : 0;
+                int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
                 inspects = inspectRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
             }
             return View(inspects);
         }
-
+        [Authorize]
         public ActionResult Query()
         {
             InspectQueryModel query = new InspectQueryModel(Request.QueryString);
@@ -40,10 +39,10 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             int.TryParse(Request.QueryString.Get("page"), out currentPageIndex);
             currentPageIndex = currentPageIndex <= 0 ? 0 : currentPageIndex - 1;
             int pageSize = int.Parse(Resources.PageSize);
-            ViewBag.Query = query; 
+            ViewBag.Query = query;
             return View("Index", QueryInspect(query, currentPageIndex, pageSize));
         }
-
+        [Authorize]
         public void Export()
         {
             InspectQueryModel query = new InspectQueryModel(Request.QueryString);
@@ -53,18 +52,21 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             using (StreamWriter sw = new StreamWriter(ms, Encoding.UTF8))
             {
                 // write head
-               //   string max =
-                 sw.WriteLine(string.Join(";",InspectQueryModel.CsvHead.ToArray()));
-                foreach(Inspect i in inspects){
-                    List<string> ii = new List<string>(); 
-                    foreach (string field in InspectQueryModel.Fileds) {
-                        ii.Add(i.GetType().GetProperty(field).GetValue(i,null).ToString());
+                //   string max =
+                sw.WriteLine(string.Join(";", InspectQueryModel.CsvHead.ToArray()));
+                foreach (Inspect i in inspects)
+                {
+                    List<string> ii = new List<string>();
+                    foreach (string field in InspectQueryModel.Fileds)
+                    {
+                        var value = i.GetType().GetProperty(field).GetValue(i, null);
+                        ii.Add(value == null ? "" : value.ToString());
                     }
                     sw.WriteLine(string.Join(";", ii.ToArray()));
                 }
                 //sw.WriteLine(max);
-            } 
-            var filename = "Inspect"+DateTime.Now.ToString("yyyyMMddHHmmss")+".csv";
+            }
+            var filename = "Inspect" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
             var contenttype = "text/csv";
             Response.Clear();
             Response.ContentEncoding = Encoding.UTF8;
@@ -89,7 +91,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Inspect/Create
@@ -108,10 +110,10 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
                 return View();
             }
         }
-        
+
         //
         // GET: /Inspect/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             return View();
@@ -126,7 +128,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             try
             {
                 // TODO: Add update logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch
@@ -137,7 +139,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 
         //
         // GET: /Inspect/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             return View();
@@ -152,7 +154,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch
@@ -161,13 +163,13 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             }
         }
 
-        private IPagedList<Inspect> QueryInspect(InspectQueryModel query, int? currentPageIndex,int? pageSize)
+        private IPagedList<Inspect> QueryInspect(InspectQueryModel query, int? currentPageIndex, int? pageSize)
         {
-            IPagedList<Inspect> inspects; 
+            IPagedList<Inspect> inspects;
             using (IUnitOfWork unitOfWork = new TskDataDataContext())
             {
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
-                inspects = GenerateQuery(unitOfWork,query).ToPagedList(currentPageIndex.Value, pageSize.Value);
+                inspects = GenerateQuery(unitOfWork, query).ToPagedList(currentPageIndex.Value, pageSize.Value);
             }
             return inspects;
         }

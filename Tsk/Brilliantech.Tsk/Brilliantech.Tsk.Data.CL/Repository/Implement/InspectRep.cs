@@ -53,14 +53,6 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
         {
             return context.Inspect.OrderByDescending(item=>item.CreatedAt).Skip(pageIndex * pageSize).Take(pageSize).ToList();
         }
-
-        /// <summary>
-        /// Query List
-        /// </summary>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        public List<Inspect> Query(Dictionary<string, string> query) {
-            return context.Inspect.Where(item=>item.TskNo=="TSK110").ToList();
-        }
+         
     }
 }

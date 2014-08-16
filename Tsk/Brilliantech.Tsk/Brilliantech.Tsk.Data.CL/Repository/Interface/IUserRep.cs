@@ -6,10 +6,9 @@ using Brilliantech.Tsk.Data.CL.Model;
 
 namespace Brilliantech.Tsk.Data.CL.Repository.Interface
 {
-    public interface IInspectRep : IBaseRep<Inspect>
+    public interface IUserRep:IBaseRep<User>
     {
-        int GetCount();
-        IQueryable<Inspect> Queryable();
-        List<Inspect> GetList(int pageIndex = 0, int pageSize = 20); 
+        void Create(User entity);
+        User Find(string name, string password = null);
     }
 }

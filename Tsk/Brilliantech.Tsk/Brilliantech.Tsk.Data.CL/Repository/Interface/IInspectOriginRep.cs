@@ -8,5 +8,8 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Interface
 {
     public interface IInspectOriginRep : IBaseRep<InspectOrigin>
     {
+        int GetCount();
+        IQueryable<InspectOrigin> Queryable();
+        List<InspectOrigin> GetList(int pageIndex = 0, int pageSize = 20);
     }
 }

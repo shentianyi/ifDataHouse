@@ -88,7 +88,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 // 尝试注册用户
-                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Role);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
