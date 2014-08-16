@@ -66,9 +66,10 @@
     <Compile Include="Repository\Interface\IUserRep.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
+    <Content Include="app.config">
       <SubType>Designer</SubType>
-    </None>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Model\TskData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>TskData.designer.cs</LastGenOutput>

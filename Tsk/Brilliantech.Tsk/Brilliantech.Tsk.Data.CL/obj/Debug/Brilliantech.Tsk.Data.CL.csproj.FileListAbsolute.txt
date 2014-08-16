@@ -8,3 +8,4 @@ C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\Brilliantech.Tsk.Data.CL.pdb
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.dll
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\app.config

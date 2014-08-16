@@ -11,14 +11,14 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
 {
     public class CustomMembershipProvider
     {
-        public int MinRequiredPasswordLength
+        public static int MinRequiredPasswordLength
         {
             get { return 6; }
         }
 
         public bool ValidateUser(string username, string password = null)
         {
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IUserRep userRep = new UserRep(unitOfWork);
                 return userRep.Find(username, password) == null ? false : true;
@@ -27,7 +27,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
 
         public bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IUserRep userRep = new UserRep(unitOfWork);
                 User user = userRep.Find(username, oldPassword);
@@ -47,7 +47,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
         public void CreateUser(string username, string password, string role, out MembershipCreateStatus status)
         {
             status = MembershipCreateStatus.Success;
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IUserRep userRep = new UserRep(unitOfWork);
 

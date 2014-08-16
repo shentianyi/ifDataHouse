@@ -11,5 +11,6 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Interface
         int GetCount();
         IQueryable<InspectOrigin> Queryable();
         List<InspectOrigin> GetList(int pageIndex = 0, int pageSize = 20);
+        InspectOrigin FindById(string id);
     }
 }

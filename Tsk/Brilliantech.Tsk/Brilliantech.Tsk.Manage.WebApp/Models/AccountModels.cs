@@ -54,8 +54,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         [Required]
         [Display(Name = "用户名")]
         public string UserName { get; set; }
-
-        [Required]
+         
         [Display(Name = "权限")]
         public string Role { get; set; } 
 
@@ -102,7 +101,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         {
             get
             {
-                return _provider.MinRequiredPasswordLength;
+                return CustomMembershipProvider.MinRequiredPasswordLength;
             }
         }
 
@@ -118,7 +117,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         {
             if (String.IsNullOrEmpty(userName)) throw new ArgumentException("值不能为 null 或为空。", "userName");
             if (String.IsNullOrEmpty(password)) throw new ArgumentException("值不能为 null 或为空。", "password");
-            if (String.IsNullOrEmpty(role)) throw new ArgumentException("值不能为 null 或为空。", "role");
+          //  if (String.IsNullOrEmpty(role)) throw new ArgumentException("值不能为 null 或为空。", "role");
 
             MembershipCreateStatus status;
             _provider.CreateUser(userName, password, role , out status);
@@ -216,7 +215,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
     public sealed class ValidatePasswordLengthAttribute : ValidationAttribute, IClientValidatable
     {
         private const string _defaultErrorMessage = "'{0}' 必须至少包含 {1} 个字符。";
-        private readonly int _minCharacters = Membership.Provider.MinRequiredPasswordLength;
+        private readonly int _minCharacters = CustomMembershipProvider.MinRequiredPasswordLength;
 
         public ValidatePasswordLengthAttribute()
             : base(_defaultErrorMessage)

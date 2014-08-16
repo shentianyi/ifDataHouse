@@ -10,5 +10,8 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Interface
     {
         void Create(User entity);
         User Find(string name, string password = null);
+        IQueryable<User> Queryable();
+        User FindById(int id);
+        void Delete(User entity);
     }
 }

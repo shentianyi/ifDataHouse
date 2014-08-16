@@ -92,8 +92,8 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                   // FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                    return RedirectToAction("Index", "User");
                 }
                 else
                 {

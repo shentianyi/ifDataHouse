@@ -23,7 +23,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         public ActionResult Index(int? page)
         {
             IPagedList<Inspect> inspects = null;
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
@@ -166,7 +166,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         private IPagedList<Inspect> QueryInspect(InspectQueryModel query, int? currentPageIndex, int? pageSize)
         {
             IPagedList<Inspect> inspects;
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
                 inspects = GenerateQuery(unitOfWork, query).ToPagedList(currentPageIndex.Value, pageSize.Value);
@@ -177,7 +177,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         private List<Inspect> ExportInspect(InspectQueryModel query)
         {
             List<Inspect> inspects = new List<Inspect>();
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
                 inspects = GenerateQuery(unitOfWork, query).ToList<Inspect>();

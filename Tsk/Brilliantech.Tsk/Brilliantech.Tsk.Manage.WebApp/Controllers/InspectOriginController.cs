@@ -11,6 +11,7 @@ using Brilliantech.Tsk.Manage.WebApp.Properties;
 using Brilliantech.Tsk.Manage.WebApp.Models;
 using System.IO;
 using System.Text;
+using Brilliantech.Tsk.Manage.WebApp.Util;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 {
@@ -22,7 +23,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         public ActionResult Index(int? page)
         {
             IPagedList<InspectOrigin> inspects = null;
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
                 IInspectOriginRep inspectOriginRep = new InspectOriginRep(unitOfWork);
@@ -76,11 +77,23 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             Response.BinaryWrite(ms.ToArray());
             Response.End();
         }
+        //
+        // GET: /Inspect/Details/5
 
+        public ActionResult Details(string id)
+        {
+            InspectOrigin inspect;
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+            {
+                IInspectOriginRep inspectRep = new InspectOriginRep(unitOfWork);
+                inspect = inspectRep.FindById(id);
+            }
+            return View(inspect);
+        }
         private IPagedList<InspectOrigin> QueryInspectOrigin(InspectOriginQueryModel query, int? currentPageIndex, int? pageSize)
         {
             IPagedList<InspectOrigin> inspects;
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IInspectOriginRep inspectRep = new InspectOriginRep(unitOfWork);
                 inspects = GenerateQuery(unitOfWork, query).ToPagedList(currentPageIndex.Value, pageSize.Value);
@@ -91,7 +104,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         private List<InspectOrigin> ExportInspectOrigin(InspectOriginQueryModel query)
         {
             List<InspectOrigin> inspects = new List<InspectOrigin>();
-            using (IUnitOfWork unitOfWork = new TskDataDataContext())
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IInspectOriginRep inspectRep = new InspectOriginRep(unitOfWork);
                 inspects = GenerateQuery(unitOfWork, query).ToList<InspectOrigin>();

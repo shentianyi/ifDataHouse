@@ -35,5 +35,27 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
             }
             return query.FirstOrDefault();
         }
+
+        public User FindById(int id) {
+            return this.context.User.FirstOrDefault(u => u.Id.Equals(id));
+        }
+
+        public IQueryable<User> Queryable()
+        {
+            return context.User;
+        }
+
+
+        public void Delete(User entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("user is null");
+            }
+            else
+            {
+                this.context.User.DeleteOnSubmit(entity);
+            }
+        }
     }
 }
