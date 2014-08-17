@@ -3,9 +3,10 @@ C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\Brilliantech.Tsk.Data.CL.pdb
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.dll
 C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.pdb
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\app.config
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\Brilliantech.Tsk.Data.CL.dll.config
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\Brilliantech.Tsk.Data.CL.dll
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\Brilliantech.Tsk.Data.CL.pdb
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.dll
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.pdb
-C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\bin\Debug\app.config
+C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Data.CL\obj\Debug\Brilliantech.Tsk.Data.CL.csprojResolveAssemblyReference.cache

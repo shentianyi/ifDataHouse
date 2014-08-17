@@ -1,0 +1,8 @@
+﻿[BaseConfig]
+RemoteServerIP = localhost
+RemoteServerPort = 8000
+DataFilePath = D:\\testdata\\
+ErrorFilePath = D:\\testdata\\error
+MovedFilePath = D:\\testdata\\moved
+DeleteFileAfterRead = False
+ScanInterval = 3
