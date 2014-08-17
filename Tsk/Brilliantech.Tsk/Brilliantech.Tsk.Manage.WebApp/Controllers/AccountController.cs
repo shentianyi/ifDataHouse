@@ -78,6 +78,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 
         public ActionResult Register()
         {
+            ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(),"Key","Name");
             ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
@@ -85,6 +86,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(), "Key", "Name");
             if (ModelState.IsValid)
             {
                 // 尝试注册用户

@@ -62,5 +62,9 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
                 unitOfWork.Submit();
             }
         }
+
+        public static bool CanEdit(string name) {
+          return  System.Configuration.ConfigurationManager.AppSettings["InitAdminName"] != name;
+        }
     }
 }

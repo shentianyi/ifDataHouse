@@ -56,6 +56,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         public string UserName { get; set; }
          
         [Display(Name = "权限")]
+        [Required]
         public string Role { get; set; } 
 
         [Required]

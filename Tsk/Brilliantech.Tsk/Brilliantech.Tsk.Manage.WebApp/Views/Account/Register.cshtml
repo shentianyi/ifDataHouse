@@ -28,6 +28,14 @@
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </div>
+           
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Role)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Role")
+                @Html.ValidationMessageFor(m => m.Role)
+            </div>
 
             <div class="editor-label">
                 @Html.LabelFor(m => m.Password)

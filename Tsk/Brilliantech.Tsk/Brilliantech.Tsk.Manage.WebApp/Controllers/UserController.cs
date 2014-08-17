@@ -9,6 +9,7 @@ using Brilliantech.Tsk.Data.CL.Repository.Implement;
 using Brilliantech.Tsk.Data.CL.Repository.Interface;
 using Brilliantech.Tsk.Manage.WebApp.Properties;
 using Brilliantech.Tsk.Manage.WebApp.Util;
+using Brilliantech.Tsk.Manage.WebApp.Models;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 {
@@ -28,13 +29,27 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             }
             return View(users);
         }
-
         //
         // GET: /User/Edit/5
 
         public ActionResult Edit(int id)
         {
-            return View();
+            User user;
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+            {
+                IUserRep userRep = new UserRep(unitOfWork);
+                user = userRep.FindById(id);
+                if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                {
+                    ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(), "Key", "Name", user.Role);
+                    return View(user);
+                }
+                else
+                {
+                    TempData["Message"] = "初始管理员，不可以编辑";
+                    return RedirectToAction("Index");
+                }
+            }
         }
 
         //
@@ -45,9 +60,33 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                User user;
+                using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+                {
+                    IUserRep userRep = new UserRep(unitOfWork);
+                    user = userRep.FindById(id);
 
-                return RedirectToAction("Index");
+                    if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                    {
+                        ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(), "Key", "Name", user.Role);
+                        if (collection.Get("Password").Trim().Length < CustomMembershipProvider.MinRequiredPasswordLength)
+                        {
+                            ViewBag.Message = "密码长度小于" + CustomMembershipProvider.MinRequiredPasswordLength;
+                            return View(user);
+                        }
+                        else {
+                            user.Password = collection.Get("Password").Trim();
+                            user.Role = collection.Get("Role");
+                            unitOfWork.Submit();
+                            return RedirectToAction("Index");
+                        }
+                    }
+                    else
+                    {
+                        TempData["Message"] = "初始管理员，不可以编辑";
+                        return RedirectToAction("Index");
+                    }
+                }
             }
             catch
             {
@@ -65,8 +104,16 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             {
                 IUserRep userRep = new UserRep(unitOfWork);
                 user = userRep.FindById(id);
+                if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                {
+                    return View(user);
+                }
+                else
+                {
+                    TempData["Message"] = "初始管理员，不可以删除";
+                    return RedirectToAction("Index");
+                }
             }
-            return View(user);
         }
 
         //
