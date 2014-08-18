@@ -20,7 +20,9 @@ namespace Brilliantech.Tsk.Manage.WebApp
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+           
+            routes.Add(new Route("{controller}.mvc/{action}",
+                new MvcRouteHandler()) { Defaults = new RouteValueDictionary(new { controller = "Home" }) });
 
             routes.MapRoute(
                "Index",

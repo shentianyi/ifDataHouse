@@ -35,3 +35,4 @@ C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.csprojResolveAssemblyReference.cache
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.dll
 C:\Users\Charlot\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\obj\Debug\Brilliantech.Tsk.Service.Wcf.pdb
+C:\Users\Wangsong\Documents\GitHub\ifDataHouse\Tsk\Brilliantech.Tsk\Brilliantech.Tsk.Service.Wcf\bin\Debug\app.config

@@ -53,7 +53,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             {
                 // write head
                 //   string max =
-                sw.WriteLine(string.Join(";", InspectOriginQueryModel.CsvHead.ToArray()));
+                sw.WriteLine(string.Join(",", InspectOriginQueryModel.CsvHead.ToArray()));
                 foreach (InspectOrigin i in inspects)
                 {
                     List<string> ii = new List<string>();
@@ -63,7 +63,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
                        var value= i.GetType().GetProperty(field).GetValue(i, null);
                         ii.Add(value==null ? "" : value.ToString());
                     }
-                    sw.WriteLine(string.Join(";", ii.ToArray()));
+                    sw.WriteLine(string.Join(",", ii.ToArray()));
                 }
                 //sw.WriteLine(max);
             }

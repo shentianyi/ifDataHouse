@@ -1,0 +1,329 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    background-color: #5c87b2;
+    font-size: 75%;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+#menucontainer ul 
+{
+    margin: 0px;
+    padding: 0px;
+}
+#menucontainer ul li {
+  float: left;
+    display: inline;
+    font-size:14px;
+    height: 30px;
+    list-style: none;
+    cursor:pointer;
+}
+#menucontainer ul li a 
+{
+    padding: 2px 10px;
+   color:#5c87b2;
+    text-decoration: none;
+    line-height: 27px;
+    width:auto;
+    margin: 0px;
+    display: block;
+  border-right: solid 3px #5c87b2;
+     border-bottom:dashed 1px #5c87b2;
+ background-color: #e8eef4;
+}
+#menucontainer ul li ul li
+{
+    float:none;
+}
+#menucontainer ul li ul
+{
+    visibility: hidden; 
+}
+#menucontainer ul li:hover ul { visibility: visible;}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+    color: #000;
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+}
+
+#main
+{
+    padding: 30px 30px 15px 30px;
+    background-color: #fff;
+    margin:50px 0 30px 0;
+    position:inherit;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+}
+
+#footer
+{  color:White;
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: .9em;
+}
+
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+select
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{
+  border: solid 1px #e8eef4;
+  border-collapse: collapse;
+}
+
+table td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+
+
+div#title
+{
+    display:block;
+    text-align:left;
+}
+
+#logindisplay
+{
+    font-size:16px;
+    display:block;
+    text-align:right;
+    margin:10px;
+    color:White;
+}
+
+#logindisplay a:link
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.display-field,
+.editor-field
+{
+    margin:0.5em 0 0 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+
+/******************Page Stytle*****************/
+.pagination{margin-bottom:40px;line-height:23px; margin-top:5px;} 
+.pagination-inner{float:left;} 
+.pagination a,.pagination span{float:left;display:inline;margin-left:3px;padding:0 7px;border:1px solid #a2d0e5;background-color:#fff;white-space:nowrap;} 
+.pagination a:link,.pagination a:visited{color:#017ca9; text-decoration:none} 
+.pagination a:hover,.pagination a:active{border-color:#1db535;text-decoration:none;} 
+.pagination .current,.pagination a.current:link,.pagination a.current:visited{color:#fff;border-color:#1db535;background:#57d26a;font-weight:bold;}
+
+/*****************************/
+.editor-error-msg
+{
+    color:Red;
+    padding:3px;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.clinet-validation-valid
+{   
+     color:Red;
+}
+.button
+{
+    color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+    }

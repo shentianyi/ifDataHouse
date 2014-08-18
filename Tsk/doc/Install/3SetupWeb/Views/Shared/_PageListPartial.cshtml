@@ -1,0 +1,36 @@
+﻿<div class="clearfix pagination"> 
+    <div class="pagination-inner"> 
+    @if (Model != null)
+    {
+        if (Model.Start > 1)
+        {
+            //如果当前页面超过第二页则显示第一页“1...”的链接 
+        @Html.RouteLink("1...",  "PageList", new { pageIndex = 0 }, new { title = "首页" })  
+        }
+
+        for (int i = Model.Start; i <= Model.End; i++)
+        {
+            if (i == Model.PageIndex + 1)
+            {
+            @Html.RouteLink(i.ToString(),  "PageList", new { pageIndex = i - 1 }, new { title = "页 ：" + i.ToString(), @class = "current" });
+            }
+            else if (i == Model.End && Model.End < Model.TotalPages - 1 && Model.PageIndex - Model.Start < 2)
+            { 
+             @Html.RouteLink(i.ToString() + "...",  "PageList", new { pageIndex = i - 1 }, new { title = "页 : " + i.ToString() });
+            }
+            else
+            {
+              @Html.RouteLink(i.ToString(),  "PageList", new { pageIndex = i - 1 }, new { title = "页 : " + i.ToString() });
+            }
+
+        }
+
+        if (Model.End < Model.TotalPages && Model.PageIndex - Model.Start < 2)
+        {
+            //最后一页 
+            string totalPages = (@Model.TotalPages).ToString(); 
+            @Html.RouteLink(totalPages,  "PageList", new { pageIndex = Model.TotalPages - 1 }, new { title = "末页" });
+        }
+    } 
+    </div> 
+</div><div class="spaceHoder"> </div>
