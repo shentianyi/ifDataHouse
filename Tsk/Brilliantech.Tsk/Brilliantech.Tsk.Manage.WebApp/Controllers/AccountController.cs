@@ -78,6 +78,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 
         public ActionResult Register()
         {
+            ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(),"Key","Name");
             ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
@@ -85,15 +86,16 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(), "Key", "Name");
             if (ModelState.IsValid)
             {
                 // 尝试注册用户
-                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Role);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                   // FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                    return RedirectToAction("Index", "User");
                 }
                 else
                 {

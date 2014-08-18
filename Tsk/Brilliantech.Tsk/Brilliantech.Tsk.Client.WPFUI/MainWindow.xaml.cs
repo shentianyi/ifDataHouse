@@ -65,7 +65,8 @@ namespace Brilliantech.Tsk.Client.WPFUI
                 if (!Directory.Exists(TskBaseConfig.DataFilePath))
                 {
                     LogUtil.Logger.Error("【数据文件目录不存在】" + TskBaseConfig.DataFilePath);
-                    MessageBox.Show("【数据文件目录不存在】" + TskBaseConfig.DataFilePath, "错误提示", MessageBoxButton.OK, MessageBoxImage.Error);
+                   // MessageBox.Show("【数据文件目录不存在】" + TskBaseConfig.DataFilePath, "错误提示", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
                     return;
                 }
                 List<string> files = GetAllFilesFromDirectory(TskBaseConfig.DataFilePath);
@@ -109,7 +110,7 @@ namespace Brilliantech.Tsk.Client.WPFUI
         /// <param name="fullPath"></param>
         private void Process(string fullPath)
         {
-            bool canAccessRemoteService = true;
+            bool canRemoveErrorFile = true;
 
             string nextDir = System.IO.Path.Combine(TskBaseConfig.ErrorFilePath, DateTime.Today.ToString("yyyy-MM-dd"));
             try
@@ -124,13 +125,16 @@ namespace Brilliantech.Tsk.Client.WPFUI
                             InspectServiceClient client = new InspectServiceClient("BasicHttpBinding_IInspectService",
                                 TskBaseConfig.InspectServiceAddress);
                             ProcessMessage msg = client.CreateInspect(s);
+                            string msgStr=msg.GetMessageContent();
                             if (msg.Result)
                             {
+                                setWatchContent(msgStr, false);
                                 nextDir = System.IO.Path.Combine(TskBaseConfig.MovedFilePath, DateTime.Today.ToString("yyyy-MM-dd"));
                             }
                             else
                             {
-                                LogUtil.Logger.Error(msg.GetMessageContent());
+                                setWatchContent(msgStr);
+                                LogUtil.Logger.Error(msgStr);
                             }
                         }
                     }
@@ -139,13 +143,14 @@ namespace Brilliantech.Tsk.Client.WPFUI
             catch (Exception e)
             {
                 LogUtil.Logger.Error(e.GetType());
-                if (e is System.ServiceModel.EndpointNotFoundException) {
-                    canAccessRemoteService = false;
-                }
+               //if (e is System.ServiceModel.EndpointNotFoundException) {
+                    canRemoveErrorFile = false;
+                //}
+                    setWatchContent(e.Message);
                 LogUtil.Logger.Error(e.Message);
             }
             // 是否可以访问服务 不可以访问时保持文件不处理
-            if (canAccessRemoteService)
+            if (canRemoveErrorFile)
             {
                 // 是否删除文件
                 if (TskBaseConfig.DeleteFileAfterRead)
@@ -301,6 +306,18 @@ namespace Brilliantech.Tsk.Client.WPFUI
         }
 
         /// <summary>
+        /// set watch content
+        /// </summary>
+        /// <param name="content"></param>
+        private void setWatchContent(string content, bool error = true)
+        {
+            RunWatchTB.Dispatcher.Invoke(new Action(() => RunWatchTB.Text = content));
+
+            RunWatchTB.Dispatcher.Invoke(new Action(() => RunWatchTB.Foreground = error ? Brushes.Red : Brushes.Green));
+        }
+
+
+        /// <summary>
         /// window closing
         /// </summary>
         /// <param name="sender"></param>
@@ -371,6 +388,16 @@ namespace Brilliantech.Tsk.Client.WPFUI
                     this.WindowState = WindowState.Normal;
                 }
             }
+        }
+
+        /// <summary>
+        /// Open instal path
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenInstallPathBtn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory);
         }
 
     }
