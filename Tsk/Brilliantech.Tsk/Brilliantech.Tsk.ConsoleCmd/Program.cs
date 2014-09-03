@@ -10,13 +10,15 @@ namespace Brilliantech.Tsk.ConsoleCmd
     {
         static void Main(string[] args)
         {
-            List<string> tsks = new List<string>() { "TSK044","TSK544", "TSK045", "TSK046" };
+
+          //Console.WriteLine(  Convert.ToDateTime(""));
+            List<string> tsks = new List<string>() { "TSK044", "TSK544", "TSK045", "TSK046" };
             List<string> leoniNos = new List<string>() { "91G40538", "6100982", "6100991", "91G40537" };
-            List<string> cusNos = new List<string>() { "C004","C005","C006"};
-            List<string> clipScanNos = new List<string>() {"CS001","CS002","CS003" };
-            List<string> times = new List<string>() { "2014-08-01 12:01:15", "2014-08-01 13:01:15", "2014-08-01 13:03:15", "2014-08-02 02:02:00", "2014-08-02 12:01:15", "2014-08-03 11:02:03" };
-            List<string> tskScanNos = new List<string>() { "S001","S002","S003","S0012","S0013"};
-            List<string> mins = new List<string>() { "11","12","13","14","15"};
+            List<string> cusNos = new List<string>() { "-", "-", "-" };
+            List<string> clipScanNos = new List<string>() { "CS001", "CS002", "CS003" };
+            List<string> times = new List<string>() { "-", "2014-08-01 13:01:15", "-", "2014-08-02 02:02:00", "2014-08-02 12:01:15", "2014-08-03 11:02:03" };
+            List<string> tskScanNos = new List<string>() { "-", "S002", "-", "-", "-" };
+            List<string> mins = new List<string>() { "-", "-", "13", "-", "15" };
             List<string> okOrnots = new List<string>() { "1", "1", "0", "0", "1" };
             //string result = "TSK056;91G40538;23431905;23431905;2014-08-01 12:01:15;2014-08-01 12:01:15;20T1906234141213;2014-08-01 14:23:13;15;1";
             try
@@ -39,8 +41,8 @@ namespace Brilliantech.Tsk.ConsoleCmd
                                             foreach (string okOrnot in okOrnots)
                                             {
                                                 string put = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}",
-                                                    tsk, leoniNo, cusNo, clipScanNo, time, DateTime.Parse(time).AddMinutes(2), tskScanNo,
-                                                    DateTime.Parse(time).AddMinutes(10).AddSeconds(7),min,okOrnot);
+                                                    tsk, leoniNo, cusNo, clipScanNo, time,time, tskScanNo,
+                                                    time, min, okOrnot);
                                                 Console.WriteLine(put);
                                                 client.CreateInspect(put);
                                             }

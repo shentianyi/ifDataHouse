@@ -54,15 +54,37 @@ namespace Brilliantech.Tsk.Service.Wcf
                             LeoniNo = data[1],
                             CusNo = data[2],
                             ClipScanNo = data[3],
-                            ClipScanTime1 = DateTime.Parse(data[4]),
-                            ClipScanTime2 = DateTime.Parse(data[5]),
-                            TskScanNo = data[6],
-                            TskScanTime3 = DateTime.Parse(data[7]),
-                            Time3MinTime2 = float.Parse(data[8]),
-                            OkOrNot = data[9],
+                          //  ClipScanTime1 = data[4],
+                           // ClipScanTime2 = data[6],
+                            TskScanNo = data[7],
+                           // TskScanTime3 = data[8],
+                           // Time3MinTime2 = data[9],
+                            OkOrNot = data[10],
                             CreatedAt = DateTime.Now,
                             OriginId = inspectOrigin.Id
                         };
+                        DateTime clipScanTime1 = DateTime.Now;
+                        if (DateTime.TryParse(data[4], out clipScanTime1))
+                        {
+                            inspect.ClipScanTime1 = clipScanTime1;
+                        }
+
+                        DateTime clipScanTime2 = DateTime.Now;
+                        if (DateTime.TryParse(data[6], out clipScanTime2))
+                        {
+                            inspect.ClipScanTime2 = clipScanTime2;
+                        }
+
+                        DateTime tskScanTime3 = DateTime.Now;
+                        if (DateTime.TryParse(data[8], out tskScanTime3))
+                        {
+                            inspect.TskScanTime3 = tskScanTime3;
+                        }
+
+                        float time3MinTime2 = 0;
+                        if (float.TryParse(data[9], out time3MinTime2)) {
+                            inspect.Time3MinTime2 = time3MinTime2;
+                        }
 
                         inspectRep.Create(inspect);
                         message.Messages.Add("数据处理成功");
@@ -74,9 +96,8 @@ namespace Brilliantech.Tsk.Service.Wcf
                     inspectOriginRep.Create(inspectOrigin);
 
                     unitOfWork.Submit();
-
-                    return message;
                 }
+                return message;
             }
             catch (Exception e)
             {

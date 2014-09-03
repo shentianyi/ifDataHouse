@@ -25,10 +25,10 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         private DateTime? createdAtStart;
         private DateTime? createdAtEnd;
         private static List<string> csvHead = new List<string>() { 
-         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","数据保存时间"
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","数据库数据保存时间"
         };
-        private static List<string> fileds= new List<string>() { 
-         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","CreatedAt"
+        private static List<string> fileds = new List<string>() { 
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1View","ClipScanTime2View","TskScanNo","TskScanTime3View","Time3MinTime2View","OkOrNot","CreatedAt"
         };
 
 
@@ -41,28 +41,61 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
             this.ClipScanNo = collection.Get("ClipScanNo");
             if (collection.Get("ClipScanTime1Start") != null && collection.Get("ClipScanTime1Start").Trim().Length > 0)
             {
-                this.ClipScanTime1Start = DateTime.Parse(collection.Get("ClipScanTime1Start"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("ClipScanTime1Start"), out time)) {
+                    this.ClipScanTime1Start = time;
+                }
+
+               // this.ClipScanTime1Start = DateTime.Parse(collection.Get("ClipScanTime1Start"));
             }
             if (collection.Get("ClipScanTime1End") != null && collection.Get("ClipScanTime1End").Trim().Length > 0)
             {
-                this.ClipScanTime1End = DateTime.Parse(collection.Get("ClipScanTime1End"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("ClipScanTime1Start"), out time))
+                {
+                    this.ClipScanTime1End = time;
+                }
+               // this.ClipScanTime1End = DateTime.Parse(collection.Get("ClipScanTime1End"));
             }
             if (collection.Get("ClipScanTime2Start") != null && collection.Get("ClipScanTime2Start").Trim().Length > 0)
             {
-                this.ClipScanTime2Start = DateTime.Parse(collection.Get("ClipScanTime2Start"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("ClipScanTime2Start"), out time))
+                {
+                    this.ClipScanTime2Start = time;
+                }
+                //this.ClipScanTime2Start = DateTime.Parse(collection.Get("ClipScanTime2Start"));
             }
             if (collection.Get("ClipScanTime2End") != null && collection.Get("ClipScanTime2End").Trim().Trim().Length > 0)
             {
-                this.ClipScanTime2End = DateTime.Parse(collection.Get("ClipScanTime2End"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("ClipScanTime2End"), out time))
+                {
+                    this.ClipScanTime2End = time;
+                }
+
+                //this.ClipScanTime2End = DateTime.Parse(collection.Get("ClipScanTime2End"));
             }
             this.TskScanNo = collection.Get("TskScanNo");
             if (collection.Get("TskScanTime3Start") != null && collection.Get("TskScanTime3Start").Trim().Length > 0)
             {
-                this.TskScanTime3Start = DateTime.Parse(collection.Get("TskScanTime3Start"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("TskScanTime3Start"), out time))
+                {
+                    this.TskScanTime3Start = time;
+                }
+
+                //this.TskScanTime3Start = DateTime.Parse(collection.Get("TskScanTime3Start"));
             }
             if (collection.Get("TskScanTime3End") != null && collection.Get("TskScanTime3End").Trim().Length > 0)
             {
-                this.TskScanTime3End = DateTime.Parse(collection.Get("TskScanTime3End"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("TskScanTime3End"), out time))
+                {
+                    this.TskScanTime3End = time;
+                }
+
+               // this.TskScanTime3End = DateTime.Parse(collection.Get("TskScanTime3End"));
             }
 
             if (collection.Get("Time3MinTime2Start") != null && collection.Get("Time3MinTime2Start").Trim().Length > 0)
@@ -72,7 +105,8 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
                 {
                     this.Time3MinTime2Start = i;
                 }
-                else {
+                else
+                {
                     this.time3MinTime2Start = null;
                 }
             }
@@ -92,11 +126,21 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
 
             if (collection.Get("createdAtStart") != null && collection.Get("createdAtStart").Trim().Length > 0)
             {
-                this.CreatedAtStart = DateTime.Parse(collection.Get("CreatedAtStart"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("CreatedAtStart"), out time))
+                {
+                    this.CreatedAtStart = time;
+                }
+                //this.CreatedAtStart = DateTime.Parse(collection.Get("CreatedAtStart"));
             }
             if (collection.Get("CreatedAtEnd") != null && collection.Get("CreatedAtEnd").Trim().Length > 0)
             {
-                this.CreatedAtEnd = DateTime.Parse(collection.Get("CreatedAtEnd"));
+                DateTime time = DateTime.Now;
+                if (DateTime.TryParse(collection.Get("CreatedAtEnd"), out time))
+                {
+                    this.CreatedAtEnd = time;
+                }
+               // this.CreatedAtEnd = DateTime.Parse(collection.Get("CreatedAtEnd"));
             }
 
         }
@@ -217,6 +261,6 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         {
             get { return InspectQueryModel.fileds; }
         }
-     
+
     }
 }

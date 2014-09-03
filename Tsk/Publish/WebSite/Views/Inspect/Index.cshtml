@@ -57,7 +57,7 @@
  </span>
  <br />
   <span>
-  数据保存时间 
+  数据库数据保存时间 
   <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
   --
   <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
@@ -93,7 +93,7 @@
 </div>
 </form>
 </div>
- <div>
+  <div class="button">
   共：@Model.TotalItemCount
  </div>
  
@@ -131,7 +131,7 @@
             OkOrNot
         </th>
         <th>
-            数据保存时间
+           数据库数据保存时间
         </th>
         <th>
             原始数据
@@ -161,19 +161,19 @@
             @item.ClipScanNo
         </td>
         <td>
-            @item.ClipScanTime1
+          @item.ClipScanTime1View
         </td>
         <td>
-            @item.ClipScanTime2
+            @item.ClipScanTime2View
         </td>
         <td>
             @item.TskScanNo
         </td>
         <td>
-            @item.TskScanTime3.ToString()
+            @item.TskScanTime3View
         </td>
         <td>
-            @item.Time3MinTime2
+            @item.Time3MinTime2View
         </td>
         <td>
             @item.OkOrNot

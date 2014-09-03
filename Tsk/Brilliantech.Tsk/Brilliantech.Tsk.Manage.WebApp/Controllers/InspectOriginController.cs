@@ -12,6 +12,7 @@ using Brilliantech.Tsk.Manage.WebApp.Models;
 using System.IO;
 using System.Text;
 using Brilliantech.Tsk.Manage.WebApp.Util;
+using System.Transactions;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 {
@@ -23,12 +24,20 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         public ActionResult Index(int? page)
         {
             IPagedList<InspectOrigin> inspects = null;
-            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+            using (var txn = new System.Transactions.TransactionScope(TransactionScopeOption.Required,
+               new TransactionOptions
+               {
+                   IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted
+               }))
             {
-                int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
-                IInspectOriginRep inspectOriginRep = new InspectOriginRep(unitOfWork);
-                inspects = inspectOriginRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
+                using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+                {
+                    int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
+                    IInspectOriginRep inspectOriginRep = new InspectOriginRep(unitOfWork);
+                    inspects = inspectOriginRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
+                }
             }
+
             return View(inspects);
         }
         [Authorize]

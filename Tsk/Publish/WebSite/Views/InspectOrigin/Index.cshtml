@@ -15,7 +15,7 @@
  </span>
  <br />
  <span>
-  数据保存时间 
+ 数据库数据保存时间 
   <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
   --
   <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
@@ -25,20 +25,20 @@
        {
  @Html.ActionLink("导出数据报表", "Export",
  new
- { 
+ { @class="button",
      ProcessResult = ViewBag.Query.ProcessResult, 
      CreatedAtStart = ViewBag.Query.CreatedAtStart,
      CreatedAtEnd = ViewBag.Query.CreatedAtEnd
  }, null)}
        else { 
-        @Html.ActionLink("导出数据报表", "Export")
+        @Html.ActionLink("导出数据报表", "Export",new { @class="button"})
        }
 </div>
 
 </div>
 </form>
 </div>
-  <div>
+  <div class="button">
   共：@Model.TotalItemCount
  </div>
 <table>
@@ -54,7 +54,7 @@
             处理信息
         </th>
         <th>
-            数据保存时间
+            数据库数据保存时间
         </th> 
     </tr>
 

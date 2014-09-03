@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Brilliantech.Tsk.Data.CL.Repository.Interface;
 using Brilliantech.Tsk.Data.CL.Model;
+using System.Transactions;
 
 namespace Brilliantech.Tsk.Data.CL.Repository.Implement
 {
@@ -40,9 +41,29 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
 
         public IQueryable<InspectOrigin> Queryable()
         {
-            return context.InspectOrigin.OrderByDescending(item => item.CreatedAt);
+            //using (var txn = new System.Transactions.TransactionScope(TransactionScopeOption.Required,
+            //    new TransactionOptions
+            //    {
+            //        IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted
+            //    }))
+            //{
+                return context.InspectOrigin.OrderByDescending(item => item.CreatedAt);
+            //}
         }
 
+
+
+        //public MvcPaging.IPagedList<InspectOrigin> GetPageList(int currentPageIndex, int pageSize)
+        //{
+        //    using (var txn = new System.Transactions.TransactionScope(TransactionScopeOption.Required,
+        //     new TransactionOptions
+        //     {
+        //         IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted
+        //     }))
+        //    {
+        //        return context.InspectOrigin.Select().ToPagedList(currentPageIndex, pageSize);
+        //    }
+        //}
         /// <summary>
         /// Get List
         /// </summary>
@@ -57,5 +78,6 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
        public InspectOrigin FindById(string id) {
            return context.InspectOrigin.FirstOrDefault(i => i.Id.Equals(id));
        }
+
     }
 }
