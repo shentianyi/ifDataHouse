@@ -25,10 +25,10 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         private DateTime? createdAtStart;
         private DateTime? createdAtEnd;
         private static List<string> csvHead = new List<string>() { 
-         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","数据库数据保存时间"
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","数据上传时间"
         };
         private static List<string> fileds = new List<string>() { 
-         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1View","ClipScanTime2View","TskScanNo","TskScanTime3View","Time3MinTime2View","OkOrNot","CreatedAt"
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1View","ClipScanTime2View","TskScanNo","TskScanTime3View","Time3MinTime2View","OkOrNot","CreatedAtView"
         };
 
 

@@ -19,7 +19,7 @@ namespace Brilliantech.Tsk.Data.CL.Model
         {
             get
             {
-                return this.ClipScanTime2.HasValue ? this.ClipScanTime2.ToString() : "-";
+                return this.ClipScanTime2.HasValue ? this.ClipScanTime2.Value.ToString("yyyy/M/d HH:mm:ss") : "-";
             }
         }
 
@@ -28,7 +28,7 @@ namespace Brilliantech.Tsk.Data.CL.Model
         {
             get
             {
-                return this.TskScanTime3.HasValue ? this.TskScanTime3.ToString() : "-";
+                return this.TskScanTime3.HasValue ? this.TskScanTime3.Value.ToString("yyyy/M/d HH:mm:ss") : "-";
             }
         }
 
@@ -39,6 +39,14 @@ namespace Brilliantech.Tsk.Data.CL.Model
                 return this.Time3MinTime2.HasValue ? this.Time3MinTime2.ToString() : "-";
             }
 
+        }
+
+        public string CreatedAtView
+        {
+            get
+            {
+                return this.CreatedAt.Value.ToString("yyyy/M/d HH:mm:ss");
+            }
         }
     }
 }
