@@ -34,7 +34,7 @@ namespace Brilliantech.Tsk.Manage.WebApp
             routes.MapRoute(
                 "Default", // 路由名称
                 "{controller}/{action}/{id}", // 带有参数的 URL
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // 参数默认值
+                new { controller = "Inspect", action = "Index", id = UrlParameter.Optional } // 参数默认值
             );
 
         }

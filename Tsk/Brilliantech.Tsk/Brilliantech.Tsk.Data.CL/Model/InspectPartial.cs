@@ -36,7 +36,7 @@ namespace Brilliantech.Tsk.Data.CL.Model
         {
             get
             {
-                return this.Time3MinTime2.HasValue ? this.Time3MinTime2.Value.ToString("yyyy/M/d HH:mm:ss") : "-";
+                return this.Time3MinTime2.HasValue ? this.Time3MinTime2.Value.ToString() : "-";
             }
 
         }
