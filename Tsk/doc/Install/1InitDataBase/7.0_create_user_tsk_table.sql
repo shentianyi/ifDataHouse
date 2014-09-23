@@ -1,0 +1,36 @@
+USE [Leoni_Tsk_JN]
+GO
+
+/****** Object:  Table [dbo].[UserTsk]    Script Date: 09/23/2014 22:29:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[UserTsk](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NULL,
+	[TskNo] [varchar](50) NULL,
+ CONSTRAINT [PK_UserTsk] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[UserTsk]  WITH CHECK ADD  CONSTRAINT [FK_UserTsk_User] FOREIGN KEY([UserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[UserTsk] CHECK CONSTRAINT [FK_UserTsk_User]
+GO
+
+

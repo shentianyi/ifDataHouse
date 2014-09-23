@@ -57,7 +57,7 @@
  </span>
  <br />
   <span>
-  数据库数据保存时间 
+   数据上传时间 
   <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
   --
   <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
@@ -131,7 +131,7 @@
             OkOrNot
         </th>
         <th>
-           数据库数据保存时间
+            数据上传时间
         </th>
         <th>
             原始数据
@@ -179,7 +179,7 @@
             @item.OkOrNot
         </td>
         <td>
-            @String.Format("{0:g}", item.CreatedAt)
+            @String.Format("{0:g}", item.CreatedAtView)
         </td>
         <td>
         <a href="/InspectOrigin/Details/@item.OriginId">原始数据</a>       

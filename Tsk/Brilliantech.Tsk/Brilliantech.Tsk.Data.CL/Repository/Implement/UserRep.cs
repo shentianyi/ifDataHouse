@@ -31,9 +31,11 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
             var query = this.context.User.Where(u => u.Name.Equals(name));
             if (password != null)
             {
-                query.Where(u => u.Password.Equals(password));
+               query= query.Where(u => u.Password.Equals(password));
             }
-            return query.FirstOrDefault();
+
+            List<User> users = query.ToList();
+            return users.Count > 0 ? users.First() : null;
         }
 
         public User FindById(int id) {
@@ -56,6 +58,11 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
             {
                 this.context.User.DeleteOnSubmit(entity);
             }
+        }
+
+        public List<User> ListWithEmail()
+        {
+            return this.context.User.Where(u => ((!u.Email.Equals(null)) && u.Email.Trim().Length>0)).ToList();
         }
     }
 }

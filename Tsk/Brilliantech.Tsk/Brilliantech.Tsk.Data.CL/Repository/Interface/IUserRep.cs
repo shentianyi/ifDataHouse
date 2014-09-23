@@ -11,6 +11,7 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Interface
         void Create(User entity);
         User Find(string name, string password = null);
         IQueryable<User> Queryable();
+        List<User> ListWithEmail();
         User FindById(int id);
         void Delete(User entity);
     }

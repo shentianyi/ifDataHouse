@@ -15,7 +15,7 @@
  </span>
  <br />
  <span>
- 数据库数据保存时间 
+  数据上传时间
   <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
   --
   <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
@@ -54,7 +54,7 @@
             处理信息
         </th>
         <th>
-            数据库数据保存时间
+             数据上传时间
         </th> 
     </tr>
 
@@ -77,7 +77,7 @@
             @Html.DisplayFor(modelItem => item.ProcessMessage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedAt)
+            @Html.DisplayFor(modelItem => item.CreatedAtView)
         </td>
         
     </tr>

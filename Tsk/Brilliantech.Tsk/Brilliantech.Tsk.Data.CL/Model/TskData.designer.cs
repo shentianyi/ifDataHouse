@@ -33,12 +33,15 @@ namespace Brilliantech.Tsk.Data.CL.Model
     partial void InsertInspectOrigin(InspectOrigin instance);
     partial void UpdateInspectOrigin(InspectOrigin instance);
     partial void DeleteInspectOrigin(InspectOrigin instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertInspect(Inspect instance);
     partial void UpdateInspect(Inspect instance);
     partial void DeleteInspect(Inspect instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
+    partial void InsertUserTsk(UserTsk instance);
+    partial void UpdateUserTsk(UserTsk instance);
+    partial void DeleteUserTsk(UserTsk instance);
     #endregion
 		
 		public TskDataDataContext() : 
@@ -79,6 +82,14 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			}
 		}
 		
+		public System.Data.Linq.Table<Inspect> Inspect
+		{
+			get
+			{
+				return this.GetTable<Inspect>();
+			}
+		}
+		
 		public System.Data.Linq.Table<User> User
 		{
 			get
@@ -87,11 +98,19 @@ namespace Brilliantech.Tsk.Data.CL.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<Inspect> Inspect
+		public System.Data.Linq.Table<UserInspect> UserInspect
 		{
 			get
 			{
-				return this.GetTable<Inspect>();
+				return this.GetTable<UserInspect>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UserTsk> UserTsk
+		{
+			get
+			{
+				return this.GetTable<UserTsk>();
 			}
 		}
 	}
@@ -229,140 +248,6 @@ namespace Brilliantech.Tsk.Data.CL.Model
 					this._CreatedAt = value;
 					this.SendPropertyChanged("CreatedAt");
 					this.OnCreatedAtChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private string _Password;
-		
-		private string _Role;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnRoleChanging(string value);
-    partial void OnRoleChanged();
-    #endregion
-		
-		public User()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="VarChar(50)")]
-		public string Role
-		{
-			get
-			{
-				return this._Role;
-			}
-			set
-			{
-				if ((this._Role != value))
-				{
-					this.OnRoleChanging(value);
-					this.SendPropertyChanging();
-					this._Role = value;
-					this.SendPropertyChanged("Role");
-					this.OnRoleChanged();
 				}
 			}
 		}
@@ -713,6 +598,604 @@ namespace Brilliantech.Tsk.Data.CL.Model
 					this._OriginId = value;
 					this.SendPropertyChanged("OriginId");
 					this.OnOriginIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private string _Password;
+		
+		private string _Role;
+		
+		private string _Email;
+		
+		private EntitySet<UserTsk> _UserTsk;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnRoleChanging(string value);
+    partial void OnRoleChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    #endregion
+		
+		public User()
+		{
+			this._UserTsk = new EntitySet<UserTsk>(new Action<UserTsk>(this.attach_UserTsk), new Action<UserTsk>(this.detach_UserTsk));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="VarChar(50)")]
+		public string Role
+		{
+			get
+			{
+				return this._Role;
+			}
+			set
+			{
+				if ((this._Role != value))
+				{
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserTsk", Storage="_UserTsk", ThisKey="Id", OtherKey="UserId")]
+		public EntitySet<UserTsk> UserTsk
+		{
+			get
+			{
+				return this._UserTsk;
+			}
+			set
+			{
+				this._UserTsk.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_UserTsk(UserTsk entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_UserTsk(UserTsk entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserInspect")]
+	public partial class UserInspect
+	{
+		
+		private System.Guid _Id;
+		
+		private string _TskNo;
+		
+		private string _LeoniNo;
+		
+		private string _CusNo;
+		
+		private string _ClipScanNo;
+		
+		private System.Nullable<System.DateTime> _ClipScanTime1;
+		
+		private System.Nullable<System.DateTime> _ClipScanTime2;
+		
+		private string _TskScanNo;
+		
+		private System.Nullable<System.DateTime> _TskScanTime3;
+		
+		private System.Nullable<double> _Time3MinTime2;
+		
+		private string _OkOrNot;
+		
+		private System.Nullable<System.DateTime> _CreatedAt;
+		
+		private System.Nullable<System.Guid> _OriginId;
+		
+		private System.Nullable<int> _UserId;
+		
+		public UserInspect()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskNo", DbType="VarChar(100)")]
+		public string TskNo
+		{
+			get
+			{
+				return this._TskNo;
+			}
+			set
+			{
+				if ((this._TskNo != value))
+				{
+					this._TskNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeoniNo", DbType="VarChar(100)")]
+		public string LeoniNo
+		{
+			get
+			{
+				return this._LeoniNo;
+			}
+			set
+			{
+				if ((this._LeoniNo != value))
+				{
+					this._LeoniNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CusNo", DbType="VarChar(100)")]
+		public string CusNo
+		{
+			get
+			{
+				return this._CusNo;
+			}
+			set
+			{
+				if ((this._CusNo != value))
+				{
+					this._CusNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanNo", DbType="VarChar(100)")]
+		public string ClipScanNo
+		{
+			get
+			{
+				return this._ClipScanNo;
+			}
+			set
+			{
+				if ((this._ClipScanNo != value))
+				{
+					this._ClipScanNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanTime1", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ClipScanTime1
+		{
+			get
+			{
+				return this._ClipScanTime1;
+			}
+			set
+			{
+				if ((this._ClipScanTime1 != value))
+				{
+					this._ClipScanTime1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClipScanTime2", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ClipScanTime2
+		{
+			get
+			{
+				return this._ClipScanTime2;
+			}
+			set
+			{
+				if ((this._ClipScanTime2 != value))
+				{
+					this._ClipScanTime2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskScanNo", DbType="VarChar(100)")]
+		public string TskScanNo
+		{
+			get
+			{
+				return this._TskScanNo;
+			}
+			set
+			{
+				if ((this._TskScanNo != value))
+				{
+					this._TskScanNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskScanTime3", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TskScanTime3
+		{
+			get
+			{
+				return this._TskScanTime3;
+			}
+			set
+			{
+				if ((this._TskScanTime3 != value))
+				{
+					this._TskScanTime3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time3MinTime2", DbType="Float")]
+		public System.Nullable<double> Time3MinTime2
+		{
+			get
+			{
+				return this._Time3MinTime2;
+			}
+			set
+			{
+				if ((this._Time3MinTime2 != value))
+				{
+					this._Time3MinTime2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OkOrNot", DbType="VarChar(50)")]
+		public string OkOrNot
+		{
+			get
+			{
+				return this._OkOrNot;
+			}
+			set
+			{
+				if ((this._OkOrNot != value))
+				{
+					this._OkOrNot = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedAt
+		{
+			get
+			{
+				return this._CreatedAt;
+			}
+			set
+			{
+				if ((this._CreatedAt != value))
+				{
+					this._CreatedAt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OriginId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> OriginId
+		{
+			get
+			{
+				return this._OriginId;
+			}
+			set
+			{
+				if ((this._OriginId != value))
+				{
+					this._OriginId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+		public System.Nullable<int> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserTsk")]
+	public partial class UserTsk : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _UserId;
+		
+		private string _TskNo;
+		
+		private EntityRef<User> _User;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnUserIdChanging(System.Nullable<int> value);
+    partial void OnUserIdChanged();
+    partial void OnTskNoChanging(string value);
+    partial void OnTskNoChanged();
+    #endregion
+		
+		public UserTsk()
+		{
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int")]
+		public System.Nullable<int> UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TskNo", DbType="VarChar(50)")]
+		public string TskNo
+		{
+			get
+			{
+				return this._TskNo;
+			}
+			set
+			{
+				if ((this._TskNo != value))
+				{
+					this.OnTskNoChanging(value);
+					this.SendPropertyChanging();
+					this._TskNo = value;
+					this.SendPropertyChanged("TskNo");
+					this.OnTskNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserTsk", Storage="_User", ThisKey="UserId", OtherKey="Id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.UserTsk.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.UserTsk.Add(this);
+						this._UserId = value.Id;
+					}
+					else
+					{
+						this._UserId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("User");
 				}
 			}
 		}

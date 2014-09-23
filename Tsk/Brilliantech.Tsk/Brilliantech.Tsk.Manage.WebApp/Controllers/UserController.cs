@@ -18,6 +18,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         //
         // GET: /User/
         [Authorize]
+        [CustomAuthorizeAttribute(Role = "admin")]
         public ActionResult Index(int? page)
         {
             IPagedList<User> users = null;
@@ -31,7 +32,8 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         }
         //
         // GET: /User/Edit/5
-
+        [Authorize]
+        [CustomAuthorizeAttribute(Role = "admin")]
         public ActionResult Edit(int id)
         {
             User user;
@@ -39,14 +41,20 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
             {
                 IUserRep userRep = new UserRep(unitOfWork);
                 user = userRep.FindById(id);
-                if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                if (user != null)
                 {
-                    ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(), "Key", "Name", user.Role);
-                    return View(user);
+                    if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                    {
+                        ViewData["Role"] = new SelectList(UserRoleModel.UserRoleList(), "Key", "Name", user.Role);
+                        return View(user);
+                    }
+                    else
+                    {
+                        TempData["Message"] = "初始管理员，不可以编辑";
+                        return RedirectToAction("Index");
+                    }
                 }
-                else
-                {
-                    TempData["Message"] = "初始管理员，不可以编辑";
+                else {
                     return RedirectToAction("Index");
                 }
             }
@@ -54,13 +62,15 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 
         //
         // POST: /User/Edit/5
-
+        [Authorize]
+        [CustomAuthorizeAttribute(Role = "admin")]
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 User user;
+                
                 using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
                 {
                     IUserRep userRep = new UserRep(unitOfWork);
@@ -74,9 +84,11 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
                             ViewBag.Message = "密码长度小于" + CustomMembershipProvider.MinRequiredPasswordLength;
                             return View(user);
                         }
-                        else {
+                        else
+                        {
                             user.Password = collection.Get("Password").Trim();
                             user.Role = collection.Get("Role");
+                            user.Email = collection.Get("Email");
                             unitOfWork.Submit();
                             return RedirectToAction("Index");
                         }
@@ -97,20 +109,28 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         //
         // GET: /User/Delete/5
         [Authorize]
+        [CustomAuthorizeAttribute(Role = "admin")]
         public ActionResult Delete(int id)
         {
             User user;
             using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IUserRep userRep = new UserRep(unitOfWork);
-                user = userRep.FindById(id);
-                if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                user = userRep.FindById(id); 
+                if (user != null)
                 {
-                    return View(user);
+                    if (Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(user.Name))
+                    {
+                        return View(user);
+                    }
+                    else
+                    {
+                        TempData["Message"] = "初始管理员，不可以删除";
+                        return RedirectToAction("Index");
+                    }
                 }
                 else
                 {
-                    TempData["Message"] = "初始管理员，不可以删除";
                     return RedirectToAction("Index");
                 }
             }
@@ -118,7 +138,8 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 
         //
         // POST: /User/Delete/5
-
+        [Authorize]
+        [CustomAuthorizeAttribute(Role = "admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

@@ -44,7 +44,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
             }
         }
 
-        public void CreateUser(string username, string password, string role, out MembershipCreateStatus status)
+        public void CreateUser(string username, string password, string role,string email, out MembershipCreateStatus status)
         {
             status = MembershipCreateStatus.Success;
             using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
@@ -57,7 +57,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
                 }
                 else
                 {
-                    userRep.Create(new User() { Name = username, Password = password ,Role=role});
+                    userRep.Create(new User() { Name = username, Password = password ,Role=role,Email=email});
                 }
                 unitOfWork.Submit();
             }
@@ -65,6 +65,15 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
 
         public static bool CanEdit(string name) {
           return  System.Configuration.ConfigurationManager.AppSettings["InitAdminName"] != name;
+        }
+
+        public static bool IsAdmin(string username)
+        {
+            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+            {
+                IUserRep userRep = new UserRep(unitOfWork);
+                return userRep.Find(username).Role == "admin" ? true : false;
+            }
         }
     }
 }

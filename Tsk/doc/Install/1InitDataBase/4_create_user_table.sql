@@ -1,7 +1,7 @@
 USE [Leoni_Tsk_JN]
 GO
 
-/****** Object:  Table [dbo].[User]    Script Date: 08/16/2014 19:49:59 ******/
+/****** Object:  Table [dbo].[User]    Script Date: 09/23/2014 22:25:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -16,6 +16,7 @@ CREATE TABLE [dbo].[User](
 	[Name] [varchar](50) NULL,
 	[Password] [varchar](50) NULL,
 	[Role] [varchar](50) NULL,
+	[Email] [varchar](50) NULL,
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -26,4 +27,5 @@ GO
 
 SET ANSI_PADDING OFF
 GO
+
 

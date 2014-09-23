@@ -57,7 +57,11 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
          
         [Display(Name = "权限")]
         [Required]
-        public string Role { get; set; } 
+        public string Role { get; set; }
+
+        [Display(Name = "邮箱")]
+        [Required]
+        public string Email { get; set; } 
 
         [Required]
         [ValidatePasswordLength]
@@ -83,7 +87,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         int MinPasswordLength { get; }
 
         bool ValidateUser(string userName, string password);
-        MembershipCreateStatus CreateUser(string userName, string password, string role);
+        MembershipCreateStatus CreateUser(string userName, string password, string role,string email);
         bool ChangePassword(string userName, string oldPassword, string newPassword);
     }
 
@@ -114,14 +118,14 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
             return _provider.ValidateUser(userName, password);
         }
 
-        public MembershipCreateStatus CreateUser(string userName, string password, string role)
+        public MembershipCreateStatus CreateUser(string userName, string password, string role,string email)
         {
             if (String.IsNullOrEmpty(userName)) throw new ArgumentException("值不能为 null 或为空。", "userName");
             if (String.IsNullOrEmpty(password)) throw new ArgumentException("值不能为 null 或为空。", "password");
-          //  if (String.IsNullOrEmpty(role)) throw new ArgumentException("值不能为 null 或为空。", "role");
+           //  if (String.IsNullOrEmpty(role)) throw new ArgumentException("值不能为 null 或为空。", "role");
 
             MembershipCreateStatus status;
-            _provider.CreateUser(userName, password, role , out status);
+            _provider.CreateUser(userName, password, role ,email, out status);
             return status;
         }
 

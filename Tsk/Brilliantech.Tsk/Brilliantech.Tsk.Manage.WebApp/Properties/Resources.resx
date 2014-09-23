@@ -120,4 +120,7 @@
   <data name="PageSize" xml:space="preserve">
     <value>20</value>
   </data>
+  <data name="TskDataEmailCron" xml:space="preserve">
+    <value>0/2 * * * * ?</value>
+  </data>
 </root>

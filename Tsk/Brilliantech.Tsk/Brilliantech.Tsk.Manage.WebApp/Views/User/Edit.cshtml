@@ -20,7 +20,7 @@
             @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.Label(Model.Name) 
+             @Html.EditorFor(model => model.Name)
         </div>
 
         <div class="editor-label">
@@ -32,11 +32,17 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+             @Html.EditorFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Role)
         </div>
         <div class="editor-field">
-            @*@Html.EditorFor(model => model.Role)*@
-              @Html.DropDownList("Role")
+            @Html.DropDownList("Role")
             @Html.ValidationMessageFor(model => model.Role)
         </div>
 
@@ -47,5 +53,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("返回", "Index")
 </div>
