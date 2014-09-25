@@ -1,0 +1,22 @@
+﻿@model Brilliantech.Tsk.Data.CL.Model.UserTsk
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>删除用户TSK配置</h2>
+
+<h3>确定删除?</h3>
+<fieldset>
+    <legend>用户TSK配置</legend>
+    <div class="display-label">TskNo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TskNo)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除"  class="button"/> |
+        @Html.ActionLink("返回", "Index", new { controller="User"})
+    </p>
+}

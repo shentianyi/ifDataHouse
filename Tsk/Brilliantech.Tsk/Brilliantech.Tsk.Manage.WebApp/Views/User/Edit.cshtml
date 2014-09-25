@@ -18,9 +18,10 @@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
+            <span>[暂不可编辑]</span>
         </div>
         <div class="editor-field">
-             @Html.EditorFor(model => model.Name)
+              @Html.Label(Model.Name)
         </div>
 
         <div class="editor-label">

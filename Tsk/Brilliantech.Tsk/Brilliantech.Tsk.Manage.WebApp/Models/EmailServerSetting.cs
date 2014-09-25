@@ -11,6 +11,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         private static string smtpHost;
         private static int smtpPort;
         private static string emailAddress;
+        private static string emailUser;
         private static string emailPwd;
 
 
@@ -18,8 +19,9 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         {
             var appSettings = ConfigurationManager.AppSettings;
             smtpHost = appSettings["SmtpHost"];
-            smtpPort = int.Parse(appSettings["SmtpPort"]);
+          //  smtpPort = int.Parse(appSettings["SmtpPort"]);
             emailAddress = appSettings["EmailAddress"];
+            emailUser = appSettings["EmailUser"];
             emailPwd = appSettings["EmailPwd"];
         }
 
@@ -41,6 +43,13 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
             get { return EmailServerSetting.emailAddress; }
             set { EmailServerSetting.emailAddress = value; }
         }
+
+        public static string EmailUser
+        {
+            get { return EmailServerSetting.emailUser; }
+            set { EmailServerSetting.emailUser = value; }
+        }
+
         public static string EmailPwd
         {
             get { return EmailServerSetting.emailPwd; }
@@ -51,7 +60,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var appSettings = configFile.AppSettings.Settings;
             appSettings["SmtpHost"].Value = smtpHost;
-            appSettings["SmtpPort"].Value = smtpPort.ToString();
+          //  appSettings["SmtpPort"].Value = smtpPort.ToString();
             appSettings["EmailAddress"].Value = EmailAddress;
             appSettings["EmailPwd"].Value = emailPwd;
             configFile.Save(ConfigurationSaveMode.Modified);

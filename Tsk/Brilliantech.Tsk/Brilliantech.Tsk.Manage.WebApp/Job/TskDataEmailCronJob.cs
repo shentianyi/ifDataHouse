@@ -42,8 +42,8 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
                 }
 
                 SmtpClient smtpServer = new SmtpClient(EmailServerSetting.SmtpHost);
-                smtpServer.Port = EmailServerSetting.SmtpPort;
-                smtpServer.Credentials = new System.Net.NetworkCredential(EmailServerSetting.EmailAddress, EmailServerSetting.EmailPwd);
+                //smtpServer.Port = EmailServerSetting.SmtpPort;
+                smtpServer.Credentials = new System.Net.NetworkCredential(EmailServerSetting.EmailUser, EmailServerSetting.EmailPwd);
 
 
                 foreach (User user in users)
@@ -102,6 +102,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
                             //}
                             Attachment att = new Attachment(csvFilePath);
                             mail.Attachments.Add(att);
+                            
                             smtpServer.Send(mail);
                             LogUtil.Logger.Info("Send Inspect Email to:" + user.Email + ", File: " + filename);
                         }
