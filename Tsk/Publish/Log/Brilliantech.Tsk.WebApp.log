@@ -1,0 +1,8 @@
+[2014-09-26 16:38:04,146]  1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- InspectEmailQueryDate:2014/9/25 7:00:00~2014/9/26 7:00:00
+[2014-09-26 16:38:04,151]  1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- 添加触发器:TskDataEmailCronGroup.trigger0
+[2014-09-26 16:38:04,151]  1 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- 测试数据文件邮件任务启动成功
+[2014-09-26 16:38:35,138]  16 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Application_End] -- 应用停止
+[2014-09-26 16:39:24,660]  27 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- InspectEmailQueryDate:2014/9/25 7:00:00~2014/9/26 7:00:00
+[2014-09-26 16:39:24,664]  27 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- 添加触发器:TskDataEmailCronGroup.trigger0
+[2014-09-26 16:39:24,664]  27 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [.ctor] -- 测试数据文件邮件任务启动成功
+[2014-09-26 16:39:41,895]  16 -- INFO  -- Brilliantech.Framwork.Utils.LogUtil.LogUtil [Application_End] -- 应用停止

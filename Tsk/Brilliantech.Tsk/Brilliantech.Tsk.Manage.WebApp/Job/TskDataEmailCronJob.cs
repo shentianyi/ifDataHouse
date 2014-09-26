@@ -27,7 +27,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
         public virtual void Execute(IJobExecutionContext context)
         {
             //TestFile(context);
-
+            //return;
             try
             {
                 JobDataMap job = context.JobDetail.JobDataMap;
@@ -50,61 +50,66 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
                 {
                     try
                     {
-                        using (MailMessage mail = new MailMessage())
+                        List<UserInspect> inspects = new List<UserInspect>();
+                        using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
                         {
-                            mail.From = new MailAddress(EmailServerSetting.EmailAddress);
-                            mail.To.Add(user.Email);
-                            mail.Subject = "电测台数据文件";
-                            List<UserInspect> inspects = new List<UserInspect>();
-                            using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
+                            IUserInspectRep userInspectRep = new UserInspectRep(unitOfWork);
+                            inspects = userInspectRep.ListByUserId(user.Id, startQueryDate, endQueryDate);
+                        }
+                        if (inspects.Count > 0)
+                        {
+                            using (MailMessage mail = new MailMessage())
                             {
-                                IUserInspectRep userInspectRep = new UserInspectRep(unitOfWork);
-                                inspects = userInspectRep.ListByUserId(user.Id,startQueryDate,endQueryDate);
-                            }
+                                mail.From = new MailAddress(EmailServerSetting.EmailAddress);
+                                mail.To.Add(user.Email);
+                                mail.Subject = "电测台数据文件";
 
-                            var filename = "Inspect" + DateTime.Now.ToString("yyyyMMddHHmm") + "_" + Guid.NewGuid().ToString("N");
-                            var csvfilename = filename + ".csv";
-                            //var zipfilename = filename + ".zip";
 
-                            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "InspectFileTmp");
-                            if (!Directory.Exists(filePath)) {
-                                Directory.CreateDirectory(filePath);
-                            }
-                            var csvFilePath = Path.Combine(filePath, csvfilename);
-                            //var zipFilePath = Path.Combine(filePath, zipfilename);
+                                var filename = "Inspect" + DateTime.Now.ToString("yyyyMMddHHmm") + "_" + Guid.NewGuid().ToString("N");
+                                var csvfilename = filename + ".csv";
+                                //var zipfilename = filename + ".zip";
 
-                            using (FileStream csv = new FileStream(csvFilePath, FileMode.Create, FileAccess.ReadWrite))
-                            {
-                                using (MemoryStream ms = new MemoryStream())
+                                var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "InspectFileTmp");
+                                if (!Directory.Exists(filePath))
                                 {
-                                    using (StreamWriter sw = new StreamWriter(ms, Encoding.UTF8))
+                                    Directory.CreateDirectory(filePath);
+                                }
+                                var csvFilePath = Path.Combine(filePath, csvfilename);
+                                //var zipFilePath = Path.Combine(filePath, zipfilename);
+
+                                using (FileStream csv = new FileStream(csvFilePath, FileMode.Create, FileAccess.ReadWrite))
+                                {
+                                    using (MemoryStream ms = new MemoryStream())
                                     {
-                                        sw.WriteLine(string.Join(",", InspectQueryModel.CsvHead.ToArray()));
-                                        foreach (UserInspect i in inspects)
+                                        using (StreamWriter sw = new StreamWriter(ms, Encoding.UTF8))
                                         {
-                                            List<string> ii = new List<string>();
-                                            foreach (string field in InspectQueryModel.Fileds)
+                                            sw.WriteLine(string.Join(",", InspectQueryModel.CsvHead.ToArray()));
+                                            foreach (UserInspect i in inspects)
                                             {
-                                                var value = i.GetType().GetProperty(field).GetValue(i, null);
-                                                ii.Add(value == null ? "" : value.ToString());
+                                                List<string> ii = new List<string>();
+                                                foreach (string field in InspectQueryModel.Fileds)
+                                                {
+                                                    var value = i.GetType().GetProperty(field).GetValue(i, null);
+                                                    ii.Add(value == null ? "" : value.ToString());
+                                                }
+                                                sw.WriteLine(string.Join(",", ii.ToArray()));
                                             }
-                                            sw.WriteLine(string.Join(",", ii.ToArray()));
+
+                                            csv.Write(ms.ToArray(), 0, (int)ms.Length);
                                         }
-                                     
-                                        csv.Write(ms.ToArray(), 0, (int)ms.Length);
                                     }
                                 }
+                                //using (ZipFile zip = new ZipFile())
+                                //{
+                                //    zip.AddFile(csvFilePath);
+                                //    zip.Save(zipfilename);
+                                //}
+                                Attachment att = new Attachment(csvFilePath);
+                                mail.Attachments.Add(att);
+
+                                smtpServer.Send(mail);
+                                LogUtil.Logger.Info("Send Inspect Email to:" + user.Email + ", File: " + filename);
                             }
-                            //using (ZipFile zip = new ZipFile())
-                            //{
-                            //    zip.AddFile(csvFilePath);
-                            //    zip.Save(zipfilename);
-                            //}
-                            Attachment att = new Attachment(csvFilePath);
-                            mail.Attachments.Add(att);
-                            
-                            smtpServer.Send(mail);
-                            LogUtil.Logger.Info("Send Inspect Email to:" + user.Email + ", File: " + filename);
                         }
                     }
                     catch (Exception ex)
