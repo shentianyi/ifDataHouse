@@ -33,18 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ionic.Zip">
-      <HintPath>..\..\ThridPart\Ionic.Zip.dll</HintPath>
-    </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\ThridPart\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcPaging">
       <HintPath>..\..\ThridPart\MvcPaging.dll</HintPath>
-    </Reference>
-    <Reference Include="Quartz">
-      <HintPath>..\..\ThridPart\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Transactions" />
@@ -82,9 +76,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Job\IJobTrigger.cs" />
-    <Compile Include="Job\TskDataEmailCronJob.cs" />
-    <Compile Include="Job\TskDataEmailCronTrigger.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\EmailServerSetting.cs" />
     <Compile Include="Models\InspectOriginQueryModel.cs" />

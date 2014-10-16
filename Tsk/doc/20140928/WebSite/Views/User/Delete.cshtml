@@ -1,0 +1,28 @@
+﻿@model Brilliantech.Tsk.Data.CL.Model.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>删除用户</h2>
+
+<h3>确定删除?</h3>
+<fieldset>
+    <legend>用户</legend>
+
+    <div class="display-label">姓名</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">密码</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div> 
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除"  class="button"/> |
+        @Html.ActionLink("返回", "Index")
+    </p>
+}

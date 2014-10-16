@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Models
 {
-    public class InspectOriginQueryModel
+    public class InspectOriginQueryModelBAK
     {
         private string text;
         private bool? processResult;
@@ -21,7 +21,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         "Text","ProcessResult","ProcessMessage","CreatedAtView"
         };
 
-        public InspectOriginQueryModel(NameValueCollection collection)
+        public InspectOriginQueryModelBAK(NameValueCollection collection)
         {
             this.Text = collection.Get("Text");
             if (collection.Get("ProcessResult")!=null)
@@ -74,12 +74,12 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
 
         public static List<string> CsvHead
         {
-            get { return InspectOriginQueryModel.csvHead; }
+            get { return InspectOriginQueryModelBAK.csvHead; }
         }
 
         public static List<string> Fileds
         {
-            get { return InspectOriginQueryModel.fileds; }
+            get { return InspectOriginQueryModelBAK.fileds; }
         }
 
     }

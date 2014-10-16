@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Models
 {
-    public class InspectQueryModel
+    public class InspectQueryModelBAK
     {
         private string tskNo;
         private string leoniNo;
@@ -32,7 +32,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         };
 
 
-        public InspectQueryModel(NameValueCollection collection)
+        public InspectQueryModelBAK(NameValueCollection collection)
         {
 
             this.TskNo = collection.Get("TskNo");
@@ -255,11 +255,11 @@ namespace Brilliantech.Tsk.Manage.WebApp.Models
         }
         public static List<string> CsvHead
         {
-            get { return InspectQueryModel.csvHead; }
+            get { return InspectQueryModelBAK.csvHead; }
         }
         public static List<string> Fileds
         {
-            get { return InspectQueryModel.fileds; }
+            get { return InspectQueryModelBAK.fileds; }
         }
 
     }

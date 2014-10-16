@@ -4,9 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Quartz;
-using Quartz.Impl;
-using Brilliantech.Tsk.Manage.WebApp.Job;
 using Brilliantech.Framwork.Utils.LogUtil;
 
 namespace Brilliantech.Tsk.Manage.WebApp
@@ -16,7 +13,7 @@ namespace Brilliantech.Tsk.Manage.WebApp
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static IScheduler Scheduler;
+      //  public static IScheduler Scheduler;
       //  private static readonly ILog log = LogManager.GetLogger(typeof(MvcApplication));
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -46,32 +43,19 @@ namespace Brilliantech.Tsk.Manage.WebApp
 
         }
 
+     
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            try
-            {
-                // job
-                 
-                ISchedulerFactory sf = new StdSchedulerFactory();
-                Scheduler = sf.GetScheduler();
-
-                new TskDataEmailCronTrigger();
-                Scheduler.Start();
-                //TskDataEmailCronScheduler.Instance.Start();
-            }
-            catch (Exception e) {
-                LogUtil.Logger.Error(e.Message);
-            }
         }
 
         protected void Application_End()
         {
-            LogUtil.Logger.Info("应用停止");
-            Scheduler.Shutdown();
         }
+
+
     }
 }

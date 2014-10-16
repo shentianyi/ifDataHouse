@@ -4,21 +4,19 @@ using System.Linq;
 using System.Web;
 using Quartz;
 using System.IO;
-using Brilliantech.Tsk.Data.CL.Model;
-using Brilliantech.Tsk.Manage.WebApp.Util;
+using Brilliantech.Tsk.Data.CL.Model; 
 using Brilliantech.Tsk.Data.CL.Repository.Interface;
 using Brilliantech.Tsk.Data.CL.Repository.Implement;
 using System.Net.Mail;
 using Brilliantech.Framwork.Utils.LogUtil;
 using System.Text;
-using Brilliantech.Tsk.Manage.WebApp.Models;
-using Ionic.Zip;
+using Brilliantech.Tsk.QuartzTask.WS.Models;
+using Brilliantech.Tsk.QuartzTask.WS.Util; 
 
-namespace Brilliantech.Tsk.Manage.WebApp.Job
+namespace Brilliantech.Tsk.QuartzTask.WS.Job
 {
     public class TskDataEmailCronJob : IJob
     {
-        //private static readonly ILog log = LogManager.GetLogger(typeof(TskDataEmailCronJob));
 
         /// <summary>
         /// Called by the <see cref="IScheduler" /> when a
@@ -130,27 +128,27 @@ namespace Brilliantech.Tsk.Manage.WebApp.Job
                 IJobDetail job = context.JobDetail;
 
                 var filename = "C:\\Excel\\" + DateTime.Now.ToString("yyyyMMddHHmmsss") + ".txt";
-                //using (FileStream csv = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite))
-                //{
-                //    using (MemoryStream ms = new MemoryStream())
-                //    {
-                //        using (StreamWriter sw = new StreamWriter(ms, Encoding.UTF8))
-                //        {
-                //            sw.WriteLine("StartDate:" + job.JobDataMap.Get("StartDate").ToString());
-                //            sw.WriteLine("EndDate:" + job.JobDataMap.Get("EndDate").ToString());
-                //            sw.WriteLine("HAHA");
-
-                //            LogUtil.Logger.Error(job.JobDataMap.Get("StartDate").ToString());
-                //            csv.Write(ms.ToArray(), 0, (int)ms.Length);
-                //        }
-                //    }
-                //}
+           
                 using (StreamWriter sw = new StreamWriter(filename))
                 {
                     sw.WriteLine(job.Key);
                     sw.WriteLine("StartDate:" + job.JobDataMap.Get("StartDate").ToString());
                     sw.WriteLine("EndDate:" + job.JobDataMap.Get("EndDate").ToString());
                    
+                }
+                SmtpClient smtpServer = new SmtpClient(EmailServerSetting.SmtpHost);
+                //smtpServer.Port = EmailServerSetting.SmtpPort;
+                smtpServer.Credentials = new System.Net.NetworkCredential(EmailServerSetting.EmailUser, EmailServerSetting.EmailPwd);
+
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress(EmailServerSetting.EmailAddress);
+                    mail.To.Add("song.wang@cz-tek.com");
+                    mail.Subject = "电测台数据文件";
+                    Attachment att = new Attachment(filename);
+                    mail.Attachments.Add(att);
+
+                    smtpServer.Send(mail);
                 }
             }
             catch (Exception e)
