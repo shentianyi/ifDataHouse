@@ -5,6 +5,7 @@ using System.Text;
 using Brilliantech.Tsk.ConsoleCmd.InspectService;
 using System.Net.Mail;
 using Ionic.Zip;
+using System.Globalization;
 
 namespace Brilliantech.Tsk.ConsoleCmd
 {
@@ -82,14 +83,21 @@ namespace Brilliantech.Tsk.ConsoleCmd
         //Console.WriteLine(guidB);
         //Console.WriteLine(guidN);
 
-            using (ZipFile zip = new ZipFile())
-            {
-                //zip.AddDirectory(@"C:\Excel");
-                zip.AddFile(@"C:\Excel\a.xml");
-                zip.Save("a.zip");
-            }
+            //using (ZipFile zip = new ZipFile())
+            //{
+            //    //zip.AddDirectory(@"C:\Excel");
+            //    zip.AddFile(@"C:\Excel\a.xml");
+            //    zip.Save("a.zip");
+            //}
+            CultureInfo defaultCultureInfo = CultureInfo.CurrentCulture;
+            DayOfWeek firstDay = defaultCultureInfo.DateTimeFormat.FirstDayOfWeek;
+            Console.WriteLine(firstDay);
+            DateTime dt = DateTime.Now;
 
-            //Console.Read();
+            DateTime startWeek = dt.AddDays(1 - Convert.ToInt32(dt.DayOfWeek.ToString("d")));
+            Console.WriteLine(startWeek);
+            Console.WriteLine(startWeek.AddDays(-1));
+            Console.Read();
         }
     }
 }

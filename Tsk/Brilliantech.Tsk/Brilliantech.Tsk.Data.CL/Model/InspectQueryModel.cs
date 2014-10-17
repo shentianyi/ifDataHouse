@@ -28,7 +28,7 @@ namespace Brilliantech.Tsk.Data.CL.Model
          "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1","ClipScanTime2","TskScanNo","TskScanTime3","Time3MinTime2","OkOrNot","数据上传时间"
         };
         private static List<string> fileds = new List<string>() { 
-         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1View","ClipScanTime2View","TskScanNo","TskScanTime3View","Time3MinTime2View","OkOrNot","CreatedAtView"
+         "TskNo","LeoniNo","CusNo","ClipScanNo","ClipScanTime1View","ClipScanTime2View","TskScanNo","TskScanTime3View","Time3MinTime2View","OkOrNotView","CreatedAtView"
         };
 
 
@@ -45,13 +45,12 @@ namespace Brilliantech.Tsk.Data.CL.Model
                 if (DateTime.TryParse(collection.Get("ClipScanTime1Start"), out time)) {
                     this.ClipScanTime1Start = time;
                 }
-
                // this.ClipScanTime1Start = DateTime.Parse(collection.Get("ClipScanTime1Start"));
             }
             if (collection.Get("ClipScanTime1End") != null && collection.Get("ClipScanTime1End").Trim().Length > 0)
             {
                 DateTime time = DateTime.Now;
-                if (DateTime.TryParse(collection.Get("ClipScanTime1Start"), out time))
+                if (DateTime.TryParse(collection.Get("ClipScanTime1End"), out time))
                 {
                     this.ClipScanTime1End = time;
                 }
@@ -124,7 +123,7 @@ namespace Brilliantech.Tsk.Data.CL.Model
             }
             this.OkOrNot = collection.Get("OkOrNot");
 
-            if (collection.Get("createdAtStart") != null && collection.Get("createdAtStart").Trim().Length > 0)
+            if (collection.Get("CreatedAtStart") != null && collection.Get("CreatedAtStart").Trim().Length > 0)
             {
                 DateTime time = DateTime.Now;
                 if (DateTime.TryParse(collection.Get("CreatedAtStart"), out time))

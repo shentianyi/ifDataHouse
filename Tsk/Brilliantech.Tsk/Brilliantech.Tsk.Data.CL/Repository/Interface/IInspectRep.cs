@@ -10,6 +10,7 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Interface
     {
         int GetCount();
         IQueryable<Inspect> Queryable();
+        IQueryable<Inspect> Queryable(DateTime? ClipScanTime1Start, DateTime? ClipScanTime1End);
         List<Inspect> GetList(int pageIndex = 0, int pageSize = 20); 
     }
 }

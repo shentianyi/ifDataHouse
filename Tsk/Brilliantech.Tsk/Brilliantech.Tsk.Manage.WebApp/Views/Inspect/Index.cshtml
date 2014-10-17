@@ -25,15 +25,21 @@
  <br />
   <span>
   ClipScanTime1 
-  <input type="text" class="datepicker" name="ClipScanTime1Start" id="ClipScanTime1Start"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime1Start}"/>
+  <input type="text" class="datepicker" name="ClipScanTime1Start" id="ClipScanTime1Start"  
+   value="@if(ViewBag.Query!=null &&ViewBag.Query.ClipScanTime1Start!=null){ @ViewBag.Query.ClipScanTime1Start.ToString("yyyy/MM/dd HH:00")}"/>
    --
-   <input type="text" class="datepicker" name="ClipScanTime1End" id="ClipScanTime1End"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime1End}"/>
+   <input type="text" class="datepicker" name="ClipScanTime1End" id="ClipScanTime1End" 
+     value="@if (ViewBag.Query != null && ViewBag.Query.ClipScanTime1End != null)
+            { @ViewBag.Query.ClipScanTime1End.ToString("yyyy/MM/dd HH:00")}"/>
  </span>
    <span>
   ClipScanTime2 
-  <input type="text" class="datepicker" name="ClipScanTime2Start" id="ClipScanTime2Start"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime2Start}"/>
+  <input type="text" class="datepicker" name="ClipScanTime2Start" id="ClipScanTime2Start" 
+   value="@if(ViewBag.Query!=null && ViewBag.Query.ClipScanTime2Start!=null){ @ViewBag.Query.ClipScanTime2Start.ToString("yyyy/MM/dd HH:00")}"/>
    --
-   <input type="text" class="datepicker" name="ClipScanTime2End" id="ClipScanTime2End"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanTime2End}"/>
+   <input type="text" class="datepicker" name="ClipScanTime2End" id="ClipScanTime2End"  
+   value="@if (ViewBag.Query != null && ViewBag.Query.ClipScanTime2End!=null)
+          { @ViewBag.Query.ClipScanTime2End.ToString("yyyy/MM/dd HH:00")}"/>
  </span>
    <span>
   TskScanNo <input type="text" name="TskScanNo" id="TskScanNo"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanNo}"/>
@@ -41,9 +47,12 @@
   <br />
    <span>
   TskScanTime3
-   <input type="text" class="datepicker" name="TskScanTime3Start" id="TskScanTime3Start"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanTime3Start}"/>
+   <input type="text" class="datepicker" name="TskScanTime3Start" id="TskScanTime3Start"   
+   value="@if (ViewBag.Query != null && ViewBag.Query.TskScanTime3Start != null)
+          { @ViewBag.Query.TskScanTime3Start.ToString("yyyy/MM/dd HH:00")}"/>
    --
-   <input type="text" class="datepicker" name="TskScanTime3End" id="TskScanTime3End"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanTime3End}"/>
+   <input type="text" class="datepicker" name="TskScanTime3End" id="TskScanTime3End"   
+   value="@if(ViewBag.Query!=null && ViewBag.Query.TskScanTime3End != null){ @ViewBag.Query.TskScanTime3End.ToString("yyyy/MM/dd HH:00")}"/>
  </span>
    <span>
   Time3MinTime2 
@@ -58,9 +67,12 @@
  <br />
   <span>
    数据上传时间 
-  <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
+  <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"
+      value="@if (ViewBag.Query != null && ViewBag.Query.CreatedAtStart != null)
+             { @ViewBag.Query.CreatedAtStart.ToString("yyyy/MM/dd HH:00")}"/>
   --
-  <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
+  <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"  
+    value="@if(ViewBag.Query!=null && ViewBag.Query.CreatedAtStart != null){ @ViewBag.Query.CreatedAtEnd.ToString("yyyy/MM/dd HH:00")}"/>
  </span>
  <p><input type="submit" value="查询"  class="button"/> </p>
  <div> @if (ViewBag.Query != null)
@@ -176,7 +188,7 @@
             @item.Time3MinTime2View
         </td>
         <td>
-            @item.OkOrNot
+            @item.OkOrNotView
         </td>
         <td>
             @String.Format("{0:g}", item.CreatedAtView)

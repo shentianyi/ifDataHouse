@@ -21,7 +21,17 @@ namespace Brilliantech.Tsk.Manage.WebApp.Util
             using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 IUserRep userRep = new UserRep(unitOfWork);
-                return userRep.Find(username, password) == null ? false : true;
+                User user = userRep.Find(username, password);
+                if (user == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    user.LastLoginTime = DateTime.Now;
+                    unitOfWork.Submit();
+                    return true;
+                }
             }
         }
 

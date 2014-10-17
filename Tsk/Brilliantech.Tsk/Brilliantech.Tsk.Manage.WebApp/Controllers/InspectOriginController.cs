@@ -13,6 +13,7 @@ using System.IO;
 using System.Text;
 using Brilliantech.Tsk.Manage.WebApp.Util;
 using System.Transactions;
+using System.Collections.Specialized;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 {
@@ -23,6 +24,13 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
         [Authorize]
         public ActionResult Index(int? page)
         {
+            DateTime dt = DateTime.Now;
+            DateTime endTime = dt.AddDays(1 - Convert.ToInt32(dt.DayOfWeek.ToString("d")));
+            NameValueCollection q = new NameValueCollection();
+            q.Add("CreatedAtStart", endTime.AddDays(-1).ToString("yyyy/MM/dd 10:00"));
+            q.Add("CreatedAtEnd", DateTime.Now.AddHours(1).ToString("yyyy/MM/dd HH:00"));
+            InspectOriginQueryModel query = new InspectOriginQueryModel(q);
+
             IPagedList<InspectOrigin> inspects = null;
             using (var txn = new System.Transactions.TransactionScope(TransactionScopeOption.Required,
                new TransactionOptions
@@ -34,10 +42,10 @@ namespace Brilliantech.Tsk.Manage.WebApp.Controllers
                 {
                     int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
                     IInspectOriginRep inspectOriginRep = new InspectOriginRep(unitOfWork);
-                    inspects = inspectOriginRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
+                    inspects = inspectOriginRep.Queryable(query.CreatedAtStart,query.CreatedAtEnd).ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
                 }
             }
-
+            ViewBag.Query = query;
             return View(inspects);
         }
         [Authorize]

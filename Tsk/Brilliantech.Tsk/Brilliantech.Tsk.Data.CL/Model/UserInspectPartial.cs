@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Brilliantech.Tsk.Data.CL.Model
 {
-    partial class Inspect
+    partial class UserInspect
     {
         public string ClipScanTime1View
         {

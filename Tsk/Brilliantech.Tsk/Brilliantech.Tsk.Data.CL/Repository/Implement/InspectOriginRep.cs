@@ -78,6 +78,10 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
        public InspectOrigin FindById(string id) {
            return context.InspectOrigin.FirstOrDefault(i => i.Id.Equals(id));
        }
-
+       public IQueryable<InspectOrigin> Queryable(DateTime? CreatedAtStart, DateTime? CreatedAtEnd)
+       {
+           return context.InspectOrigin.Where(inspect => (CreatedAtStart.HasValue ? inspect.CreatedAt >= CreatedAtStart.Value : true)
+               && (CreatedAtEnd.HasValue ? inspect.CreatedAt <= CreatedAtEnd.Value : true)).OrderByDescending(item => item.CreatedAt);
+       }
     }
 }

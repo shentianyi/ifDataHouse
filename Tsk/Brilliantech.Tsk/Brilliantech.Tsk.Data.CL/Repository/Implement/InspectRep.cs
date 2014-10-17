@@ -53,6 +53,13 @@ namespace Brilliantech.Tsk.Data.CL.Repository.Implement
         {
             return context.Inspect.OrderByDescending(item=>item.CreatedAt).Skip(pageIndex * pageSize).Take(pageSize).ToList();
         }
-         
+
+
+
+        public IQueryable<Inspect> Queryable(DateTime? ClipScanTime1Start, DateTime? ClipScanTime1End)
+        {
+            return context.Inspect.Where(inspect => (ClipScanTime1Start.HasValue ? inspect.ClipScanTime1 >= ClipScanTime1Start.Value : true)
+                && (ClipScanTime1End.HasValue ? inspect.ClipScanTime1<=ClipScanTime1End.Value : true)).OrderByDescending(item => item.CreatedAt);
+        }
     }
 }

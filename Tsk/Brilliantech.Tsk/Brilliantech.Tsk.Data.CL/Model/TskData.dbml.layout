@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="TskData">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9" name="TskData">
   <DataContextMoniker Name="/TskDataDataContext" />
   <nestedChildShapes>
     <classShape Id="75c80644-e231-4d0b-b8c7-3cfacbf323a3" absoluteBounds="3.375, 1.875, 2, 1.7625655110677081">
@@ -14,28 +14,28 @@
         <elementListCompartment Id="8c6f62d8-dca1-4188-aa96-38128a2af9e1" absoluteBounds="1.2650000000000001, 1.96, 1.9700000000000002, 2.7307230631510415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d67ba6c1-efb8-4975-8d41-0b91ea399ca7" absoluteBounds="5.875, 4.25, 2, 1.7625655110677081">
-      <DataClassMoniker Name="/TskDataDataContext/User" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2eaf40b7-98f7-46fd-9273-985c27c21faa" absoluteBounds="5.89, 4.71, 1.9700000000000002, 1.2025655110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="4019664d-6783-4f95-8e36-b2563a76faed" absoluteBounds="1.75, 5.125, 2, 3.4817427571614581">
+    <classShape Id="4019664d-6783-4f95-8e36-b2563a76faed" absoluteBounds="0.75, 5.25, 2, 3.4817427571614581">
       <DataClassMoniker Name="/TskDataDataContext/UserInspect" />
       <nestedChildShapes>
-        <elementListCompartment Id="85ca328b-a200-47ff-943d-e8a5711bd916" absoluteBounds="1.7650000000000001, 5.585, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="85ca328b-a200-47ff-943d-e8a5711bd916" absoluteBounds="0.76500000000000012, 5.71, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a3181396-aa7b-4c06-b317-32f939439784" absoluteBounds="4.25, 7, 2, 1.3805261230468751">
+    <classShape Id="a3181396-aa7b-4c06-b317-32f939439784" absoluteBounds="3, 7.375, 2, 1.3805261230468751">
       <DataClassMoniker Name="/TskDataDataContext/UserTsk" />
       <nestedChildShapes>
-        <elementListCompartment Id="dad888e1-33d0-46f3-a010-4d93efd52113" absoluteBounds="4.265, 7.46, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="dad888e1-33d0-46f3-a010-4d93efd52113" absoluteBounds="3.0149999999999997, 7.8350000000000009, 1.9700000000000002, 0.820526123046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.0625 : 6.01256551106771); (6.0625 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="c65fa4e0-11a7-445a-974e-25b42b25c91a" absoluteBounds="6, 5.75, 2, 2.3356245930989585">
+      <DataClassMoniker Name="/TskDataDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b214f99-870d-4932-b307-5ed00b7960c9" absoluteBounds="6.015, 6.21, 1.9700000000000002, 1.7756245930989585" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 7.73031229654948); (5 : 7.73031229654948)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TskDataDataContext/User/User_UserTsk" />
       <nodes>
-        <classShapeMoniker Id="d67ba6c1-efb8-4975-8d41-0b91ea399ca7" />
+        <classShapeMoniker Id="c65fa4e0-11a7-445a-974e-25b42b25c91a" />
         <classShapeMoniker Id="a3181396-aa7b-4c06-b317-32f939439784" />
       </nodes>
     </associationConnector>

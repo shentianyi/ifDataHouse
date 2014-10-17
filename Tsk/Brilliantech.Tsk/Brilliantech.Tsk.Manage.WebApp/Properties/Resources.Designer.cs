@@ -61,7 +61,7 @@ namespace Brilliantech.Tsk.Manage.WebApp.Properties {
         }
         
         /// <summary>
-        ///   查找类似 20 的本地化字符串。
+        ///   查找类似 30 的本地化字符串。
         /// </summary>
         internal static string PageSize {
             get {

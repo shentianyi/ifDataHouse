@@ -12,23 +12,33 @@ using MvcPaging;
 using Brilliantech.Tsk.Manage.WebApp.Models;
 using System.IO;
 using System.Text;
+using System.Collections.Specialized;
 
 namespace Brilliantech.Tsk.Manage.WebApp.Controllers
 {
     public class InspectController : Controller
     {
+        
         //
         // GET: /Inspect/ 
         [Authorize]
         public ActionResult Index(int? page)
         {
+            DateTime dt = DateTime.Now;
+            DateTime endTime = dt.AddDays(1 - Convert.ToInt32(dt.DayOfWeek.ToString("d")));       
+            NameValueCollection q = new NameValueCollection();
+            q.Add("ClipScanTime1Start", endTime.AddDays(-1).ToString("yyyy/MM/dd 10:00"));
+            q.Add("ClipScanTime1End", DateTime.Now.AddHours(1).ToString("yyyy/MM/dd HH:00"));
+            InspectQueryModel query = new InspectQueryModel(q);
+
             IPagedList<Inspect> inspects = null;
             using (IUnitOfWork unitOfWork = new TskDataDataContext(DbUtil.ConnectionString))
             {
                 int currentPageIndex = page.HasValue ? (page.Value <= 0 ? 0 : page.Value - 1) : 0;
                 IInspectRep inspectRep = new InspectRep(unitOfWork);
-                inspects = inspectRep.Queryable().ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
+                inspects = inspectRep.Queryable(query.ClipScanTime1Start,query.ClipScanTime1End).ToPagedList(currentPageIndex, int.Parse(Resources.PageSize));
             }
+            ViewBag.Query = query;
             return View(inspects);
         }
         [Authorize]

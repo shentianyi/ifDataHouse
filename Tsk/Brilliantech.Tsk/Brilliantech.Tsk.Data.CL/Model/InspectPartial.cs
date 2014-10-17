@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Brilliantech.Tsk.Data.CL.Model
 {
-    partial class UserInspect
+    partial class Inspect
     {
         public string ClipScanTime1View
         {
@@ -46,6 +46,13 @@ namespace Brilliantech.Tsk.Data.CL.Model
             get
             {
                 return this.CreatedAt.Value.ToString("yyyy/M/d HH:mm:ss");
+            }
+        }
+        public string OkOrNotView
+        {
+            get
+            {
+                return this.OkOrNot == "1" ? "ok" : "not ok";
             }
         }
     }

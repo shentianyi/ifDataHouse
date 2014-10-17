@@ -27,6 +27,9 @@
         <th>
             权限
         </th>
+        <th>
+            最近登录时间
+        </th>
         <th></th>
     </tr>
    @{int i=0;}
@@ -45,6 +48,9 @@
         </td>
          <td>
             @Brilliantech.Tsk.Manage.WebApp.Models.UserRoleModel.RoleDisplay(item.Role)
+        </td>
+        <td>
+         @Html.DisplayFor(modelItem => item.LastLoginTimeView)
         </td>
         <td>
            @if(Brilliantech.Tsk.Manage.WebApp.Util.CustomMembershipProvider.CanEdit(item.Name)){
