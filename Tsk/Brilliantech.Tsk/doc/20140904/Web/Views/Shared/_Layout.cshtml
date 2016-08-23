@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />      
+     <link href="@Url.Content("~/Content/jquery.datetimepicker.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.datetimepicker.js")" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="page">
+
+        <div id="header">
+            <div id="title">
+                <h1>TSK 数据管理系统</h1>
+            </div>
+
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+
+            <div id="menucontainer">
+
+                <ul id="menu">
+                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("TSK 数据", "Index", "Inspect")</li>
+                    <li>@Html.ActionLink("TSK 原始数据", "Index", "InspectOrigin")</li>
+                     <li>@Html.ActionLink("用户", "Index", "User")</li>
+                   @* <li>@Html.ActionLink("关于", "About", "Home")</li>*@
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="main">
+            @RenderBody() 
+        </div>
+    </div>   
+    <div id="footer">
+      <div>
+     @*  版权所有 上海彩卓信息科技有限公司<br />
+       © BRILLIANTECH The Solution*@
+      </div>
+    </div>
+    
+ <script>
+    $(function () {
+        $(".datepicker").datetimepicker({
+            lang: 'ch',
+            format: 'Y/m/d H:i'
+        });
+    });
+</script>
+</body>
+</html>

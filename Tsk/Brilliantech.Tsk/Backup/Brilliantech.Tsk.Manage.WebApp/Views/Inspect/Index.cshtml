@@ -1,0 +1,238 @@
+﻿@using MvcPaging;
+
+@model IPagedList<Brilliantech.Tsk.Data.CL.Model.Inspect>
+
+@{
+    ViewBag.Title = "TSK 测试数据";
+}
+
+<h2>TSK 测试数据</h2>
+<div>
+<form action="/Inspect/Query" method="get">
+<div>
+ <span>
+  TskNo <input type="text" name="TskNo" id="TskNo"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskNo}"/>
+ </span>
+  <span>
+  LeoniNo <input type="text" name="LeoniNo" id="LeoniNo"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.LeoniNo}"/>
+ </span>
+   <span>
+  CusNo <input type="text" name="CusNo" id="CusNo"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.CusNo}"/>
+ </span>
+   <span>
+  ClipScanNo <input type="text" name="ClipScanNo" id="ClipScanNo"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.ClipScanNo}"/>
+ </span>
+ <br />
+  <span>
+  ClipScanTime1 
+  <input type="text" class="datepicker" name="ClipScanTime1Start" id="ClipScanTime1Start"  
+   value="@if(ViewBag.Query!=null &&ViewBag.Query.ClipScanTime1Start!=null){ @ViewBag.Query.ClipScanTime1Start.ToString("yyyy/MM/dd HH:00")}"/>
+   --
+   <input type="text" class="datepicker" name="ClipScanTime1End" id="ClipScanTime1End" 
+     value="@if (ViewBag.Query != null && ViewBag.Query.ClipScanTime1End != null)
+            { @ViewBag.Query.ClipScanTime1End.ToString("yyyy/MM/dd HH:00")}"/>
+ </span>
+   <span>
+  ClipScanTime2 
+  <input type="text" class="datepicker" name="ClipScanTime2Start" id="ClipScanTime2Start" 
+   value="@if(ViewBag.Query!=null && ViewBag.Query.ClipScanTime2Start!=null){ @ViewBag.Query.ClipScanTime2Start.ToString("yyyy/MM/dd HH:00")}"/>
+   --
+   <input type="text" class="datepicker" name="ClipScanTime2End" id="ClipScanTime2End"  
+   value="@if (ViewBag.Query != null && ViewBag.Query.ClipScanTime2End!=null)
+          { @ViewBag.Query.ClipScanTime2End.ToString("yyyy/MM/dd HH:00")}"/>
+ </span>
+   <span>
+  TskScanNo <input type="text" name="TskScanNo" id="TskScanNo"   value="@if(ViewBag.Query!=null){ @ViewBag.Query.TskScanNo}"/>
+ </span>
+  <br />
+   <span>
+  TskScanTime3
+   <input type="text" class="datepicker" name="TskScanTime3Start" id="TskScanTime3Start"   
+   value="@if (ViewBag.Query != null && ViewBag.Query.TskScanTime3Start != null)
+          { @ViewBag.Query.TskScanTime3Start.ToString("yyyy/MM/dd HH:00")}"/>
+   --
+   <input type="text" class="datepicker" name="TskScanTime3End" id="TskScanTime3End"   
+   value="@if(ViewBag.Query!=null && ViewBag.Query.TskScanTime3End != null){ @ViewBag.Query.TskScanTime3End.ToString("yyyy/MM/dd HH:00")}"/>
+ </span>
+   <span>
+  Time3MinTime2 
+  <input type="text"  name="Time3MinTime2Start" id="Time3MinTime2Start"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.Time3MinTime2Start}"/>
+  --
+  <input type="text"  name="Time3MinTime2End" id="Time3MinTime2End"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.Time3MinTime2End}"/>
+ </span>
+  <br />
+   <span>
+  OkOrNot <input type="text" name="OkOrNot" id="OkOrNot"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.OkOrNot}"/>
+ </span>
+ <br />
+  <span>
+   数据上传时间 
+  <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"
+      value="@if (ViewBag.Query != null && ViewBag.Query.CreatedAtStart != null)
+             { @ViewBag.Query.CreatedAtStart.ToString("yyyy/MM/dd HH:00")}"/>
+  --
+  <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"  
+    value="@if(ViewBag.Query!=null && ViewBag.Query.CreatedAtStart != null){ @ViewBag.Query.CreatedAtEnd.ToString("yyyy/MM/dd HH:00")}"/>
+ </span>
+ <p><input type="submit" value="查询"  class="button"/> </p>
+ <div> @if (ViewBag.Query != null)
+       {
+ @Html.ActionLink("导出数据报表", "Export",
+ new
+ {
+     TskNo = ViewBag.Query.TskNo,
+     LeoniNo = ViewBag.Query.LeoniNo,
+     CusNo = ViewBag.Query.CusNo,
+     ClipScanNo = ViewBag.Query.ClipScanNo,
+     ClipScanTime1Start = ViewBag.Query.ClipScanTime1Start,
+     ClipScanTime1End = ViewBag.Query.ClipScanTime1End,
+     ClipScanTime2Start = ViewBag.Query.ClipScanTime2Start,
+     ClipScanTime2End = ViewBag.Query.ClipScanTime2End,
+     TskScanNo = ViewBag.Query.TskScanNo,
+     TskScanTime3Start = ViewBag.Query.TskScanTime3Start,
+     TskScanTime3End = ViewBag.Query.TskScanTime3End,
+     Time3MinTime2Start = ViewBag.Query.Time3MinTime2Start,
+     Time3MinTime2End = ViewBag.Query.Time3MinTime2End,
+     CreatedAtStart = ViewBag.Query.CreatedAtStart,
+     CreatedAtEnd = ViewBag.Query.CreatedAtEnd,
+     OkOrNot = ViewBag.Query.OkOrNot
+ }, null)}
+       else { 
+        @Html.ActionLink("导出数据报表", "Export")
+       }
+</div>
+
+</div>
+</form>
+</div>
+  <div class="button">
+  共：@Model.TotalItemCount
+ </div>
+ 
+<table>
+    <tr>
+        <th></th>
+        <th>
+            TskNo
+        </th>
+        <th>
+            LeoniNo
+        </th>
+        <th>
+            CusNo
+        </th>
+        <th>
+            ClipScanNo
+        </th>
+        <th>
+            ClipScanTime1
+        </th>
+        <th>
+            ClipScanTime2
+        </th>
+        <th>
+            TskScanNo
+        </th>
+        <th>
+            TskScanTime3
+        </th>
+        <th>
+            Time3MinTime2
+        </th>
+        <th>
+            OkOrNot
+        </th>
+        <th>
+            数据上传时间
+        </th>
+        <th>
+            原始数据
+        </th>
+    </tr>
+    @{
+        int i = 0;   
+     }
+     @if (Model != null)
+     {
+         foreach (var item in Model)
+         {
+    <tr>
+        <td>
+            @(i + 1)
+        </td>
+        <td>
+            @item.TskNo
+        </td>
+        <td>
+            @item.LeoniNo
+        </td>
+        <td>
+            @item.CusNo
+        </td>
+        <td>
+            @item.ClipScanNo
+        </td>
+        <td>
+          @item.ClipScanTime1View
+        </td>
+        <td>
+            @item.ClipScanTime2View
+        </td>
+        <td>
+            @item.TskScanNo
+        </td>
+        <td>
+            @item.TskScanTime3View
+        </td>
+        <td>
+            @item.Time3MinTime2View
+        </td>
+        <td>
+            @item.OkOrNotView
+        </td>
+        <td>
+            @String.Format("{0:g}", item.CreatedAtView)
+        </td>
+        <td>
+        <a href="/InspectOrigin/Details/@item.OriginId">原始数据</a>       
+        </td>
+    </tr>
+       i++;
+         }
+     }
+
+</table>
+
+<div class="clearfix pagination"> 
+   <div class="pagination-inner"> 
+   @if (Model != null)
+   {
+       if (ViewBag.Query!=null)
+       {
+         
+          var html=Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+             .Options(o => o.AddRouteValue("TskNo", ViewBag.Query.TskNo))
+             .Options(o => o.AddRouteValue("LeoniNo", ViewBag.Query.LeoniNo))
+             .Options(o => o.AddRouteValue("CusNo", ViewBag.Query.CusNo))
+             .Options(o => o.AddRouteValue("ClipScanNo", ViewBag.Query.ClipScanNo))
+             .Options(o => o.AddRouteValue("ClipScanTime1Start", ViewBag.Query.ClipScanTime1Start))
+             .Options(o => o.AddRouteValue("ClipScanTime1End", ViewBag.Query.ClipScanTime1End))
+             .Options(o => o.AddRouteValue("ClipScanTime2Start", ViewBag.Query.ClipScanTime2Start))
+             .Options(o => o.AddRouteValue("ClipScanTime2End", ViewBag.Query.ClipScanTime2End))
+             .Options(o => o.AddRouteValue("TskScanNo", ViewBag.Query.TskScanNo))
+             .Options(o => o.AddRouteValue("TskScanTime3Start", ViewBag.Query.TskScanTime3Start))
+             .Options(o => o.AddRouteValue("TskScanTime3End", ViewBag.Query.TskScanTime3End))
+             .Options(o => o.AddRouteValue("Time3MinTime2Start", ViewBag.Query.Time3MinTime2Start))
+             .Options(o => o.AddRouteValue("Time3MinTime2End", ViewBag.Query.Time3MinTime2End))
+             .Options(o => o.AddRouteValue("CreatedAtStart", ViewBag.Query.CreatedAtStart))
+             .Options(o => o.AddRouteValue("CreatedAtEnd", ViewBag.Query.CreatedAtEnd))
+             .Options(o => o.AddRouteValue("OkOrNot", ViewBag.Query.OkOrNot));
+          @html
+       }
+       else
+       { 
+          @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+       }
+   }
+   </div>
+</div>

@@ -1,0 +1,19 @@
+SELECT  dbo.Inspect.Id, dbo.Inspect.TskNo, dbo.Inspect.LeoniNo, dbo.Inspect.CusNo, dbo.Inspect.ClipScanNo, dbo.Inspect.ClipScanTime1, 
+                      dbo.Inspect.ClipScanTime2, dbo.Inspect.TskScanNo, dbo.Inspect.TskScanTime3, dbo.Inspect.Time3MinTime2, dbo.Inspect.OkOrNot as qty, 
+                      dbo.Inspect.CreatedAt, dbo.Inspect.OriginId, dbo.UserTsk.UserId
+FROM         dbo.Inspect INNER JOIN
+                      dbo.UserTsk ON dbo.Inspect.TskNo = dbo.UserTsk.TskNo
+WHERE		dbo.Inspect.ClipScanTime1 between CONVERT(varchar(100), GETDATE(), 23) + ' 00:00:00.000' and CONVERT(varchar(100), GETDATE(), 23) + ' 23:59:59.999'
+
+union all
+
+SELECT     '00000000-0000-0000-0000-000000000000', dbo.Inspect.TskNo, dbo.Inspect.LeoniNo, dbo.Inspect.CusNo, dbo.Inspect.ClipScanNo, getdate(), 
+           getdate(), dbo.Inspect.TskScanNo, getdate(), '0', count(dbo.Inspect.LeoniNo) as qty,
+           getdate(), '00000000-0000-0000-0000-000000000000', dbo.UserTsk.UserId
+FROM         dbo.Inspect INNER JOIN
+             dbo.UserTsk ON dbo.Inspect.TskNo = dbo.UserTsk.TskNo
+WHERE		dbo.Inspect.ClipScanTime1 between CONVERT(varchar(100), GETDATE(), 23) + ' 00:00:00.000' and CONVERT(varchar(100), GETDATE(), 23) + ' 23:59:59.999'
+group by 
+			 dbo.Inspect.TskNo, dbo.Inspect.LeoniNo, dbo.Inspect.CusNo, dbo.Inspect.ClipScanNo,  
+             dbo.Inspect.TskScanNo,  
+             dbo.UserTsk.UserId

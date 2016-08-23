@@ -1,0 +1,109 @@
+﻿@using MvcPaging;
+
+@model IPagedList<Brilliantech.Tsk.Data.CL.Model.InspectOrigin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>TSK 原始数据首页</h2>
+<div>
+<form action="/InspectOrigin/Query" method="get">
+<div> 
+  <span>
+  处理成功/失败(填写：True/False) <input type="text" name="ProcessResult" id="ProcessResult"  value="@if(ViewBag.Query!=null){ @ViewBag.Query.ProcessResult}"/>
+ </span>
+ <br />
+ <span>
+  数据保存时间 
+  <input type="text" class="datepicker"  name="CreatedAtStart" id="CreatedAtStart"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtStart}"/>
+  --
+  <input type="text" class="datepicker" name="CreatedAtEnd" id="CreatedAtEnd"    value="@if(ViewBag.Query!=null){ @ViewBag.Query.CreatedAtEnd}"/>
+ </span>
+ <p><input type="submit" value="查询"  class="button"/> </p>
+ <div> @if (ViewBag.Query != null)
+       {
+ @Html.ActionLink("导出数据报表", "Export",
+ new
+ { 
+     ProcessResult = ViewBag.Query.ProcessResult, 
+     CreatedAtStart = ViewBag.Query.CreatedAtStart,
+     CreatedAtEnd = ViewBag.Query.CreatedAtEnd
+ }, null)}
+       else { 
+        @Html.ActionLink("导出数据报表", "Export")
+       }
+</div>
+
+</div>
+</form>
+</div>
+  <div>
+  共：@Model.TotalItemCount
+ </div>
+<table>
+    <tr>
+     <th></th>
+        <th>
+            数据文件内容
+        </th>
+        <th>
+            处理成功/失败
+        </th>
+        <th>
+            处理信息
+        </th>
+        <th>
+            数据保存时间
+        </th> 
+    </tr>
+
+ @{
+     int i = 0;   
+     }
+     @if (Model != null)
+     {
+         foreach (var item in Model)
+         {
+    <tr>
+    <td>@(i + 1)</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcessResult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcessMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        
+    </tr>
+         
+       i++;
+         }
+     }
+
+</table>
+<div class="clearfix pagination"> 
+   <div class="pagination-inner"> 
+   @if (Model != null)
+   {
+       if (ViewBag.Query != null)
+       {
+
+           var html = Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+              .Options(o => o.AddRouteValue("ProcessResult", ViewBag.Query.ProcessResult))
+              .Options(o => o.AddRouteValue("CreatedAtStart", ViewBag.Query.CreatedAtStart))
+              .Options(o => o.AddRouteValue("CreatedAtEnd", ViewBag.Query.CreatedAtEnd));
+          @html
+       }
+       else
+       { 
+          @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+       }
+   }
+   </div>
+</div>

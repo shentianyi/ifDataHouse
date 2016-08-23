@@ -1,0 +1,8 @@
+﻿[BaseConfig]
+RemoteServerIP = 10.171.160.1
+RemoteServerPort = 8000
+DataFilePath = C:\\CSWIN\\Statistics\\
+ErrorFilePath = C:\\CSWIN\\Statistics\\error
+MovedFilePath = C:\\CSWIN\\Statistics\\moved
+DeleteFileAfterRead = False
+ScanInterval = 30

@@ -10,7 +10,9 @@ obj/
 *.suo
 *.user
 *.sln.docstates
-
+.vs
+.vs/
+.vs/*
 # Build results
 [Dd]ebug/
 [Rr]elease/

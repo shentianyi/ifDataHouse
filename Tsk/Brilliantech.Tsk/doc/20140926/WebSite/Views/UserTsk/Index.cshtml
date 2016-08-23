@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Brilliantech.Tsk.Data.CL.Model.UserTsk>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>用户TSK配置首页</h2>
+
+<p>
+    @Html.ActionLink("新建用户TSK配置", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            TskNo
+        </th>
+        <th>&nbsp;</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TskNo)
+        </td>
+        <td>
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

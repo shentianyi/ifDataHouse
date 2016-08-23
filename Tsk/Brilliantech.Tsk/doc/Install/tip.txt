@@ -1,0 +1,6 @@
+[Connection]
+ConnectionString = "Data Source=SVCNJD01\EWAYHR;Initial Catalog=Leoni_Tsk_JN;Persist Security Info=True;User ID=sa;Password=leoni123@"
+
+
+admjili1003
+baobei521!@#$
